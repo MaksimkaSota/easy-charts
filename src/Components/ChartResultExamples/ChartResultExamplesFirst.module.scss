@@ -1,0 +1,17 @@
+@use "src/global-styles" as global;
+
+.chartResult {
+  width: 55%;
+  .miniTitle {
+    @extend %mini-title
+  }
+  .imageContainer {
+    height: 28vw;
+    margin: 0 auto ;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 global.$main-text;
+    img {
+      height: 100%;
+    }
+  }
+}

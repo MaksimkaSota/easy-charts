@@ -1,0 +1,21 @@
+@use "src/global-styles" as global;
+
+.navigation {
+  display: flex;
+  height: 100%;
+    .link {
+      display: block;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: all .15s linear;
+    }
+  .link:not(:last-child) {
+    margin-right: .6rem;
+  }
+  .link:hover {
+    cursor: pointer;
+    color: global.$green;
+    border-bottom: .2rem solid global.$green;
+  }
+}

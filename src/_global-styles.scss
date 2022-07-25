@@ -1,0 +1,22 @@
+$main-text: rgb(136, 136, 136);
+
+$red: rgb(226, 86, 89);
+$yellow: rgba(242, 143, 39);
+$blue: rgb(77, 122, 169);
+$green: rgb(119, 184, 180);
+
+$black: black;
+
+%title-pages {
+  font-size: 2.25rem;
+  font-weight: 400;
+  text-align: left;
+  color: $black;
+  margin-bottom: 1rem;
+}
+
+%mini-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: .6rem;
+}

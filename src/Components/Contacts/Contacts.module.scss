@@ -1,0 +1,31 @@
+@use "src/global-styles" as global;
+
+.contacts {
+  margin: 2rem 0;
+  flex: 1 1 auto;
+  .imageContainer {
+    height: 15vw;
+    img {
+      height: 100%;
+    }
+  }
+  .title {
+    @extend %title-pages;
+    text-align: center;
+  }
+  .textContent {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .mail {
+    color: global.$green;
+    transition: all .15s linear;
+    text-decoration: underline;
+    font-size: 1.5rem ;
+    &:hover {
+      cursor: pointer;
+      color: global.$blue;
+
+    }
+  }
+}

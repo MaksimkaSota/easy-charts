@@ -1,0 +1,11 @@
+.footer {
+  box-shadow: 0 5px 10px 0;
+  padding: 2rem 0;
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+  .text {
+    margin-top: .5rem;
+  }
+}
