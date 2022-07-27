@@ -18,6 +18,15 @@ export const exampleSecondReducer = (
       return {
         exampleSecond: { ...state.exampleSecond, imageURL: action.payload },
       };
+    case ExampleActionType.SET_SECOND_EXAMPLE_TYPE:
+      return {
+        exampleSecond: {
+          ...state.exampleSecond,
+          type: action.payload,
+          data: state.exampleSecond.data,
+          imageURL: "",
+        },
+      };
     default:
       return state;
   }

@@ -1,8 +1,6 @@
-import { ChangeEvent } from "react";
 import { Dispatch } from "redux";
 import { OptionsAction, OptionsActionType } from "../types/chartOptions";
 import { IChart } from "../../IChart";
-import { AddressAction, AddressActionType } from "../types/address";
 
 export const setTypeChart = (type: string) => {
   return (dispatch: Dispatch<OptionsAction>) => {

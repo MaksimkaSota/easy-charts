@@ -5,6 +5,12 @@ export interface IChart {
     datasets: IDatasets[];
   };
   imageURL?: string;
+  // options: {
+  //   title: {
+  //     display: boolean;
+  //     text: string;
+  //   };
+  // };
 }
 
 export interface IDatasets {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./ChartSelectionForm.module.scss";
 import bar from "../../images/bar.png";
 import line from "../../images/line.png";
@@ -7,9 +7,10 @@ import pie from "../../images/pie.png";
 import doughnut from "../../images/doughnut.png";
 import horizontalBar from "../../images/horizontalBar.png";
 import { useActions } from "../../Hooks/useActions";
+import { useTypedSelector } from "../../Hooks/useTypeSelector";
 
 const ChartSelectionForm = () => {
-  const { setTypeChart } = useActions();
+  const { setTypeChart, setTypeChartInExamples } = useActions();
 
   return (
     <div className={classes.chartSelectionForm}>
@@ -19,6 +20,7 @@ const ChartSelectionForm = () => {
           className={classes.imageContainer}
           onClick={() => {
             setTypeChart("bar");
+            setTypeChartInExamples("bar");
           }}
         >
           <img src={bar} alt="Колонны" />
@@ -28,6 +30,7 @@ const ChartSelectionForm = () => {
           className={classes.imageContainer}
           onClick={() => {
             setTypeChart("horizontalBar");
+            setTypeChartInExamples("horizontalBar");
           }}
         >
           <img src={horizontalBar} alt="Полосы" />
@@ -37,6 +40,7 @@ const ChartSelectionForm = () => {
           className={classes.imageContainer}
           onClick={() => {
             setTypeChart("line");
+            setTypeChartInExamples("line");
           }}
         >
           <img src={line} alt="Линии" />
@@ -46,6 +50,7 @@ const ChartSelectionForm = () => {
           className={classes.imageContainer}
           onClick={() => {
             setTypeChart("radar");
+            setTypeChartInExamples("radar");
           }}
         >
           <img src={radar} alt="Радар" />
@@ -55,6 +60,7 @@ const ChartSelectionForm = () => {
           className={classes.imageContainer}
           onClick={() => {
             setTypeChart("pie");
+            setTypeChartInExamples("pie");
           }}
         >
           <img src={pie} alt="Пирог" />
@@ -64,6 +70,7 @@ const ChartSelectionForm = () => {
           className={classes.imageContainer}
           onClick={() => {
             setTypeChart("doughnut");
+            setTypeChartInExamples("doughnut");
           }}
         >
           <img src={doughnut} alt="Пончик" />

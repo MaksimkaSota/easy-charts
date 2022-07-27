@@ -1,21 +1,13 @@
 import classes from "./ChartResultExamples.module.scss";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";
 import { useActions } from "../../Hooks/useActions";
-
-import React, { useEffect } from "react";
+import React from "react";
 import { exampleValueFirst } from "../../initialValue/exampleValueFirst";
 import { Link } from "react-router-dom";
 import { exampleValueSecond } from "../../initialValue/exampleValueSecond";
 
 const ChartResultExamples = () => {
-  const { getNewOptions, getExampleAddressURL } = useActions();
-
-  useEffect(() => {
-    // getNewOptions(exampleValueFirst);
-    getExampleAddressURL([exampleFirst, exampleSecond]);
-  }, []);
-
-  const { address } = useTypedSelector((state) => state.address);
+  const { getNewOptions } = useActions();
 
   const { exampleFirst } = useTypedSelector(
     (state) => state.examples.exampleFirst
@@ -33,7 +25,7 @@ const ChartResultExamples = () => {
       <Link
         className={classes.link}
         to="create"
-        onClick={() => getNewOptions(exampleValueFirst)}
+        onClick={() => getNewOptions(exampleFirst)}
       >
         Отредактировать график:{" "}
         <span>{exampleValueFirst.data.datasets[0].label}</span>
@@ -44,7 +36,7 @@ const ChartResultExamples = () => {
       <Link
         className={classes.link}
         to="create"
-        onClick={() => getNewOptions(exampleValueSecond)}
+        onClick={() => getNewOptions(exampleSecond)}
       >
         Отредактировать график:{" "}
         <span>{exampleValueSecond.data.datasets[0].label}</span>

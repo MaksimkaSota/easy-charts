@@ -4,13 +4,6 @@ import { useTypedSelector } from "../../Hooks/useTypeSelector";
 import { useActions } from "../../Hooks/useActions";
 
 const ChartResult = () => {
-  const { getAddressURL } = useActions();
-  const { options } = useTypedSelector((state) => state.options);
-
-  useEffect(() => {
-    getAddressURL(options);
-  }, []);
-
   const { address } = useTypedSelector((state) => state.address);
 
   return (
