@@ -21,11 +21,9 @@ export const getExampleAddressURL = ([
 ]: IChart[]) => {
   chartOrigin.setConfig(optionsFirst);
   const addressURLFirst = chartOrigin.getUrl();
-  console.log(addressURLFirst);
 
   chartOrigin.setConfig(optionsSecond);
   const addressURLSecond = chartOrigin.getUrl();
-  console.log(addressURLSecond);
 
   return (dispatch: Dispatch<ExampleAction>) => {
     dispatch({

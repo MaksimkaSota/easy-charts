@@ -1,33 +1,33 @@
 import React, { useEffect } from "react";
 import classes from "./Examples.module.scss";
 import ChartSelectionForm from "../ChartSelectionForm/ChartSelectionForm";
-import ChartResultExamplesFirst from "../ChartResultExamples/ChartResultExamplesFirst";
+import ChartResultExamples from "../ChartResultExamples/ChartResultExamples";
 
 import { useActions } from "../../Hooks/useActions";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";
 
 const Examples = () => {
-  const {
-    getAddressURL,
-    setInitialValueByData,
-    setInitialValueByLabels,
-    addRow,
-    addColumn,
-    setLabelInData,
-    removeRow,
-    removeColumn,
-  } = useActions();
-
-  const { options } = useTypedSelector((state) => state.options);
-
-  const exampleFirst = useTypedSelector((state) => state.examples.exampleFirst);
-  const exampleSecond = useTypedSelector(
-    (state) => state.examples.exampleSecond
-  );
-
-  useEffect(() => {
-    getAddressURL(options);
-  }, [options]);
+  // const {
+  //   getAddressURL,
+  //   setInitialValueByData,
+  //   setInitialValueByLabels,
+  //   addRow,
+  //   addColumn,
+  //   setLabelInData,
+  //   removeRow,
+  //   removeColumn,
+  // } = useActions();
+  //
+  // const { options } = useTypedSelector((state) => state.options);
+  //
+  // const exampleFirst = useTypedSelector((state) => state.examples.exampleFirst);
+  // const exampleSecond = useTypedSelector(
+  //   (state) => state.examples.exampleSecond
+  // );
+  //
+  // useEffect(() => {
+  //   getAddressURL(options);
+  // }, [options]);
 
   return (
     <div className={classes.examples}>
@@ -41,7 +41,7 @@ const Examples = () => {
       </p>
       <div className={classes.examplesMain}>
         <ChartSelectionForm />
-        <ChartResultExamplesFirst />
+        <ChartResultExamples />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import ContactsPage from "../Pages/ContactsPage";
 const AppRoutes = () => {
   return (
     <Routes>
-      {/*<Route element={<CreatePage />} path="*" />*/}
+      <Route element={<CreatePage />} path="*" />
       <Route element={<CreatePage />} path="create" />
       <Route element={<CreatePage />} path="gallery/create" />
       <Route element={<CreatePage />} path="examples/create" />

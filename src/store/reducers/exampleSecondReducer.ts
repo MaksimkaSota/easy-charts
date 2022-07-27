@@ -1,11 +1,9 @@
 import { exampleValueSecond } from "../../initialValue/exampleValueSecond";
-
 import {
   ExampleAction,
   ExampleActionType,
   ExampleSecondState,
 } from "../types/example";
-import { AddressActionType } from "../types/address";
 
 const initialState: ExampleSecondState = {
   exampleSecond: exampleValueSecond,

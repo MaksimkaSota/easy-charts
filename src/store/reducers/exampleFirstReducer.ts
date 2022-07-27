@@ -4,7 +4,6 @@ import {
   ExampleActionType,
   ExampleFirstState,
 } from "../types/example";
-import { AddressActionType } from "../types/address";
 
 const initialState: ExampleFirstState = {
   exampleFirst: exampleValueFirst,
