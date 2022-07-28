@@ -15,8 +15,8 @@ export const getAddressURL = (options: IChart) => {
 };
 
 export const setWidthHeight = ({
-  width,
-  height,
+  width = 800,
+  height = 400,
 }: {
   width: number;
   height: number;

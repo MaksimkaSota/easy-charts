@@ -20,27 +20,23 @@ const ChartSettings = () => {
   return (
     <div className={classes.chartSettings}>
       <p className={classes.miniTitle}>Таблица данных</p>
-      <input
-        type="text"
-        value={options.options.title.text}
-        className={`${classes.inputData} ${classes.inputDataLabel}`}
-        onChange={(event) => setTitleChart(event.target.value)}
-      />
       <form
-        className={classes.dataTable}
+        className={classes.dataForm}
         onSubmit={(event) => event.preventDefault()}
       >
-        <div>
+        <div className={classes.formContainer}>
           <p className={classes.axis}>X</p>
           <input
-            className={`${classes.inputData} ${classes.inputDataLabel}`}
-            value="Заголовок"
-            disabled
+            type="text"
+            value={options.options.title.text}
+            className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
+            onChange={(event) => setTitleChart(event.target.value)}
           />
           {options.data.labels.map((field, index) => (
-            <div key={index} className={classes.flex}>
+            <div key={index} className={classes.deleteRowContainer}>
               <div
-                className={classes.close}
+                title="Удалить эту строку"
+                className={classes.closeX}
                 onClick={() => removeRow(index)}
               ></div>
               <input
@@ -65,18 +61,19 @@ const ChartSettings = () => {
             Добавить строку
           </button>
         </div>
-        <div>
-          <div className={classes.flex}>
+        <div className={classes.formContainer}>
+          <div className={classes.flexContainer}>
             {options.data.datasets.map((item, indexDataset) => {
               return (
-                <div className={classes.iclass} key={indexDataset}>
+                <div className={classes.formContainerInner} key={indexDataset}>
                   <p className={classes.axis}>Y{indexDataset + 1}</p>
                   <div
+                    title="Удалить этот столбец"
                     className={classes.closeY}
                     onClick={() => removeColumn(indexDataset)}
                   ></div>
                   <input
-                    className={`${classes.inputData} ${classes.inputDataLabel}`}
+                    className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
                     value={item.label}
                     onChange={(event) =>
                       setLabelInData({

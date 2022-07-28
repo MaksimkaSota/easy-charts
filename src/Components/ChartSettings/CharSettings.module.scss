@@ -5,87 +5,108 @@
   box-shadow: 0 0 10px 0;
   border-radius: 10px;
   margin-bottom: 1rem;
-  padding: .8rem;
-    .miniTitle {
-      font-size: 1rem;
-      padding: .5rem;
-      border-bottom: 1px solid;
-      margin-bottom: .5rem;
+  padding: .8rem 1.5rem .8rem .8rem;
+  .miniTitle {
+    font-size: 1rem;
+    padding: .5rem;
+    border-bottom: 1px solid;
+    margin-bottom: .5rem;
   }
-  .dataTable {
+  .dataForm {
     display: flex;
     position: relative;
-  }
-  .settingsForm {
-    display: flex;
-  }
-}
-
-.flex {
-  display: flex;
-}
-  .close {
-    width: 10px;
-    height: 10px;
-    left: 100%;
-    background-image: url('../../images/cross.svg');
-    transition: width .1s, height .1s, margin .1s;
-    margin-right: 20px;
-    position: absolute;
-    &:hover {
-      width: 15px;
-      height: 15px;
+    .formContainer {
+      &:first-child {
+        margin-right: .3rem;
+      }
+      .formContainerInner {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-right: .3rem;
+      }
+      .axis {
+        text-align: center;
+        color: global.$black;
+      }
+      .inputData {
+        display: block;
+        color: global.$black;
+        margin: .1rem;
+        border: none;
+        padding: .3rem;
+        border-radius: 2px;
+        font-size: .9rem;
+      }
+      .inputDataLabel {
+        background-color: #ccc;
+      }
+      .inputData.inputDataLabel.margin {
+        margin-bottom: .3rem;
+      }
+      .inputDataNumbers {
+        background-color: #f5f5f5;
+      }
+      .deleteRowContainer {
+        display: flex;
+        align-items: center;
+      }
+      .flexContainer {
+        display: flex;
+      }
+      .closeX {
+        width: 10px;
+        height: 10px;
+        background-image: url('../../images/cross.svg');
+        transition: all .25s linear;
+        margin-right: 20px;
+        position: absolute;
+        left: calc(100% + 5px);
+        &:hover {
+          width: 15px;
+          height: 15px;
+          cursor: pointer;
+        }
+      }
+      .closeY {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        content: '';
+        background-image: url('../../images/cross.svg');
+        transition: all .25s linear;
+        &:hover{
+          width: 15px;
+          height: 15px;
+          cursor: pointer;
+        }
+      }
+      .addButton {
+        @extend  %button;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 0;
+      }
     }
   }
-
-  .axis {
-    text-align: center;
-  }
-
-
-.iclass {
-  position: relative;
 }
+//
+//@media (max-width: 1024px) {
+//  .chartSettings {
+//    margin-right: 1rem;
+//  }
+//}
+//
+//@media (max-width: 768px) {
+//  .chartSettings {
+//    margin-right: 0;
+//  }
+//}
 
-  .closeY {
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    width: 10px;
-    height: 10px;
-    content: '';
-    background-image: url('../../images/cross.svg');
-    transition: width .1s, height .1s, margin .1s;
-    &:hover{
-      width: 15px;
-      height: 15px;
-    }
-  }
 
-  .inputData {
-    display: block;
-    color: black;
-    margin: .1rem;
-    border: none;
-    padding: .3rem;
-    border-radius: 5px;
-  }
-  .inputDataLabel {
-    background-color: #ccc;
-  }
-  .inputDataNumbers {
-    background-color: #f5f5f5;
-  }
 
-  .addButton {
-
-    box-shadow: 0 0 10px 0;
-    padding: .5rem;
-    border-radius: 10px;
-    border: none;
-    font-weight: 700;
-    font-size: .8rem;
-  }
 
 
 
