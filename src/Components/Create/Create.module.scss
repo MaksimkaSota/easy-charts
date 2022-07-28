@@ -19,26 +19,9 @@
     margin-bottom: 1rem;
   }
   .optionsChartContainer {
+    max-width: 100%;
     .miniTitle {
       @extend %mini-title;
-    }
-    .optionsChartInner {
-    }
-  }
-}
-
-
-@media (max-width: 1024px) {
-}
-
-@media (max-width: 768px) {
-  .create {
-    .createContent {
-      .optionsChartContainer {
-        .optionsChartInner {
-          display: block;
-        }
-      }
     }
   }
 }

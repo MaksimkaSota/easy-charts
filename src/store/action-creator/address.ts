@@ -6,6 +6,8 @@ import { IChart } from "../../initialValue/IChart";
 const chartOrigin = new QuickChart();
 
 export const getAddressURL = (options: IChart) => {
+  chartOrigin.setWidth(800);
+  chartOrigin.setHeight(400);
   chartOrigin.setConfig(options);
   const addressURL = chartOrigin.getUrl();
 
@@ -15,8 +17,8 @@ export const getAddressURL = (options: IChart) => {
 };
 
 export const setWidthHeight = ({
-  width = 800,
-  height = 400,
+  width,
+  height,
 }: {
   width: number;
   height: number;
