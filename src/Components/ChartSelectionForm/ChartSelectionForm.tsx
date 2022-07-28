@@ -7,7 +7,6 @@ import pie from "../../images/pie.png";
 import doughnut from "../../images/doughnut.png";
 import horizontalBar from "../../images/horizontalBar.png";
 import { useActions } from "../../Hooks/useActions";
-import { useTypedSelector } from "../../Hooks/useTypeSelector";
 
 const ChartSelectionForm = () => {
   const { setTypeChart, setTypeChartInExamples } = useActions();

@@ -2,44 +2,58 @@ import classes from "./ChartResultExamples.module.scss";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";
 import { useActions } from "../../Hooks/useActions";
 import React from "react";
-import { exampleValueFirst } from "../../initialValue/exampleValueFirst";
 import { Link } from "react-router-dom";
-import { exampleValueSecond } from "../../initialValue/exampleValueSecond";
 
 const ChartResultExamples = () => {
   const { getNewOptions } = useActions();
 
-  const { exampleFirst } = useTypedSelector(
-    (state) => state.examples.exampleFirst
+  const { exampleFirst, exampleSecond, exampleThird } = useTypedSelector(
+    (state) => state.examples
   );
-  const { exampleSecond } = useTypedSelector(
-    (state) => state.examples.exampleSecond
-  );
+
+  console.log(exampleFirst.exampleFirst.imageURL);
 
   return (
     <div className={classes.chartResult}>
       <h3 className={classes.miniTitle}>График</h3>
       <div className={classes.imageContainer}>
-        <img src={exampleFirst.imageURL} alt="Chart example" />
+        <img src={exampleFirst.exampleFirst.imageURL} alt="Chart example" />
       </div>
       <Link
         className={classes.link}
         to="create"
-        onClick={() => getNewOptions(exampleFirst)}
+        onClick={() => getNewOptions(exampleFirst.exampleFirst)}
       >
         Отредактировать график:{" "}
-        <span>{exampleValueFirst.data.datasets[0].label}</span>
+        <span>
+          {exampleFirst.exampleFirst.options.title.text.split(",").shift()}
+        </span>
       </Link>
       <div className={classes.imageContainer}>
-        <img src={exampleSecond.imageURL} alt="Chart example" />
+        <img src={exampleSecond.exampleSecond.imageURL} alt="Chart example" />
       </div>
       <Link
         className={classes.link}
         to="create"
-        onClick={() => getNewOptions(exampleSecond)}
+        onClick={() => getNewOptions(exampleThird.exampleThird)}
       >
         Отредактировать график:{" "}
-        <span>{exampleValueSecond.data.datasets[0].label}</span>
+        <span>
+          {exampleSecond.exampleSecond.options.title.text.split(",").shift()}
+        </span>
+      </Link>
+      <div className={classes.imageContainer}>
+        <img src={exampleThird.exampleThird.imageURL} alt="Chart example" />
+      </div>
+      <Link
+        className={classes.link}
+        to="create"
+        onClick={() => getNewOptions(exampleThird.exampleThird)}
+      >
+        Отредактировать график:{" "}
+        <span>
+          {exampleThird.exampleThird.options.title.text.split(",").shift()}
+        </span>
       </Link>
     </div>
   );

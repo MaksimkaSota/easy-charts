@@ -1,6 +1,15 @@
 import { Dispatch } from "redux";
 import { OptionsAction, OptionsActionType } from "../types/chartOptions";
-import { IChart } from "../../IChart";
+import { IChart } from "../../initialValue/IChart";
+
+export const setTitleChart = (type: string) => {
+  return (dispatch: Dispatch<OptionsAction>) => {
+    dispatch({
+      type: OptionsActionType.SET_TITLE_CHART,
+      payload: type,
+    });
+  };
+};
 
 export const setTypeChart = (type: string) => {
   return (dispatch: Dispatch<OptionsAction>) => {

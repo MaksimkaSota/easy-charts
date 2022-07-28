@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./CharSettings.module.scss";
 import { useActions } from "../../Hooks/useActions";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";
 
 const ChartSettings = () => {
   const {
+    setTitleChart,
     setInitialValueByData,
     setInitialValueByLabels,
     addRow,
@@ -19,6 +20,12 @@ const ChartSettings = () => {
   return (
     <div className={classes.chartSettings}>
       <p className={classes.miniTitle}>Таблица данных</p>
+      <input
+        type="text"
+        value={options.options.title.text}
+        className={`${classes.inputData} ${classes.inputDataLabel}`}
+        onChange={(event) => setTitleChart(event.target.value)}
+      />
       <form
         className={classes.dataTable}
         onSubmit={(event) => event.preventDefault()}

@@ -5,6 +5,7 @@ import { optionsReducer } from "./chartOptionsReduser";
 import { exampleFirstReducer } from "./exampleFirstReducer";
 
 import { exampleSecondReducer } from "./exampleSecondReducer";
+import { exampleThirdReducer } from "./exampleThirdReducer";
 
 export const rootReducer = combineReducers({
   address: addressReducer,
@@ -12,6 +13,7 @@ export const rootReducer = combineReducers({
   examples: combineReducers({
     exampleFirst: exampleFirstReducer,
     exampleSecond: exampleSecondReducer,
+    exampleThird: exampleThirdReducer,
   }),
 });
 

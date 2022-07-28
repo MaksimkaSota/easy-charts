@@ -15,6 +15,7 @@ export const exampleSecondReducer = (
 ): ExampleSecondState => {
   switch (action.type) {
     case ExampleActionType.SET_SECOND_EXAMPLE_ADDRESS:
+      state.exampleSecond.imageURL = "";
       return {
         exampleSecond: { ...state.exampleSecond, imageURL: action.payload },
       };
@@ -23,7 +24,6 @@ export const exampleSecondReducer = (
         exampleSecond: {
           ...state.exampleSecond,
           type: action.payload,
-          data: state.exampleSecond.data,
           imageURL: "",
         },
       };

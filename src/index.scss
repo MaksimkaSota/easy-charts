@@ -27,4 +27,28 @@ code {
   height: 100%;
 }
 
+@media (max-width: 1024px) {
+  html, body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html, body {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  html, body {
+    font-size: 12px;
+  }
+}
+
 

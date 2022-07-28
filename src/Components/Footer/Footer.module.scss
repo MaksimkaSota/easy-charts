@@ -1,11 +1,24 @@
+@use "src/global-styles" as global;
+
 .footer {
   box-shadow: 0 5px 10px 0;
-  padding: 2rem 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   .center {
     display: flex;
     justify-content: center;
   }
   .text {
-    margin-top: .5rem;
+    font-size: 1rem;
+    margin-top: .9rem;
+    margin-bottom: .7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    .text {
+      margin-top: 0;
+    }
   }
 }

@@ -2,6 +2,7 @@
 
 .logo {
   display: flex;
+  padding: 0 1rem;
   .logoText {
     display: flex;
     font-weight: 700;
@@ -9,22 +10,24 @@
     margin-right: .6rem;
     .letterRed {
       color: global.$red;
-      transition: all .5s linear;
     }
     .letterOrange {
       color: global.$yellow;
-      transition: all .5s linear;
     }
     .letterBlue {
       color: global.$blue;
-      transition: all .5s linear;
     }
   }
   .imageContainer {
     height: 3rem;
-    margin-right: 1.2rem;
     img {
       height: 100%;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    padding-bottom: .9rem;
   }
 }

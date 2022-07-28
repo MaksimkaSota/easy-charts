@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import classes from "./Examples.module.scss";
 import ChartSelectionForm from "../ChartSelectionForm/ChartSelectionForm";
 import ChartResultExamples from "../ChartResultExamples/ChartResultExamples";
@@ -8,16 +8,19 @@ import { useTypedSelector } from "../../Hooks/useTypeSelector";
 const Examples = () => {
   const { getExampleAddressURL } = useActions();
 
-  const { exampleFirst } = useTypedSelector(
-    (state) => state.examples.exampleFirst
-  );
-  const { exampleSecond } = useTypedSelector(
-    (state) => state.examples.exampleSecond
+  const { exampleFirst, exampleSecond, exampleThird } = useTypedSelector(
+    (state) => state.examples
   );
 
+  const { options } = useTypedSelector((state) => state.options);
+
   useEffect(() => {
-    getExampleAddressURL([exampleFirst, exampleSecond]);
-  }, [exampleFirst.type, exampleSecond.type]);
+    getExampleAddressURL([
+      exampleFirst.exampleFirst,
+      exampleSecond.exampleSecond,
+      exampleThird.exampleThird,
+    ]);
+  }, [options]);
 
   return (
     <div className={classes.examples}>

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className={classes.center}>
         <Logo />
       </div>
-      <p className={classes.text}>Графики онлайн, 2022</p>
+      <p className={classes.text}>Создать график онлайн, 2022</p>
       <div className={classes.center}>
         <Navigation />
       </div>

@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./ChartResult.module.scss";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";
-import { useActions } from "../../Hooks/useActions";
 
 const ChartResult = () => {
   const { address } = useTypedSelector((state) => state.address);

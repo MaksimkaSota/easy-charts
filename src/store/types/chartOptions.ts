@@ -1,10 +1,11 @@
-import { IChart } from "../../IChart";
+import { IChart } from "../../initialValue/IChart";
 
 export interface OptionsState {
   options: IChart;
 }
 
 export enum OptionsActionType {
+  SET_TITLE_CHART = "SET_TITLE_CHART",
   SET_OPTIONS_LABELS = "SET_OPTIONS_LABELS",
   SET_OPTIONS_DATA = "SET_OPTIONS_DATA",
   ADD_ROW = "ADD_ROW",
@@ -14,6 +15,11 @@ export enum OptionsActionType {
   REMOVE_ROW = "REMOVE_ROW",
   REMOVE_COLUMN = "REMOVE_COLUMN",
   GET_NEW_OPTIONS = "GET_NEW_OPTIONS",
+}
+
+interface SetTitleChartAction {
+  type: OptionsActionType.SET_TITLE_CHART;
+  payload: string;
 }
 
 interface SetOptionsLabelsAction {
@@ -60,6 +66,7 @@ interface GetNewOptionsAction {
 }
 
 export type OptionsAction =
+  | SetTitleChartAction
   | SetOptionsLabelsAction
   | SetOptionsDataAction
   | AddRowAction

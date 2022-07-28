@@ -15,12 +15,23 @@ export const optionsReducer = (
   action: OptionsAction
 ): OptionsState => {
   switch (action.type) {
+    case OptionsActionType.SET_TITLE_CHART:
+      return {
+        options: {
+          ...state.options,
+          options: {
+            title: {
+              display: state.options.options.title.display,
+              text: action.payload,
+            },
+          },
+        },
+      };
     case OptionsActionType.SET_TYPE:
       return {
         options: {
           ...state.options,
           type: action.payload,
-          data: state.options.data,
         },
       };
     case OptionsActionType.SET_OPTIONS_LABELS:
@@ -30,7 +41,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: newLabels,
             datasets: state.options.data.datasets,
@@ -53,7 +63,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: state.options.data.labels,
             datasets: datasets,
@@ -71,7 +80,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: [...state.options.data.labels, `Строка ${num}`],
             datasets: [
@@ -98,7 +106,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: state.options.data.labels,
             datasets: [...state.options.data.datasets, object],
@@ -109,7 +116,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: state.options.data.labels,
             datasets: [
@@ -135,7 +141,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: newLebels,
             datasets: [
@@ -167,7 +172,6 @@ export const optionsReducer = (
       return {
         options: {
           ...state.options,
-          type: state.options.type,
           data: {
             labels: state.options.data.labels,
             datasets: newDatasets,

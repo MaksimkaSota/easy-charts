@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./Gallery.module.scss";
 
 import bar from "../../images/bar.png";
@@ -9,7 +9,6 @@ import doughnut from "../../images/doughnut.png";
 import horizontalBar from "../../images/horizontalBar.png";
 import { Link } from "react-router-dom";
 import { useActions } from "../../Hooks/useActions";
-import { useTypedSelector } from "../../Hooks/useTypeSelector";
 
 const Gallery = () => {
   const { setTypeChart } = useActions();
