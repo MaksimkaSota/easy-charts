@@ -22,7 +22,7 @@ export const exampleValueFirst: IChart = {
   options: {
     title: {
       display: true,
-      text: "Численность населения в Беларусь, тыс. человек",
+      text: "Численность населения в Беларуси, тыс. человек",
     },
   },
   imageURL: "",

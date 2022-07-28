@@ -18,13 +18,45 @@
   }
   .mail {
     color: global.$green;
-    transition: all .15s linear;
+    transition: all .25s linear;
     text-decoration: underline;
     font-size: 1.5rem ;
+    line-height: 1.6rem;
     &:hover {
       cursor: pointer;
       color: global.$blue;
-
+      font-size: 1.6rem;
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .contacts {
+    .imageContainer {
+      height: 25vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts {
+    padding: 0 .6rem;
+    .imageContainer {
+      height: 35vw;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contacts {
+    .imageContainer {
+      height: 45vw;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  html, body {
+    font-size: 12px;
   }
 }

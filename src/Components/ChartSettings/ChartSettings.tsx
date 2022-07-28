@@ -38,14 +38,13 @@ const ChartSettings = () => {
             disabled
           />
           {options.data.labels.map((field, index) => (
-            <div className={classes.flex}>
+            <div key={index} className={classes.flex}>
               <div
                 className={classes.close}
                 onClick={() => removeRow(index)}
               ></div>
               <input
                 className={`${classes.inputData} ${classes.inputDataLabel}`}
-                key={index}
                 type="text"
                 value={field}
                 onChange={(event) =>
@@ -78,7 +77,6 @@ const ChartSettings = () => {
                   ></div>
                   <input
                     className={`${classes.inputData} ${classes.inputDataLabel}`}
-                    key={indexDataset}
                     value={item.label}
                     onChange={(event) =>
                       setLabelInData({

@@ -19,6 +19,13 @@ const Create = () => {
   return (
     <main className={classes.create}>
       <h2 className={classes.title}>Создать график онлайн</h2>
+      <p className={classes.textContent}>
+        На этой странице расположен конструктор для построения графиков онлайн.
+        Создать их очень просто: выберите необходимый вам вид графика
+        (столбчатый, линейный, круговой…), заполните таблицу данных, и график
+        готов! При необходимости, настройте график, установите необходимую
+        ширину, высоту и скачайте его.
+      </p>
       <div className={classes.createContent}>
         <ChartSelectionForm />
         <ChartResult />

@@ -20,7 +20,7 @@
       box-shadow: 0 0 10px 0;
       border-radius: 10px;
       padding: 1.5rem;
-      transition: all .15s linear;
+      transition: all .25s linear;
       img {
         width: 100%;
         padding-bottom: 1rem;
@@ -28,8 +28,9 @@
       .typeName {
         color: black;
         font-size: 1.5rem;
+        line-height: 1.6rem;
         text-decoration: none;
-        transition: all .2s linear;
+        transition: all .25s linear;
       }
       &:hover {
         cursor: pointer;
@@ -38,6 +39,63 @@
       }
       &:hover .typeName {
         color: global.$blue;
+        font-size: 1.6rem;;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    .typeChartsContainer {
+      flex-wrap: wrap;
+      justify-content: left;
+      .imageContainer {
+        width: 23.5%;
+        margin-right: 2%;
+        margin-bottom: 2vw;
+        &:nth-child(4) {
+          margin-right: 0;
+        }
+        &:nth-child(6) {
+          margin-right: 0;
+        }
+        &:nth-child(5) {
+          margin-bottom: 0;
+        }
+        &:nth-child(6) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    .typeChartsContainer {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .imageContainer {
+        width: 30%;
+        margin-right: 0;
+        &:nth-child(4) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    .typeChartsContainer {
+      flex-wrap: wrap;
+      .imageContainer {
+        width: 45%;
+        &:nth-child(4) {
+          margin-bottom: 2vw;
+        }
       }
     }
   }

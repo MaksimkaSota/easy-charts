@@ -6,14 +6,15 @@
       font-size: 1.2rem;
       font-weight: 400;
       text-decoration: none;
-      transition: all .3s linear;
+      transition: all .25s linear;
+      line-height: 1.3rem;
+      &:not(:last-child) {
+        margin-right: .6rem;
+      }
+      &:hover {
+        cursor: pointer;
+        color: global.$green;
+        font-size: 1.3rem;
+      }
     }
-  .link:not(:last-child) {
-    margin-right: .6rem;
-  }
-  .link:hover {
-    cursor: pointer;
-    color: global.$green;
-    font-size: 1.3rem;
-  }
 }

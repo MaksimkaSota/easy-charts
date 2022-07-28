@@ -9,22 +9,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 28vw;
+    height: 27.5vw;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 global.$main-text;
-    margin-bottom: 1rem;
-    .link {
-      box-shadow: 0 0 10px 0;
-      padding: 0.5rem;
-      border-radius: 10px;
-      border: none;
-      font-weight: 700;
-      font-size: 0.8rem;
-    }
     img {
       height: 100%;
       width: 100%;
       border-radius: 10px;
+      padding: .6rem;
+    }
+  }
+  .link {
+    display: block;
+    padding: 0.5rem;
+    margin: .6rem 0;
+    border-radius: 10px;
+    font-size: .9rem;
+    background-color: global.$green;
+    color: global.$white;
+    transition: all .25s linear;
+    span {
+      color: global.$black;
+      font-weight: 700;
+    }
+    &:hover {
+      background-color: global.$blue;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .chartResult {
+    width: 80%;
+    .imageContainer {
+      height: 40vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .chartResult {
+    width: 90%;
+    .imageContainer {
+      height: 45vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .chartResult {
+    width: 100%;
+    .imageContainer {
+      height: 50vw;
     }
   }
 }

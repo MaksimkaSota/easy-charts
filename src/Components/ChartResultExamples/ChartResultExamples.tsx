@@ -11,8 +11,6 @@ const ChartResultExamples = () => {
     (state) => state.examples
   );
 
-  console.log(exampleFirst.exampleFirst.imageURL);
-
   return (
     <div className={classes.chartResult}>
       <h3 className={classes.miniTitle}>График</h3>

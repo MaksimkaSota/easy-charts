@@ -55,7 +55,7 @@ export const exampleValueSecond: IChart = {
   options: {
     title: {
       display: true,
-      text: "Средняя заработная плата в Беларусь, рублей",
+      text: "Средняя заработная плата в Беларуси, рублей",
     },
   },
   imageURL: "",

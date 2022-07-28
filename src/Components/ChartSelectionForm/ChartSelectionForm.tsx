@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./ChartSelectionForm.module.scss";
 import bar from "../../images/bar.png";
 import line from "../../images/line.png";
