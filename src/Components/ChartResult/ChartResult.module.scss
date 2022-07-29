@@ -1,13 +1,12 @@
 @use "src/global-styles" as global;
 
 .chartResult {
-  width: 55%;
+  width: 53%;
   margin-right: 1rem;
   .miniTitle {
     @extend %mini-title;
   }
   .imageContainer {
-    height: 27.5vw;
     box-shadow: 0 0 10px 0;
     border-radius: 10px;
     margin: 0 auto 1.3vw;
@@ -15,7 +14,7 @@
       height: 100%;
       width: 100%;
       border-radius: 10px;
-      padding: 0.6rem;
+      padding: .6rem;
     }
   }
 }
@@ -23,26 +22,17 @@
 @media (max-width: 1024px) {
   .chartResult {
     width: 80%;
-    .imageContainer {
-      height: 40vw;
-    }
   }
 }
 
 @media (max-width: 768px) {
   .chartResult {
     width: 90%;
-    .imageContainer {
-      height: 45vw;
-    }
   }
 }
 
 @media (max-width: 768px) {
   .chartResult {
     width: 100%;
-    .imageContainer {
-      height: 50vw;
-    }
   }
 }

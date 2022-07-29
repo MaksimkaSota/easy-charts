@@ -10,6 +10,8 @@ export const getExampleAddressURL = ([
   optionsSecond,
   optionsThird,
 ]: IChart[]) => {
+  chartOrigin.setWidth(800);
+  chartOrigin.setHeight(400);
   chartOrigin.setConfig(optionsFirst);
   const addressURLFirst = chartOrigin.getUrl();
 

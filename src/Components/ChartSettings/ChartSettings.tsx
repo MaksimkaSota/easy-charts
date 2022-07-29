@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./CharSettings.module.scss";
 import { useActions } from "../../Hooks/useActions";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";

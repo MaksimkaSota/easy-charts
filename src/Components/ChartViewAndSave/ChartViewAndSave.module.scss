@@ -9,15 +9,12 @@
   .miniTitle {
     font-size: 1rem;
     border-bottom: 1px solid;
-    margin-bottom: .5rem;
-    padding: 0 .5rem .5rem;
+    margin-bottom: .3rem;
+    padding: 0 .3rem .3rem;
   }
   .params {
     display: flex;
     justify-content: space-between;
-    &:not(:last-child) {
-      margin-bottom: .5rem;
-    }
     label {
       display: block;
       color: global.$black;

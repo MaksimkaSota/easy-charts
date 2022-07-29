@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import classes from "./ChartViewAndSave.module.scss";
 import { useActions } from "../../Hooks/useActions";
 import { useTypedSelector } from "../../Hooks/useTypeSelector";
-import { setWidthHeight } from "../../store/action-creator/address";
 
 const ChartViewAndSave = () => {
   const [width, setWidth] = useState(800);

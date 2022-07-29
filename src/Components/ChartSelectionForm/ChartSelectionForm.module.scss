@@ -14,7 +14,7 @@
       box-shadow: 0 0 10px 0 global.$main-text;
       border-radius: 10px;
       padding: .5rem;
-      margin-bottom: 1.3vw;
+      margin-bottom: .9vw;
       font-size: 1rem;
       color: black;
       img {
@@ -25,14 +25,16 @@
         color: black;
         font-size: 1.2rem;
         text-decoration: none;
-        transition: all .2s linear;
+        line-height: 1.2rem;
+        transition: all .25s linear;
       }
       &:hover {
         cursor: pointer;
         box-shadow: 0 0 10px 0 global.$blue;
         border: 1px solid global.$blue;
-        p {
+        .typeName {
           color: global.$blue;
+          font-size: 1.3rem;
         }
       }
     }

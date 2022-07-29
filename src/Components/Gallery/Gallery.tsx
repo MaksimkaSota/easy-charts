@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./Gallery.module.scss";
-
 import bar from "../../images/bar.png";
 import line from "../../images/line.png";
 import radar from "../../images/radar.png";

@@ -54,7 +54,7 @@ export const optionsReducer = (
               label: item.label,
               data: item.data.map((itemData, indexData) => {
                 return action.payload.idData === indexData
-                  ? action.payload.value.replace(/[^0-9.]/g, "")
+                  ? action.payload.value.replace(/[^0-9.-]/g, "")
                   : itemData;
               }),
             }
