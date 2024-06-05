@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Contacts.module.scss";
-import email from "../../images/email.png";
+import email from "../../assets/images/email.png";
 
 const Contacts = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Logo.module.scss";
-import logo from "../../images/logo.png";
+import logo from "../../assets/images/logo.png";
 
 const Logo = () => {
   return (

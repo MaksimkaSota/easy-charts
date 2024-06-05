@@ -1,11 +1,11 @@
 import React from "react";
 import classes from "./Gallery.module.scss";
-import bar from "../../images/bar.png";
-import line from "../../images/line.png";
-import radar from "../../images/radar.png";
-import pie from "../../images/pie.png";
-import doughnut from "../../images/doughnut.png";
-import horizontalBar from "../../images/horizontalBar.png";
+import bar from "../../assets/images/bar.png";
+import line from "../../assets/images/line.png";
+import radar from "../../assets/images/radar.png";
+import pie from "../../assets/images/pie.png";
+import doughnut from "../../assets/images/doughnut.png";
+import horizontalBar from "../../assets/images/horizontalBar.png";
 import { Link } from "react-router-dom";
 import { useActions } from "../../Hooks/useActions";
 

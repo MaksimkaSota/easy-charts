@@ -58,7 +58,7 @@
       .closeX {
         width: 10px;
         height: 10px;
-        background-image: url('../../images/cross.svg');
+        background-image: url('../../assets/images/cross.svg');
         transition: all .25s linear;
         margin-right: 20px;
         position: absolute;
@@ -76,7 +76,7 @@
         width: 10px;
         height: 10px;
         content: '';
-        background-image: url('../../images/cross.svg');
+        background-image: url('../../assets/images/cross.svg');
         transition: all .25s linear;
         &:hover{
           width: 15px;
