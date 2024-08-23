@@ -1,7 +1,7 @@
-import QuickChart from "quickchart-js";
-import { Dispatch } from "redux";
-import { AddressAction, AddressActionType } from "../types/address";
-import { IChart } from "../../initialValue/IChart";
+import QuickChart from 'quickchart-js';
+import { Dispatch } from 'redux';
+import { AddressAction, AddressActionType } from '../types/address';
+import { IChart } from '../../initialValue/IChart';
 
 const chartOrigin = new QuickChart();
 
@@ -12,22 +12,16 @@ export const getAddressURL = (options: IChart) => {
   const addressURL = chartOrigin.getUrl();
 
   return (dispatch: Dispatch<AddressAction>) => {
-    dispatch({ type: AddressActionType.GET_ADDRESS, payload: addressURL });
+    dispatch({type: AddressActionType.SET_ADDRESS, payload: addressURL});
   };
 };
 
-export const setWidthHeight = ({
-  width,
-  height,
-}: {
-  width: number;
-  height: number;
-}) => {
+export const setWidthHeight = ({width, height}: { width: number; height: number; }) => {
   chartOrigin.setWidth(width);
   chartOrigin.setHeight(height);
   const addressURL = chartOrigin.getUrl();
 
   return (dispatch: Dispatch<AddressAction>) => {
-    dispatch({ type: AddressActionType.SET_WIDTH_HEIGHT, payload: addressURL });
+    dispatch({type: AddressActionType.SET_ADDRESS_WIDTH_HEIGHT, payload: addressURL});
   };
 };

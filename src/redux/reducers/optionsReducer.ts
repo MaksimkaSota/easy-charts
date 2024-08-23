@@ -1,21 +1,13 @@
-import { initialValue } from "../../initialValue/initialValue";
-
-import {
-  OptionsAction,
-  OptionsActionType,
-  OptionsState,
-} from "../types/chartOptions";
+import { initialValue } from '../../initialValue/initialValue';
+import { OptionsAction, OptionsActionType, OptionsState } from '../types/options';
 
 const initialState: OptionsState = {
   options: initialValue,
 };
 
-export const optionsReducer = (
-  state = initialState,
-  action: OptionsAction
-): OptionsState => {
+export const optionsReducer = (state: OptionsState = initialState, action: OptionsAction): OptionsState => {
   switch (action.type) {
-    case OptionsActionType.SET_TITLE_CHART:
+    case OptionsActionType.SET_OPTIONS_TITLE:
       return {
         options: {
           ...state.options,
@@ -25,13 +17,6 @@ export const optionsReducer = (
               text: action.payload,
             },
           },
-        },
-      };
-    case OptionsActionType.SET_TYPE:
-      return {
-        options: {
-          ...state.options,
-          type: action.payload,
         },
       };
     case OptionsActionType.SET_OPTIONS_LABELS:
@@ -51,13 +36,13 @@ export const optionsReducer = (
       const datasets = state.options.data.datasets.map((item, index) => {
         return action.payload.idDataset === index
           ? {
-              label: item.label,
-              data: item.data.map((itemData, indexData) => {
-                return action.payload.idData === indexData
-                  ? action.payload.value.replace(/[^0-9.-]/g, "")
-                  : itemData;
-              }),
-            }
+            label: item.label,
+            data: item.data.map((itemData, indexData) => {
+              return action.payload.idData === indexData
+                ? action.payload.value.replace(/[^0-9.-]/g, '')
+                : itemData;
+            }),
+          }
           : item;
       });
       return {
@@ -69,7 +54,34 @@ export const optionsReducer = (
           },
         },
       };
-    case OptionsActionType.ADD_ROW:
+    case OptionsActionType.SET_OPTIONS_LABEL_IN_DATA:
+      return {
+        options: {
+          ...state.options,
+          data: {
+            labels: state.options.data.labels,
+            datasets: [
+              ...state.options.data.datasets.map((item, index) => {
+                return {
+                  label:
+                    action.payload.id === index
+                      ? action.payload.value
+                      : state.options.data.datasets[index].label,
+                  data: state.options.data.datasets[index].data,
+                };
+              }),
+            ],
+          },
+        },
+      };
+    case OptionsActionType.SET_OPTIONS_TYPE:
+      return {
+        options: {
+          ...state.options,
+          type: action.payload,
+        },
+      };
+    case OptionsActionType.ADD_OPTIONS_ROW:
       let num: number = 0;
       let ind: number = 0;
       state.options.data.labels.map((item, index, array) => {
@@ -93,7 +105,7 @@ export const optionsReducer = (
           },
         },
       };
-    case OptionsActionType.ADD_COLUMN:
+    case OptionsActionType.ADD_OPTIONS_COLUMN:
       let ind1: number = 0;
       state.options.data.datasets.map((item, index) => {
         ind1 = index + 2;
@@ -112,27 +124,7 @@ export const optionsReducer = (
           },
         },
       };
-    case OptionsActionType.SET_LABEL_IN_DATA:
-      return {
-        options: {
-          ...state.options,
-          data: {
-            labels: state.options.data.labels,
-            datasets: [
-              ...state.options.data.datasets.map((item, index) => {
-                return {
-                  label:
-                    action.payload.id === index
-                      ? action.payload.value
-                      : state.options.data.datasets[index].label,
-                  data: state.options.data.datasets[index].data,
-                };
-              }),
-            ],
-          },
-        },
-      };
-    case OptionsActionType.REMOVE_ROW:
+    case OptionsActionType.REMOVE_OPTIONS_ROW:
       const newLebels = state.options.data.labels.filter((item, index) => {
         if (index !== action.payload) {
           return item;
@@ -160,14 +152,14 @@ export const optionsReducer = (
           },
         },
       };
-    case OptionsActionType.REMOVE_COLUMN:
+    case OptionsActionType.REMOVE_OPTIONS_COLUMN:
       const newDatasets =
         state.options.data.datasets.length !== 1
           ? state.options.data.datasets.filter((item, index) => {
-              if (index !== action.payload) {
-                return item;
-              }
-            })
+            if (index !== action.payload) {
+              return item;
+            }
+          })
           : state.options.data.datasets;
       return {
         options: {
@@ -178,7 +170,7 @@ export const optionsReducer = (
           },
         },
       };
-    case OptionsActionType.GET_NEW_OPTIONS:
+    case OptionsActionType.SET_NEW_OPTIONS:
       return {
         options: action.payload,
       };
