@@ -2,6 +2,8 @@ import { IChart } from '../../initialValue/IChart';
 
 export type OptionsState = {
   options: IChart;
+  width: number;
+  height: number;
 }
 
 export enum OptionsActionType {
@@ -15,6 +17,8 @@ export enum OptionsActionType {
   REMOVE_OPTIONS_ROW = 'REMOVE_OPTIONS_ROW',
   REMOVE_OPTIONS_COLUMN = 'REMOVE_OPTIONS_COLUMN',
   SET_NEW_OPTIONS = 'SET_NEW_OPTIONS',
+  SET_OPTIONS_WIDTH = 'SET_OPTIONS_WIDTH',
+  SET_OPTIONS_HEIGHT = 'SET_OPTIONS_HEIGHT',
 }
 
 export type SetTitleAction = { type: OptionsActionType.SET_OPTIONS_TITLE; payload: string; }
@@ -33,6 +37,8 @@ export type AddColumnAction = { type: OptionsActionType.ADD_OPTIONS_COLUMN; }
 export type RemoveRowAction = { type: OptionsActionType.REMOVE_OPTIONS_ROW; payload: number; }
 export type RemoveColumnAction = { type: OptionsActionType.REMOVE_OPTIONS_COLUMN; payload: number; }
 export type SetNewOptionsAction = { type: OptionsActionType.SET_NEW_OPTIONS; payload: IChart; }
+export type SetWidthAction = { type: OptionsActionType.SET_OPTIONS_WIDTH; payload: number; }
+export type SetHeightAction = { type: OptionsActionType.SET_OPTIONS_HEIGHT; payload: number; }
 
 export type OptionsAction =
   | SetTitleAction
@@ -44,4 +50,6 @@ export type OptionsAction =
   | SetTypeAction
   | RemoveRowAction
   | RemoveColumnAction
-  | SetNewOptionsAction;
+  | SetNewOptionsAction
+  | SetWidthAction
+  | SetHeightAction;

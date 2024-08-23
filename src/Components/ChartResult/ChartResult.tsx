@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./ChartResult.module.scss";
-import { useTypedSelector } from "../../Hooks/useTypeSelector";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 
 const ChartResult = () => {
   const { address } = useTypedSelector((state) => state.address);

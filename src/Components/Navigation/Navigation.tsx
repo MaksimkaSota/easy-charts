@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Navigation.module.scss";
 import { Link } from "react-router-dom";
 import { initialValue } from "../../initialValue/initialValue";
-import { useActions } from "../../Hooks/useActions";
+import { useActions } from "../../hooks/useActions";
 
 const Navigation = () => {
   const { getNewOptions } = useActions();

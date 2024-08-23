@@ -7,7 +7,7 @@ import pie from "../../assets/images/pie.png";
 import doughnut from "../../assets/images/doughnut.png";
 import horizontalBar from "../../assets/images/horizontalBar.png";
 import { Link } from "react-router-dom";
-import { useActions } from "../../Hooks/useActions";
+import { useActions } from "../../hooks/useActions";
 
 const Gallery = () => {
   const { setTypeChart } = useActions();

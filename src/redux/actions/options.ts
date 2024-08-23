@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { OptionsAction, OptionsActionType } from '../types/options';
+import { OptionsAction, OptionsActionType, SetHeightAction, SetWidthAction } from '../types/options';
 import { IChart } from '../../initialValue/IChart';
 
 export const setTitleChart = (type: string) => {
@@ -81,3 +81,11 @@ export const getNewOptions = (options: IChart) => {
     dispatch({type: OptionsActionType.SET_NEW_OPTIONS, payload: options});
   };
 };
+export const setWidth = (width: number): SetWidthAction => ({
+  type: OptionsActionType.SET_OPTIONS_WIDTH,
+  payload: width
+});
+export const setHeight = (height: number): SetHeightAction => ({
+  type: OptionsActionType.SET_OPTIONS_HEIGHT,
+  payload: height
+});

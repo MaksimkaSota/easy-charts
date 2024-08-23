@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import classes from "./Examples.module.scss";
 import ChartSelectionForm from "../ChartSelectionForm/ChartSelectionForm";
 import ChartResultExamples from "../ChartResultExamples/ChartResultExamples";
-import { useActions } from "../../Hooks/useActions";
-import { useTypedSelector } from "../../Hooks/useTypeSelector";
+import { useActions } from "../../hooks/useActions";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
 
 const Examples = () => {
   const { getExampleAddressURL } = useActions();

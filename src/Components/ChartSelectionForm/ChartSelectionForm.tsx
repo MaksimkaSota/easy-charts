@@ -6,7 +6,7 @@ import radar from "../../assets/images/radar.png";
 import pie from "../../assets/images/pie.png";
 import doughnut from "../../assets/images/doughnut.png";
 import horizontalBar from "../../assets/images/horizontalBar.png";
-import { useActions } from "../../Hooks/useActions";
+import { useActions } from "../../hooks/useActions";
 
 const ChartSelectionForm = () => {
   const { setTypeChart, setTypeChartInExamples } = useActions();

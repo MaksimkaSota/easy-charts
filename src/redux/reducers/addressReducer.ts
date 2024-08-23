@@ -7,9 +7,10 @@ const initialState: AddressState = {
 export const addressReducer = (state: AddressState = initialState, action: AddressAction): AddressState => {
   switch (action.type) {
     case AddressActionType.SET_ADDRESS:
-      return {address: action.payload};
-    case AddressActionType.SET_ADDRESS_WIDTH_HEIGHT:
-      return {address: action.payload};
+      return {
+        ...state,
+        address: action.payload
+      };
     default:
       return state;
   }

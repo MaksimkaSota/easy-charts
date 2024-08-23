@@ -3,12 +3,15 @@ import { OptionsAction, OptionsActionType, OptionsState } from '../types/options
 
 const initialState: OptionsState = {
   options: initialValue,
+  width: 800,
+  height: 400,
 };
 
 export const optionsReducer = (state: OptionsState = initialState, action: OptionsAction): OptionsState => {
   switch (action.type) {
     case OptionsActionType.SET_OPTIONS_TITLE:
       return {
+        ...state,
         options: {
           ...state.options,
           options: {
@@ -24,6 +27,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
         return action.payload.id === index ? action.payload.value : label;
       });
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -46,6 +50,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
           : item;
       });
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -56,6 +61,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
       };
     case OptionsActionType.SET_OPTIONS_LABEL_IN_DATA:
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -76,6 +82,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
       };
     case OptionsActionType.SET_OPTIONS_TYPE:
       return {
+        ...state,
         options: {
           ...state.options,
           type: action.payload,
@@ -90,6 +97,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
         return item;
       });
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -116,6 +124,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
         data: [...data], // [...data]
       };
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -131,6 +140,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
         }
       });
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -162,6 +172,7 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
           })
           : state.options.data.datasets;
       return {
+        ...state,
         options: {
           ...state.options,
           data: {
@@ -172,7 +183,18 @@ export const optionsReducer = (state: OptionsState = initialState, action: Optio
       };
     case OptionsActionType.SET_NEW_OPTIONS:
       return {
+        ...state,
         options: action.payload,
+      };
+    case OptionsActionType.SET_OPTIONS_WIDTH:
+      return {
+        ...state,
+        width: action.payload,
+      };
+    case OptionsActionType.SET_OPTIONS_HEIGHT:
+      return {
+        ...state,
+        height: action.payload,
       };
     default:
       return state;

@@ -1,9 +1,9 @@
-import * as AddressActionCreators from './address';
-import * as OptionsActionCreators from './options';
-import * as ExamplesActionCreators from './examples';
+import * as addressActionCreators from './address';
+import * as optionsActionCreators from './options';
+import * as examplesActionCreators from './examples';
 
-export default {
-  ...AddressActionCreators,
-  ...OptionsActionCreators,
-  ...ExamplesActionCreators,
+export const actionCreators = {
+  ...addressActionCreators,
+  ...optionsActionCreators,
+  ...examplesActionCreators,
 };

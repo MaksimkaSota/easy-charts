@@ -1,6 +1,6 @@
 import classes from "./ChartResultExamples.module.scss";
-import { useTypedSelector } from "../../Hooks/useTypeSelector";
-import { useActions } from "../../Hooks/useActions";
+import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { useActions } from "../../hooks/useActions";
 import React from "react";
 import { Link } from "react-router-dom";
 
