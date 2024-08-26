@@ -1,5 +1,11 @@
 import { Dispatch } from 'redux';
-import { MainOptionsAction, MainOptionsActionType, SetHeightAction, SetWidthAction } from '../types/mainOptions';
+import {
+  MainOptionsAction,
+  MainOptionsActionType,
+  SetHeightAction,
+  SetTypeAction,
+  SetWidthAction
+} from '../types/mainOptions';
 import { IChart } from '../../utils/types/api';
 
 export const setTitleChart = (type: string) => {
@@ -38,14 +44,10 @@ export const setLabelInData = ({id, value}: { id: number; value: string; }) => {
     });
   };
 };
-export const setTypeChart = (type: string) => {
-  return (dispatch: Dispatch<MainOptionsAction>) => {
-    dispatch({
-      type: MainOptionsActionType.SET_OPTIONS_TYPE,
-      payload: type,
-    });
-  };
-};
+export const setTypeChart = (type: string): SetTypeAction => ({
+  type: MainOptionsActionType.SET_OPTIONS_TYPE,
+  payload: type,
+});
 export const addRow = () => {
   return (dispatch: Dispatch<MainOptionsAction>) => {
     dispatch({

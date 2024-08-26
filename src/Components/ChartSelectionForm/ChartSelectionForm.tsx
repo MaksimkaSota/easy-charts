@@ -1,4 +1,3 @@
-import { useActions } from '../../hooks/useActions';
 import classes from './ChartSelectionForm.module.scss';
 import bar from '../../assets/images/bar.png';
 import line from '../../assets/images/line.png';
@@ -6,74 +5,61 @@ import radar from '../../assets/images/radar.png';
 import pie from '../../assets/images/pie.png';
 import doughnut from '../../assets/images/doughnut.png';
 import horizontalBar from '../../assets/images/horizontalBar.png';
+import { TypeSelection } from '../Common/TypeSelection/TypeSelection';
 
 const ChartSelectionForm = () => {
-  const {setTypeChart, setExamplesType} = useActions();
-
   return (
     <div className={classes.chartSelectionForm}>
       <h3 className={classes.miniTitle}>Вид</h3>
       <div className={classes.chartsTypeContainer}>
-        <div
-          className={classes.imageContainer}
-          onClick={() => {
-            setTypeChart('bar');
-            setExamplesType('bar');
-          }}
-        >
-          <img src={bar} alt="Колонны" />
-          <p className={classes.typeName}>Колонны</p>
-        </div>
-        <div
-          className={classes.imageContainer}
-          onClick={() => {
-            setTypeChart('horizontalBar');
-            setExamplesType('horizontalBar');
-          }}
-        >
-          <img src={horizontalBar} alt="Полосы" />
-          <p className={classes.typeName}>Полосы</p>
-        </div>
-        <div
-          className={classes.imageContainer}
-          onClick={() => {
-            setTypeChart('line');
-            setExamplesType('line');
-          }}
-        >
-          <img src={line} alt="Линии" />
-          <p className={classes.typeName}>Линии</p>
-        </div>
-        <div
-          className={classes.imageContainer}
-          onClick={() => {
-            setTypeChart('radar');
-            setExamplesType('radar');
-          }}
-        >
-          <img src={radar} alt="Радар" />
-          <p className={classes.typeName}>Радар</p>
-        </div>
-        <div
-          className={classes.imageContainer}
-          onClick={() => {
-            setTypeChart('pie');
-            setExamplesType('pie');
-          }}
-        >
-          <img src={pie} alt="Пирог" />
-          <p className={classes.typeName}>Пирог</p>
-        </div>
-        <div
-          className={classes.imageContainer}
-          onClick={() => {
-            setTypeChart('doughnut');
-            setExamplesType('doughnut');
-          }}
-        >
-          <img src={doughnut} alt="Пончик" />
-          <p className={classes.typeName}>Пончик</p>
-        </div>
+        <TypeSelection
+          isLink={false}
+          type="bar"
+          src={bar}
+          text="Колонны"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink={false}
+          type="horizontalBar"
+          src={horizontalBar}
+          text="Полосы"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink={false}
+          type="line"
+          src={line}
+          text="Линии"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink={false}
+          type="radar"
+          src={radar}
+          text="Радар"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink={false}
+          type="pie"
+          src={pie}
+          text="Пирог"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink={false}
+          type="doughnut"
+          src={doughnut}
+          text="Пончик"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
       </div>
     </div>
   );

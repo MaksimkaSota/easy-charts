@@ -1,17 +1,13 @@
-import React from "react";
-import classes from "./Gallery.module.scss";
-import bar from "../../assets/images/bar.png";
-import line from "../../assets/images/line.png";
-import radar from "../../assets/images/radar.png";
-import pie from "../../assets/images/pie.png";
-import doughnut from "../../assets/images/doughnut.png";
-import horizontalBar from "../../assets/images/horizontalBar.png";
-import { Link } from "react-router-dom";
-import { useActions } from "../../hooks/useActions";
+import classes from './Gallery.module.scss';
+import bar from '../../assets/images/bar.png';
+import line from '../../assets/images/line.png';
+import radar from '../../assets/images/radar.png';
+import pie from '../../assets/images/pie.png';
+import doughnut from '../../assets/images/doughnut.png';
+import horizontalBar from '../../assets/images/horizontalBar.png';
+import { TypeSelection } from '../Common/TypeSelection/TypeSelection';
 
 const Gallery = () => {
-  const { setTypeChart } = useActions();
-
   return (
     <div className={classes.gallery}>
       <h2 className={classes.title}>Галерея графиков</h2>
@@ -22,59 +18,54 @@ const Gallery = () => {
         круговой…?
       </p>
       <div className={classes.typeChartsContainer}>
-        <Link
-          to="create"
-          className={classes.imageContainer}
-          onClick={() => setTypeChart("bar")}
-        >
-          <img src={bar} alt="" />
-          <p className={classes.typeName}>Колонны</p>
-        </Link>
-
-        <Link
-          to="create"
-          className={classes.imageContainer}
-          onClick={() => setTypeChart("horizontalBar")}
-        >
-          <img src={horizontalBar} alt="" />
-          <p className={classes.typeName}>Полосы</p>
-        </Link>
-
-        <Link
-          to="create"
-          className={classes.imageContainer}
-          onClick={() => setTypeChart("line")}
-        >
-          <img src={line} alt="" />
-          <p className={classes.typeName}>Линии</p>
-        </Link>
-
-        <Link
-          to="create"
-          className={classes.imageContainer}
-          onClick={() => setTypeChart("radar")}
-        >
-          <img src={radar} alt="" />
-          <p className={classes.typeName}>Радар</p>
-        </Link>
-
-        <Link
-          to="create"
-          className={classes.imageContainer}
-          onClick={() => setTypeChart("pie")}
-        >
-          <img src={pie} alt="" />
-          <p className={classes.typeName}>Пирог</p>
-        </Link>
-
-        <Link
-          to="create"
-          className={classes.imageContainer}
-          onClick={() => setTypeChart("doughnut")}
-        >
-          <img src={doughnut} alt="" />
-          <p className={classes.typeName}>Пончик</p>
-        </Link>
+        <TypeSelection
+          isLink
+          type="bar"
+          src={bar}
+          text="Колонны"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink
+          type="horizontalBar"
+          src={horizontalBar}
+          text="Полосы"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink
+          type="line"
+          src={line}
+          text="Линии"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink
+          type="radar"
+          src={radar}
+          text="Радар"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink
+          type="pie"
+          src={pie}
+          text="Пирог"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
+        <TypeSelection
+          isLink
+          type="doughnut"
+          src={doughnut}
+          text="Пончик"
+          classNameContainer={classes.imageContainer}
+          classNameText={classes.typeName}
+        />
       </div>
     </div>
   );
