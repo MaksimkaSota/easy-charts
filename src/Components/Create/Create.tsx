@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import classes from "./Create.module.scss";
-import ChartSelectionForm from "../ChartSelectionForm/ChartSelectionForm";
-import ChartResult from "../ChartResult/ChartResult";
-import { useActions } from "../../hooks/useActions";
-import { useTypedSelector } from "../../hooks/useTypeSelector";
-import ChartSettings from "../ChartSettings/ChartSettings";
-import ChartViewAndSave from "../ChartViewAndSave/ChartViewAndSave";
+import { useEffect } from 'react';
+import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useActions } from '../../hooks/useActions';
+import classes from './Create.module.scss';
+import ChartSelectionForm from '../ChartSelectionForm/ChartSelectionForm';
+import ChartResult from '../ChartResult/ChartResult';
+import ChartSettings from '../ChartSettings/ChartSettings';
+import ChartViewAndSave from '../ChartViewAndSave/ChartViewAndSave';
 
 const Create = () => {
-  const { options, width, height } = useTypedSelector((state) => state.options);
-  const { getAddress } = useActions();
+  const {mainOptions, width, height} = useTypedSelector((state) => state.mainOptions);
+  const {getAddress} = useActions();
 
   useEffect(() => {
-    getAddress(options, width, height);
-  }, [options, width, height]);
+    getAddress(mainOptions, width, height);
+  }, [mainOptions, width, height]);
 
   return (
     <main className={classes.create}>

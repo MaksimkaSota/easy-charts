@@ -1,5 +1,5 @@
 import { http } from './http';
-import { IChart } from '../initialValue/IChart';
+import { IChart } from '../utils/types/api';
 
 export const getChartAPI = async (options: IChart, width: number, height: number): Promise<Blob> => {
   const typeURL = `type:'${options.type}'`;

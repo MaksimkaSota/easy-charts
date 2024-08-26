@@ -1,9 +1,9 @@
-import React from "react";
-import classes from "./CharSettings.module.scss";
-import { useActions } from "../../hooks/useActions";
-import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useActions } from '../../hooks/useActions';
+import classes from './CharSettings.module.scss';
 
 const ChartSettings = () => {
+  const {mainOptions} = useTypedSelector((state) => state.mainOptions);
   const {
     setTitleChart,
     setInitialValueByData,
@@ -14,8 +14,6 @@ const ChartSettings = () => {
     removeRow,
     removeColumn,
   } = useActions();
-
-  const { options } = useTypedSelector((state) => state.options);
 
   return (
     <div className={classes.chartSettings}>
@@ -28,11 +26,11 @@ const ChartSettings = () => {
           <p className={classes.axis}>X</p>
           <input
             type="text"
-            value={options.options.title.text}
+            value={mainOptions.options.title.text}
             className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
             onChange={(event) => setTitleChart(event.target.value)}
           />
-          {options.data.labels.map((field, index) => (
+          {mainOptions.data.labels.map((field, index) => (
             <div key={index} className={classes.deleteRowContainer}>
               <div
                 title="Удалить эту строку"
@@ -63,7 +61,7 @@ const ChartSettings = () => {
         </div>
         <div className={classes.formContainer}>
           <div className={classes.flexContainer}>
-            {options.data.datasets.map((item, indexDataset) => {
+            {mainOptions.data.datasets.map((item, indexDataset) => {
               return (
                 <div className={classes.formContainerInner} key={indexDataset}>
                   <p className={classes.axis}>Y{indexDataset + 1}</p>

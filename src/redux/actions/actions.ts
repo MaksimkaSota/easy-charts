@@ -1,9 +1,9 @@
-import * as addressActionCreators from './address';
-import * as optionsActionCreators from './options';
-import * as examplesActionCreators from './examples';
+import * as addressesActionCreators from './addresses';
+import * as mainOptionsActionCreators from './mainOptions';
+import * as examplesOptionsActionCreators from './examplesOptions';
 
 export const actionCreators = {
-  ...addressActionCreators,
-  ...optionsActionCreators,
-  ...examplesActionCreators,
+  ...addressesActionCreators,
+  ...mainOptionsActionCreators,
+  ...examplesOptionsActionCreators,
 };

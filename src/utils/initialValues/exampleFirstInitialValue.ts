@@ -1,6 +1,6 @@
-import { IChart } from "./IChart";
+import { IChart } from "../types/api";
 
-export const exampleValueFirst: IChart = {
+export const exampleFirstInitialValue: IChart = {
   type: "bar",
   data: {
     labels: ["2017", "2018", "2019", "2020", "2021"],
@@ -24,6 +24,5 @@ export const exampleValueFirst: IChart = {
       display: true,
       text: "Численность населения в Беларуси, тыс. человек",
     },
-  },
-  imageURL: "",
+  }
 };

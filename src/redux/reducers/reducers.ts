@@ -1,18 +1,12 @@
 import { combineReducers } from 'redux';
-import { addressReducer } from './addressReducer';
-import { optionsReducer } from './optionsReducer';
-import { exampleFirstReducer } from './exampleFirstReducer';
-import { exampleSecondReducer } from './exampleSecondReducer';
-import { exampleThirdReducer } from './exampleThirdReducer';
+import { addressesReducer } from './addresses';
+import { mainOptionsReducer } from './mainOptions';
+import { examplesOptionsReducer } from './examplesOptions';
 
 export const rootReducer = combineReducers({
-  address: addressReducer,
-  options: optionsReducer,
-  examples: combineReducers({
-    exampleFirst: exampleFirstReducer,
-    exampleSecond: exampleSecondReducer,
-    exampleThird: exampleThirdReducer,
-  }),
+  addresses: addressesReducer,
+  mainOptions: mainOptionsReducer,
+  examplesOptions: examplesOptionsReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

@@ -1,6 +1,6 @@
-import { IChart } from "./IChart";
+import { IChart } from "../types/api";
 
-export const exampleValueSecond: IChart = {
+export const exampleSecondInitialValue: IChart = {
   type: "bar",
   data: {
     labels: [
@@ -57,6 +57,5 @@ export const exampleValueSecond: IChart = {
       display: true,
       text: "Средняя заработная плата в Беларуси, рублей",
     },
-  },
-  imageURL: "",
+  }
 };

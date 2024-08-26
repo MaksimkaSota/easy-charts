@@ -1,15 +1,14 @@
-import React from "react";
-import classes from "./ChartResult.module.scss";
-import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { useTypedSelector } from '../../hooks/useTypeSelector';
+import classes from './ChartResult.module.scss';
 
 const ChartResult = () => {
-  const { address } = useTypedSelector((state) => state.address);
+  const {mainAddress} = useTypedSelector((state) => state.addresses);
 
   return (
     <div className={classes.chartResult}>
       <h3 className={classes.miniTitle}>График</h3>
       <div className={classes.imageContainer}>
-        <img src={address} alt="Charts" />
+        <img src={mainAddress} alt="Charts" />
       </div>
     </div>
   );

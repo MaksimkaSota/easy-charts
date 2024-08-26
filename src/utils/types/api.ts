@@ -4,7 +4,6 @@ export interface IChart {
     labels: string[];
     datasets: IDatasets[];
   };
-  imageURL?: string;
   options: {
     title: {
       display: boolean;

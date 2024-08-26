@@ -1,6 +1,6 @@
-import { IChart } from "./IChart";
+import { IChart } from "../types/api";
 
-export const initialValue: IChart = {
+export const mainInitialValue: IChart = {
   type: "bar",
   data: {
     labels: ["Строка 1", "Строка 2", "Строка 3", "Строка 4", "Строка 5"],

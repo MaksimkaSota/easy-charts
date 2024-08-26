@@ -1,26 +1,20 @@
-import React, { useEffect } from "react";
-import classes from "./Examples.module.scss";
-import ChartSelectionForm from "../ChartSelectionForm/ChartSelectionForm";
-import ChartResultExamples from "../ChartResultExamples/ChartResultExamples";
-import { useActions } from "../../hooks/useActions";
-import { useTypedSelector } from "../../hooks/useTypeSelector";
+import { useEffect } from 'react';
+import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useActions } from '../../hooks/useActions';
+import classes from './Examples.module.scss';
+import ChartSelectionForm from '../ChartSelectionForm/ChartSelectionForm';
+import ChartResultExamples from '../ChartResultExamples/ChartResultExamples';
 
 const Examples = () => {
-  const { getExampleAddressURL } = useActions();
-
-  const { exampleFirst, exampleSecond, exampleThird } = useTypedSelector(
-    (state) => state.examples
-  );
-
-  const { options } = useTypedSelector((state) => state.options);
+  const examplesOptions = useTypedSelector((state) => state.examplesOptions);
+  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector((state) => state.examplesOptions);
+  const {getAddress} = useActions();
 
   useEffect(() => {
-    getExampleAddressURL([
-      exampleFirst.exampleFirst,
-      exampleSecond.exampleSecond,
-      exampleThird.exampleThird,
-    ]);
-  }, [options]);
+    getAddress(exampleFirst, 800, 400, 'firstExample');
+    getAddress(exampleSecond, 800, 400, 'secondExample');
+    getAddress(exampleThird, 800, 400, 'thirdExample');
+  }, [examplesOptions]);
 
   return (
     <div className={classes.examples}>

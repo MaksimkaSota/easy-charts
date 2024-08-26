@@ -1,15 +1,14 @@
-import React from "react";
-import classes from "./ChartSelectionForm.module.scss";
-import bar from "../../assets/images/bar.png";
-import line from "../../assets/images/line.png";
-import radar from "../../assets/images/radar.png";
-import pie from "../../assets/images/pie.png";
-import doughnut from "../../assets/images/doughnut.png";
-import horizontalBar from "../../assets/images/horizontalBar.png";
-import { useActions } from "../../hooks/useActions";
+import { useActions } from '../../hooks/useActions';
+import classes from './ChartSelectionForm.module.scss';
+import bar from '../../assets/images/bar.png';
+import line from '../../assets/images/line.png';
+import radar from '../../assets/images/radar.png';
+import pie from '../../assets/images/pie.png';
+import doughnut from '../../assets/images/doughnut.png';
+import horizontalBar from '../../assets/images/horizontalBar.png';
 
 const ChartSelectionForm = () => {
-  const { setTypeChart, setTypeChartInExamples } = useActions();
+  const {setTypeChart, setExamplesType} = useActions();
 
   return (
     <div className={classes.chartSelectionForm}>
@@ -18,8 +17,8 @@ const ChartSelectionForm = () => {
         <div
           className={classes.imageContainer}
           onClick={() => {
-            setTypeChart("bar");
-            setTypeChartInExamples("bar");
+            setTypeChart('bar');
+            setExamplesType('bar');
           }}
         >
           <img src={bar} alt="Колонны" />
@@ -28,8 +27,8 @@ const ChartSelectionForm = () => {
         <div
           className={classes.imageContainer}
           onClick={() => {
-            setTypeChart("horizontalBar");
-            setTypeChartInExamples("horizontalBar");
+            setTypeChart('horizontalBar');
+            setExamplesType('horizontalBar');
           }}
         >
           <img src={horizontalBar} alt="Полосы" />
@@ -38,8 +37,8 @@ const ChartSelectionForm = () => {
         <div
           className={classes.imageContainer}
           onClick={() => {
-            setTypeChart("line");
-            setTypeChartInExamples("line");
+            setTypeChart('line');
+            setExamplesType('line');
           }}
         >
           <img src={line} alt="Линии" />
@@ -48,8 +47,8 @@ const ChartSelectionForm = () => {
         <div
           className={classes.imageContainer}
           onClick={() => {
-            setTypeChart("radar");
-            setTypeChartInExamples("radar");
+            setTypeChart('radar');
+            setExamplesType('radar');
           }}
         >
           <img src={radar} alt="Радар" />
@@ -58,8 +57,8 @@ const ChartSelectionForm = () => {
         <div
           className={classes.imageContainer}
           onClick={() => {
-            setTypeChart("pie");
-            setTypeChartInExamples("pie");
+            setTypeChart('pie');
+            setExamplesType('pie');
           }}
         >
           <img src={pie} alt="Пирог" />
@@ -68,8 +67,8 @@ const ChartSelectionForm = () => {
         <div
           className={classes.imageContainer}
           onClick={() => {
-            setTypeChart("doughnut");
-            setTypeChartInExamples("doughnut");
+            setTypeChart('doughnut');
+            setExamplesType('doughnut');
           }}
         >
           <img src={doughnut} alt="Пончик" />

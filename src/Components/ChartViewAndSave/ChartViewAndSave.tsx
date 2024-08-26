@@ -1,11 +1,11 @@
 import { ChangeEvent, useState } from 'react';
-import classes from './ChartViewAndSave.module.scss';
-import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useActions } from '../../hooks/useActions';
+import classes from './ChartViewAndSave.module.scss';
 
 const ChartViewAndSave = () => {
-  const {address} = useTypedSelector((state) => state.address);
-  const {width, height} = useTypedSelector((state) => state.options);
+  const {mainAddress} = useTypedSelector((state) => state.addresses);
+  const {width, height} = useTypedSelector((state) => state.mainOptions);
   const {setWidth, setHeight} = useActions();
 
   const [widthValue, setWidthValue] = useState<number>(width);
@@ -35,7 +35,7 @@ const ChartViewAndSave = () => {
         </label>
         <input type="text" id="height" value={heightValue} onChange={onHeightChange} />
       </div>
-      <a className={classes.link} href={address} download>
+      <a className={classes.link} href={mainAddress} download>
         Сохранить график
       </a>
     </div>

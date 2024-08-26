@@ -1,6 +1,6 @@
-import { IChart } from "./IChart";
+import { IChart } from "../types/api";
 
-export const exampleValueThird: IChart = {
+export const exampleThirdInitialValue: IChart = {
   type: "bar",
   data: {
     labels: ["2017", "2018", "2019", "2020", "2021"],
@@ -16,6 +16,5 @@ export const exampleValueThird: IChart = {
       display: true,
       text: "Показатели инфляции в Беларуси, %",
     },
-  },
-  imageURL: "",
+  }
 };

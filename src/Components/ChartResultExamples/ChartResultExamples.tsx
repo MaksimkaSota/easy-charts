@@ -1,56 +1,41 @@
-import classes from "./ChartResultExamples.module.scss";
-import { useTypedSelector } from "../../hooks/useTypeSelector";
-import { useActions } from "../../hooks/useActions";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { useActions } from '../../hooks/useActions';
+import classes from './ChartResultExamples.module.scss';
 
 const ChartResultExamples = () => {
-  const { getNewOptions } = useActions();
-
-  const { exampleFirst, exampleSecond, exampleThird } = useTypedSelector(
-    (state) => state.examples
-  );
+  const {exampleFirstAddress, exampleSecondAddress, exampleThirdAddress} = useTypedSelector((state) => state.addresses);
+  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector((state) => state.examplesOptions);
+  const {getNewOptions} = useActions();
 
   return (
     <div className={classes.chartResult}>
       <h3 className={classes.miniTitle}>График</h3>
       <div className={classes.imageContainer}>
-        <img src={exampleFirst.exampleFirst.imageURL} alt="Chart example" />
+        <img src={exampleFirstAddress} alt="Chart example" />
       </div>
-      <Link
-        className={classes.link}
-        to="create"
-        onClick={() => getNewOptions(exampleFirst.exampleFirst)}
-      >
-        Отредактировать график:{" "}
+      <Link to="create" className={classes.link} onClick={() => getNewOptions(exampleFirst)}>
+        Отредактировать график:{' '}
         <span>
-          {exampleFirst.exampleFirst.options.title.text.split(",").shift()}
+          {exampleFirst.options.title.text.split(',').shift()}
         </span>
       </Link>
       <div className={classes.imageContainer}>
-        <img src={exampleSecond.exampleSecond.imageURL} alt="Chart example" />
+        <img src={exampleSecondAddress} alt="Chart example" />
       </div>
-      <Link
-        className={classes.link}
-        to="create"
-        onClick={() => getNewOptions(exampleThird.exampleThird)}
-      >
-        Отредактировать график:{" "}
+      <Link to="create" className={classes.link} onClick={() => getNewOptions(exampleThird)}>
+        Отредактировать график:{' '}
         <span>
-          {exampleSecond.exampleSecond.options.title.text.split(",").shift()}
+          {exampleSecond.options.title.text.split(',').shift()}
         </span>
       </Link>
       <div className={classes.imageContainer}>
-        <img src={exampleThird.exampleThird.imageURL} alt="Chart example" />
+        <img src={exampleThirdAddress} alt="Chart example" />
       </div>
-      <Link
-        className={classes.link}
-        to="create"
-        onClick={() => getNewOptions(exampleThird.exampleThird)}
-      >
-        Отредактировать график:{" "}
+      <Link to="create" className={classes.link} onClick={() => getNewOptions(exampleThird)}>
+        Отредактировать график:{' '}
         <span>
-          {exampleThird.exampleThird.options.title.text.split(",").shift()}
+          {exampleThird.options.title.text.split(',').shift()}
         </span>
       </Link>
     </div>

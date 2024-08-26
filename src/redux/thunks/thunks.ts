@@ -1,5 +1,5 @@
-import * as addressThunkCreators from './address';
+import * as addressesThunkCreators from './addresses';
 
 export const thunkCreators = {
-  ...addressThunkCreators,
+  ...addressesThunkCreators,
 };
