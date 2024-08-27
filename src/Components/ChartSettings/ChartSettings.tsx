@@ -1,9 +1,10 @@
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useActions } from '../../hooks/useActions';
+import { mainOptionsSelector } from '../../redux/selectors/selectors';
 import classes from './CharSettings.module.scss';
 
 const ChartSettings = () => {
-  const {mainOptions} = useTypedSelector((state) => state.mainOptions);
+  const {mainOptions} = useTypedSelector(mainOptionsSelector);
   const {
     setMainTitle,
     setMainLabels,

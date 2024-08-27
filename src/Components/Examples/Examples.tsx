@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useActions } from '../../hooks/useActions';
+import { examplesOptionsSelector } from '../../redux/selectors/selectors';
 import classes from './Examples.module.scss';
 import ChartSelectionForm from '../ChartSelectionForm/ChartSelectionForm';
 import ChartResultExamples from '../ChartResultExamples/ChartResultExamples';
 
 const Examples = () => {
-  const examplesOptions = useTypedSelector((state) => state.examplesOptions);
-  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector((state) => state.examplesOptions);
+  const examplesOptions = useTypedSelector(examplesOptionsSelector);
+  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector(examplesOptionsSelector);
   const {getAddress} = useActions();
 
   useEffect(() => {

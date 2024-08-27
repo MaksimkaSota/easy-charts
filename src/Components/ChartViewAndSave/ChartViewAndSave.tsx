@@ -1,11 +1,12 @@
 import { ChangeEvent, useState } from 'react';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useActions } from '../../hooks/useActions';
+import { addressesSelector, mainOptionsSelector } from '../../redux/selectors/selectors';
 import classes from './ChartViewAndSave.module.scss';
 
 const ChartViewAndSave = () => {
-  const {mainAddress} = useTypedSelector((state) => state.addresses);
-  const {width, height} = useTypedSelector((state) => state.mainOptions);
+  const {mainAddress} = useTypedSelector(addressesSelector);
+  const {width, height} = useTypedSelector(mainOptionsSelector);
   const {setWidth, setHeight} = useActions();
 
   const [widthValue, setWidthValue] = useState<number>(width);

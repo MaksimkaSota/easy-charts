@@ -1,8 +1,9 @@
 import { useTypedSelector } from '../../hooks/useTypeSelector';
+import { addressesSelector } from '../../redux/selectors/selectors';
 import classes from './ChartResult.module.scss';
 
 const ChartResult = () => {
-  const {mainAddress} = useTypedSelector((state) => state.addresses);
+  const {mainAddress} = useTypedSelector(addressesSelector);
 
   return (
     <div className={classes.chartResult}>

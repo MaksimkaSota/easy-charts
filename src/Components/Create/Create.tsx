@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useActions } from '../../hooks/useActions';
+import { mainOptionsSelector } from '../../redux/selectors/selectors';
 import classes from './Create.module.scss';
 import ChartSelectionForm from '../ChartSelectionForm/ChartSelectionForm';
 import ChartResult from '../ChartResult/ChartResult';
@@ -8,7 +9,7 @@ import ChartSettings from '../ChartSettings/ChartSettings';
 import ChartViewAndSave from '../ChartViewAndSave/ChartViewAndSave';
 
 const Create = () => {
-  const {mainOptions, width, height} = useTypedSelector((state) => state.mainOptions);
+  const {mainOptions, width, height} = useTypedSelector(mainOptionsSelector);
   const {getAddress} = useActions();
 
   useEffect(() => {

@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypeSelector';
 import { useActions } from '../../hooks/useActions';
+import { addressesSelector, examplesOptionsSelector } from '../../redux/selectors/selectors';
 import classes from './ChartResultExamples.module.scss';
 
 const ChartResultExamples = () => {
-  const {exampleFirstAddress, exampleSecondAddress, exampleThirdAddress} = useTypedSelector((state) => state.addresses);
-  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector((state) => state.examplesOptions);
+  const {exampleFirstAddress, exampleSecondAddress, exampleThirdAddress} = useTypedSelector(addressesSelector);
+  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector(examplesOptionsSelector);
   const {setNewMainOptions} = useActions();
 
   return (
