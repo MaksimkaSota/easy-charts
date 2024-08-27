@@ -1,0 +1,10 @@
+@use "../../../global-styles" as global;
+
+.title {
+  @extend %title-pages;
+}
+.textContent {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}

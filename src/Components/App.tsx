@@ -8,9 +8,9 @@ export const App: FC = (): ReactElement => {
   return (
     <div className={classes.app}>
       <Header />
-      <div className={classes.main}>
+      <main className={classes.main}>
         <MainRoutes />
-      </div>
+      </main>
       <Footer />
     </div>
   );

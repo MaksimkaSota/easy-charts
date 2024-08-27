@@ -7,17 +7,18 @@ import pie from '../../../../assets/images/pie.png';
 import doughnut from '../../../../assets/images/doughnut.png';
 import horizontalBar from '../../../../assets/images/horizontalBar.png';
 import { ChartSelectionButton } from '../../../Common/ChartSelectionButton/ChartSelectionButton';
+import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 
 export const GalleryPage: FC = (): ReactElement => {
   return (
     <div className={classes.gallery}>
-      <h2 className={classes.title}>Галерея графиков</h2>
-      <p className={classes.textContent}>
-        Выберите необходимый вид графика, далее вы перейдёте в режим
+      <PageDescription
+        title="Галерея графиков"
+        textContent="Выберите необходимый вид графика, далее вы перейдёте в режим
         онлайн-конструктора, в котором сможете заполнить данные графика, и затем
         скачать. Какую график вам необходимо построить? Столбчатый, линейный,
-        круговой…?
-      </p>
+        круговой…?"
+      />
       <div className={classes.typeChartsContainer}>
         <ChartSelectionButton
           isLink

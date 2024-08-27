@@ -4,6 +4,7 @@ import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSele
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 import { IChart } from '../../../../utils/types/api';
 import { ExamplesOptionsState } from '../../../../redux/types/examplesOptions';
+import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 
 type PropsType = {
   exampleFirstAddress: string;
@@ -36,14 +37,14 @@ export const ExamplesPage: FC<PropsType> = ({
 
   return (
     <div className={classes.examples}>
-      <h2 className={classes.title}>Примеры графиков</h2>
-      <p className={classes.textContent}>
-        На данной странице вы можете найти подходящие вам примеры графиков,
+      <PageDescription
+        title="Примеры графиков"
+        textContent="На данной странице вы можете найти подходящие вам примеры графиков,
         чтобы использовать их для построения своего графика, а также для того,
         чтобы понять как работает конструктор графиков на нашем сайте. Также вы
         можете выбрать необходимый вид графика, чтобы посмотреть примеры для
-        данного вида: столбчатый, линейный, круговой…!
-      </p>
+        данного вида: столбчатый, линейный, круговой…!"
+      />
       <div className={classes.examplesMain}>
         <ChartSelectionMenu />
         <ExampleCharts
