@@ -1,0 +1,27 @@
+@use "../../../../global-styles" as global;
+
+.create {
+  padding: 1.5rem 0;
+  width: 95%;
+  margin: 0 auto;
+  .title {
+   @extend %title-pages;
+  }
+  .textContent {
+    text-align: left;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+  .createContent {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .optionsChartContainer {
+    max-width: 100%;
+    .miniTitle {
+      @extend %mini-title;
+    }
+  }
+}

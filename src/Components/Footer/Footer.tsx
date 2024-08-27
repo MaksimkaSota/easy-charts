@@ -1,9 +1,9 @@
-import React from "react";
-import Navigation from "../Navigation/Navigation";
-import classes from "./Footer.module.scss";
-import Logo from "../Logo/Logo";
+import { FC, ReactElement } from 'react';
+import classes from './Footer.module.scss';
+import { Navigation } from '../Common/Navigation/Navigation';
+import { Logo } from '../Common/Logo/Logo';
 
-const Footer = () => {
+export const Footer: FC = (): ReactElement => {
   return (
     <div className={classes.footer}>
       <div className={classes.center}>
@@ -16,5 +16,3 @@ const Footer = () => {
     </div>
   );
 };
-
-export default Footer;

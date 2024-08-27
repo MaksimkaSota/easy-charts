@@ -1,0 +1,49 @@
+@use "../../../../../global-styles" as global;
+
+.chartResult {
+  width: 55%;
+  .miniTitle {
+    @extend %mini-title;
+  }
+  .imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 global.$main-text;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      padding: .6rem;
+    }
+  }
+  .link {
+    @extend  %button;
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    span {
+      color: global.$black;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .chartResult {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chartResult {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chartResult {
+    width: 100%;
+  }
+}

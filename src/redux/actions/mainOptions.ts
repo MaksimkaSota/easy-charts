@@ -53,11 +53,11 @@ export const setNewMainOptions = (options: IChart): SetNewMainOptionsAction => (
   type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS,
   payload: options
 });
-export const setWidth = (width: number): SetMainWidthAction => ({
+export const setMainWidth = (width: number): SetMainWidthAction => ({
   type: MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH,
   payload: width
 });
-export const setHeight = (height: number): SetMainHeightAction => ({
+export const setMainHeight = (height: number): SetMainHeightAction => ({
   type: MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT,
   payload: height
 });

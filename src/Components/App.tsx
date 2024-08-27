@@ -1,22 +1,17 @@
-import React from "react";
-import "./App.scss";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
-import { HashRouter } from "react-router-dom";
+import { FC, ReactElement } from 'react';
+import classes from './App.module.scss';
+import { Header } from './Header/Header';
+import { Footer } from './Footer/Footer';
+import { MainRoutes } from './Main/MainRoutes';
 
-import AppRoutes from "./AppRoutes";
-
-function App() {
+export const App: FC = (): ReactElement => {
   return (
-    <HashRouter>
-      <div className="app">
-        <Header />
-        <div className="main">
-          <AppRoutes />
-        </div>
-        <Footer />
+    <div className={classes.app}>
+      <Header />
+      <div className={classes.main}>
+        <MainRoutes />
       </div>
-    </HashRouter>
+      <Footer />
+    </div>
   );
 }
-export default App;
