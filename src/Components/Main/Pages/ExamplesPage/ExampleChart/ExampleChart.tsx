@@ -1,26 +1,26 @@
 import { FC, ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classes from './Chart.module.scss';
 import { IChart } from '../../../../../utils/types/api';
 
 type PropsType = {
-  exampleAddress: string;
-  exampleOptions: IChart;
-  setNewMainOptions: (exampleOptions: IChart) => void;
+  address: string;
+  options: IChart;
+  setNewOptions: (exampleOptions: IChart) => void;
 };
 
-export const ExampleChart: FC<PropsType> = ({exampleAddress, exampleOptions, setNewMainOptions}): ReactElement => {
+export const ExampleChart: FC<PropsType> = ({address, options, setNewOptions}): ReactElement => {
   return (
     <>
       <div className={classes.imageContainer}>
-        <img src={exampleAddress} alt="Chart example" />
+        <img src={address} alt="Chart example" />
       </div>
-      <Link to="create" className={classes.link} onClick={() => setNewMainOptions(exampleOptions)}>
+      <NavLink to="create" className={classes.link} onClick={() => setNewOptions(options)}>
         Отредактировать график:{' '}
         <span>
-          {exampleOptions.options.title.text.split(',').shift()}
+          {options.options.title.text.split(',').shift()}
         </span>
-      </Link>
+      </NavLink>
     </>
   );
 };

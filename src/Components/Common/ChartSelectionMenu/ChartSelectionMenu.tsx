@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import { memo, ReactElement } from 'react';
 import classes from './ChartSelectionMenu.module.scss';
 import bar from '../../../assets/images/bar.png';
 import line from '../../../assets/images/line.png';
@@ -8,7 +8,7 @@ import doughnut from '../../../assets/images/doughnut.png';
 import horizontalBar from '../../../assets/images/horizontalBar.png';
 import { ChartSelectionButton } from '../ChartSelectionButton/ChartSelectionButton';
 
-export const ChartSelectionMenu: FC = (): ReactElement => {
+export const ChartSelectionMenu = memo((): ReactElement => {
   return (
     <div className={classes.chartSelectionForm}>
       <h3 className={classes.miniTitle}>Вид</h3>
@@ -64,4 +64,4 @@ export const ChartSelectionMenu: FC = (): ReactElement => {
       </div>
     </div>
   );
-};
+});

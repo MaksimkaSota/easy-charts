@@ -1,22 +1,30 @@
-import { FC, ReactElement } from 'react';
-import { useTypedSelector } from '../../../../../hooks/useTypeSelector';
-import { useActions } from '../../../../../hooks/useActions';
-import { mainOptionsSelector } from '../../../../../redux/selectors/selectors';
+import { memo, ReactElement } from 'react';
 import classes from './CharBasicSettings.module.scss';
+import { IChart } from '../../../../../utils/types/api';
 
-export const ChartBasicSettings: FC = (): ReactElement => {
-  const {mainOptions} = useTypedSelector(mainOptionsSelector);
-  const {
-    setMainTitle,
-    setMainLabels,
-    setMainData,
-    setMainLabelInData,
-    addMainRow,
-    addMainColumn,
-    removeMainRow,
-    removeMainColumn,
-  } = useActions();
+type PropsType = {
+  options: IChart;
+  setTitle: (type: string) => void;
+  setLabels: (id: number, value: string) => void;
+  setData: ({idData, value, idDataset}: { idData: number; value: string; idDataset: number; }) => void;
+  setLabelInData: (id: number, value: string) => void;
+  addRow: () => void;
+  addColumn: () => void;
+  removeRow: (index: number) => void;
+  removeColumn: (index: number) => void;
+};
 
+export const ChartBasicSettings = memo<PropsType>(({
+                                                     options,
+                                                     setTitle,
+                                                     setLabels,
+                                                     setData,
+                                                     setLabelInData,
+                                                     addRow,
+                                                     addColumn,
+                                                     removeRow,
+                                                     removeColumn
+                                                   }): ReactElement => {
   return (
     <div className={classes.chartSettings}>
       <p className={classes.miniTitle}>Таблица данных</p>
@@ -28,40 +36,40 @@ export const ChartBasicSettings: FC = (): ReactElement => {
           <p className={classes.axis}>X</p>
           <input
             type="text"
-            value={mainOptions.options.title.text}
+            value={options.options.title.text}
             className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
-            onChange={(event) => setMainTitle(event.target.value)}
+            onChange={(event) => setTitle(event.target.value)}
           />
-          {mainOptions.data.labels.map((field, index) => (
+          {options.data.labels.map((field, index) => (
             <div key={index} className={classes.deleteRowContainer}>
-              <div title="Удалить эту строку" className={classes.closeX} onClick={() => removeMainRow(index)} />
+              <div title="Удалить эту строку" className={classes.closeX} onClick={() => removeRow(index)} />
               <input
                 className={`${classes.inputData} ${classes.inputDataLabel}`}
                 type="text"
                 value={field}
-                onChange={(event) => setMainLabels(index, event.target.value)}
+                onChange={(event) => setLabels(index, event.target.value)}
               />
             </div>
           ))}
-          <button className={classes.addButton} onClick={() => addMainRow()}>
+          <button className={classes.addButton} onClick={() => addRow()}>
             Добавить строку
           </button>
         </div>
         <div className={classes.formContainer}>
           <div className={classes.flexContainer}>
-            {mainOptions.data.datasets.map((item, indexDataset) => {
+            {options.data.datasets.map((item, indexDataset) => {
               return (
                 <div className={classes.formContainerInner} key={indexDataset}>
                   <p className={classes.axis}>Y{indexDataset + 1}</p>
                   <div
                     title="Удалить этот столбец"
                     className={classes.closeY}
-                    onClick={() => removeMainColumn(indexDataset)}
+                    onClick={() => removeColumn(indexDataset)}
                   />
                   <input
                     className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
                     value={item.label}
-                    onChange={(event) => setMainLabelInData(indexDataset, event.target.value)}
+                    onChange={(event) => setLabelInData(indexDataset, event.target.value)}
                   />
                   {item.data.map((field, indexData) => (
                     <input
@@ -70,7 +78,7 @@ export const ChartBasicSettings: FC = (): ReactElement => {
                       type="text"
                       value={field}
                       onChange={(event) =>
-                        setMainData({
+                        setData({
                           idData: indexData,
                           value: event.target.value,
                           idDataset: indexDataset,
@@ -82,11 +90,11 @@ export const ChartBasicSettings: FC = (): ReactElement => {
               );
             })}
           </div>
-          <button className={classes.addButton} onClick={() => addMainColumn()}>
+          <button className={classes.addButton} onClick={() => addColumn()}>
             Добавить столбец
           </button>
         </div>
       </form>
     </div>
   );
-};
+});

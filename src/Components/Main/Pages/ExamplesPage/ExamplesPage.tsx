@@ -1,16 +1,33 @@
 import { FC, ReactElement, useEffect } from 'react';
-import { useTypedSelector } from '../../../../hooks/useTypeSelector';
-import { useActions } from '../../../../hooks/useActions';
-import { examplesOptionsSelector } from '../../../../redux/selectors/selectors';
 import classes from './ExamplesPage.module.scss';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
+import { IChart } from '../../../../utils/types/api';
+import { ExamplesOptionsState } from '../../../../redux/types/examplesOptions';
 
-export const ExamplesPage: FC = (): ReactElement => {
-  const examplesOptions = useTypedSelector(examplesOptionsSelector);
-  const {exampleFirstOptions, exampleSecondOptions, exampleThirdOptions} = useTypedSelector(examplesOptionsSelector);
-  const {getAddress} = useActions();
+type PropsType = {
+  exampleFirstAddress: string;
+  exampleSecondAddress: string;
+  exampleThirdAddress: string;
+  examplesOptions: ExamplesOptionsState;
+  exampleFirstOptions: IChart;
+  exampleSecondOptions: IChart;
+  exampleThirdOptions: IChart;
+  getAddress: (options: IChart, width: number, height: number, key?: string) => void;
+  setNewMainOptions: (options: IChart) => void;
+};
 
+export const ExamplesPage: FC<PropsType> = ({
+                                              exampleFirstAddress,
+                                              exampleSecondAddress,
+                                              exampleThirdAddress,
+                                              examplesOptions,
+                                              exampleFirstOptions,
+                                              exampleSecondOptions,
+                                              exampleThirdOptions,
+                                              getAddress,
+                                              setNewMainOptions
+                                            }): ReactElement => {
   useEffect(() => {
     getAddress(exampleFirstOptions, 800, 400, 'firstExample');
     getAddress(exampleSecondOptions, 800, 400, 'secondExample');
@@ -29,7 +46,15 @@ export const ExamplesPage: FC = (): ReactElement => {
       </p>
       <div className={classes.examplesMain}>
         <ChartSelectionMenu />
-        <ExampleCharts />
+        <ExampleCharts
+          firstAddress={exampleFirstAddress}
+          secondAddress={exampleSecondAddress}
+          thirdAddress={exampleThirdAddress}
+          firstOptions={exampleFirstOptions}
+          secondOptions={exampleSecondOptions}
+          thirdOptions={exampleThirdOptions}
+          setNewOptions={setNewMainOptions}
+        />
       </div>
     </div>
   );

@@ -1,32 +1,44 @@
 import { FC, ReactElement } from 'react';
-import { useTypedSelector } from '../../../../../hooks/useTypeSelector';
-import { useActions } from '../../../../../hooks/useActions';
-import { addressesSelector, examplesOptionsSelector } from '../../../../../redux/selectors/selectors';
 import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
+import { IChart } from '../../../../../utils/types/api';
 
-export const ExampleCharts: FC = (): ReactElement => {
-  const {exampleFirstAddress, exampleSecondAddress, exampleThirdAddress} = useTypedSelector(addressesSelector);
-  const {exampleFirstOptions, exampleSecondOptions, exampleThirdOptions} = useTypedSelector(examplesOptionsSelector);
-  const {setNewMainOptions} = useActions();
+type PropsType = {
+  firstAddress: string;
+  secondAddress: string;
+  thirdAddress: string;
+  firstOptions: IChart;
+  secondOptions: IChart;
+  thirdOptions: IChart;
+  setNewOptions: (options: IChart) => void;
+};
 
+export const ExampleCharts: FC<PropsType> = ({
+                                               firstAddress,
+                                               secondAddress,
+                                               thirdAddress,
+                                               firstOptions,
+                                               secondOptions,
+                                               thirdOptions,
+                                               setNewOptions
+                                             }): ReactElement => {
   return (
     <div className={classes.chartResult}>
       <h3 className={classes.miniTitle}>График</h3>
       <ExampleChart
-        exampleAddress={exampleFirstAddress}
-        exampleOptions={exampleSecondOptions}
-        setNewMainOptions={setNewMainOptions}
+        address={firstAddress}
+        options={firstOptions}
+        setNewOptions={setNewOptions}
       />
       <ExampleChart
-        exampleAddress={exampleSecondAddress}
-        exampleOptions={exampleFirstOptions}
-        setNewMainOptions={setNewMainOptions}
+        address={secondAddress}
+        options={secondOptions}
+        setNewOptions={setNewOptions}
       />
       <ExampleChart
-        exampleAddress={exampleThirdAddress}
-        exampleOptions={exampleThirdOptions}
-        setNewMainOptions={setNewMainOptions}
+        address={thirdAddress}
+        options={thirdOptions}
+        setNewOptions={setNewOptions}
       />
     </div>
   );

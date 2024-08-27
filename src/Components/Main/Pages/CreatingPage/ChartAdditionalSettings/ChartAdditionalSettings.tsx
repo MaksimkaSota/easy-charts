@@ -1,24 +1,26 @@
-import { ChangeEvent, FC, ReactElement, useState } from 'react';
-import { useTypedSelector } from '../../../../../hooks/useTypeSelector';
-import { useActions } from '../../../../../hooks/useActions';
-import { addressesSelector, mainOptionsSelector } from '../../../../../redux/selectors/selectors';
+import { ChangeEvent, memo, ReactElement } from 'react';
 import classes from './ChartAdditionalSettings.module.scss';
 
-export const ChartAdditionalSettings: FC = (): ReactElement => {
-  const {mainAddress} = useTypedSelector(addressesSelector);
-  const {width, height} = useTypedSelector(mainOptionsSelector);
-  const {setMainWidth, setMainHeight} = useActions();
+type PropsType = {
+  address: string;
+  width: number;
+  height: number;
+  setWidth: (width: number) => void;
+  setHeight: (height: number) => void;
+};
 
-  const [widthValue, setWidthValue] = useState<number>(width);
-  const [heightValue, setHeightValue] = useState<number>(height);
-
+export const ChartAdditionalSettings = memo<PropsType>(({
+                                                          address,
+                                                          width,
+                                                          height,
+                                                          setWidth,
+                                                          setHeight
+                                                        }): ReactElement => {
   const onWidthChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setWidthValue(+event.target.value);
-    setMainWidth(+event.target.value);
+    setWidth(+event.target.value);
   };
   const onHeightChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setHeightValue(+event.target.value);
-    setMainHeight(+event.target.value);
+    setHeight(+event.target.value);
   };
 
   return (
@@ -28,17 +30,17 @@ export const ChartAdditionalSettings: FC = (): ReactElement => {
         <label className={classes.labelSettingsForm} htmlFor="width">
           Ширина:
         </label>
-        <input type="text" id="width" value={widthValue} onChange={onWidthChange} />
+        <input type="text" id="width" value={width} onChange={onWidthChange} />
       </div>
       <div className={classes.params}>
         <label className={classes.labelSettingsForm} htmlFor="height">
           Высота:
         </label>
-        <input type="text" id="height" value={heightValue} onChange={onHeightChange} />
+        <input type="text" id="height" value={height} onChange={onHeightChange} />
       </div>
-      <a className={classes.link} href={mainAddress} download>
+      <a className={classes.link} href={address} download>
         Сохранить график
       </a>
     </div>
   );
-};
+});
