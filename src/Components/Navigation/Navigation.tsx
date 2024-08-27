@@ -4,14 +4,14 @@ import classes from './Navigation.module.scss';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
 
 const Navigation = () => {
-  const {getNewOptions} = useActions();
+  const {setNewMainOptions} = useActions();
 
   return (
     <nav className={classes.navigation}>
-      <Link to="create" className={classes.link} onClick={() => getNewOptions(mainInitialValue)}>
+      <Link to="create" className={classes.link} onClick={() => setNewMainOptions(mainInitialValue)}>
         Создать
       </Link>
-      <Link to="gallery" className={classes.link} onClick={() => getNewOptions(mainInitialValue)}>
+      <Link to="gallery" className={classes.link} onClick={() => setNewMainOptions(mainInitialValue)}>
         Галерея
       </Link>
       <Link to="examples" className={classes.link}>

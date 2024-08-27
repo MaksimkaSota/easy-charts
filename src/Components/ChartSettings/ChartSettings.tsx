@@ -5,14 +5,14 @@ import classes from './CharSettings.module.scss';
 const ChartSettings = () => {
   const {mainOptions} = useTypedSelector((state) => state.mainOptions);
   const {
-    setTitleChart,
-    setInitialValueByData,
-    setInitialValueByLabels,
-    addRow,
-    addColumn,
-    setLabelInData,
-    removeRow,
-    removeColumn,
+    setMainTitle,
+    setMainLabels,
+    setMainData,
+    setMainLabelInData,
+    addMainRow,
+    addMainColumn,
+    removeMainRow,
+    removeMainColumn,
   } = useActions();
 
   return (
@@ -28,34 +28,20 @@ const ChartSettings = () => {
             type="text"
             value={mainOptions.options.title.text}
             className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
-            onChange={(event) => setTitleChart(event.target.value)}
+            onChange={(event) => setMainTitle(event.target.value)}
           />
           {mainOptions.data.labels.map((field, index) => (
             <div key={index} className={classes.deleteRowContainer}>
-              <div
-                title="Удалить эту строку"
-                className={classes.closeX}
-                onClick={() => removeRow(index)}
-              ></div>
+              <div title="Удалить эту строку" className={classes.closeX} onClick={() => removeMainRow(index)} />
               <input
                 className={`${classes.inputData} ${classes.inputDataLabel}`}
                 type="text"
                 value={field}
-                onChange={(event) =>
-                  setInitialValueByLabels({
-                    id: index,
-                    value: event.target.value,
-                  })
-                }
+                onChange={(event) => setMainLabels(index, event.target.value)}
               />
             </div>
           ))}
-          <button
-            className={classes.addButton}
-            onClick={() => {
-              addRow();
-            }}
-          >
+          <button className={classes.addButton} onClick={() => addMainRow()}>
             Добавить строку
           </button>
         </div>
@@ -68,17 +54,12 @@ const ChartSettings = () => {
                   <div
                     title="Удалить этот столбец"
                     className={classes.closeY}
-                    onClick={() => removeColumn(indexDataset)}
-                  ></div>
+                    onClick={() => removeMainColumn(indexDataset)}
+                  />
                   <input
                     className={`${classes.inputData} ${classes.inputDataLabel} ${classes.margin}`}
                     value={item.label}
-                    onChange={(event) =>
-                      setLabelInData({
-                        id: indexDataset,
-                        value: event.target.value,
-                      })
-                    }
+                    onChange={(event) => setMainLabelInData(indexDataset, event.target.value)}
                   />
                   {item.data.map((field, indexData) => (
                     <input
@@ -87,7 +68,7 @@ const ChartSettings = () => {
                       type="text"
                       value={field}
                       onChange={(event) =>
-                        setInitialValueByData({
+                        setMainData({
                           idData: indexData,
                           value: event.target.value,
                           idDataset: indexDataset,
@@ -99,12 +80,7 @@ const ChartSettings = () => {
               );
             })}
           </div>
-          <button
-            className={classes.addButton}
-            onClick={() => {
-              addColumn();
-            }}
-          >
+          <button className={classes.addButton} onClick={() => addMainColumn()}>
             Добавить столбец
           </button>
         </div>

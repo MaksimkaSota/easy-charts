@@ -9,7 +9,7 @@ const initialState: MainOptionsState = {
 
 export const mainOptionsReducer = (state: MainOptionsState = initialState, action: MainOptionsAction): MainOptionsState => {
   switch (action.type) {
-    case MainOptionsActionType.SET_OPTIONS_TITLE:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_TITLE:
       return {
         ...state,
         mainOptions: {
@@ -22,7 +22,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_OPTIONS_LABELS:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_LABELS:
       const newLabels = state.mainOptions.data.labels.map((label, index) => {
         return action.payload.id === index ? action.payload.value : label;
       });
@@ -36,7 +36,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_OPTIONS_DATA:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_DATA:
       const datasets = state.mainOptions.data.datasets.map((item, index) => {
         return action.payload.idDataset === index
           ? {
@@ -59,7 +59,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_OPTIONS_LABEL_IN_DATA:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATA:
       return {
         ...state,
         mainOptions: {
@@ -80,7 +80,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_OPTIONS_TYPE:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_TYPE:
       return {
         ...state,
         mainOptions: {
@@ -88,7 +88,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           type: action.payload,
         },
       };
-    case MainOptionsActionType.ADD_OPTIONS_ROW:
+    case MainOptionsActionType.ADD_MAIN_OPTIONS_ROW:
       let num: number = 0;
       let ind: number = 0;
       state.mainOptions.data.labels.map((item, index, array) => {
@@ -113,7 +113,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.ADD_OPTIONS_COLUMN:
+    case MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN:
       let ind1: number = 0;
       state.mainOptions.data.datasets.map((item, index) => {
         ind1 = index + 2;
@@ -133,7 +133,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.REMOVE_OPTIONS_ROW:
+    case MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW:
       const newLebels = state.mainOptions.data.labels.filter((item, index) => {
         if (index !== action.payload) {
           return item;
@@ -162,7 +162,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.REMOVE_OPTIONS_COLUMN:
+    case MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN:
       const newDatasets =
         state.mainOptions.data.datasets.length !== 1
           ? state.mainOptions.data.datasets.filter((item, index) => {
@@ -181,17 +181,17 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_NEW_OPTIONS:
+    case MainOptionsActionType.SET_NEW_MAIN_OPTIONS:
       return {
         ...state,
         mainOptions: action.payload,
       };
-    case MainOptionsActionType.SET_OPTIONS_WIDTH:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH:
       return {
         ...state,
         width: action.payload,
       };
-    case MainOptionsActionType.SET_OPTIONS_HEIGHT:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT:
       return {
         ...state,
         height: action.payload,

@@ -20,13 +20,13 @@ export const TypeSelection: FC<PropsType> = ({
                                                classNameContainer,
                                                classNameText
                                              }): ReactElement => {
-  const {setTypeChart, setExamplesType} = useActions();
+  const {setMainType, setExamplesType} = useActions();
 
   const CustomTag = isLink ? Link : 'div';
   const props = {
     to: isLink ? 'create' : undefined,
     className: classNameContainer,
-    onClick: () => changeType(setTypeChart, setExamplesType, type),
+    onClick: () => changeType(setMainType, setExamplesType, type),
   }
 
   return (
