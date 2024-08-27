@@ -4,9 +4,9 @@ import { exampleSecondInitialValue } from '../../utils/initialValues/exampleSeco
 import { exampleThirdInitialValue } from '../../utils/initialValues/exampleThirdInitialValue';
 
 const initialState: ExamplesOptionsState = {
-  exampleFirst: exampleFirstInitialValue,
-  exampleSecond: exampleSecondInitialValue,
-  exampleThird: exampleThirdInitialValue,
+  exampleFirstOptions: exampleFirstInitialValue,
+  exampleSecondOptions: exampleSecondInitialValue,
+  exampleThirdOptions: exampleThirdInitialValue,
 };
 
 export const examplesOptionsReducer = (state: ExamplesOptionsState = initialState, action: ExamplesOptionsAction): ExamplesOptionsState => {
@@ -14,16 +14,16 @@ export const examplesOptionsReducer = (state: ExamplesOptionsState = initialStat
     case ExamplesOptionsActionType.SET_EXAMPLES_OPTIONS_TYPE:
       return {
         ...state,
-        exampleFirst: {
-          ...state.exampleFirst,
+        exampleFirstOptions: {
+          ...state.exampleFirstOptions,
           type: action.payload,
         },
-        exampleSecond: {
-          ...state.exampleSecond,
+        exampleSecondOptions: {
+          ...state.exampleSecondOptions,
           type: action.payload,
         },
-        exampleThird: {
-          ...state.exampleThird,
+        exampleThirdOptions: {
+          ...state.exampleThirdOptions,
           type: action.payload,
         },
       };

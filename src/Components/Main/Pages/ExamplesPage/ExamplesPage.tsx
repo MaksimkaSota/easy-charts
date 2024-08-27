@@ -8,13 +8,13 @@ import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 
 export const ExamplesPage: FC = (): ReactElement => {
   const examplesOptions = useTypedSelector(examplesOptionsSelector);
-  const {exampleFirst, exampleSecond, exampleThird} = useTypedSelector(examplesOptionsSelector);
+  const {exampleFirstOptions, exampleSecondOptions, exampleThirdOptions} = useTypedSelector(examplesOptionsSelector);
   const {getAddress} = useActions();
 
   useEffect(() => {
-    getAddress(exampleFirst, 800, 400, 'firstExample');
-    getAddress(exampleSecond, 800, 400, 'secondExample');
-    getAddress(exampleThird, 800, 400, 'thirdExample');
+    getAddress(exampleFirstOptions, 800, 400, 'firstExample');
+    getAddress(exampleSecondOptions, 800, 400, 'secondExample');
+    getAddress(exampleThirdOptions, 800, 400, 'thirdExample');
   }, [examplesOptions]);
 
   return (

@@ -1,9 +1,9 @@
 import { IChart } from '../../utils/types/api';
 
 export type ExamplesOptionsState = {
-  exampleFirst: IChart;
-  exampleSecond: IChart;
-  exampleThird: IChart;
+  exampleFirstOptions: IChart;
+  exampleSecondOptions: IChart;
+  exampleThirdOptions: IChart;
 }
 
 export enum ExamplesOptionsActionType {

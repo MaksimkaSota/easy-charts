@@ -2,9 +2,9 @@ import { ChangeEvent, FC, ReactElement, useState } from 'react';
 import { useTypedSelector } from '../../../../../hooks/useTypeSelector';
 import { useActions } from '../../../../../hooks/useActions';
 import { addressesSelector, mainOptionsSelector } from '../../../../../redux/selectors/selectors';
-import classes from './ChartViewAndSave.module.scss';
+import classes from './ChartAdditionalSettings.module.scss';
 
-export const ChartViewAndSave: FC = (): ReactElement => {
+export const ChartAdditionalSettings: FC = (): ReactElement => {
   const {mainAddress} = useTypedSelector(addressesSelector);
   const {width, height} = useTypedSelector(mainOptionsSelector);
   const {setMainWidth, setMainHeight} = useActions();

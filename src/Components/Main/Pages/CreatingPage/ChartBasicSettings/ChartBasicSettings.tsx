@@ -2,9 +2,9 @@ import { FC, ReactElement } from 'react';
 import { useTypedSelector } from '../../../../../hooks/useTypeSelector';
 import { useActions } from '../../../../../hooks/useActions';
 import { mainOptionsSelector } from '../../../../../redux/selectors/selectors';
-import classes from './CharSettings.module.scss';
+import classes from './CharBasicSettings.module.scss';
 
-export const ChartSettings: FC = (): ReactElement => {
+export const ChartBasicSettings: FC = (): ReactElement => {
   const {mainOptions} = useTypedSelector(mainOptionsSelector);
   const {
     setMainTitle,
