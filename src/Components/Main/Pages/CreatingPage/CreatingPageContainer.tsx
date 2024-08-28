@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react';
-import { useTypedSelector } from '../../../../hooks/useTypeSelector';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
 import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
 import { CreatingPage } from './CreatingPage';
