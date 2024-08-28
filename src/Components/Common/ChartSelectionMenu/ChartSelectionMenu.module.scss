@@ -2,7 +2,7 @@
   width: 15%;
   margin-right: 1rem;
   .miniTitle {
-    @extend %mini-title
+    @extend %mini-title;
   }
   .chartsTypeContainer {
     .imageContainer {
@@ -11,8 +11,8 @@
       align-items: center;
       box-shadow: 0 0 10px 0 $main-text;
       border-radius: 10px;
-      padding: .5rem;
-      margin-bottom: .9vw;
+      padding: 0.5rem;
+      margin-bottom: 0.9vw;
       font-size: 1rem;
       color: black;
       img {
@@ -24,7 +24,7 @@
         font-size: 1.2rem;
         text-decoration: none;
         line-height: 1.2rem;
-        transition: all .25s linear;
+        transition: all 0.25s linear;
       }
       &:hover {
         cursor: pointer;
@@ -76,7 +76,6 @@
     }
   }
 }
-
 
 @media (max-width: 480px) {
   .chartSelectionForm {

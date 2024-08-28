@@ -1,4 +1,5 @@
-import { MainOptionsState, MainOptionsActionType, MainOptionsAction } from '../types/mainOptions';
+import type { MainOptionsState, MainOptionsAction } from '../types/mainOptions';
+import { MainOptionsActionType } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
 
 const initialState: MainOptionsState = {
@@ -7,7 +8,10 @@ const initialState: MainOptionsState = {
   height: 400,
 };
 
-export const mainOptionsReducer = (state: MainOptionsState = initialState, action: MainOptionsAction): MainOptionsState => {
+export const mainOptionsReducer = (
+  state: MainOptionsState = initialState,
+  action: MainOptionsAction
+): MainOptionsState => {
   switch (action.type) {
     case MainOptionsActionType.SET_MAIN_OPTIONS_TITLE:
       return {
@@ -22,7 +26,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_MAIN_OPTIONS_LABELS:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_LABELS: {
       const newLabels = state.mainOptions.data.labels.map((label, index) => {
         return action.payload.id === index ? action.payload.value : label;
       });
@@ -36,17 +40,16 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.SET_MAIN_OPTIONS_DATA:
+    }
+    case MainOptionsActionType.SET_MAIN_OPTIONS_DATA: {
       const datasets = state.mainOptions.data.datasets.map((item, index) => {
         return action.payload.idDataset === index
           ? {
-            label: item.label,
-            data: item.data.map((itemData, indexData) => {
-              return action.payload.idData === indexData
-                ? action.payload.value.replace(/[^0-9.-]/g, '')
-                : itemData;
-            }),
-          }
+              label: item.label,
+              data: item.data.map((itemData, indexData) => {
+                return action.payload.idData === indexData ? action.payload.value.replace(/[^0-9.-]/g, '') : itemData;
+              }),
+            }
           : item;
       });
       return {
@@ -59,6 +62,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
+    }
     case MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATA:
       return {
         ...state,
@@ -70,9 +74,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
               ...state.mainOptions.data.datasets.map((item, index) => {
                 return {
                   label:
-                    action.payload.id === index
-                      ? action.payload.value
-                      : state.mainOptions.data.datasets[index].label,
+                    action.payload.id === index ? action.payload.value : state.mainOptions.data.datasets[index].label,
                   data: state.mainOptions.data.datasets[index].data,
                 };
               }),
@@ -88,7 +90,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           type: action.payload,
         },
       };
-    case MainOptionsActionType.ADD_MAIN_OPTIONS_ROW:
+    case MainOptionsActionType.ADD_MAIN_OPTIONS_ROW: {
       let num: number = 0;
       let ind: number = 0;
       state.mainOptions.data.labels.map((item, index, array) => {
@@ -113,7 +115,8 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN:
+    }
+    case MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN: {
       let ind1: number = 0;
       state.mainOptions.data.datasets.map((item, index) => {
         ind1 = index + 2;
@@ -133,8 +136,9 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
-    case MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW:
-      const newLebels = state.mainOptions.data.labels.filter((item, index) => {
+    }
+    case MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW: {
+      const newLabels = state.mainOptions.data.labels.filter((item, index) => {
         if (index !== action.payload) {
           return item;
         }
@@ -144,32 +148,31 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: newLebels,
+            labels: newLabels,
             datasets: [
               ...state.mainOptions.data.datasets.map((item, index) => {
                 return {
                   label: state.mainOptions.data.datasets[index].label,
-                  data: state.mainOptions.data.datasets[index].data.filter(
-                    (item, index) => {
-                      if (index !== action.payload) {
-                        return item;
-                      }
+                  data: state.mainOptions.data.datasets[index].data.filter((item, index) => {
+                    if (index !== action.payload) {
+                      return item;
                     }
-                  ),
+                  }),
                 };
               }),
             ],
           },
         },
       };
-    case MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN:
+    }
+    case MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN: {
       const newDatasets =
         state.mainOptions.data.datasets.length !== 1
           ? state.mainOptions.data.datasets.filter((item, index) => {
-            if (index !== action.payload) {
-              return item;
-            }
-          })
+              if (index !== action.payload) {
+                return item;
+              }
+            })
           : state.mainOptions.data.datasets;
       return {
         ...state,
@@ -181,6 +184,7 @@ export const mainOptionsReducer = (state: MainOptionsState = initialState, actio
           },
         },
       };
+    }
     case MainOptionsActionType.SET_NEW_MAIN_OPTIONS:
       return {
         ...state,

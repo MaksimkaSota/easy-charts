@@ -1,12 +1,12 @@
-import { IChart } from "../types/api";
+import type { IChart } from '../types/api';
 
 export const exampleThirdInitialValue: IChart = {
-  type: "bar",
+  type: 'bar',
   data: {
-    labels: ["2017", "2018", "2019", "2020", "2021"],
+    labels: ['2017', '2018', '2019', '2020', '2021'],
     datasets: [
       {
-        label: "",
+        label: '',
         data: [4.6, 5.6, 4.7, 7.4, 9.97],
       },
     ],
@@ -14,7 +14,7 @@ export const exampleThirdInitialValue: IChart = {
   options: {
     title: {
       display: true,
-      text: "Показатели инфляции в Беларуси, %",
+      text: 'Показатели инфляции в Беларуси, %',
     },
-  }
+  },
 };

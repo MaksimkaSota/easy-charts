@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');
@@ -108,9 +106,11 @@ function getModules() {
   // TypeScript project and set up the config
   // based on tsconfig.json
   if (hasTsConfig) {
-    const ts = require(resolve.sync('typescript', {
-      basedir: paths.appNodeModules,
-    }));
+    const ts = require(
+      resolve.sync('typescript', {
+        basedir: paths.appNodeModules,
+      })
+    );
     config = ts.readConfigFile(paths.appTsConfig, ts.sys.readFile).config;
     // Otherwise we'll check if there is jsconfig.json
     // for non TS projects.

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import classes from './Footer.module.scss';
 import { Navigation } from '../Common/Navigation/Navigation';
 import { Logo } from '../Common/Logo/Logo';

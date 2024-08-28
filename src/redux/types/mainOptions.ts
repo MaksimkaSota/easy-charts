@@ -1,10 +1,10 @@
-import { IChart } from '../../utils/types/api';
+import type { IChart } from '../../utils/types/api';
 
 export type MainOptionsState = {
   mainOptions: IChart;
   width: number;
   height: number;
-}
+};
 
 export enum MainOptionsActionType {
   SET_MAIN_OPTIONS_TITLE = 'SET_MAIN_OPTIONS_TITLE',
@@ -21,27 +21,27 @@ export enum MainOptionsActionType {
   SET_MAIN_OPTIONS_HEIGHT = 'SET_OPTIONS_HEIGHT',
 }
 
-export type SetMainTitleAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_TITLE; payload: string; }
+export type SetMainTitleAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_TITLE; payload: string };
 export type SetMainLabelsAction = {
   type: MainOptionsActionType.SET_MAIN_OPTIONS_LABELS;
   payload: { id: number; value: string };
-}
+};
 export type SetMainDataAction = {
   type: MainOptionsActionType.SET_MAIN_OPTIONS_DATA;
   payload: { idData: number; value: string; idDataset: number };
-}
+};
 export type SetMainLabelInDataAction = {
   type: MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATA;
   payload: { id: number; value: string };
-}
-export type SetMainTypeAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_TYPE; payload: string; }
-export type AddMainRowAction = { type: MainOptionsActionType.ADD_MAIN_OPTIONS_ROW; }
-export type AddMainColumnAction = { type: MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN; }
-export type RemoveMainRowAction = { type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW; payload: number; }
-export type RemoveMainColumnAction = { type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN; payload: number; }
-export type SetNewMainOptionsAction = { type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS; payload: IChart; }
-export type SetMainWidthAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH; payload: number; }
-export type SetMainHeightAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT; payload: number; }
+};
+export type SetMainTypeAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_TYPE; payload: string };
+export type AddMainRowAction = { type: MainOptionsActionType.ADD_MAIN_OPTIONS_ROW };
+export type AddMainColumnAction = { type: MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN };
+export type RemoveMainRowAction = { type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW; payload: number };
+export type RemoveMainColumnAction = { type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN; payload: number };
+export type SetNewMainOptionsAction = { type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS; payload: IChart };
+export type SetMainWidthAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH; payload: number };
+export type SetMainHeightAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT; payload: number };
 
 export type MainOptionsAction =
   | SetMainTitleAction

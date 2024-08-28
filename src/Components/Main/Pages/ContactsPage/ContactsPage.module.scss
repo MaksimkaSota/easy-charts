@@ -17,9 +17,9 @@
   }
   .mail {
     color: $green;
-    transition: all .25s linear;
+    transition: all 0.25s linear;
     text-decoration: underline;
-    font-size: 1.5rem ;
+    font-size: 1.5rem;
     line-height: 1.6rem;
     &:hover {
       cursor: pointer;
@@ -39,7 +39,7 @@
 
 @media (max-width: 768px) {
   .contacts {
-    padding: 0 .6rem;
+    padding: 0 0.6rem;
     .imageContainer {
       height: 35vw;
     }
@@ -55,7 +55,8 @@
 }
 
 @media (max-width: 360px) {
-  html, body {
+  html,
+  body {
     font-size: 12px;
   }
 }

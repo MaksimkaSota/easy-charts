@@ -1,12 +1,12 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
 import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
 import { CreatingPage } from './CreatingPage';
 
 export const CreatingPageContainer: FC = (): ReactElement => {
-  const {mainAddress} = useTypedSelector(addressesSelector);
-  const {mainOptions, width, height} = useTypedSelector(mainOptionsSelector);
+  const { mainAddress } = useTypedSelector(addressesSelector);
+  const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
   const {
     getAddress,
     setMainTitle,
@@ -18,7 +18,7 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     removeMainRow,
     removeMainColumn,
     setMainWidth,
-    setMainHeight
+    setMainHeight,
   } = useActions();
 
   return (

@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import classes from './App.module.scss';
 import { Header } from './Header/Header';
 import { Footer } from './Footer/Footer';
@@ -14,4 +14,4 @@ export const App: FC = (): ReactElement => {
       <Footer />
     </div>
   );
-}
+};

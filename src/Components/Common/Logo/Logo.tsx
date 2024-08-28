@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import classes from './Logo.module.scss';
 import logo from '../../../assets/images/logo.png';
 

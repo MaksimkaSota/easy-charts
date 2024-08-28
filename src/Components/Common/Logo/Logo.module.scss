@@ -5,7 +5,7 @@
     display: flex;
     font-weight: 700;
     font-size: 2.25rem;
-    margin-right: .6rem;
+    margin-right: 0.6rem;
     .letterRed {
       color: $red;
     }
@@ -26,6 +26,6 @@
 
 @media (max-width: 768px) {
   .logo {
-    padding-bottom: .9rem;
+    padding-bottom: 0.9rem;
   }
 }

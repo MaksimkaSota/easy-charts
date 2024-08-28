@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { CreatingPageContainer } from './Pages/CreatingPage/CreatingPageContainer';
 import { ExamplesPageContainer } from './Pages/ExamplesPage/ExamplesPageContainer';

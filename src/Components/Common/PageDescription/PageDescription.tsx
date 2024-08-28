@@ -1,4 +1,5 @@
-import { memo, ReactElement } from 'react';
+import { memo } from 'react';
+import type { ReactElement } from 'react';
 import classes from './PageDescription.module.scss';
 
 type PropsType = {
@@ -6,7 +7,8 @@ type PropsType = {
   textContent: string;
 };
 
-export const PageDescription = memo<PropsType>(({title, textContent}): ReactElement => {
+// eslint-disable-next-line react/display-name
+export const PageDescription = memo<PropsType>(({ title, textContent }): ReactElement => {
   return (
     <>
       <h2 className={classes.title}>{title}</h2>

@@ -1,11 +1,11 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useActions } from '../../../hooks/useActions';
 import classes from './Navigation.module.scss';
 import { mainInitialValue } from '../../../utils/initialValues/mainInitialValue';
 
 export const Navigation: FC = (): ReactElement => {
-  const {setNewMainOptions} = useActions();
+  const { setNewMainOptions } = useActions();
 
   return (
     <nav className={classes.navigation}>

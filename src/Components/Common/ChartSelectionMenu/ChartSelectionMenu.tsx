@@ -1,4 +1,5 @@
-import { memo, ReactElement } from 'react';
+import { memo } from 'react';
+import type { ReactElement } from 'react';
 import classes from './ChartSelectionMenu.module.scss';
 import bar from '../../../assets/images/bar.png';
 import line from '../../../assets/images/line.png';
@@ -8,6 +9,7 @@ import doughnut from '../../../assets/images/doughnut.png';
 import horizontalBar from '../../../assets/images/horizontalBar.png';
 import { ChartSelectionButton } from '../ChartSelectionButton/ChartSelectionButton';
 
+// eslint-disable-next-line react/display-name
 export const ChartSelectionMenu = memo((): ReactElement => {
   return (
     <div className={classes.chartSelectionForm}>

@@ -1,12 +1,12 @@
-import { IChart } from "../types/api";
+import type { IChart } from '../types/api';
 
 export const mainInitialValue: IChart = {
-  type: "bar",
+  type: 'bar',
   data: {
-    labels: ["Строка 1", "Строка 2", "Строка 3", "Строка 4", "Строка 5"],
+    labels: ['Строка 1', 'Строка 2', 'Строка 3', 'Строка 4', 'Строка 5'],
     datasets: [
       {
-        label: "Заголовок 1",
+        label: 'Заголовок 1',
         data: [1, 2, 3, 4, 5],
       },
     ],
@@ -14,7 +14,7 @@ export const mainInitialValue: IChart = {
   options: {
     title: {
       display: true,
-      text: "Заголовок графика",
+      text: 'Заголовок графика',
     },
   },
 };

@@ -1,9 +1,10 @@
-import { FC, ReactElement, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC, ReactElement } from 'react';
 import classes from './ExamplesPage.module.scss';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
-import { IChart } from '../../../../utils/types/api';
-import { ExamplesOptionsState } from '../../../../redux/types/examplesOptions';
+import type { IChart } from '../../../../utils/types/api';
+import type { ExamplesOptionsState } from '../../../../redux/types/examplesOptions';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 
 type PropsType = {
@@ -19,16 +20,16 @@ type PropsType = {
 };
 
 export const ExamplesPage: FC<PropsType> = ({
-                                              exampleFirstAddress,
-                                              exampleSecondAddress,
-                                              exampleThirdAddress,
-                                              examplesOptions,
-                                              exampleFirstOptions,
-                                              exampleSecondOptions,
-                                              exampleThirdOptions,
-                                              getAddress,
-                                              setNewMainOptions
-                                            }): ReactElement => {
+  exampleFirstAddress,
+  exampleSecondAddress,
+  exampleThirdAddress,
+  examplesOptions,
+  exampleFirstOptions,
+  exampleSecondOptions,
+  exampleThirdOptions,
+  getAddress,
+  setNewMainOptions,
+}): ReactElement => {
   useEffect(() => {
     getAddress(exampleFirstOptions, 800, 400, 'firstExample');
     getAddress(exampleSecondOptions, 800, 400, 'secondExample');

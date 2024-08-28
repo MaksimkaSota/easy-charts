@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import classes from './GalleryPage.module.scss';
 import bar from '../../../../assets/images/bar.png';
 import line from '../../../../assets/images/line.png';

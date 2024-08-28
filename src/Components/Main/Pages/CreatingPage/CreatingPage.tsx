@@ -1,10 +1,11 @@
-import { FC, ReactElement, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC, ReactElement } from 'react';
 import classes from './CreatingPage.module.scss';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { MainChart } from './MainChart/MainChart';
 import { ChartBasicSettings } from './ChartBasicSettings/ChartBasicSettings';
 import { ChartAdditionalSettings } from './ChartAdditionalSettings/ChartAdditionalSettings';
-import { IChart } from '../../../../utils/types/api';
+import type { IChart } from '../../../../utils/types/api';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 
 type PropsType = {
@@ -15,7 +16,7 @@ type PropsType = {
   getAddress: (options: IChart, width: number, height: number, key?: string) => void;
   setMainTitle: (type: string) => void;
   setMainLabels: (id: number, value: string) => void;
-  setMainData: ({idData, value, idDataset}: { idData: number; value: string; idDataset: number; }) => void;
+  setMainData: ({ idData, value, idDataset }: { idData: number; value: string; idDataset: number }) => void;
   setMainLabelInData: (id: number, value: string) => void;
   addMainRow: () => void;
   addMainColumn: () => void;
@@ -26,22 +27,22 @@ type PropsType = {
 };
 
 export const CreatingPage: FC<PropsType> = ({
-                                              mainAddress,
-                                              mainOptions,
-                                              width,
-                                              height,
-                                              getAddress,
-                                              setMainTitle,
-                                              setMainLabels,
-                                              setMainData,
-                                              setMainLabelInData,
-                                              addMainRow,
-                                              addMainColumn,
-                                              removeMainRow,
-                                              removeMainColumn,
-                                              setMainWidth,
-                                              setMainHeight
-                                            }): ReactElement => {
+  mainAddress,
+  mainOptions,
+  width,
+  height,
+  getAddress,
+  setMainTitle,
+  setMainLabels,
+  setMainData,
+  setMainLabelInData,
+  addMainRow,
+  addMainColumn,
+  removeMainRow,
+  removeMainColumn,
+  setMainWidth,
+  setMainHeight,
+}): ReactElement => {
   useEffect(() => {
     getAddress(mainOptions, width, height);
   }, [mainOptions, width, height]);

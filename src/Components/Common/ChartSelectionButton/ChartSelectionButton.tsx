@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useActions } from '../../../hooks/useActions';
 import { changeType } from '../../../utils/helpers/componentsHelpers';
@@ -13,23 +13,24 @@ type PropsType = {
 };
 
 export const ChartSelectionButton: FC<PropsType> = ({
-                                                      isLink,
-                                                      type,
-                                                      src,
-                                                      text,
-                                                      classNameContainer,
-                                                      classNameText
-                                                    }): ReactElement => {
-  const {setMainType, setExamplesType} = useActions();
+  isLink,
+  type,
+  src,
+  text,
+  classNameContainer,
+  classNameText,
+}): ReactElement => {
+  const { setMainType, setExamplesType } = useActions();
 
   const CustomTag = isLink ? NavLink : 'div';
   const props = {
     to: isLink ? 'create' : undefined,
     className: classNameContainer,
     onClick: () => changeType(setMainType, setExamplesType, type),
-  }
+  };
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     <CustomTag {...props}>
       <img src={src} alt={text} />

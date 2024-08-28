@@ -5,5 +5,5 @@ const baseURL: string = 'https://quickchart.io/chart';
 
 export const http: AxiosInstance = axios.create({
   baseURL: baseURL,
-  responseType: 'blob'
+  responseType: 'blob',
 });
