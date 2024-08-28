@@ -1,5 +1,3 @@
-@use "../../../global-styles" as global;
-
 .logo {
   display: flex;
   padding: 0 1rem;
@@ -9,13 +7,13 @@
     font-size: 2.25rem;
     margin-right: .6rem;
     .letterRed {
-      color: global.$red;
+      color: $red;
     }
     .letterOrange {
-      color: global.$yellow;
+      color: $yellow;
     }
     .letterBlue {
-      color: global.$blue;
+      color: $blue;
     }
   }
   .imageContainer {

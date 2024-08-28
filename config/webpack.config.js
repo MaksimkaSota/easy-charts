@@ -182,6 +182,15 @@ module.exports = function (webpackEnv) {
           },
         }
       );
+      loaders.push({
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true,
+          additionalData: `
+              @import 'src/utils/styles/global.scss';
+            `,
+        },
+      });
     }
     return loaders;
   };
@@ -419,7 +428,7 @@ module.exports = function (webpackEnv) {
                     },
                   ],
                 ],
-                
+
                 plugins: [
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
@@ -453,7 +462,7 @@ module.exports = function (webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-                
+
                 // Babel sourcemaps are needed for debugging into node_modules
                 // code.  Without the options below, debuggers like VSCode
                 // show incorrect code and set breakpoints on the wrong lines.

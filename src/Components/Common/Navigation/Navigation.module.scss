@@ -1,5 +1,3 @@
-@use "../../../global-styles" as global;
-
 .navigation {
   display: flex;
     .link {
@@ -13,7 +11,7 @@
       }
       &:hover {
         cursor: pointer;
-        color: global.$green;
+        color: $green;
         font-size: 1.3rem;
       }
     }

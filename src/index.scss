@@ -1,11 +1,9 @@
-@use "src/global-styles" as global;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  color: global.$main-text;
+  color: $main-text;
 }
 
 html, body {
@@ -51,5 +49,3 @@ code {
     font-size: 11px;
   }
 }
-
-

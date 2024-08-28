@@ -1,5 +1,3 @@
-@use "../../../../../global-styles" as global;
-
 .chartViewAndSave {
   max-width: 422px;
   text-align: left;
@@ -17,12 +15,12 @@
     justify-content: space-between;
     label {
       display: block;
-      color: global.$black;
+      color: $black;
       font-size: .9rem;
     }
     input {
       display: block;
-      color: global.$black;
+      color: $black;
       width: 50%;
       margin: .1rem;
       border: none;

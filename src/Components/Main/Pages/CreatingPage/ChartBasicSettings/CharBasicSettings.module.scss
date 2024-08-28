@@ -1,5 +1,3 @@
-@use "../../../../../global-styles" as global;
-
 .chartSettings   {
   text-align: left;
   box-shadow: 0 0 10px 0;
@@ -28,11 +26,11 @@
       }
       .axis {
         text-align: center;
-        color: global.$black;
+        color: $black;
       }
       .inputData {
         display: block;
-        color: global.$black;
+        color: $black;
         margin: .1rem;
         border: none;
         padding: .3rem;
@@ -93,13 +91,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-

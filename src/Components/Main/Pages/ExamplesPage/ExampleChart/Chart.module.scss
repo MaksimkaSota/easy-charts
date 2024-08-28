@@ -1,11 +1,9 @@
-@use "../../../../../global-styles" as global;
-
 .imageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 0 0 10px 0 global.$main-text;
+  box-shadow: 0 0 10px 0 $main-text;
   img {
     height: 100%;
     width: 100%;
@@ -20,6 +18,6 @@
     margin-bottom: 1rem;
   }
   span {
-    color: global.$black;
+    color: $black;
   }
 }
