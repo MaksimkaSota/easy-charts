@@ -16,8 +16,8 @@ type PropsType = {
   getAddress: (options: IChart, width: number, height: number, key?: string) => void;
   setMainTitle: (type: string) => void;
   setMainLabels: (id: number, value: string) => void;
-  setMainData: ({ idData, value, idDataset }: { idData: number; value: string; idDataset: number }) => void;
-  setMainLabelInData: (id: number, value: string) => void;
+  setMainData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
+  setMainLabelInDatasets: (id: number, value: string) => void;
   addMainRow: () => void;
   addMainColumn: () => void;
   removeMainRow: (index: number) => void;
@@ -35,7 +35,7 @@ export const CreatingPage: FC<PropsType> = ({
   setMainTitle,
   setMainLabels,
   setMainData,
-  setMainLabelInData,
+  setMainLabelInDatasets,
   addMainRow,
   addMainColumn,
   removeMainRow,
@@ -45,6 +45,7 @@ export const CreatingPage: FC<PropsType> = ({
 }): ReactElement => {
   useEffect(() => {
     getAddress(mainOptions, width, height);
+    // eslint-disable-next-line
   }, [mainOptions, width, height]);
 
   return (
@@ -68,7 +69,7 @@ export const CreatingPage: FC<PropsType> = ({
               setTitle={setMainTitle}
               setLabels={setMainLabels}
               setData={setMainData}
-              setLabelInData={setMainLabelInData}
+              setLabelInDatasets={setMainLabelInDatasets}
               addRow={addMainRow}
               addColumn={addMainColumn}
               removeRow={removeMainRow}

@@ -10,7 +10,6 @@ type PropsType = {
   setHeight: (height: number) => void;
 };
 
-// eslint-disable-next-line react/display-name
 export const ChartAdditionalSettings = memo<PropsType>(
   ({ address, width, height, setWidth, setHeight }): ReactElement => {
     const onWidthChange = (event: ChangeEvent<HTMLInputElement>): void => {

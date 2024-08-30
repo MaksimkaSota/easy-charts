@@ -1,8 +1,8 @@
 import type {
   SetMainTitleAction,
   SetMainLabelsAction,
-  SetMainDataAction,
-  SetMainLabelInDataAction,
+  SetMainDataInDatasetsAction,
+  SetMainLabelInDatasetsAction,
   SetMainTypeAction,
   AddMainRowAction,
   AddMainColumnAction,
@@ -23,20 +23,20 @@ export const setMainLabels = (id: number, value: string): SetMainLabelsAction =>
   type: MainOptionsActionType.SET_MAIN_OPTIONS_LABELS,
   payload: { id, value },
 });
-export const setMainData = ({
-  idData,
+export const setMainDataInDatasets = ({
+  datasetId,
+  dataId,
   value,
-  idDataset,
 }: {
-  idData: number;
+  datasetId: number;
+  dataId: number;
   value: string;
-  idDataset: number;
-}): SetMainDataAction => ({
-  type: MainOptionsActionType.SET_MAIN_OPTIONS_DATA,
-  payload: { idData, value, idDataset },
+}): SetMainDataInDatasetsAction => ({
+  type: MainOptionsActionType.SET_MAIN_OPTIONS_DATA_IN_DATASETS,
+  payload: { datasetId, dataId, value },
 });
-export const setMainLabelInData = (id: number, value: string): SetMainLabelInDataAction => ({
-  type: MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATA,
+export const setMainLabelInDatasets = (id: number, value: string): SetMainLabelInDatasetsAction => ({
+  type: MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATASETS,
   payload: { id, value },
 });
 export const setMainType = (type: string): SetMainTypeAction => ({

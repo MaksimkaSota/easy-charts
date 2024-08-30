@@ -11,8 +11,8 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     getAddress,
     setMainTitle,
     setMainLabels,
-    setMainData,
-    setMainLabelInData,
+    setMainDataInDatasets,
+    setMainLabelInDatasets,
     addMainRow,
     addMainColumn,
     removeMainRow,
@@ -30,8 +30,8 @@ export const CreatingPageContainer: FC = (): ReactElement => {
       getAddress={getAddress}
       setMainTitle={setMainTitle}
       setMainLabels={setMainLabels}
-      setMainData={setMainData}
-      setMainLabelInData={setMainLabelInData}
+      setMainData={setMainDataInDatasets}
+      setMainLabelInDatasets={setMainLabelInDatasets}
       addMainRow={addMainRow}
       addMainColumn={addMainColumn}
       removeMainRow={removeMainRow}

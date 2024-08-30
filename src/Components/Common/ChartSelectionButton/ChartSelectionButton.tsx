@@ -30,7 +30,6 @@ export const ChartSelectionButton: FC<PropsType> = ({
   };
 
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     <CustomTag {...props}>
       <img src={src} alt={text} />

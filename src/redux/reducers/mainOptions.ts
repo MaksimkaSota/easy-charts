@@ -1,6 +1,7 @@
-import type { MainOptionsState, MainOptionsAction } from '../types/mainOptions';
+import type { MainOptionsAction, MainOptionsState } from '../types/mainOptions';
 import { MainOptionsActionType } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
+import type { IDataset } from '../../utils/types/api';
 
 const initialState: MainOptionsState = {
   mainOptions: mainInitialValue,
@@ -19,69 +20,71 @@ export const mainOptionsReducer = (
         mainOptions: {
           ...state.mainOptions,
           options: {
+            ...state.mainOptions.options,
             title: {
-              display: state.mainOptions.options.title.display,
+              ...state.mainOptions.options.title,
               text: action.payload,
             },
           },
         },
       };
     case MainOptionsActionType.SET_MAIN_OPTIONS_LABELS: {
-      const newLabels = state.mainOptions.data.labels.map((label, index) => {
-        return action.payload.id === index ? action.payload.value : label;
+      const newLabels = state.mainOptions.data.labels.map((label: string, labelIndex: number): string => {
+        return action.payload.id === labelIndex ? action.payload.value : label;
       });
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
+            ...state.mainOptions.data,
             labels: newLabels,
-            datasets: state.mainOptions.data.datasets,
           },
         },
       };
     }
-    case MainOptionsActionType.SET_MAIN_OPTIONS_DATA: {
-      const datasets = state.mainOptions.data.datasets.map((item, index) => {
-        return action.payload.idDataset === index
+    case MainOptionsActionType.SET_MAIN_OPTIONS_DATA_IN_DATASETS: {
+      const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset, datasetIndex: number): IDataset => {
+        return action.payload.datasetId === datasetIndex
           ? {
-              label: item.label,
-              data: item.data.map((itemData, indexData) => {
-                return action.payload.idData === indexData ? action.payload.value.replace(/[^0-9.-]/g, '') : itemData;
-              }),
+              label: dataset.label,
+              data: dataset.data.map((dataItem: number, dataIndex: number): number =>
+                action.payload.dataId === dataIndex ? +action.payload.value.replace(/[^0-9.-]/g, '') : dataItem
+              ),
             }
-          : item;
+          : dataset;
       });
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: state.mainOptions.data.labels,
-            datasets: datasets,
+            ...state.mainOptions.data,
+            datasets: newDatasets,
           },
         },
       };
     }
-    case MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATA:
+    case MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATASETS: {
+      const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset, datasetIndex: number): IDataset => {
+        return action.payload.id === datasetIndex
+          ? {
+              label: action.payload.value,
+              data: dataset.data,
+            }
+          : dataset;
+      });
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: state.mainOptions.data.labels,
-            datasets: [
-              ...state.mainOptions.data.datasets.map((item, index) => {
-                return {
-                  label:
-                    action.payload.id === index ? action.payload.value : state.mainOptions.data.datasets[index].label,
-                  data: state.mainOptions.data.datasets[index].data,
-                };
-              }),
-            ],
+            ...state.mainOptions.data,
+            datasets: newDatasets,
           },
         },
       };
+    }
     case MainOptionsActionType.SET_MAIN_OPTIONS_TYPE:
       return {
         ...state,
@@ -91,96 +94,78 @@ export const mainOptionsReducer = (
         },
       };
     case MainOptionsActionType.ADD_MAIN_OPTIONS_ROW: {
-      let num: number = 0;
-      let ind: number = 0;
-      state.mainOptions.data.labels.map((item, index, array) => {
-        num = array.length + 1;
-        ind = index + 2;
-        return item;
+      const rowNumber: number = state.mainOptions.data.labels.length + 1;
+      const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset): IDataset => {
+        return {
+          label: dataset.label,
+          data: [...dataset.data, rowNumber],
+        };
       });
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: [...state.mainOptions.data.labels, `Строка ${num}`],
-            datasets: [
-              ...state.mainOptions.data.datasets.map((item, index) => {
-                return {
-                  label: state.mainOptions.data.datasets[index].label,
-                  data: [...state.mainOptions.data.datasets[index].data, ind],
-                };
-              }),
-            ],
+            ...state.mainOptions.data,
+            labels: [...state.mainOptions.data.labels, `Строка ${rowNumber}`],
+            datasets: newDatasets,
           },
         },
       };
     }
     case MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN: {
-      let ind1: number = 0;
-      state.mainOptions.data.datasets.map((item, index) => {
-        ind1 = index + 2;
-      });
-      const data = state.mainOptions.data.datasets[0].data;
-      const object = {
-        label: `Заголовок ${ind1}`,
-        data: [...data], // [...data]
+      const columnNumber: number = state.mainOptions.data.datasets.length + 1;
+      const newDataset: IDataset = {
+        label: `Заголовок ${columnNumber}`,
+        data: state.mainOptions.data.datasets[0].data,
       };
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: state.mainOptions.data.labels,
-            datasets: [...state.mainOptions.data.datasets, object],
+            ...state.mainOptions.data,
+            datasets: [...state.mainOptions.data.datasets, newDataset],
           },
         },
       };
     }
     case MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW: {
-      const newLabels = state.mainOptions.data.labels.filter((item, index) => {
-        if (index !== action.payload) {
-          return item;
-        }
+      const newLabels = state.mainOptions.data.labels.filter((label: string, labelIndex: number): boolean => {
+        return action.payload !== labelIndex;
+      });
+      const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset): IDataset => {
+        return {
+          label: dataset.label,
+          data:
+            dataset.data.length === 1
+              ? dataset.data
+              : dataset.data.filter((dataItem: number, dataIndex: number): boolean => action.payload !== dataIndex),
+        };
       });
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: newLabels,
-            datasets: [
-              ...state.mainOptions.data.datasets.map((item, index) => {
-                return {
-                  label: state.mainOptions.data.datasets[index].label,
-                  data: state.mainOptions.data.datasets[index].data.filter((item, index) => {
-                    if (index !== action.payload) {
-                      return item;
-                    }
-                  }),
-                };
-              }),
-            ],
+            ...state.mainOptions.data,
+            labels: state.mainOptions.data.labels.length === 1 ? state.mainOptions.data.labels : newLabels,
+            datasets: newDatasets,
           },
         },
       };
     }
     case MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN: {
-      const newDatasets =
-        state.mainOptions.data.datasets.length !== 1
-          ? state.mainOptions.data.datasets.filter((item, index) => {
-              if (index !== action.payload) {
-                return item;
-              }
-            })
-          : state.mainOptions.data.datasets;
+      const newDatasets = state.mainOptions.data.datasets.filter((dataset: IDataset, datasetIndex: number): boolean => {
+        return action.payload !== datasetIndex;
+      });
       return {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           data: {
-            labels: state.mainOptions.data.labels,
-            datasets: newDatasets,
+            ...state.mainOptions.data,
+            datasets: state.mainOptions.data.datasets.length === 1 ? state.mainOptions.data.datasets : newDatasets,
           },
         },
       };

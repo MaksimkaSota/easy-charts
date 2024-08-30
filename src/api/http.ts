@@ -4,6 +4,6 @@ import type { AxiosInstance } from 'axios';
 const baseURL: string = 'https://quickchart.io/chart';
 
 export const http: AxiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL,
   responseType: 'blob',
 });

@@ -9,8 +9,8 @@ export type MainOptionsState = {
 export enum MainOptionsActionType {
   SET_MAIN_OPTIONS_TITLE = 'SET_MAIN_OPTIONS_TITLE',
   SET_MAIN_OPTIONS_LABELS = 'SET_MAIN_OPTIONS_LABELS',
-  SET_MAIN_OPTIONS_DATA = 'SET_MAIN_OPTIONS_DATA',
-  SET_MAIN_OPTIONS_LABEL_IN_DATA = 'SET_MAIN_OPTIONS_LABEL_IN_DATA',
+  SET_MAIN_OPTIONS_DATA_IN_DATASETS = 'SET_MAIN_OPTIONS_DATA_IN_DATASETS',
+  SET_MAIN_OPTIONS_LABEL_IN_DATASETS = 'SET_MAIN_OPTIONS_LABEL_IN_DATASETS',
   SET_MAIN_OPTIONS_TYPE = 'SET_MAIN_OPTIONS_TYPE',
   ADD_MAIN_OPTIONS_ROW = 'ADD_OPTIONS_ROW',
   ADD_MAIN_OPTIONS_COLUMN = 'ADD_OPTIONS_COLUMN',
@@ -26,12 +26,12 @@ export type SetMainLabelsAction = {
   type: MainOptionsActionType.SET_MAIN_OPTIONS_LABELS;
   payload: { id: number; value: string };
 };
-export type SetMainDataAction = {
-  type: MainOptionsActionType.SET_MAIN_OPTIONS_DATA;
-  payload: { idData: number; value: string; idDataset: number };
+export type SetMainDataInDatasetsAction = {
+  type: MainOptionsActionType.SET_MAIN_OPTIONS_DATA_IN_DATASETS;
+  payload: { datasetId: number; dataId: number; value: string };
 };
-export type SetMainLabelInDataAction = {
-  type: MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATA;
+export type SetMainLabelInDatasetsAction = {
+  type: MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATASETS;
   payload: { id: number; value: string };
 };
 export type SetMainTypeAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_TYPE; payload: string };
@@ -46,8 +46,8 @@ export type SetMainHeightAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS
 export type MainOptionsAction =
   | SetMainTitleAction
   | SetMainLabelsAction
-  | SetMainDataAction
-  | SetMainLabelInDataAction
+  | SetMainDataInDatasetsAction
+  | SetMainLabelInDatasetsAction
   | SetMainTypeAction
   | AddMainRowAction
   | AddMainColumnAction

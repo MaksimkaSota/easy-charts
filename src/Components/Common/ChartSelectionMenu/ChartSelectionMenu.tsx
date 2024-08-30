@@ -9,7 +9,6 @@ import doughnut from '../../../assets/images/doughnut.png';
 import horizontalBar from '../../../assets/images/horizontalBar.png';
 import { ChartSelectionButton } from '../ChartSelectionButton/ChartSelectionButton';
 
-// eslint-disable-next-line react/display-name
 export const ChartSelectionMenu = memo((): ReactElement => {
   return (
     <div className={classes.chartSelectionForm}>
