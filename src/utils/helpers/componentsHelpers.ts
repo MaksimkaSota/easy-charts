@@ -6,3 +6,8 @@ export const changeType = (
   setMainTypeChart(type);
   setExamplesTypeChart(type);
 };
+
+export const readByString = (path: string | string[], object: any, separator: string = '.'): string => {
+  const properties = Array.isArray(path) ? path : path.split(separator);
+  return properties.reduce((prev, curr) => prev?.[curr], object);
+};

@@ -1,6 +1,6 @@
 export interface IDataset {
   label: string;
-  data: number[];
+  data: Array<number | string>;
 }
 
 export interface IChart {

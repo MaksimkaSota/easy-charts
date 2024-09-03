@@ -1,0 +1,17 @@
+.formContainer {
+  &:first-child {
+    margin: 0 0.3rem 0 0;
+    .axisName {
+      text-align: center;
+    }
+    .inputData {
+      @include input(#ccc, 0.3rem);
+    }
+    .addButton {
+      @extend %button;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+  }
+}

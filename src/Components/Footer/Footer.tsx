@@ -5,7 +5,7 @@ import { Logo } from '../Common/Logo/Logo';
 
 export const Footer: FC = (): ReactElement => {
   return (
-    <div className={classes.footer}>
+    <footer className={classes.footer}>
       <div className={classes.center}>
         <Logo />
       </div>
@@ -13,6 +13,6 @@ export const Footer: FC = (): ReactElement => {
       <div className={classes.center}>
         <Navigation />
       </div>
-    </div>
+    </footer>
   );
 };

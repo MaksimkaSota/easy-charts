@@ -1,12 +1,11 @@
-import { useEffect } from 'react';
-import type { FC, ReactElement } from 'react';
+import { type FC, type ReactElement, useEffect } from 'react';
 import classes from './CreatingPage.module.scss';
+import type { IChart } from '../../../../utils/types/api';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { MainChart } from './MainChart/MainChart';
-import { ChartBasicSettings } from './ChartBasicSettings/ChartBasicSettings';
 import { ChartAdditionalSettings } from './ChartAdditionalSettings/ChartAdditionalSettings';
-import type { IChart } from '../../../../utils/types/api';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
+import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
 
 type PropsType = {
   mainOptions: IChart;
@@ -61,10 +60,11 @@ export const CreatingPage: FC<PropsType> = ({
       <div className={classes.createContent}>
         <ChartSelectionMenu />
         <MainChart address={mainAddress} />
-        <div className={classes.optionsChartContainer}>
-          <h3 className={classes.miniTitle}>Настройки графика</h3>
-          <div className={classes.optionsChartInner}>
-            <ChartBasicSettings
+        <div className={classes.settingsContainer}>
+          <h3 className={classes.settingsTitle}>Настройки графика</h3>
+          <div className={classes.settingsFormContainer}>
+            <p className={classes.settingsFormTitle}>Таблица данных</p>
+            <BasicSettingsForm
               options={mainOptions}
               setTitle={setMainTitle}
               setLabels={setMainLabels}
@@ -75,14 +75,14 @@ export const CreatingPage: FC<PropsType> = ({
               removeRow={removeMainRow}
               removeColumn={removeMainColumn}
             />
-            <ChartAdditionalSettings
-              address={mainAddress}
-              width={width}
-              height={height}
-              setWidth={setMainWidth}
-              setHeight={setMainHeight}
-            />
           </div>
+          <ChartAdditionalSettings
+            address={mainAddress}
+            width={width}
+            height={height}
+            setWidth={setMainWidth}
+            setHeight={setMainHeight}
+          />
         </div>
       </div>
     </div>

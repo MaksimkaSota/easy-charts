@@ -48,8 +48,8 @@ export const mainOptionsReducer = (
         return action.payload.datasetId === datasetIndex
           ? {
               label: dataset.label,
-              data: dataset.data.map((dataItem: number, dataIndex: number): number =>
-                action.payload.dataId === dataIndex ? +action.payload.value.replace(/[^0-9.-]/g, '') : dataItem
+              data: dataset.data.map((dataItem: number | string, dataIndex: number): number | string =>
+                action.payload.dataId === dataIndex ? action.payload.value : dataItem
               ),
             }
           : dataset;
@@ -115,9 +115,10 @@ export const mainOptionsReducer = (
     }
     case MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN: {
       const columnNumber: number = state.mainOptions.data.datasets.length + 1;
+      const columnIndex: number = state.mainOptions.data.datasets.length - 1;
       const newDataset: IDataset = {
         label: `Заголовок ${columnNumber}`,
-        data: state.mainOptions.data.datasets[0].data,
+        data: state.mainOptions.data.datasets[columnIndex].data,
       };
       return {
         ...state,
@@ -131,7 +132,7 @@ export const mainOptionsReducer = (
       };
     }
     case MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW: {
-      const newLabels = state.mainOptions.data.labels.filter((label: string, labelIndex: number): boolean => {
+      const newLabels = state.mainOptions.data.labels.filter((label, labelIndex: number): boolean => {
         return action.payload !== labelIndex;
       });
       const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset): IDataset => {
@@ -140,7 +141,7 @@ export const mainOptionsReducer = (
           data:
             dataset.data.length === 1
               ? dataset.data
-              : dataset.data.filter((dataItem: number, dataIndex: number): boolean => action.payload !== dataIndex),
+              : dataset.data.filter((dataItem, dataIndex: number): boolean => action.payload !== dataIndex),
         };
       });
       return {
@@ -156,7 +157,7 @@ export const mainOptionsReducer = (
       };
     }
     case MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN: {
-      const newDatasets = state.mainOptions.data.datasets.filter((dataset: IDataset, datasetIndex: number): boolean => {
+      const newDatasets = state.mainOptions.data.datasets.filter((dataset, datasetIndex: number): boolean => {
         return action.payload !== datasetIndex;
       });
       return {

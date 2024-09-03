@@ -1,17 +1,28 @@
 .create {
   padding: 1.5rem 0;
-  width: 95%;
-  margin: 0 auto;
+  @include position(95%, 0 auto);
   .createContent {
-    display: flex;
-    justify-content: center;
+    @include flex(center, null);
     flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-  .optionsChartContainer {
-    max-width: 100%;
-    .miniTitle {
-      @extend %mini-title;
+    .settingsContainer {
+      max-width: 100%;
+      .settingsTitle {
+        @extend %mini-title;
+      }
+      .settingsFormContainer {
+        text-align: left;
+        margin: 0 0 1rem 0;
+        padding: 0.8rem 0.8rem 0.8rem 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0;
+        overflow: auto;
+        .settingsFormTitle {
+          font-size: 1rem;
+          margin: 0 0 0.3rem 0;
+          padding: 0 0.3rem 0.3rem;
+          border-bottom: 1px solid;
+        }
+      }
     }
   }
 }

@@ -6,6 +6,11 @@
   color: $main-text;
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 html,
 body {
   width: 100%;
