@@ -11,6 +11,7 @@ type PropsType = {
   name: string;
   component?: string;
   type?: string;
+  id?: string;
   errors?: FormikErrorsType;
   onChange: HandleChangeType;
 };

@@ -1,4 +1,4 @@
-import type { FC, ReactElement } from 'react';
+import { type ReactElement, memo } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import classes from './BasicSettingsForm.module.scss';
@@ -27,51 +27,43 @@ type PropsType = {
   removeColumn: (index: number) => void;
 };
 
-export const BasicSettingsForm: FC<PropsType> = ({
-  options,
-  setTitle,
-  setLabels,
-  setData,
-  setLabelInDatasets,
-  addRow,
-  addColumn,
-  removeRow,
-  removeColumn,
-}) => {
-  return (
-    <Formik
-      initialValues={{
-        title: options.options.title.text,
-        labels: options.data.labels,
-        datasets: options.data.datasets,
-      }}
-      validationSchema={validationSchema}
-      onSubmit={() => {}}
-    >
-      {({ errors, handleChange, setFieldValue }): ReactElement => (
-        <div className={classes.basicSettingsForm}>
-          <AddRowForm
-            labels={options.data.labels}
-            setLabels={setLabels}
-            setTitle={setTitle}
-            addRow={addRow}
-            removeRow={removeRow}
-            errors={errors}
-            handleChange={handleChange}
-            setFieldValue={setFieldValue}
-          />
-          <AddColumnForm
-            datasets={options.data.datasets}
-            setData={setData}
-            setLabelInDatasets={setLabelInDatasets}
-            addColumn={addColumn}
-            removeColumn={removeColumn}
-            errors={errors}
-            handleChange={handleChange}
-            setFieldValue={setFieldValue}
-          />
-        </div>
-      )}
-    </Formik>
-  );
-};
+export const BasicSettingsForm = memo<PropsType>(
+  ({ options, setTitle, setLabels, setData, setLabelInDatasets, addRow, addColumn, removeRow, removeColumn }) => {
+    return (
+      <Formik
+        initialValues={{
+          title: options.options.title.text,
+          labels: options.data.labels,
+          datasets: options.data.datasets,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={() => {}}
+      >
+        {({ errors, handleChange, setFieldValue }): ReactElement => (
+          <div className={classes.basicSettingsForm}>
+            <AddRowForm
+              labels={options.data.labels}
+              setLabels={setLabels}
+              setTitle={setTitle}
+              addRow={addRow}
+              removeRow={removeRow}
+              errors={errors}
+              handleChange={handleChange}
+              setFieldValue={setFieldValue}
+            />
+            <AddColumnForm
+              datasets={options.data.datasets}
+              setData={setData}
+              setLabelInDatasets={setLabelInDatasets}
+              addColumn={addColumn}
+              removeColumn={removeColumn}
+              errors={errors}
+              handleChange={handleChange}
+              setFieldValue={setFieldValue}
+            />
+          </div>
+        )}
+      </Formik>
+    );
+  }
+);

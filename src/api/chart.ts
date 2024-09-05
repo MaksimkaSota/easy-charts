@@ -1,7 +1,7 @@
 import { http } from './http';
 import type { IChart } from '../utils/types/api';
 
-export const getChartAPI = async (options: IChart, width: number, height: number): Promise<Blob> => {
+export const getChartAPI = async (options: IChart, width: number | string, height: number | string): Promise<Blob> => {
   const typeURL = `type:'${options.type}'`;
 
   const labels = JSON.stringify(options.data.labels);

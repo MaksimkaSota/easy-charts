@@ -1,18 +1,18 @@
-import { type FC, type ReactElement, useEffect } from 'react';
+import type { FC, ReactElement } from 'react';
+import cn from 'classnames';
 import classes from './CreatingPage.module.scss';
 import type { IChart } from '../../../../utils/types/api';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { MainChart } from './MainChart/MainChart';
-import { ChartAdditionalSettings } from './ChartAdditionalSettings/ChartAdditionalSettings';
+import { AdditionalSettingsForm } from './ChartAdditionalSettings/AdditionalSettingsForm';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
 
 type PropsType = {
   mainOptions: IChart;
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
   mainAddress: string;
-  getAddress: (options: IChart, width: number, height: number, key?: string) => void;
   setMainTitle: (type: string) => void;
   setMainLabels: (id: number, value: string) => void;
   setMainData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
@@ -21,8 +21,8 @@ type PropsType = {
   addMainColumn: () => void;
   removeMainRow: (index: number) => void;
   removeMainColumn: (index: number) => void;
-  setMainWidth: (width: number) => void;
-  setMainHeight: (height: number) => void;
+  setMainWidth: (width: number | string) => void;
+  setMainHeight: (height: number | string) => void;
 };
 
 export const CreatingPage: FC<PropsType> = ({
@@ -30,7 +30,6 @@ export const CreatingPage: FC<PropsType> = ({
   mainOptions,
   width,
   height,
-  getAddress,
   setMainTitle,
   setMainLabels,
   setMainData,
@@ -42,11 +41,6 @@ export const CreatingPage: FC<PropsType> = ({
   setMainWidth,
   setMainHeight,
 }): ReactElement => {
-  useEffect(() => {
-    getAddress(mainOptions, width, height);
-    // eslint-disable-next-line
-  }, [mainOptions, width, height]);
-
   return (
     <div className={classes.create}>
       <PageDescription
@@ -62,7 +56,7 @@ export const CreatingPage: FC<PropsType> = ({
         <MainChart address={mainAddress} />
         <div className={classes.settingsContainer}>
           <h3 className={classes.settingsTitle}>Настройки графика</h3>
-          <div className={classes.settingsFormContainer}>
+          <div className={cn(classes.settingsFormContainer, classes.basicFormContainer)}>
             <p className={classes.settingsFormTitle}>Таблица данных</p>
             <BasicSettingsForm
               options={mainOptions}
@@ -76,13 +70,16 @@ export const CreatingPage: FC<PropsType> = ({
               removeColumn={removeMainColumn}
             />
           </div>
-          <ChartAdditionalSettings
-            address={mainAddress}
-            width={width}
-            height={height}
-            setWidth={setMainWidth}
-            setHeight={setMainHeight}
-          />
+          <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
+            <p className={classes.settingsFormTitle}>Параметры графика</p>
+            <AdditionalSettingsForm
+              address={mainAddress}
+              width={width}
+              height={height}
+              setWidth={setMainWidth}
+              setHeight={setMainHeight}
+            />
+          </div>
         </div>
       </div>
     </div>

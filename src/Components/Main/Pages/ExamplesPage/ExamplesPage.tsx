@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import type { FC, ReactElement } from 'react';
 import classes from './ExamplesPage.module.scss';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
@@ -13,7 +12,6 @@ type PropsType = {
   exampleFirstOptions: IChart;
   exampleSecondOptions: IChart;
   exampleThirdOptions: IChart;
-  getAddress: (options: IChart, width: number, height: number, key?: string) => void;
   setNewMainOptions: (options: IChart) => void;
 };
 
@@ -24,16 +22,8 @@ export const ExamplesPage: FC<PropsType> = ({
   exampleFirstOptions,
   exampleSecondOptions,
   exampleThirdOptions,
-  getAddress,
   setNewMainOptions,
 }): ReactElement => {
-  useEffect(() => {
-    getAddress(exampleFirstOptions, 800, 400, 'firstExample');
-    getAddress(exampleSecondOptions, 800, 400, 'secondExample');
-    getAddress(exampleThirdOptions, 800, 400, 'thirdExample');
-    // eslint-disable-next-line
-  }, [exampleFirstOptions, exampleSecondOptions, exampleThirdOptions]);
-
   return (
     <div className={classes.examples}>
       <PageDescription

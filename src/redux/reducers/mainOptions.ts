@@ -5,8 +5,8 @@ import type { IDataset } from '../../utils/types/api';
 
 const initialState: MainOptionsState = {
   mainOptions: mainInitialValue,
-  width: 800,
-  height: 400,
+  width: 1000,
+  height: 600,
 };
 
 export const mainOptionsReducer = (

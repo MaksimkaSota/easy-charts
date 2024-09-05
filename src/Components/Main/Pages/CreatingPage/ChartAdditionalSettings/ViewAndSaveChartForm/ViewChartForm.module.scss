@@ -1,0 +1,16 @@
+.formContainer {
+  @include flex(space-between, null);
+  .label {
+    display: block;
+    color: $black;
+    font-size: 0.9rem;
+  }
+  .inputData {
+    @include input(#f5f5f5, 0.1rem);
+  }
+}
+.link {
+  @extend %button;
+  text-align: center;
+  margin-bottom: 0;
+}

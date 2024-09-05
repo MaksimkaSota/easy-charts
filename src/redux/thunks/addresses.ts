@@ -12,8 +12,8 @@ import {
 
 export const getAddress = (
   options: IChart,
-  width: number,
-  height: number,
+  width: number | string,
+  height: number | string,
   key?: string
 ): ThunkType<AddressesAction> => {
   return async (dispatch) => {

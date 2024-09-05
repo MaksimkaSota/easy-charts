@@ -1,4 +1,4 @@
-import type { FC, ReactElement } from 'react';
+import { type FC, type ReactElement, useEffect } from 'react';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
 import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
@@ -21,13 +21,17 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     setMainHeight,
   } = useActions();
 
+  useEffect(() => {
+    getAddress(mainOptions, width, height);
+    // eslint-disable-next-line
+  }, [mainOptions, width, height]);
+
   return (
     <CreatingPage
       mainAddress={mainAddress}
       mainOptions={mainOptions}
       width={width}
       height={height}
-      getAddress={getAddress}
       setMainTitle={setMainTitle}
       setMainLabels={setMainLabels}
       setMainData={setMainDataInDatasets}

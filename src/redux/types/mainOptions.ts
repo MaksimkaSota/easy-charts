@@ -2,8 +2,8 @@ import type { IChart } from '../../utils/types/api';
 
 export type MainOptionsState = {
   mainOptions: IChart;
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
 };
 
 export enum MainOptionsActionType {
@@ -40,8 +40,8 @@ export type AddMainColumnAction = { type: MainOptionsActionType.ADD_MAIN_OPTIONS
 export type RemoveMainRowAction = { type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW; payload: number };
 export type RemoveMainColumnAction = { type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN; payload: number };
 export type SetNewMainOptionsAction = { type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS; payload: IChart };
-export type SetMainWidthAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH; payload: number };
-export type SetMainHeightAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT; payload: number };
+export type SetMainWidthAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH; payload: number | string };
+export type SetMainHeightAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT; payload: number | string };
 
 export type MainOptionsAction =
   | SetMainTitleAction

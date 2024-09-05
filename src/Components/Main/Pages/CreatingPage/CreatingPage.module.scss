@@ -11,17 +11,23 @@
       }
       .settingsFormContainer {
         text-align: left;
-        margin: 0 0 1rem 0;
-        padding: 0.8rem 0.8rem 0.8rem 1.5rem;
         border-radius: 10px;
         box-shadow: 0 0 10px 0;
-        overflow: auto;
         .settingsFormTitle {
           font-size: 1rem;
           margin: 0 0 0.3rem 0;
           padding: 0 0.3rem 0.3rem;
           border-bottom: 1px solid;
         }
+      }
+      .basicFormContainer {
+        margin: 0 0 1rem 0;
+        padding: 0.8rem 0.8rem 0.8rem 1.5rem;
+        overflow: auto;
+      }
+      .additionalFormContainer {
+        max-width: 422px;
+        padding: 0.8rem;
       }
     }
   }
