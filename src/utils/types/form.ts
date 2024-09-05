@@ -8,4 +8,7 @@ export type SetFieldValueType = (
 ) => Promise<void | FormikErrors<any>>;
 export type HandleChangeType = (event: ChangeEvent<any>) => void;
 export type FormikErrorsType = { [field: string]: any };
-export type SubmitFormType = (() => Promise<void>) & (() => Promise<any>);
+export type SetTouchedType = (
+  fields: { [field: string]: boolean },
+  shouldValidate?: boolean
+) => Promise<void | FormikErrors<any>>;

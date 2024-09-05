@@ -1,19 +1,18 @@
 import { type ReactElement, memo } from 'react';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import classes from './BasicSettingsForm.module.scss';
 import type { IChart } from '../../../../../utils/types/api';
 import { AddRowForm } from './AddRowForm/AddRowForm';
 import { AddColumnForm } from './AddColumnForm/AddColumnForm';
 
-const validationSchema = () =>
-  Yup.object().shape({
-    datasets: Yup.array().of(
-      Yup.object().shape({
-        data: Yup.array().of(Yup.number().typeError('Только числа')),
-      })
-    ),
-  });
+const validationSchema = Yup.object().shape({
+  datasets: Yup.array().of(
+    Yup.object().shape({
+      data: Yup.array().of(Yup.number().typeError('Только числа')),
+    })
+  ),
+});
 
 type PropsType = {
   options: IChart;
@@ -40,7 +39,7 @@ export const BasicSettingsForm = memo<PropsType>(
         onSubmit={() => {}}
       >
         {({ errors, handleChange, setFieldValue }): ReactElement => (
-          <div className={classes.basicSettingsForm}>
+          <Form className={classes.basicSettingsForm}>
             <AddRowForm
               labels={options.data.labels}
               setLabels={setLabels}
@@ -57,11 +56,9 @@ export const BasicSettingsForm = memo<PropsType>(
               setLabelInDatasets={setLabelInDatasets}
               addColumn={addColumn}
               removeColumn={removeColumn}
-              errors={errors}
-              handleChange={handleChange}
               setFieldValue={setFieldValue}
             />
-          </div>
+          </Form>
         )}
       </Formik>
     );

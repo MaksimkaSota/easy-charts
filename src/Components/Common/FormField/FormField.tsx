@@ -13,7 +13,7 @@ type PropsType = {
   type?: string;
   id?: string;
   errors?: FormikErrorsType;
-  onChange: HandleChangeType;
+  onChange?: HandleChangeType;
 };
 
 export const FormField = memo<PropsType>(

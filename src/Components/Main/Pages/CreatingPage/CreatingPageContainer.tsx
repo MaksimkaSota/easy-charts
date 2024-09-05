@@ -24,7 +24,7 @@ export const CreatingPageContainer: FC = (): ReactElement => {
   useEffect(() => {
     getAddress(mainOptions, width, height);
     // eslint-disable-next-line
-  }, [mainOptions, width, height]);
+  }, [mainOptions]);
 
   return (
     <CreatingPage

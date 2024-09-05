@@ -1,67 +1,38 @@
-import type { ChangeEvent, FC, ReactElement } from 'react';
+import { type FC, type ReactElement, useEffect } from 'react';
+import { Form } from 'formik';
 import classes from './ViewChartForm.module.scss';
 import { FormField } from '../../../../../Common/FormField/FormField';
-import type { FormikErrorsType, HandleChangeType, SubmitFormType } from '../../../../../../utils/types/form';
+import type { FormikErrorsType, SetTouchedType } from '../../../../../../utils/types/form';
 
 type PropsType = {
-  address: string;
-  setWidth: (width: number | string) => void;
-  setHeight: (height: number | string) => void;
+  isValid: boolean;
   errors: FormikErrorsType;
-  handleChange: HandleChangeType;
-  submitForm: SubmitFormType;
+  setTouched: SetTouchedType;
 };
 
-export const ViewChartForm: FC<PropsType> = ({
-  address,
-  setWidth,
-  setHeight,
-  errors,
-  handleChange,
-  submitForm,
-}): ReactElement => {
-  const onWidthChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    submitForm();
-    handleChange(event);
-    setWidth(event.target.value);
-  };
-  const onHeightChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    submitForm();
-    handleChange(event);
-    setHeight(event.target.value);
-  };
+export const ViewChartForm: FC<PropsType> = ({ isValid, errors, setTouched }): ReactElement => {
+  useEffect(() => {
+    setTouched({ width: true, height: true });
+    // eslint-disable-next-line
+  }, []);
 
   return (
-    <>
+    <Form>
       <div className={classes.formContainer}>
         <label className={classes.label} htmlFor="width">
           Ширина:
         </label>
-        <FormField
-          classNameField={classes.inputData}
-          name="width"
-          type="text"
-          id="width"
-          onChange={onWidthChange}
-          errors={errors}
-        />
+        <FormField classNameField={classes.inputData} name="width" type="text" id="width" errors={errors} />
       </div>
       <div className={classes.formContainer}>
         <label className={classes.label} htmlFor="height">
           Высота:
         </label>
-        <FormField
-          classNameField={classes.inputData}
-          name="height"
-          type="text"
-          id="height"
-          onChange={onHeightChange}
-          errors={errors}
-        />
+        <FormField classNameField={classes.inputData} name="height" type="text" id="height" errors={errors} />
       </div>
-      <a className={classes.link} href={address} download>
-        Сохранить график
-      </a>
-    </>
+      <button className={classes.submitButton} type="submit" disabled={!isValid}>
+        Посмотреть график
+      </button>
+    </Form>
   );
 };

@@ -72,13 +72,7 @@ export const CreatingPage: FC<PropsType> = ({
           </div>
           <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
             <p className={classes.settingsFormTitle}>Параметры графика</p>
-            <AdditionalSettingsForm
-              address={mainAddress}
-              width={width}
-              height={height}
-              setWidth={setMainWidth}
-              setHeight={setMainHeight}
-            />
+            <AdditionalSettingsForm width={width} height={height} setWidth={setMainWidth} setHeight={setMainHeight} />
           </div>
         </div>
       </div>

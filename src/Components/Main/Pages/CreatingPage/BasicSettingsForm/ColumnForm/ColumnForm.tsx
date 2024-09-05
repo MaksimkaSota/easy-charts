@@ -1,7 +1,6 @@
 import { type ChangeEvent, type ReactElement, memo } from 'react';
 import { useFormikContext } from 'formik';
 import classes from './ColumnForm.module.scss';
-import type { FormikErrorsType, HandleChangeType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import type { IDataset } from '../../../../../../utils/types/api';
 
@@ -11,24 +10,23 @@ type PropsType = {
   setData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
   setLabelInDatasets: (id: number, value: string) => void;
   removeColumn: (index: number) => void;
-  errors: FormikErrorsType;
-  handleChange: HandleChangeType;
 };
 
 export const ColumnForm = memo<PropsType>(
-  ({ dataset, datasetIndex, setData, setLabelInDatasets, removeColumn, errors, handleChange }): ReactElement => {
-    const { submitForm } = useFormikContext();
+  ({ dataset, datasetIndex, setData, setLabelInDatasets, removeColumn }): ReactElement => {
+    const { errors, handleChange, setFieldTouched } = useFormikContext();
+
     const onLabelInDatasetsChange = (event: ChangeEvent<HTMLInputElement>): void => {
       handleChange(event);
       setLabelInDatasets(datasetIndex, event.target.value);
     };
 
-    const onDataChange = (dataIndex: number, event: ChangeEvent<HTMLInputElement>): void => {
-      submitForm();
+    const onDataChange = (dataItemIndex: number, event: ChangeEvent<HTMLInputElement>): void => {
+      setFieldTouched(`datasets.${datasetIndex}.data.${dataItemIndex}`, true);
       handleChange(event);
       setData({
         datasetId: datasetIndex,
-        dataId: dataIndex,
+        dataId: dataItemIndex,
         value: event.target.value,
       });
     };

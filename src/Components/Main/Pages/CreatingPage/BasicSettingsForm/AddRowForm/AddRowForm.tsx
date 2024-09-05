@@ -49,7 +49,7 @@ export const AddRowForm = memo<PropsType>(
             />
           )
         )}
-        <button className={classes.addButton} onClick={() => addRow()}>
+        <button className={classes.addButton} type="button" onClick={() => addRow()}>
           Добавить строку
         </button>
       </div>
