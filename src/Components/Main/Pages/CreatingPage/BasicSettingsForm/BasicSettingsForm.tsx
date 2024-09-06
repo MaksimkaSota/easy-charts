@@ -1,4 +1,4 @@
-import { type ReactElement, memo, useEffect, useState } from 'react';
+import { type ReactElement, memo } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import classes from './BasicSettingsForm.module.scss';
@@ -28,17 +28,6 @@ type PropsType = {
 
 export const BasicSettingsForm = memo<PropsType>(
   ({ options, setTitle, setLabels, setData, setLabelInDatasets, addRow, addColumn, removeRow, removeColumn }) => {
-    const [formLabels, setFormLabels] = useState(options.data.labels);
-    const [formDatasets, setFormDatasets] = useState(options.data.datasets);
-
-    useEffect(() => {
-      setFormLabels(options.data.labels);
-    }, [options.data.labels]);
-
-    useEffect(() => {
-      setFormDatasets(options.data.datasets);
-    }, [options.data.datasets]);
-
     return (
       <Formik
         initialValues={{
@@ -50,10 +39,10 @@ export const BasicSettingsForm = memo<PropsType>(
         validationSchema={validationSchema}
         onSubmit={() => {}}
       >
-        {({ errors, handleChange }): ReactElement => (
+        {({ errors, handleChange, values }): ReactElement => (
           <Form className={classes.basicSettingsForm}>
             <AddRowForm
-              labels={formLabels}
+              labels={values.labels}
               setLabels={setLabels}
               setTitle={setTitle}
               addRow={addRow}
@@ -62,7 +51,7 @@ export const BasicSettingsForm = memo<PropsType>(
               handleChange={handleChange}
             />
             <AddColumnForm
-              datasets={formDatasets}
+              datasets={values.datasets}
               setData={setData}
               setLabelInDatasets={setLabelInDatasets}
               addColumn={addColumn}
