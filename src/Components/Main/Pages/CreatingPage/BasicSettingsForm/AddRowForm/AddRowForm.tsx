@@ -1,6 +1,6 @@
-import { type ChangeEvent, type ReactElement, useEffect, memo } from 'react';
+import { type ChangeEvent, type ReactElement, memo } from 'react';
 import classes from './AddRowForm.module.scss';
-import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
+import type { FormikErrorsType, HandleChangeType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
 
@@ -12,16 +12,10 @@ type PropsType = {
   removeRow: (index: number) => void;
   errors: FormikErrorsType;
   handleChange: HandleChangeType;
-  setFieldValue: SetFieldValueType;
 };
 
 export const AddRowForm = memo<PropsType>(
-  ({ labels, setLabels, setTitle, addRow, removeRow, errors, handleChange, setFieldValue }): ReactElement => {
-    useEffect(() => {
-      setFieldValue('labels', labels);
-      // eslint-disable-next-line
-    }, [labels]);
-
+  ({ labels, setLabels, setTitle, addRow, removeRow, errors, handleChange }): ReactElement => {
     const onTitleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       handleChange(event);
       setTitle(event.target.value);

@@ -1,4 +1,4 @@
-import { type ReactElement, memo } from 'react';
+import { type ReactElement, memo, useEffect, useState } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import classes from './BasicSettingsForm.module.scss';
@@ -28,6 +28,17 @@ type PropsType = {
 
 export const BasicSettingsForm = memo<PropsType>(
   ({ options, setTitle, setLabels, setData, setLabelInDatasets, addRow, addColumn, removeRow, removeColumn }) => {
+    const [formLabels, setFormLabels] = useState(options.data.labels);
+    const [formDatasets, setFormDatasets] = useState(options.data.datasets);
+
+    useEffect(() => {
+      setFormLabels(options.data.labels);
+    }, [options.data.labels]);
+
+    useEffect(() => {
+      setFormDatasets(options.data.datasets);
+    }, [options.data.datasets]);
+
     return (
       <Formik
         initialValues={{
@@ -35,28 +46,27 @@ export const BasicSettingsForm = memo<PropsType>(
           labels: options.data.labels,
           datasets: options.data.datasets,
         }}
+        enableReinitialize
         validationSchema={validationSchema}
         onSubmit={() => {}}
       >
-        {({ errors, handleChange, setFieldValue }): ReactElement => (
+        {({ errors, handleChange }): ReactElement => (
           <Form className={classes.basicSettingsForm}>
             <AddRowForm
-              labels={options.data.labels}
+              labels={formLabels}
               setLabels={setLabels}
               setTitle={setTitle}
               addRow={addRow}
               removeRow={removeRow}
               errors={errors}
               handleChange={handleChange}
-              setFieldValue={setFieldValue}
             />
             <AddColumnForm
-              datasets={options.data.datasets}
+              datasets={formDatasets}
               setData={setData}
               setLabelInDatasets={setLabelInDatasets}
               addColumn={addColumn}
               removeColumn={removeColumn}
-              setFieldValue={setFieldValue}
             />
           </Form>
         )}
