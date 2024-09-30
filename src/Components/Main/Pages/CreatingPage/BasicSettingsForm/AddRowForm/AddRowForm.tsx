@@ -1,21 +1,42 @@
-import { type ChangeEvent, type ReactElement, memo } from 'react';
+import { type ChangeEvent, type ReactElement, useEffect, memo } from 'react';
 import classes from './AddRowForm.module.scss';
-import type { FormikErrorsType, HandleChangeType } from '../../../../../../utils/types/form';
+import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
+import type { IDataset } from '../../../../../../utils/types/api';
 
 type PropsType = {
-  labels: string[];
+  labelsFromValues: string[];
+  labelsFromOptions: string[];
+  datasets: IDataset[];
   setLabels: (id: number, value: string) => void;
   setTitle: (type: string) => void;
   addRow: () => void;
   removeRow: (index: number) => void;
   errors: FormikErrorsType;
   handleChange: HandleChangeType;
+  setFieldValue: SetFieldValueType;
 };
 
 export const AddRowForm = memo<PropsType>(
-  ({ labels, setLabels, setTitle, addRow, removeRow, errors, handleChange }): ReactElement => {
+  ({
+    labelsFromValues,
+    labelsFromOptions,
+    datasets,
+    setLabels,
+    setTitle,
+    addRow,
+    removeRow,
+    errors,
+    handleChange,
+    setFieldValue,
+  }): ReactElement => {
+    useEffect(() => {
+      setFieldValue('labels', labelsFromOptions);
+      setFieldValue('datasets', datasets);
+      // eslint-disable-next-line
+    }, [labelsFromOptions]);
+
     const onTitleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       handleChange(event);
       setTitle(event.target.value);
@@ -31,7 +52,7 @@ export const AddRowForm = memo<PropsType>(
           onChange={onTitleChange}
           errors={errors}
         />
-        {labels.map(
+        {labelsFromValues.map(
           (label: string, labelIndex: number): ReactElement => (
             <RowForm
               key={labelIndex}
@@ -39,7 +60,6 @@ export const AddRowForm = memo<PropsType>(
               setLabels={setLabels}
               removeRow={removeRow}
               errors={errors}
-              handleChange={handleChange}
             />
           )
         )}

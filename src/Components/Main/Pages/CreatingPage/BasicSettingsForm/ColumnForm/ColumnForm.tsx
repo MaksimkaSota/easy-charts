@@ -1,4 +1,4 @@
-import { type ChangeEvent, type ReactElement, memo } from 'react';
+import { type ChangeEvent, type ReactElement, memo, useEffect } from 'react';
 import { useFormikContext } from 'formik';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormField/FormField';
@@ -14,16 +14,20 @@ type PropsType = {
 
 export const ColumnForm = memo<PropsType>(
   ({ dataset, datasetIndex, setData, setLabelInDatasets, removeColumn }): ReactElement => {
-    const { errors, handleChange, setFieldTouched } = useFormikContext();
+    const { errors, setFieldTouched } = useFormikContext();
+
+    useEffect(() => {
+      dataset.data.forEach((dataItem, dataItemIndex: number): void => {
+        setFieldTouched(`datasets.${datasetIndex}.data.${dataItemIndex}`, true);
+      });
+      // eslint-disable-next-line
+    }, []);
 
     const onLabelInDatasetsChange = (event: ChangeEvent<HTMLInputElement>): void => {
-      handleChange(event);
       setLabelInDatasets(datasetIndex, event.target.value);
     };
 
     const onDataChange = (dataItemIndex: number, event: ChangeEvent<HTMLInputElement>): void => {
-      setFieldTouched(`datasets.${datasetIndex}.data.${dataItemIndex}`, true);
-      handleChange(event);
       setData({
         datasetId: datasetIndex,
         dataId: dataItemIndex,

@@ -6,7 +6,8 @@
     font-size: 0.9rem;
   }
   .inputData {
-    @include input(#f5f5f5, 0.1rem);
+    @include input(rgba(204, 204, 204, 0.3), 0.1rem);
+    outline: 1px solid black;
   }
 }
 .submitButton {

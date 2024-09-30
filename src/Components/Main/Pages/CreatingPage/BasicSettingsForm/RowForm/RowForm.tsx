@@ -1,6 +1,6 @@
 import { type ChangeEvent, type ReactElement, memo } from 'react';
 import classes from './RowForm.module.scss';
-import type { FormikErrorsType, HandleChangeType } from '../../../../../../utils/types/form';
+import type { FormikErrorsType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormField/FormField';
 
 type PropsType = {
@@ -8,12 +8,10 @@ type PropsType = {
   setLabels: (id: number, value: string) => void;
   removeRow: (index: number) => void;
   errors: FormikErrorsType;
-  handleChange: HandleChangeType;
 };
 
-export const RowForm = memo<PropsType>(({ labelIndex, setLabels, removeRow, errors, handleChange }): ReactElement => {
+export const RowForm = memo<PropsType>(({ labelIndex, setLabels, removeRow, errors }): ReactElement => {
   const onLabelChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    handleChange(event);
     setLabels(labelIndex, event.target.value);
   };
 

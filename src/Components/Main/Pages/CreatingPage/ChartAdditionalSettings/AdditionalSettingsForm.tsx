@@ -4,8 +4,16 @@ import * as Yup from 'yup';
 import { ViewChartForm } from './ViewAndSaveChartForm/ViewChartForm';
 
 const validationSchema = Yup.object().shape({
-  width: Yup.number().min(500, 'Минимально 500').max(3000, 'Максимально 3000').typeError('Только числа'),
-  height: Yup.number().min(300, 'Минимально 300').max(3000, 'Максимально 3000').typeError('Только числа'),
+  width: Yup.number()
+    .min(500, 'Минимально 500')
+    .max(3000, 'Максимально 3000')
+    .required('Обязательно для ввода')
+    .typeError('Только числа'),
+  height: Yup.number()
+    .min(300, 'Минимально 300')
+    .max(3000, 'Максимально 3000')
+    .required('Обязательно для ввода')
+    .typeError('Только числа'),
 });
 
 type PropsType = {
