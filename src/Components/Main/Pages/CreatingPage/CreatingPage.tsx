@@ -1,12 +1,12 @@
 import type { FC, ReactElement } from 'react';
 import cn from 'classnames';
 import classes from './CreatingPage.module.scss';
-import type { IChart } from '../../../../utils/types/api';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { MainChart } from './MainChart/MainChart';
 import { AdditionalSettingsForm } from './ChartAdditionalSettings/AdditionalSettingsForm';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
+import type { IChart } from '../../../../utils/types/api';
 
 type PropsType = {
   mainOptions: IChart;

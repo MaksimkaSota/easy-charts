@@ -1,8 +1,8 @@
 import { type ChangeEvent, type ReactElement, useEffect, memo } from 'react';
 import classes from './AddRowForm.module.scss';
-import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
+import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
 import type { IDataset } from '../../../../../../utils/types/api';
 
 type PropsType = {

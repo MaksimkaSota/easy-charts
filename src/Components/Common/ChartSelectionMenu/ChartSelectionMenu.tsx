@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import type { ReactElement } from 'react';
+import { type ReactElement, memo } from 'react';
 import classes from './ChartSelectionMenu.module.scss';
 import bar from '../../../assets/images/bar.png';
 import line from '../../../assets/images/line.png';

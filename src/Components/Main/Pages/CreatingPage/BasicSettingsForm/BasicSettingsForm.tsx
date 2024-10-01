@@ -2,9 +2,9 @@ import { type ReactElement, memo } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import classes from './BasicSettingsForm.module.scss';
-import type { IChart } from '../../../../../utils/types/api';
 import { AddRowForm } from './AddRowForm/AddRowForm';
 import { AddColumnForm } from './AddColumnForm/AddColumnForm';
+import type { IChart } from '../../../../../utils/types/api';
 
 const validationSchema = Yup.object().shape({
   datasets: Yup.array().of(

@@ -1,6 +1,6 @@
 import { type ReactElement, memo } from 'react';
-import cn from 'classnames';
 import { ErrorMessage, Field } from 'formik';
+import cn from 'classnames';
 import classes from './FormField.module.scss';
 import type { FormikErrorsType, HandleChangeType } from '../../../utils/types/form';
 import { readByString } from '../../../utils/helpers/componentsHelpers';

@@ -2,8 +2,8 @@ import type { FC, ReactElement } from 'react';
 import classes from './ExamplesPage.module.scss';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
-import type { IChart } from '../../../../utils/types/api';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
+import type { IChart } from '../../../../utils/types/api';
 
 type PropsType = {
   exampleFirstAddress: string;
