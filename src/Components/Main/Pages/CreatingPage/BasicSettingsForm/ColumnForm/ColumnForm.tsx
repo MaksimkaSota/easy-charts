@@ -3,6 +3,7 @@ import { useFormikContext } from 'formik';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import type { IDataset } from '../../../../../../utils/types/api';
+import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   dataset: IDataset;
@@ -18,7 +19,7 @@ export const ColumnForm = memo<PropsType>(
 
     useEffect(() => {
       dataset.data.forEach((dataItem, dataItemIndex: number): void => {
-        setFieldTouched(`datasets.${datasetIndex}.data.${dataItemIndex}`, true);
+        setFieldTouched(`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}`, true);
       });
       // eslint-disable-next-line
     }, []);
@@ -42,7 +43,7 @@ export const ColumnForm = memo<PropsType>(
         <div title="Удалить этот столбец" className={classes.closeY} onClick={() => removeColumn(datasetIndex)} />
         <FormField
           classNameField={classes.inputData}
-          name={`datasets.${datasetIndex}.label`}
+          name={`${FormName.datasets}.${datasetIndex}.label`}
           errors={errors}
           onChange={onLabelInDatasetsChange}
         />
@@ -51,7 +52,7 @@ export const ColumnForm = memo<PropsType>(
             <FormField
               key={dataItemIndex}
               classNameField={classes.inputDataNumbers}
-              name={`datasets.${datasetIndex}.data.${dataItemIndex}`}
+              name={`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}`}
               type="text"
               errors={errors}
               onChange={(event: ChangeEvent<HTMLInputElement>) => onDataChange(dataItemIndex, event)}

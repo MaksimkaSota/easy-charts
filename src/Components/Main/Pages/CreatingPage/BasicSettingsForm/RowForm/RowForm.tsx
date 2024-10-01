@@ -2,6 +2,7 @@ import { type ChangeEvent, type ReactElement, memo } from 'react';
 import classes from './RowForm.module.scss';
 import type { FormikErrorsType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormField/FormField';
+import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   labelIndex: number;
@@ -21,7 +22,7 @@ export const RowForm = memo<PropsType>(({ labelIndex, setLabels, removeRow, erro
       <div title="Удалить эту строку" className={classes.closeX} onClick={() => removeRow(labelIndex)} />
       <FormField
         classNameField={classes.inputData}
-        name={`labels.${labelIndex}`}
+        name={`${FormName.labels}.${labelIndex}`}
         type="text"
         onChange={onLabelChange}
         errors={errors}

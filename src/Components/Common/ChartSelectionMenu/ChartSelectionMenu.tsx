@@ -7,6 +7,7 @@ import pie from '../../../assets/images/pie.png';
 import doughnut from '../../../assets/images/doughnut.png';
 import horizontalBar from '../../../assets/images/horizontalBar.png';
 import { ChartSelectionButton } from '../ChartSelectionButton/ChartSelectionButton';
+import { ChartType } from '../../../utils/types/enums';
 
 export const ChartSelectionMenu = memo((): ReactElement => {
   return (
@@ -15,7 +16,7 @@ export const ChartSelectionMenu = memo((): ReactElement => {
       <div className={classes.chartsTypeContainer}>
         <ChartSelectionButton
           isLink={false}
-          type="bar"
+          type={ChartType.bar}
           src={bar}
           text="Колонны"
           classNameContainer={classes.imageContainer}
@@ -23,7 +24,7 @@ export const ChartSelectionMenu = memo((): ReactElement => {
         />
         <ChartSelectionButton
           isLink={false}
-          type="horizontalBar"
+          type={ChartType.hBar}
           src={horizontalBar}
           text="Полосы"
           classNameContainer={classes.imageContainer}
@@ -31,7 +32,7 @@ export const ChartSelectionMenu = memo((): ReactElement => {
         />
         <ChartSelectionButton
           isLink={false}
-          type="line"
+          type={ChartType.line}
           src={line}
           text="Линии"
           classNameContainer={classes.imageContainer}
@@ -39,7 +40,7 @@ export const ChartSelectionMenu = memo((): ReactElement => {
         />
         <ChartSelectionButton
           isLink={false}
-          type="radar"
+          type={ChartType.radar}
           src={radar}
           text="Радар"
           classNameContainer={classes.imageContainer}
@@ -47,7 +48,7 @@ export const ChartSelectionMenu = memo((): ReactElement => {
         />
         <ChartSelectionButton
           isLink={false}
-          type="pie"
+          type={ChartType.pie}
           src={pie}
           text="Пирог"
           classNameContainer={classes.imageContainer}
@@ -55,7 +56,7 @@ export const ChartSelectionMenu = memo((): ReactElement => {
         />
         <ChartSelectionButton
           isLink={false}
-          type="doughnut"
+          type={ChartType.doughnut}
           src={doughnut}
           text="Пончик"
           classNameContainer={classes.imageContainer}

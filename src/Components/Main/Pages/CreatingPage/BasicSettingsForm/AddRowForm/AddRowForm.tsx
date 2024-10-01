@@ -4,6 +4,7 @@ import { FormField } from '../../../../../Common/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
 import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
 import type { IDataset } from '../../../../../../utils/types/api';
+import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   labelsFromValues: string[];
@@ -32,8 +33,8 @@ export const AddRowForm = memo<PropsType>(
     setFieldValue,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue('labels', labelsFromOptions);
-      setFieldValue('datasets', datasets);
+      setFieldValue(FormName.labels, labelsFromOptions);
+      setFieldValue(FormName.datasets, datasets);
       // eslint-disable-next-line
     }, [labelsFromOptions]);
 
@@ -47,7 +48,7 @@ export const AddRowForm = memo<PropsType>(
         <p className={classes.axisName}>X</p>
         <FormField
           classNameField={classes.inputData}
-          name="title"
+          name={FormName.title}
           type="text"
           onChange={onTitleChange}
           errors={errors}

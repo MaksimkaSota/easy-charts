@@ -9,6 +9,7 @@ import {
   setExampleSecondAddress,
   setExampleThirdAddress,
 } from '../actions/addresses';
+import { ExampleKey } from '../../utils/types/enums';
 
 export const getAddress = (
   options: IChart,
@@ -20,13 +21,13 @@ export const getAddress = (
     const chart: Blob = await getChartAPI(options, width, height);
     const address: string = await transformImageToBase64(chart);
     switch (key) {
-      case 'firstExample':
+      case ExampleKey.first:
         dispatch(setExampleFirstAddress(address));
         break;
-      case 'secondExample':
+      case ExampleKey.second:
         dispatch(setExampleSecondAddress(address));
         break;
-      case 'thirdExample':
+      case ExampleKey.third:
         dispatch(setExampleThirdAddress(address));
         break;
       default:

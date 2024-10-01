@@ -2,6 +2,7 @@ import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useActions } from '../../../hooks/useActions';
 import { changeType } from '../../../utils/helpers/componentsHelpers';
+import { RoutePath } from '../../../utils/types/enums';
 
 type PropsType = {
   isLink: boolean;
@@ -24,7 +25,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
 
   const CustomTag = isLink ? NavLink : 'div';
   const props = {
-    to: isLink ? 'create' : undefined,
+    to: isLink ? RoutePath.gallery + RoutePath.create : undefined,
     className: classNameContainer,
     onClick: () => changeType(setMainType, setExamplesType, type),
   };

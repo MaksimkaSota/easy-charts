@@ -3,6 +3,7 @@ import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
 import { addressesSelector, examplesOptionsSelector } from '../../../../redux/selectors/selectors';
 import { ExamplesPage } from './ExamplesPage';
+import { ExampleKey } from '../../../../utils/types/enums';
 
 export const ExamplesPageContainer: FC = (): ReactElement => {
   const { exampleFirstAddress, exampleSecondAddress, exampleThirdAddress } = useTypedSelector(addressesSelector);
@@ -10,9 +11,9 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
   const { getAddress, setNewMainOptions } = useActions();
 
   useEffect(() => {
-    getAddress(exampleFirstOptions, 1000, 600, 'firstExample');
-    getAddress(exampleSecondOptions, 1000, 600, 'secondExample');
-    getAddress(exampleThirdOptions, 1000, 600, 'thirdExample');
+    getAddress(exampleFirstOptions, 1000, 600, ExampleKey.first);
+    getAddress(exampleSecondOptions, 1000, 600, ExampleKey.second);
+    getAddress(exampleThirdOptions, 1000, 600, ExampleKey.third);
     // eslint-disable-next-line
   }, [exampleFirstOptions, exampleSecondOptions, exampleThirdOptions]);
 

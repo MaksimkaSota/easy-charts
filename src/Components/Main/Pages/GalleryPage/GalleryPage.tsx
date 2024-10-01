@@ -8,6 +8,7 @@ import doughnut from '../../../../assets/images/doughnut.png';
 import horizontalBar from '../../../../assets/images/horizontalBar.png';
 import { ChartSelectionButton } from '../../../Common/ChartSelectionButton/ChartSelectionButton';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
+import { ChartType } from '../../../../utils/types/enums';
 
 export const GalleryPage: FC = (): ReactElement => {
   return (
@@ -22,7 +23,7 @@ export const GalleryPage: FC = (): ReactElement => {
       <div className={classes.typeChartsContainer}>
         <ChartSelectionButton
           isLink
-          type="bar"
+          type={ChartType.bar}
           src={bar}
           text="Колонны"
           classNameContainer={classes.imageContainer}
@@ -30,7 +31,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type="horizontalBar"
+          type={ChartType.hBar}
           src={horizontalBar}
           text="Полосы"
           classNameContainer={classes.imageContainer}
@@ -38,7 +39,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type="line"
+          type={ChartType.line}
           src={line}
           text="Линии"
           classNameContainer={classes.imageContainer}
@@ -46,7 +47,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type="radar"
+          type={ChartType.radar}
           src={radar}
           text="Радар"
           classNameContainer={classes.imageContainer}
@@ -54,7 +55,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type="pie"
+          type={ChartType.pie}
           src={pie}
           text="Пирог"
           classNameContainer={classes.imageContainer}
@@ -62,7 +63,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type="doughnut"
+          type={ChartType.doughnut}
           src={doughnut}
           text="Пончик"
           classNameContainer={classes.imageContainer}
