@@ -3,6 +3,7 @@ import { AddressesActionType } from '../types/addresses';
 
 const initialState: AddressesState = {
   mainAddress: '',
+  urlAddress: '',
   exampleFirstAddress: '',
   exampleSecondAddress: '',
   exampleThirdAddress: '',
@@ -14,6 +15,11 @@ export const addressesReducer = (state: AddressesState = initialState, action: A
       return {
         ...state,
         mainAddress: action.payload,
+      };
+    case AddressesActionType.SET_ADDRESS_URL:
+      return {
+        ...state,
+        urlAddress: action.payload,
       };
     case AddressesActionType.SET_ADDRESS_EXAMPLE_FIRST:
       return {

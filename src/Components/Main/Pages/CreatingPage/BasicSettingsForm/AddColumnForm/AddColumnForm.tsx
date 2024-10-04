@@ -31,7 +31,7 @@ export const AddColumnForm = memo<PropsType>(
       setFieldValue(FormName.labels, labels);
       setFieldValue(FormName.datasets, datasetsFromOptions);
       // eslint-disable-next-line
-    }, [datasetsFromOptions]);
+    }, [setFieldValue, datasetsFromOptions]);
 
     return (
       <div className={classes.formContainer}>

@@ -24,6 +24,7 @@ export enum RoutePath {
   gallery = '/gallery',
   examples = '/examples',
   contacts = '/contacts',
+  save = '/save',
 }
 export enum FormName {
   title = 'title',
@@ -36,4 +37,8 @@ export enum ExampleKey {
   first = 'firstExample',
   second = 'secondExample',
   third = 'thirdExample',
+}
+export enum StandardOptions {
+  width = 1000,
+  height = 600,
 }

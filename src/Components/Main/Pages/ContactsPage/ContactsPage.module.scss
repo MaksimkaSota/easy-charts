@@ -1,11 +1,8 @@
 .contacts {
   width: 95%;
   margin: 2rem 0;
-  .imageContainer {
-    height: 15vw;
-    img {
-      height: 100%;
-    }
+  .email {
+    @include position(15%, 0 auto);
   }
   .title {
     @extend %title-pages;

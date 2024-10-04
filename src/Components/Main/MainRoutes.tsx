@@ -5,6 +5,7 @@ import { ExamplesPageContainer } from './Pages/ExamplesPage/ExamplesPageContaine
 import { GalleryPage } from './Pages/GalleryPage/GalleryPage';
 import { ContactsPage } from './Pages/ContactsPage/ContactsPage';
 import { RoutePath } from '../../utils/types/enums';
+import { SavePageContainer } from './Pages/SavePage/SavePageContainer';
 
 export const MainRoutes: FC = (): ReactElement => {
   return (
@@ -17,6 +18,7 @@ export const MainRoutes: FC = (): ReactElement => {
       <Route path={RoutePath.gallery + RoutePath.create} element={<CreatingPageContainer />} />
       <Route path={RoutePath.examples + RoutePath.create} element={<CreatingPageContainer />} />
       <Route path={RoutePath.contacts} element={<ContactsPage />} />
+      <Route path={RoutePath.save} element={<SavePageContainer />} />
     </Routes>
   );
 };

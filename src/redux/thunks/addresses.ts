@@ -1,10 +1,11 @@
 import type { ThunkType } from '../../utils/types/common';
 import type { AddressesAction } from '../types/addresses';
 import type { IChart } from '../../utils/types/api';
-import { getChartAPI } from '../../api/chart';
-import { transformImageToBase64 } from '../../utils/helpers/thunksHelpers';
+import { getChartAPI, getChartURL } from '../../api/chart';
+import { transformImageToBase64 } from '../../utils/helpers/servicesHelpers';
 import {
   setMainAddress,
+  setUrlAddress,
   setExampleFirstAddress,
   setExampleSecondAddress,
   setExampleThirdAddress,
@@ -19,19 +20,21 @@ export const getAddress = (
 ): ThunkType<AddressesAction> => {
   return async (dispatch) => {
     const chart: Blob = await getChartAPI(options, width, height);
-    const address: string = await transformImageToBase64(chart);
+    const chartAddress: string = await transformImageToBase64(chart);
+    const chartURL: string = getChartURL(options, width, height);
     switch (key) {
       case ExampleKey.first:
-        dispatch(setExampleFirstAddress(address));
+        dispatch(setExampleFirstAddress(chartAddress));
         break;
       case ExampleKey.second:
-        dispatch(setExampleSecondAddress(address));
+        dispatch(setExampleSecondAddress(chartAddress));
         break;
       case ExampleKey.third:
-        dispatch(setExampleThirdAddress(address));
+        dispatch(setExampleThirdAddress(chartAddress));
         break;
       default:
-        dispatch(setMainAddress(address));
+        dispatch(setMainAddress(chartAddress));
+        dispatch(setUrlAddress(chartURL));
     }
   };
 };

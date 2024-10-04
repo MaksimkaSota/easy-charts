@@ -22,7 +22,7 @@ export const ColumnForm = memo<PropsType>(
         setFieldTouched(`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}`, true);
       });
       // eslint-disable-next-line
-    }, []);
+    }, [setFieldTouched]);
 
     const onLabelInDatasetsChange = (event: ChangeEvent<HTMLInputElement>): void => {
       setLabelInDatasets(datasetIndex, event.target.value);

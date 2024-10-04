@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './Chart.module.scss';
 import type { IChart } from '../../../../../utils/types/api';
 import { RoutePath } from '../../../../../utils/types/enums';
+import { Chart } from '../../../../Common/Chart/Chart';
 
 type PropsType = {
   address: string;
@@ -13,9 +14,7 @@ type PropsType = {
 export const ExampleChart: FC<PropsType> = ({ address, options, setNewOptions }): ReactElement => {
   return (
     <>
-      <div className={classes.imageContainer}>
-        <img src={address} alt="Chart example" />
-      </div>
+      <Chart address={address} />
       <NavLink
         to={RoutePath.examples + RoutePath.create}
         className={classes.link}

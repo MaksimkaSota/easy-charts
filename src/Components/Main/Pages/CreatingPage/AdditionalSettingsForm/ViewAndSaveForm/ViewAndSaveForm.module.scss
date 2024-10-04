@@ -12,10 +12,9 @@
 }
 .submitButton {
   @extend %button;
+  width: 100%;
   text-align: center;
   margin-bottom: 0;
-  border: none;
-  cursor: pointer;
   &:disabled {
     cursor: default;
     background: $red;

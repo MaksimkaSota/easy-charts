@@ -1,0 +1,20 @@
+.viewAndSave {
+  .interactionButtonsContainer {
+    @include flex(center, center);
+    .interactionButton {
+      @extend %button;
+      width: auto;
+    }
+    .saveButton {
+      margin: 0 10px 0 10px;
+    }
+    .copyButton {
+      background: $yellow;
+      pointer-events: none;
+    }
+  }
+  .img {
+    display: block;
+    width: 100%;
+  }
+}

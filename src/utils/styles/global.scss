@@ -26,15 +26,18 @@ $white: white;
 %button {
   display: block;
   width: 175px;
-  padding: 0.5rem;
+  padding: 10px;
   margin: 0.5rem 0;
+  border: none;
   border-radius: 10px;
   font-size: 0.9rem;
   background-color: $green;
   color: $white;
   transition: all 0.25s linear;
+  font-family: inherit;
   &:hover {
-    background-color: $blue;
+    cursor: pointer;
+    background: $blue;
   }
 }
 

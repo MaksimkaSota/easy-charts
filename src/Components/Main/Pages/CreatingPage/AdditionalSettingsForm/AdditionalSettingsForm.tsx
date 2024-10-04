@@ -1,7 +1,7 @@
 import { type ReactElement, memo } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { ViewChartForm } from './ViewAndSaveChartForm/ViewChartForm';
+import { ViewAndSaveForm } from './ViewAndSaveForm/ViewAndSaveForm';
 
 const validationSchema = Yup.object().shape({
   width: Yup.number()
@@ -22,21 +22,19 @@ type PropsType = {
   setWidth: (width: number | string) => void;
   setHeight: (height: number | string) => void;
 };
-type FormDataType = {
-  width: number | string;
-  height: number | string;
-};
 
 export const AdditionalSettingsForm = memo<PropsType>(({ width, height, setWidth, setHeight }): ReactElement => {
-  const onSubmit = (formData: FormDataType): void => {
-    setWidth(formData.width);
-    setHeight(formData.height);
-  };
-
   return (
-    <Formik initialValues={{ width, height }} validationSchema={validationSchema} onSubmit={onSubmit}>
-      {({ isValid, errors, setTouched }): ReactElement => (
-        <ViewChartForm isValid={isValid} errors={errors} setTouched={setTouched} />
+    <Formik initialValues={{ width, height }} validationSchema={validationSchema} onSubmit={() => {}}>
+      {({ isValid, errors, handleChange, setTouched }): ReactElement => (
+        <ViewAndSaveForm
+          setWidth={setWidth}
+          setHeight={setHeight}
+          isValid={isValid}
+          errors={errors}
+          handleChange={handleChange}
+          setTouched={setTouched}
+        />
       )}
     </Formik>
   );

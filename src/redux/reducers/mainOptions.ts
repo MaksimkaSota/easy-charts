@@ -2,11 +2,12 @@ import type { MainOptionsAction, MainOptionsState } from '../types/mainOptions';
 import { MainOptionsActionType } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
 import type { IDataset } from '../../utils/types/api';
+import { StandardOptions } from '../../utils/types/enums';
 
 const initialState: MainOptionsState = {
   mainOptions: mainInitialValue,
-  width: 1000,
-  height: 600,
+  width: StandardOptions.width,
+  height: StandardOptions.height,
 };
 
 export const mainOptionsReducer = (

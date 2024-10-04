@@ -36,7 +36,7 @@ export const AddRowForm = memo<PropsType>(
       setFieldValue(FormName.labels, labelsFromOptions);
       setFieldValue(FormName.datasets, datasets);
       // eslint-disable-next-line
-    }, [labelsFromOptions]);
+    }, [setFieldValue, labelsFromOptions]);
 
     const onTitleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       handleChange(event);

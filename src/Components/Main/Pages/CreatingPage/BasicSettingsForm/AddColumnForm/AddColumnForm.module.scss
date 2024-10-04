@@ -4,8 +4,6 @@
   }
   .addButton {
     @extend %button;
-    border: none;
-    cursor: pointer;
     margin-bottom: 0;
   }
 }

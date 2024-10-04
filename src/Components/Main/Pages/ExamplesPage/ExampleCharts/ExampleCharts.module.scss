@@ -1,24 +1,5 @@
 .chartResult {
-  width: 55%;
   .miniTitle {
     @extend %mini-title;
-  }
-}
-
-@media (max-width: 1024px) {
-  .chartResult {
-    width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .chartResult {
-    width: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  .chartResult {
-    width: 100%;
   }
 }
