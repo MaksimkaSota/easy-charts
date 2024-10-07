@@ -1,4 +1,5 @@
 import { type FC, type ReactElement, useEffect } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
 import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
@@ -21,10 +22,11 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     setMainHeight,
   } = useActions();
 
+  const getDebouncedAddress = useDebouncedCallback(() => getAddress(mainOptions, width, height), 1000);
+
   useEffect(() => {
-    getAddress(mainOptions, width, height);
-    // eslint-disable-next-line
-  }, [getAddress, mainOptions]);
+    getDebouncedAddress();
+  }, [getDebouncedAddress, mainOptions]);
 
   return (
     <CreatingPage
