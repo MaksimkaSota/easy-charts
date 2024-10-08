@@ -4,7 +4,9 @@ import { NavLink } from 'react-router-dom';
 import classes from './ViewAndSaveForm.module.scss';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import type { FormikErrorsType, HandleChangeType, SetTouchedType } from '../../../../../../utils/types/form';
-import { FormName, RoutePath } from '../../../../../../utils/types/enums';
+import { ChartType, FormName, RoutePath } from '../../../../../../utils/types/enums';
+import type { IChart } from '../../../../../../utils/types/api';
+import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
 
 type PropsType = {
   setWidth: (width: number | string) => void;
@@ -13,6 +15,8 @@ type PropsType = {
   errors: FormikErrorsType;
   handleChange: HandleChangeType;
   setTouched: SetTouchedType;
+  setMainOptionsWithId: (mainOptions: IChart) => void;
+  setExamplesType: (type: string) => void;
 };
 
 export const ViewAndSaveForm: FC<PropsType> = ({
@@ -22,6 +26,8 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   errors,
   handleChange,
   setTouched,
+  setMainOptionsWithId,
+  setExamplesType,
 }): ReactElement => {
   useEffect(() => {
     setTouched({ width: true, height: true });
@@ -35,6 +41,11 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   const onHeightChange = (event: ChangeEvent<HTMLInputElement>): void => {
     handleChange(event);
     setHeight(event.target.value);
+  };
+
+  const onResetButtonClick = (): void => {
+    setMainOptionsWithId(mainInitialValue);
+    setExamplesType(ChartType.bar);
   };
 
   return (
@@ -66,10 +77,13 @@ export const ViewAndSaveForm: FC<PropsType> = ({
         />
       </div>
       <NavLink to={RoutePath.save}>
-        <button className={classes.submitButton} type="submit" disabled={!isValid}>
+        <button className={classes.button} type="submit" disabled={!isValid}>
           Посмотреть и скачать график
         </button>
       </NavLink>
+      <button className={classes.button} type="button" onClick={onResetButtonClick}>
+        Сбросить график
+      </button>
     </Form>
   );
 };

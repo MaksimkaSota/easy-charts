@@ -1,25 +1,25 @@
 import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useActions } from '../../../hooks/useActions';
+import cn from 'classnames';
 import classes from './Navigation.module.scss';
-import { mainInitialValue } from '../../../utils/initialValues/mainInitialValue';
 import { RoutePath } from '../../../utils/types/enums';
 
 export const Navigation: FC = (): ReactElement => {
-  const { setMainOptionsWithId } = useActions();
+  const setClass = ({ isActive }: { isActive: boolean }): string =>
+    cn(classes.link, { [classes.activeLink]: isActive });
 
   return (
     <nav className={classes.navigation}>
-      <NavLink to={RoutePath.create} className={classes.link} onClick={() => setMainOptionsWithId(mainInitialValue)}>
+      <NavLink to={RoutePath.create} className={setClass}>
         Создать
       </NavLink>
-      <NavLink to={RoutePath.gallery} className={classes.link} onClick={() => setMainOptionsWithId(mainInitialValue)}>
+      <NavLink to={RoutePath.gallery} className={setClass}>
         Галерея
       </NavLink>
-      <NavLink to={RoutePath.examples} className={classes.link}>
+      <NavLink to={RoutePath.examples} className={setClass}>
         Примеры
       </NavLink>
-      <NavLink to={RoutePath.contacts} className={classes.link}>
+      <NavLink to={RoutePath.contacts} className={setClass}>
         Контакты
       </NavLink>
     </nav>

@@ -2,6 +2,7 @@ import { type ReactElement, memo } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { ViewAndSaveForm } from './ViewAndSaveForm/ViewAndSaveForm';
+import type { IChart } from '../../../../../utils/types/api';
 
 const validationSchema = Yup.object().shape({
   width: Yup.number()
@@ -21,21 +22,27 @@ type PropsType = {
   height: number | string;
   setWidth: (width: number | string) => void;
   setHeight: (height: number | string) => void;
+  setMainOptionsWithId: (mainOptions: IChart) => void;
+  setExamplesType: (type: string) => void;
 };
 
-export const AdditionalSettingsForm = memo<PropsType>(({ width, height, setWidth, setHeight }): ReactElement => {
-  return (
-    <Formik initialValues={{ width, height }} validationSchema={validationSchema} onSubmit={() => {}}>
-      {({ isValid, errors, handleChange, setTouched }): ReactElement => (
-        <ViewAndSaveForm
-          setWidth={setWidth}
-          setHeight={setHeight}
-          isValid={isValid}
-          errors={errors}
-          handleChange={handleChange}
-          setTouched={setTouched}
-        />
-      )}
-    </Formik>
-  );
-});
+export const AdditionalSettingsForm = memo<PropsType>(
+  ({ width, height, setWidth, setHeight, setMainOptionsWithId, setExamplesType }): ReactElement => {
+    return (
+      <Formik initialValues={{ width, height }} validationSchema={validationSchema} onSubmit={() => {}}>
+        {({ isValid, errors, handleChange, setTouched }): ReactElement => (
+          <ViewAndSaveForm
+            setWidth={setWidth}
+            setHeight={setHeight}
+            isValid={isValid}
+            errors={errors}
+            handleChange={handleChange}
+            setTouched={setTouched}
+            setMainOptionsWithId={setMainOptionsWithId}
+            setExamplesType={setExamplesType}
+          />
+        )}
+      </Formik>
+    );
+  }
+);

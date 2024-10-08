@@ -23,6 +23,8 @@ type PropsType = {
   removeMainColumn: (index: number) => void;
   setMainWidth: (width: number | string) => void;
   setMainHeight: (height: number | string) => void;
+  setMainOptionsWithId: (mainOptions: IChart) => void;
+  setExamplesType: (type: string) => void;
 };
 
 export const CreatingPage: FC<PropsType> = ({
@@ -40,6 +42,8 @@ export const CreatingPage: FC<PropsType> = ({
   removeMainColumn,
   setMainWidth,
   setMainHeight,
+  setMainOptionsWithId,
+  setExamplesType,
 }): ReactElement => {
   return (
     <div className={classes.create}>
@@ -52,7 +56,7 @@ export const CreatingPage: FC<PropsType> = ({
         ширину, высоту и сохраните его."
       />
       <div className={classes.createContent}>
-        <ChartSelectionMenu />
+        <ChartSelectionMenu type={mainOptions.type} />
         <MainChart address={mainAddress} />
         <div className={classes.settingsContainer}>
           <h3 className={classes.settingsTitle}>Настройки графика</h3>
@@ -72,7 +76,14 @@ export const CreatingPage: FC<PropsType> = ({
           </div>
           <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
             <p className={classes.settingsFormTitle}>Параметры графика</p>
-            <AdditionalSettingsForm width={width} height={height} setWidth={setMainWidth} setHeight={setMainHeight} />
+            <AdditionalSettingsForm
+              width={width}
+              height={height}
+              setWidth={setMainWidth}
+              setHeight={setMainHeight}
+              setMainOptionsWithId={setMainOptionsWithId}
+              setExamplesType={setExamplesType}
+            />
           </div>
         </div>
       </div>

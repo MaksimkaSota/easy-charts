@@ -3,7 +3,6 @@
   .link {
     font-size: 1.2rem;
     font-weight: 400;
-    text-decoration: none;
     transition: all 0.25s linear;
     line-height: 1.3rem;
     &:not(:last-child) {
@@ -11,8 +10,17 @@
     }
     &:hover {
       cursor: pointer;
+      text-decoration: underline;
       color: $green;
       font-size: 1.3rem;
+    }
+  }
+  .activeLink {
+    color: $green;
+    font-size: 1.3rem;
+    &:hover {
+      cursor: default;
+      text-decoration: none;
     }
   }
 }

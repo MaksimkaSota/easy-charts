@@ -5,7 +5,8 @@ import { changeType } from '../../../utils/helpers/componentsHelpers';
 import { RoutePath } from '../../../utils/types/enums';
 
 type PropsType = {
-  isLink: boolean;
+  isLink?: boolean;
+  isDisabled?: boolean;
   type: string;
   src: string;
   text: string;
@@ -14,7 +15,8 @@ type PropsType = {
 };
 
 export const ChartSelectionButton: FC<PropsType> = ({
-  isLink,
+  isLink = false,
+  isDisabled = false,
   type,
   src,
   text,
@@ -27,7 +29,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
   const props = {
     to: isLink ? RoutePath.gallery + RoutePath.create : undefined,
     className: classNameContainer,
-    onClick: () => changeType(setMainType, setExamplesType, type),
+    onClick: isDisabled ? undefined : () => changeType(setMainType, setExamplesType, type),
   };
 
   return (

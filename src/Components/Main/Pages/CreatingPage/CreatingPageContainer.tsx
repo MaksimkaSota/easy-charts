@@ -20,6 +20,8 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     removeMainColumn,
     setMainWidth,
     setMainHeight,
+    setMainOptionsWithId,
+    setExamplesType,
   } = useActions();
 
   const getDebouncedAddress = useDebouncedCallback(() => getAddress(mainOptions, width, height), 1000);
@@ -44,6 +46,8 @@ export const CreatingPageContainer: FC = (): ReactElement => {
       removeMainColumn={removeMainColumn}
       setMainWidth={setMainWidth}
       setMainHeight={setMainHeight}
+      setMainOptionsWithId={setMainOptionsWithId}
+      setExamplesType={setExamplesType}
     />
   );
 };
