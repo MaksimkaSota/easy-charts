@@ -1,8 +1,9 @@
-import type { MainOptionsAction, MainOptionsState } from '../types/mainOptions';
-import { MainOptionsActionType } from '../types/mainOptions';
+import { v4 as uuidv4 } from 'uuid';
+import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
-import type { IDataset } from '../../utils/types/api';
+import type { IData, IDataset } from '../../utils/types/api';
 import { StandardOptions } from '../../utils/types/enums';
+import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 
 const initialState: MainOptionsState = {
   mainOptions: mainInitialValue,
@@ -30,8 +31,11 @@ export const mainOptionsReducer = (
         },
       };
     case MainOptionsActionType.SET_MAIN_OPTIONS_LABELS: {
-      const newLabels = state.mainOptions.data.labels.map((label: string, labelIndex: number): string => {
-        return action.payload.id === labelIndex ? action.payload.value : label;
+      const newLabels = state.mainOptions.data.labels.map((label: IData, labelIndex: number): IData => {
+        return {
+          value: action.payload.id === labelIndex ? action.payload.value : label.value,
+          id: label.id,
+        };
       });
       return {
         ...state,
@@ -49,8 +53,11 @@ export const mainOptionsReducer = (
         return action.payload.datasetId === datasetIndex
           ? {
               label: dataset.label,
-              data: dataset.data.map((dataItem: number | string, dataIndex: number): number | string =>
-                action.payload.dataId === dataIndex ? action.payload.value : dataItem
+              data: dataset.data.map(
+                (dataItem: IData, dataIndex: number): IData => ({
+                  value: action.payload.dataId === dataIndex ? action.payload.value : dataItem.value,
+                  id: dataItem.id,
+                })
               ),
             }
           : dataset;
@@ -99,7 +106,8 @@ export const mainOptionsReducer = (
       const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset): IDataset => {
         return {
           label: dataset.label,
-          data: [...dataset.data, rowNumber],
+          data: [...dataset.data, { value: rowNumber, id: uuidv4() }],
+          id: dataset.id,
         };
       });
       return {
@@ -108,7 +116,7 @@ export const mainOptionsReducer = (
           ...state.mainOptions,
           data: {
             ...state.mainOptions.data,
-            labels: [...state.mainOptions.data.labels, `Строка ${rowNumber}`],
+            labels: [...state.mainOptions.data.labels, { value: `Строка ${rowNumber}`, id: uuidv4() }],
             datasets: newDatasets,
           },
         },
@@ -120,6 +128,7 @@ export const mainOptionsReducer = (
       const newDataset: IDataset = {
         label: `Заголовок ${columnNumber}`,
         data: state.mainOptions.data.datasets[columnIndex].data,
+        id: uuidv4(),
       };
       return {
         ...state,
@@ -143,6 +152,7 @@ export const mainOptionsReducer = (
             dataset.data.length === 1
               ? dataset.data
               : dataset.data.filter((dataItem, dataIndex: number): boolean => action.payload !== dataIndex),
+          id: dataset.id,
         };
       });
       return {
@@ -172,11 +182,28 @@ export const mainOptionsReducer = (
         },
       };
     }
-    case MainOptionsActionType.SET_NEW_MAIN_OPTIONS:
+    case MainOptionsActionType.SET_NEW_MAIN_OPTIONS_WITH_ID: {
+      const labelsWithId = addUniqueIdInObjects(action.payload.data.labels);
+      const datasetsWithDataWithId = action.payload.data.datasets.map((dataset: IDataset): IDataset => {
+        return {
+          label: dataset.label,
+          data: addUniqueIdInObjects(dataset.data),
+        };
+      });
+      const datasetsWithId = addUniqueIdInObjects(datasetsWithDataWithId);
+
+      const newMainOptionsWithId = {
+        ...action.payload,
+        data: {
+          labels: labelsWithId,
+          datasets: datasetsWithId,
+        },
+      };
       return {
         ...state,
-        mainOptions: action.payload,
+        mainOptions: newMainOptionsWithId,
       };
+    }
     case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH:
       return {
         ...state,

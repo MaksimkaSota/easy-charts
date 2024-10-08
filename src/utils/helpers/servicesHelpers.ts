@@ -1,11 +1,20 @@
-import type { IChart } from '../types/api';
+import { v4 as uuidv4 } from 'uuid';
+import type { IChart, IData, IDataset } from '../types/api';
 import { ChartParameter } from '../types/enums';
+import type { ObjectType } from '../types/common';
 
 export const formQueryString = (options: IChart, width: number | string, height: number | string): string => {
   const type = `type:'${options.type}'`;
 
-  const labels = JSON.stringify(options.data.labels);
-  const datasets = JSON.stringify(options.data.datasets).replace('"label"', 'label').replace('"data"', 'data');
+  const labels = JSON.stringify(options.data.labels.map((label: IData) => label.value));
+  const datasets = JSON.stringify(
+    options.data.datasets.map((dataset: IDataset) => ({
+      label: dataset.label,
+      data: dataset.data.map((dataItem: IData) => dataItem.value),
+    }))
+  )
+    .replace('"label"', 'label')
+    .replace('"data"', 'data');
   const data = `data:{labels:${labels}, datasets:${datasets}}`;
 
   const title = options.options.title.text;
@@ -47,4 +56,8 @@ export const copyTextOnClick = async (
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1000);
   }
+};
+
+export const addUniqueIdInObjects = (objects: ObjectType[]): any[] => {
+  return objects.map((object: ObjectType): ObjectType => ({ ...object, id: uuidv4() }));
 };

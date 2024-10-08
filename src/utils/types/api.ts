@@ -1,12 +1,18 @@
+export interface IData {
+  value: number | string;
+  id?: string;
+}
+
 export interface IDataset {
   label: string;
-  data: Array<number | string>;
+  data: IData[];
+  id?: string;
 }
 
 export interface IChart {
   type: string;
   data: {
-    labels: string[];
+    labels: IData[];
     datasets: IDataset[];
   };
   options: {

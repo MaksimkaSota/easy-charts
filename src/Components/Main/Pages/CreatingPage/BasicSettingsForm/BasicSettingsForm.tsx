@@ -9,7 +9,11 @@ import type { IChart } from '../../../../../utils/types/api';
 const validationSchema = Yup.object().shape({
   datasets: Yup.array().of(
     Yup.object().shape({
-      data: Yup.array().of(Yup.number().typeError('Только числа')),
+      data: Yup.array().of(
+        Yup.object().shape({
+          value: Yup.number().typeError('Только числа'),
+        })
+      ),
     })
   ),
 });

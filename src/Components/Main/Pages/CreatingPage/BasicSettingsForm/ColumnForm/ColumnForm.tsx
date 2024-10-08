@@ -19,7 +19,7 @@ export const ColumnForm = memo<PropsType>(
 
     useEffect(() => {
       dataset.data.forEach((dataItem, dataItemIndex: number): void => {
-        setFieldTouched(`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}`, true);
+        setFieldTouched(`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}.value`, true);
       });
       // eslint-disable-next-line
     }, [setFieldTouched]);
@@ -50,9 +50,9 @@ export const ColumnForm = memo<PropsType>(
         {dataset.data.map(
           (dataItem, dataItemIndex: number): ReactElement => (
             <FormField
-              key={dataItemIndex}
+              key={dataItem.id}
               classNameField={classes.inputDataNumbers}
-              name={`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}`}
+              name={`${FormName.datasets}.${datasetIndex}.data.${dataItemIndex}.value`}
               type="text"
               errors={errors}
               onChange={(event: ChangeEvent<HTMLInputElement>) => onDataChange(dataItemIndex, event)}

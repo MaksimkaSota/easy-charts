@@ -1,14 +1,14 @@
 import { type ReactElement, useEffect, memo } from 'react';
 import classes from './AddColumnForm.module.scss';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
-import type { IDataset } from '../../../../../../utils/types/api';
+import type { IData, IDataset } from '../../../../../../utils/types/api';
 import { ColumnForm } from '../ColumnForm/ColumnForm';
 import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   datasetsFromValues: IDataset[];
   datasetsFromOptions: IDataset[];
-  labels: string[];
+  labels: IData[];
   setData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
   setLabelInDatasets: (id: number, value: string) => void;
   addColumn: () => void;
@@ -39,7 +39,7 @@ export const AddColumnForm = memo<PropsType>(
           {datasetsFromValues.map(
             (dataset: IDataset, datasetIndex: number): ReactElement => (
               <ColumnForm
-                key={datasetIndex}
+                key={dataset.id}
                 dataset={dataset}
                 datasetIndex={datasetIndex}
                 setData={setData}

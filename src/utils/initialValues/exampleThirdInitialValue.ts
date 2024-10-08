@@ -3,11 +3,11 @@ import type { IChart } from '../types/api';
 export const exampleThirdInitialValue: IChart = {
   type: 'bar',
   data: {
-    labels: ['2017', '2018', '2019', '2020', '2021'],
+    labels: [{ value: '2017' }, { value: '2018' }, { value: '2019' }, { value: '2020' }, { value: '2021' }],
     datasets: [
       {
         label: '',
-        data: [4.6, 5.6, 4.7, 7.4, 9.97],
+        data: [{ value: 4.6 }, { value: 5.6 }, { value: 4.7 }, { value: 7.4 }, { value: 9.97 }],
       },
     ],
   },

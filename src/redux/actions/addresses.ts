@@ -1,11 +1,11 @@
-import type {
-  SetMainAddressAction,
-  SetUrlAddressAction,
-  SetExampleFirstAddressAction,
-  SetExampleSecondAddressAction,
-  SetExampleThirdAddressAction,
+import {
+  type SetMainAddressAction,
+  type SetUrlAddressAction,
+  type SetExampleFirstAddressAction,
+  type SetExampleSecondAddressAction,
+  type SetExampleThirdAddressAction,
+  AddressesActionType,
 } from '../types/addresses';
-import { AddressesActionType } from '../types/addresses';
 
 export const setMainAddress = (address: string): SetMainAddressAction => ({
   type: AddressesActionType.SET_ADDRESS_MAIN,

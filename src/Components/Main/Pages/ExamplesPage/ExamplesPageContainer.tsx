@@ -8,7 +8,7 @@ import { ExampleKey, StandardOptions } from '../../../../utils/types/enums';
 export const ExamplesPageContainer: FC = (): ReactElement => {
   const { exampleFirstAddress, exampleSecondAddress, exampleThirdAddress } = useTypedSelector(addressesSelector);
   const { exampleFirstOptions, exampleSecondOptions, exampleThirdOptions } = useTypedSelector(examplesOptionsSelector);
-  const { getAddress, setNewMainOptions } = useActions();
+  const { getAddress, setMainOptionsWithId } = useActions();
 
   useEffect(() => {
     getAddress(exampleFirstOptions, StandardOptions.width, StandardOptions.height, ExampleKey.first);
@@ -24,7 +24,7 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
       exampleFirstOptions={exampleFirstOptions}
       exampleSecondOptions={exampleSecondOptions}
       exampleThirdOptions={exampleThirdOptions}
-      setNewMainOptions={setNewMainOptions}
+      setMainOptionsWithId={setMainOptionsWithId}
     />
   );
 };

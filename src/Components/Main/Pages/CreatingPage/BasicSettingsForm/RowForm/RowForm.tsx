@@ -22,7 +22,7 @@ export const RowForm = memo<PropsType>(({ labelIndex, setLabels, removeRow, erro
       <div title="Удалить эту строку" className={classes.closeX} onClick={() => removeRow(labelIndex)} />
       <FormField
         classNameField={classes.inputData}
-        name={`${FormName.labels}.${labelIndex}`}
+        name={`${FormName.labels}.${labelIndex}.value`}
         type="text"
         onChange={onLabelChange}
         errors={errors}

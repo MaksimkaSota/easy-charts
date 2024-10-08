@@ -1,18 +1,18 @@
-import type {
-  SetMainTitleAction,
-  SetMainLabelsAction,
-  SetMainDataInDatasetsAction,
-  SetMainLabelInDatasetsAction,
-  SetMainTypeAction,
-  AddMainRowAction,
-  AddMainColumnAction,
-  RemoveMainRowAction,
-  RemoveMainColumnAction,
-  SetNewMainOptionsAction,
-  SetMainWidthAction,
-  SetMainHeightAction,
+import {
+  type SetMainTitleAction,
+  type SetMainLabelsAction,
+  type SetMainDataInDatasetsAction,
+  type SetMainLabelInDatasetsAction,
+  type SetMainTypeAction,
+  type AddMainRowAction,
+  type AddMainColumnAction,
+  type RemoveMainRowAction,
+  type RemoveMainColumnAction,
+  type SetNewMainOptionsWithIdAction,
+  type SetMainWidthAction,
+  type SetMainHeightAction,
+  MainOptionsActionType,
 } from '../types/mainOptions';
-import { MainOptionsActionType } from '../types/mainOptions';
 import type { IChart } from '../../utils/types/api';
 
 export const setMainTitle = (type: string): SetMainTitleAction => ({
@@ -53,8 +53,8 @@ export const removeMainColumn = (index: number): RemoveMainColumnAction => ({
   type: MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN,
   payload: index,
 });
-export const setNewMainOptions = (options: IChart): SetNewMainOptionsAction => ({
-  type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS,
+export const setMainOptionsWithId = (options: IChart): SetNewMainOptionsWithIdAction => ({
+  type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS_WITH_ID,
   payload: options,
 });
 export const setMainWidth = (width: number | string): SetMainWidthAction => ({

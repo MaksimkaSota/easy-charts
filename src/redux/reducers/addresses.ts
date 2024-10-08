@@ -1,5 +1,4 @@
-import type { AddressesState, AddressesAction } from '../types/addresses';
-import { AddressesActionType } from '../types/addresses';
+import { type AddressesState, type AddressesAction, AddressesActionType } from '../types/addresses';
 
 const initialState: AddressesState = {
   mainAddress: '',

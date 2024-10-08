@@ -3,12 +3,12 @@ import classes from './AddRowForm.module.scss';
 import { FormField } from '../../../../../Common/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
 import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
-import type { IDataset } from '../../../../../../utils/types/api';
+import type { IData, IDataset } from '../../../../../../utils/types/api';
 import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
-  labelsFromValues: string[];
-  labelsFromOptions: string[];
+  labelsFromValues: IData[];
+  labelsFromOptions: IData[];
   datasets: IDataset[];
   setLabels: (id: number, value: string) => void;
   setTitle: (type: string) => void;
@@ -54,9 +54,9 @@ export const AddRowForm = memo<PropsType>(
           errors={errors}
         />
         {labelsFromValues.map(
-          (label: string, labelIndex: number): ReactElement => (
+          (label: IData, labelIndex: number): ReactElement => (
             <RowForm
-              key={labelIndex}
+              key={label.id}
               labelIndex={labelIndex}
               setLabels={setLabels}
               removeRow={removeRow}

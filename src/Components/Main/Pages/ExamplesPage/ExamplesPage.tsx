@@ -12,7 +12,7 @@ type PropsType = {
   exampleFirstOptions: IChart;
   exampleSecondOptions: IChart;
   exampleThirdOptions: IChart;
-  setNewMainOptions: (options: IChart) => void;
+  setMainOptionsWithId: (options: IChart) => void;
 };
 
 export const ExamplesPage: FC<PropsType> = ({
@@ -22,7 +22,7 @@ export const ExamplesPage: FC<PropsType> = ({
   exampleFirstOptions,
   exampleSecondOptions,
   exampleThirdOptions,
-  setNewMainOptions,
+  setMainOptionsWithId,
 }): ReactElement => {
   return (
     <div className={classes.examples}>
@@ -43,7 +43,7 @@ export const ExamplesPage: FC<PropsType> = ({
           firstOptions={exampleFirstOptions}
           secondOptions={exampleSecondOptions}
           thirdOptions={exampleThirdOptions}
-          setNewOptions={setNewMainOptions}
+          setNewOptions={setMainOptionsWithId}
         />
       </div>
     </div>
