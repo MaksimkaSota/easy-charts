@@ -3,10 +3,11 @@
 *::after {
   margin: 0;
   padding: 0;
-  border: 0;
-  box-sizing: border-box;
+  border: none;
+  outline: none;
   text-decoration: none;
-  color: $main-text;
+  box-sizing: border-box;
+  color: $content-text;
 }
 
 #root {
@@ -21,41 +22,24 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-}
-
-img {
-  display: block;
-}
-
-@media (max-width: 1024px) {
-  html,
-  body {
+  @include respond($laptop) {
     font-size: 14px;
   }
-}
-
-@media (max-width: 768px) {
-  html,
-  body {
+  @include respond($tabletMax) {
     font-size: 13px;
   }
-}
-
-@media (max-width: 480px) {
-  html,
-  body {
+  @include respond($tabletMin) {
     font-size: 12px;
   }
-}
-
-@media (max-width: 360px) {
-  html,
-  body {
+  @include respond($mobile) {
     font-size: 11px;
   }
+}
+
+input,
+textarea,
+button,
+img,
+a {
+  display: block;
 }

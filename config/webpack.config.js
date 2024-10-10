@@ -175,7 +175,8 @@ module.exports = function (webpackEnv) {
         options: {
           sourceMap: true,
           additionalData: `
-              @import 'src/utils/styles/global.scss';
+              @import 'src/utils/styles/mixins.scss';
+              @import 'src/utils/styles/variables.scss';
             `,
         },
       });

@@ -15,8 +15,6 @@ export const MainRoutes: FC = (): ReactElement => {
       <Route path={RoutePath.create} element={<CreatingPageContainer />} />
       <Route path={RoutePath.gallery} element={<GalleryPage />} />
       <Route path={RoutePath.examples} element={<ExamplesPageContainer />} />
-      <Route path={RoutePath.gallery + RoutePath.create} element={<CreatingPageContainer />} />
-      <Route path={RoutePath.examples + RoutePath.create} element={<CreatingPageContainer />} />
       <Route path={RoutePath.contacts} element={<ContactsPage />} />
       <Route path={RoutePath.save} element={<SavePageContainer />} />
     </Routes>

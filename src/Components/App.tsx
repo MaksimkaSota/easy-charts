@@ -6,7 +6,7 @@ import { MainRoutes } from './Main/MainRoutes';
 
 export const App: FC = (): ReactElement => {
   return (
-    <div className={classes.app}>
+    <div className={classes.wrapper}>
       <Header />
       <main className={classes.main}>
         <MainRoutes />

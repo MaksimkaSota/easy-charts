@@ -2,9 +2,9 @@
   @extend %button;
   width: 100%;
   &:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: $indentMax;
   }
   span {
-    color: $black;
+    color: $title-text;
   }
 }

@@ -1,30 +1,21 @@
 .deleteColumnContainer {
-  @include flex(null, null);
-  flex-direction: column;
+  @include flex(column, null, null);
   position: relative;
-  margin: 0 0.3rem 0 0;
+  margin: 0 $indentInputAndButton 0 0;
   .axis {
     text-align: center;
   }
   .closeY {
-    width: 10px;
-    height: 10px;
+    @extend %closeButton;
     background-image: url('../../../../../../assets/images/cross.svg');
-    cursor: pointer;
-    position: absolute;
     right: 10px;
     top: 5px;
-    transition: all 0.25s linear;
-    &:hover {
-      width: 15px;
-      height: 15px;
-    }
   }
   .inputData {
-    @include input(#ccc, 0.3rem);
+    @include input($input-background, $indentMin);
   }
   .inputDataNumbers {
-    @include input(rgba(204, 204, 204, 0.3), 0.1rem);
-    outline: 1px solid black;
+    @include input($validated-input-background, $indentInputAndButton);
+    outline: 1px solid $content-text;
   }
 }

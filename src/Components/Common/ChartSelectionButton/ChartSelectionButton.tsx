@@ -27,7 +27,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
 
   const CustomTag = isLink ? NavLink : 'div';
   const props = {
-    to: isLink ? RoutePath.gallery + RoutePath.create : undefined,
+    to: isLink ? RoutePath.create : undefined,
     className: classNameContainer,
     onClick: isDisabled ? undefined : () => changeType(setMainType, setExamplesType, type),
   };

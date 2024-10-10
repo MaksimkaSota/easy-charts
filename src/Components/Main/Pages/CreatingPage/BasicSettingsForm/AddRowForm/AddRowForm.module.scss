@@ -1,15 +1,13 @@
 .formContainer {
-  &:first-child {
-    margin: 0 0.3rem 0 0;
-    .axisName {
-      text-align: center;
-    }
-    .inputData {
-      @include input(#ccc, 0.3rem);
-    }
-    .addButton {
-      @extend %button;
-      margin-bottom: 0;
-    }
+  margin: 0 $indentMin 0 0;
+  .axisName {
+    text-align: center;
+  }
+  .inputData {
+    @include input($input-background, $indentMin);
+  }
+  .addButton {
+    @extend %button;
+    margin-bottom: 0;
   }
 }

@@ -1,19 +1,17 @@
 .formContainer {
-  @include flex(space-between, null);
+  @include flex(null, space-between, null);
   .label {
-    display: block;
-    color: $black;
+    color: $title-text;
     font-size: 0.9rem;
   }
   .inputData {
-    @include input(rgba(204, 204, 204, 0.3), 0.1rem);
-    outline: 1px solid black;
+    @include input($validated-input-background, $indentInputAndButton);
+    outline: 1px solid $content-text;
   }
 }
 .button {
   @extend %button;
   width: 100%;
-  text-align: center;
   margin-bottom: 0;
   &:disabled {
     cursor: default;

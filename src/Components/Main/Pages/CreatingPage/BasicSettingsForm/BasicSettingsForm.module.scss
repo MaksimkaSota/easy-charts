@@ -1,4 +1,4 @@
 .basicSettingsForm {
-  display: flex;
+  @include flex(null, null, null);
   position: relative;
 }

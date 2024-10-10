@@ -1,10 +1,11 @@
 .examples {
-  padding: 1.5rem 0;
-  width: 95%;
-  margin: 0 auto;
+  @include position(95%, 0 auto);
   .examplesMain {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
+}
+.chartSelectionMenu {
+  @include flex(column, flex-start, null);
 }

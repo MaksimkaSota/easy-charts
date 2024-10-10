@@ -1,12 +1,9 @@
-.app {
-  text-align: center;
+.wrapper {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include flex(column, null, null);
   .main {
+    margin: $indentMax 0;
+    @include flex(null, center, center);
     flex: 1 1 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }

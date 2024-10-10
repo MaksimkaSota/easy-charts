@@ -1,34 +1,39 @@
 .create {
-  padding: 1.5rem 0;
   @include position(95%, 0 auto);
   .createContent {
-    @include flex(center, null);
+    @include flex(null, center, null);
     flex-wrap: wrap;
     .settingsContainer {
+      @include flex(column, null, null);
       max-width: 100%;
       .settingsTitle {
         @extend %mini-title;
       }
-      .settingsFormContainer {
-        text-align: left;
-        border-radius: 10px;
-        box-shadow: 0 0 10px 0;
-        .settingsFormTitle {
-          font-size: 1rem;
-          margin: 0 0 0.3rem 0;
-          padding: 0 0.3rem 0.3rem;
-          border-bottom: 1px solid;
+      .wrapper {
+        @include flex(column, center, null);
+        flex-grow: 1;
+        .settingsFormContainer {
+          padding: $indentMin $indentMin $indentMin $indentMax;
+          border-radius: $radiusMax;
+          box-shadow: 0 0 10px 0;
+          .settingsFormTitle {
+            font-size: 1rem;
+            padding: 0 0 $indentInputAndButton 0;
+            margin: 0 0 $indentInputAndButton 0;
+            border-bottom: 1px solid;
+          }
         }
-      }
-      .basicFormContainer {
-        margin: 0 0 1rem 0;
-        padding: 0.8rem 0.8rem 0.8rem 1.5rem;
-        overflow: auto;
-      }
-      .additionalFormContainer {
-        max-width: 422px;
-        padding: 0.8rem;
+        .basicFormContainer {
+          margin: 0 0 $indentMax 0;
+          overflow: auto;
+        }
+        .additionalFormContainer {
+          max-width: 385px;
+        }
       }
     }
   }
+}
+.chartSelectionMenu {
+  @include flex(column, center, null);
 }

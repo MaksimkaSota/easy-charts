@@ -15,11 +15,7 @@ export const ExampleChart: FC<PropsType> = ({ address, options, setNewOptions })
   return (
     <>
       <Chart address={address} />
-      <NavLink
-        to={RoutePath.examples + RoutePath.create}
-        className={classes.link}
-        onClick={() => setNewOptions(options)}
-      >
+      <NavLink to={RoutePath.create} className={classes.link} onClick={() => setNewOptions(options)}>
         Отредактировать график: <span>{options.options.title.text.split(',').shift()}</span>
       </NavLink>
     </>

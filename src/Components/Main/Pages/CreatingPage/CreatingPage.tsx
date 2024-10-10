@@ -56,34 +56,36 @@ export const CreatingPage: FC<PropsType> = ({
         ширину, высоту и сохраните его."
       />
       <div className={classes.createContent}>
-        <ChartSelectionMenu type={mainOptions.type} />
+        <ChartSelectionMenu type={mainOptions.type} className={classes.chartSelectionMenu} />
         <MainChart address={mainAddress} />
         <div className={classes.settingsContainer}>
           <h3 className={classes.settingsTitle}>Настройки графика</h3>
-          <div className={cn(classes.settingsFormContainer, classes.basicFormContainer)}>
-            <p className={classes.settingsFormTitle}>Таблица данных</p>
-            <BasicSettingsForm
-              options={mainOptions}
-              setTitle={setMainTitle}
-              setLabels={setMainLabels}
-              setData={setMainData}
-              setLabelInDatasets={setMainLabelInDatasets}
-              addRow={addMainRow}
-              addColumn={addMainColumn}
-              removeRow={removeMainRow}
-              removeColumn={removeMainColumn}
-            />
-          </div>
-          <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
-            <p className={classes.settingsFormTitle}>Параметры графика</p>
-            <AdditionalSettingsForm
-              width={width}
-              height={height}
-              setWidth={setMainWidth}
-              setHeight={setMainHeight}
-              setMainOptionsWithId={setMainOptionsWithId}
-              setExamplesType={setExamplesType}
-            />
+          <div className={classes.wrapper}>
+            <div className={cn(classes.settingsFormContainer, classes.basicFormContainer)}>
+              <p className={classes.settingsFormTitle}>Таблица данных</p>
+              <BasicSettingsForm
+                options={mainOptions}
+                setTitle={setMainTitle}
+                setLabels={setMainLabels}
+                setData={setMainData}
+                setLabelInDatasets={setMainLabelInDatasets}
+                addRow={addMainRow}
+                addColumn={addMainColumn}
+                removeRow={removeMainRow}
+                removeColumn={removeMainColumn}
+              />
+            </div>
+            <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
+              <p className={classes.settingsFormTitle}>Параметры графика</p>
+              <AdditionalSettingsForm
+                width={width}
+                height={height}
+                setWidth={setMainWidth}
+                setHeight={setMainHeight}
+                setMainOptionsWithId={setMainOptionsWithId}
+                setExamplesType={setExamplesType}
+              />
+            </div>
           </div>
         </div>
       </div>

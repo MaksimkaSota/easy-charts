@@ -1,8 +1,13 @@
-.imageContainer {
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0;
-  .image {
-    width: 1000px;
+.wrapper {
+  @include flex(column, center, null);
+  flex-grow: 1;
+  .imageContainer {
+    padding: $indentMin;
+    border-radius: $radiusMax;
+    box-shadow: 0 0 10px 0;
+    .image {
+      width: 750px;
+      height: 450px;
+    }
   }
 }

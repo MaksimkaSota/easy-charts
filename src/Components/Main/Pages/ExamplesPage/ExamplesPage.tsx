@@ -35,7 +35,7 @@ export const ExamplesPage: FC<PropsType> = ({
         данного вида: столбчатый, линейный, круговой…!"
       />
       <div className={classes.examplesMain}>
-        <ChartSelectionMenu type={exampleFirstOptions.type} />
+        <ChartSelectionMenu type={exampleFirstOptions.type} className={classes.chartSelectionMenu} />
         <ExampleCharts
           firstAddress={exampleFirstAddress}
           secondAddress={exampleSecondAddress}

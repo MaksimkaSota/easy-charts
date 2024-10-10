@@ -11,7 +11,7 @@
     &:hover {
       cursor: pointer;
       text-decoration: underline;
-      color: $green;
+      color: $blue;
       font-size: 1.3rem;
     }
   }
@@ -19,6 +19,7 @@
     color: $green;
     font-size: 1.3rem;
     &:hover {
+      color: $green;
       cursor: default;
       text-decoration: none;
     }

@@ -1,6 +1,6 @@
 .formContainer {
   .formContainerInner {
-    @include flex(null, null);
+    @include flex(null, null, null);
   }
   .addButton {
     @extend %button;

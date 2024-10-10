@@ -39,6 +39,6 @@ export enum ExampleKey {
   third = 'thirdExample',
 }
 export enum StandardOptions {
-  width = 1000,
-  height = 600,
+  width = 750,
+  height = 450,
 }

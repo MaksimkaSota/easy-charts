@@ -1,6 +1,6 @@
 .viewAndSave {
   .interactionButtonsContainer {
-    @include flex(center, center);
+    @include flex(null, center, center);
     .interactionButton {
       @extend %button;
       width: auto;
