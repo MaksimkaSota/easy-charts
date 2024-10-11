@@ -1,10 +1,15 @@
 import type { FC, ReactElement } from 'react';
+import cn from 'classnames';
 import classes from './Logo.module.scss';
 import logo from '../../../assets/images/logo.png';
 
-export const Logo: FC = (): ReactElement => {
+type PropsType = {
+  className?: string;
+};
+
+export const Logo: FC<PropsType> = ({ className }): ReactElement => {
   return (
-    <div className={classes.logo}>
+    <div className={cn(classes.logo, className)}>
       <h1 className={classes.logoText}>
         <span className={classes.letterRed}>E</span>
         <span className={classes.letterOrange}>a</span>
@@ -17,9 +22,7 @@ export const Logo: FC = (): ReactElement => {
         <span className={classes.letterRed}>t</span>
         <span className={classes.letterOrange}>s</span>
       </h1>
-      <div className={classes.imageContainer}>
-        <img src={logo} alt="Логотип" />
-      </div>
+      <img className={classes.logoImage} src={logo} alt="Логотип" />
     </div>
   );
 };

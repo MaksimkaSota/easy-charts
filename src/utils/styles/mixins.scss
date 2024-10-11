@@ -10,6 +10,11 @@
   }
 }
 
+@mixin position($w, $m) {
+  width: $w;
+  margin: $m;
+}
+
 %title-pages {
   color: $title-text;
   margin: 0 0 $indentMin 0;
@@ -36,9 +41,8 @@
 }
 
 %button {
-  width: 170px;
+  @include position(170px, $indentInputAndButton 0);
   padding: $indentInputAndButton;
-  margin: $indentInputAndButton 0;
   color: $button-text;
   background-color: $green;
   border-radius: 10px;
@@ -94,11 +98,6 @@
   }
 }
 
-@mixin position($w, $m) {
-  width: $w;
-  margin: $m;
-}
-
 @mixin flex($fd, $jc, $ai) {
   display: flex;
   flex-direction: $fd;
@@ -107,9 +106,8 @@
 }
 
 @mixin input($bc, $mb) {
-  width: 170px;
+  @include position(170px, 0 0 $mb 0);
   padding: $indentInputAndButton;
-  margin: 0 0 $mb 0;
   color: $title-text;
   background-color: $bc;
   border-radius: $radiusMin;

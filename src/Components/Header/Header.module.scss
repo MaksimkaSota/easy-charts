@@ -1,20 +1,17 @@
 .header {
   box-shadow: 0 -5px 10px 0;
   .headerInner {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    .headerInner {
-      justify-content: center;
+    @include position(90%, 0 auto);
+    @include flex(null, null, center);
+    padding: $indentMin 0;
+    .logo {
+      margin: 0 $indentMax 0 0;
+    }
+    @include respond($tabletMin) {
+      flex-direction: column;
+      .logo {
+        margin: 0 0 $indentMin 0;
+      }
     }
   }
 }

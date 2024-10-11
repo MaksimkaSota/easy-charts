@@ -3,6 +3,14 @@
   .createContent {
     @include flex(null, center, null);
     flex-wrap: wrap;
+    .chartSelectionMenu {
+      @include flex(column, center, null);
+      @include respond($tabletMax) {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
     .settingsContainer {
       @include flex(column, null, null);
       max-width: 100%;
@@ -30,7 +38,10 @@
         .additionalFormContainer {
           width: 385px;
         }
-        @include respond($laptop) {
+      }
+      @include respond($laptop) {
+        margin: $indentMax 0 0 0;
+        .wrapper {
           flex-direction: row;
           align-items: flex-start;
           flex-wrap: wrap;
@@ -41,7 +52,9 @@
             margin: 0 0 0 $indentMax;
           }
         }
-        @include respond($tabletMin) {
+      }
+      @include respond($tabletMin) {
+        .wrapper {
           .basicFormContainer {
             margin: 0 0 $indentMax 0;
           }
@@ -49,7 +62,10 @@
             margin: 0;
           }
         }
-        @include respond($mobile) {
+      }
+      @include respond($mobile) {
+        margin: $indentMin 0 0 0;
+        .wrapper {
           .basicFormContainer {
             margin: 0 0 $indentMin 0;
           }
@@ -58,20 +74,6 @@
           }
         }
       }
-      @include respond($laptop) {
-        margin: $indentMax 0 0 0;
-      }
-      @include respond($mobile) {
-        margin: $indentMin 0 0 0;
-      }
     }
-  }
-}
-.chartSelectionMenu {
-  @include flex(column, center, null);
-  @include respond($tabletMax) {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
   }
 }

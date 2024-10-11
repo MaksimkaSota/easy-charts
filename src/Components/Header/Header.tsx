@@ -7,7 +7,7 @@ export const Header: FC = (): ReactElement => {
   return (
     <header className={classes.header}>
       <div className={classes.headerInner}>
-        <Logo />
+        <Logo className={classes.logo} />
         <Navigation />
       </div>
     </header>

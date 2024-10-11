@@ -3,4 +3,7 @@
   .miniTitle {
     @extend %mini-title;
   }
+  @include respond($tabletMax) {
+    margin: 0;
+  }
 }

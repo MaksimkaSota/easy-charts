@@ -1,11 +1,9 @@
 .logo {
-  display: flex;
-  padding: 0 1rem;
+  @include flex(null, null, center);
   .logoText {
-    display: flex;
-    font-weight: 700;
-    font-size: 2.25rem;
-    margin-right: 0.6rem;
+    @include flex(null, null, null);
+    font-size: 2.3rem;
+    margin: 0 $indentMin 0 0;
     .letterRed {
       color: $red;
     }
@@ -19,16 +17,17 @@
       color: $green;
     }
   }
-  .imageContainer {
-    height: 3rem;
-    img {
-      height: 100%;
+  .logoImage {
+    width: 50px;
+  }
+  @include respond($tabletMin) {
+    .logoImage {
+      width: 40px;
     }
   }
-}
-
-@media (max-width: 768px) {
-  .logo {
-    padding-bottom: 0.9rem;
+  @include respond($mobile) {
+    .logoImage {
+      width: 30px;
+    }
   }
 }

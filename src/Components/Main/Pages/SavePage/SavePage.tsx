@@ -32,7 +32,6 @@ export const SavePage: FC<PropsType> = ({ mainAddress, urlAddress }): ReactEleme
         >
           {isCopied ? copyStatus : 'Копировать URL графика'}
         </button>
-        {}
       </div>
       <img className={classes.img} src={mainAddress} alt="График" />
     </div>

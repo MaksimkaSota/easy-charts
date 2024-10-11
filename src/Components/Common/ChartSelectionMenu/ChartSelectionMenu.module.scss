@@ -36,8 +36,7 @@
     margin: 0 0 $indentMin 0;
     .chartsTypeContainer {
       .imageContainer {
-        width: 250px;
-        margin: $indentMin;
+        @include position(250px, $indentMin);
         &:not(:last-child) {
           margin: $indentMin;
         }
@@ -77,8 +76,7 @@
     margin: 0 0 $indentMin 0;
     .chartsTypeContainer {
       .imageContainer {
-        width: 100%;
-        margin: $indentInputAndButton;
+        @include position(100%, $indentInputAndButton);
         &:not(:last-child) {
           margin: $indentInputAndButton;
         }

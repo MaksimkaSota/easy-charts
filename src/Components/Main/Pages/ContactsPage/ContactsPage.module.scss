@@ -1,59 +1,49 @@
 .contacts {
-  width: 95%;
-  margin: 2rem 0;
+  @include position(95%, 2rem 0);
+  text-align: center;
   .email {
-    @include position(15%, 0 auto);
+    @include position(20%, 0 auto);
+    @include respond($laptop) {
+      width: 25%;
+    }
+    @include respond($tabletMax) {
+      width: 30%;
+    }
+    @include respond($tabletMin) {
+      width: 50%;
+    }
+    @include respond($mobile) {
+      width: 90%;
+    }
   }
   .title {
     @extend %title-pages;
-    text-align: center;
   }
   .textContent {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin: 0 0 $indentMin 0;
   }
   .mail {
     color: $green;
-    transition: all 0.25s linear;
-    text-decoration: underline;
     font-size: 1.5rem;
-    line-height: 1.6rem;
+    text-decoration: underline;
+    transition: all 0.25s linear;
     &:hover {
       cursor: pointer;
       color: $blue;
       font-size: 1.6rem;
     }
-  }
-}
-
-@media (max-width: 1024px) {
-  .contacts {
-    .imageContainer {
-      height: 25vw;
+    @include respond($tabletMax) {
+      font-size: 1.7rem;
+      &:hover {
+        font-size: 1.9rem;
+      }
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .contacts {
-    padding: 0 0.6rem;
-    .imageContainer {
-      height: 35vw;
+    @include respond($tabletMin) {
+      font-size: 1.9rem;
+      &:hover {
+        font-size: 2.1rem;
+      }
     }
-  }
-}
-
-@media (max-width: 480px) {
-  .contacts {
-    .imageContainer {
-      height: 45vw;
-    }
-  }
-}
-
-@media (max-width: 360px) {
-  html,
-  body {
-    font-size: 12px;
   }
 }

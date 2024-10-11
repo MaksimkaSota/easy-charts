@@ -1,26 +1,24 @@
 .navigation {
-  display: flex;
+  @include flex(null, null, center);
   .link {
     font-size: 1.2rem;
-    font-weight: 400;
+    cursor: pointer;
     transition: all 0.25s linear;
-    line-height: 1.3rem;
     &:not(:last-child) {
-      margin-right: 0.6rem;
+      margin: 0 $indentMin 0 0;
     }
     &:hover {
-      cursor: pointer;
-      text-decoration: underline;
       color: $blue;
       font-size: 1.3rem;
+      text-decoration: underline;
     }
   }
   .activeLink {
     color: $green;
     font-size: 1.3rem;
+    cursor: default;
     &:hover {
       color: $green;
-      cursor: default;
       text-decoration: none;
     }
   }

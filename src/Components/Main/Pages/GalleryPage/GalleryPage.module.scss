@@ -1,67 +1,49 @@
 .gallery {
   @include position(95%, 0 auto);
   .typeChartsContainer {
-    display: flex;
-    justify-content: space-between;
+    @include flex(null, space-between, null);
     .imageContainer {
       @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.6rem);
       img {
         padding: 0 0 $indentMin 0;
       }
     }
-  }
-}
-
-@media (max-width: 1024px) {
-  .gallery {
-    .typeChartsContainer {
+    @include respond($tabletMax) {
+      justify-content: center;
       flex-wrap: wrap;
-      justify-content: left;
       .imageContainer {
-        width: 23.5%;
-        margin-right: 2%;
-        margin-bottom: 2vw;
-        &:nth-child(4) {
-          margin-right: 0;
+        @include position(30%, $indentMin);
+        .typeName {
+          font-size: 1.7rem;
         }
-        &:nth-child(6) {
-          margin-right: 0;
-        }
-        &:nth-child(5) {
-          margin-bottom: 0;
-        }
-        &:nth-child(6) {
-          margin-bottom: 0;
+        &:hover {
+          .typeName {
+            font-size: 1.9rem;
+          }
         }
       }
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery {
-    .typeChartsContainer {
-      flex-wrap: wrap;
-      justify-content: space-between;
+    @include respond($tabletMin) {
       .imageContainer {
-        width: 30%;
-        margin-right: 0;
-        &:nth-child(4) {
-          margin-bottom: 0;
+        width: 40%;
+        .typeName {
+          font-size: 1.9rem;
+        }
+        &:hover {
+          .typeName {
+            font-size: 2.1rem;
+          }
         }
       }
     }
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery {
-    .typeChartsContainer {
-      flex-wrap: wrap;
+    @include respond($mobile) {
       .imageContainer {
-        width: 45%;
-        &:nth-child(4) {
-          margin-bottom: 2vw;
+        @include position(70%, $indentInputAndButton);
+        &:first-child {
+          margin: 0 $indentInputAndButton $indentInputAndButton;
+        }
+        &:last-child {
+          margin: $indentInputAndButton $indentInputAndButton 0;
         }
       }
     }

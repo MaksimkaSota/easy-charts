@@ -78,7 +78,7 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       </div>
       <NavLink to={RoutePath.save}>
         <button className={classes.button} type="submit" disabled={!isValid}>
-          Посмотреть и скачать график
+          Посмотреть и сохранить график
         </button>
       </NavLink>
       <button className={classes.button} type="button" onClick={onResetButtonClick}>

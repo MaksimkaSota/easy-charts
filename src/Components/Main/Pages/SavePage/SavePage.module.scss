@@ -6,15 +6,25 @@
       width: auto;
     }
     .saveButton {
-      margin: 0 10px 0 10px;
+      margin: 0 $indentMin 0 $indentMin;
     }
     .copyButton {
       background: $yellow;
       pointer-events: none;
     }
+    @include respond($tabletMin) {
+      flex-direction: column;
+    }
+    @include respond($mobile) {
+      .interactionButton {
+        width: 90%;
+      }
+    }
   }
   .img {
-    display: block;
-    width: 100%;
+    @include position(100%, $indentMin 0 0 0);
+    @include respond($mobile) {
+      margin: $indentInputAndButton 0 0 0;
+    }
   }
 }
