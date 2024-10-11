@@ -28,12 +28,50 @@
           overflow: auto;
         }
         .additionalFormContainer {
-          max-width: 385px;
+          width: 385px;
         }
+        @include respond($laptop) {
+          flex-direction: row;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          .basicFormContainer {
+            margin: 0 0 $indentMax $indentMax;
+          }
+          .additionalFormContainer {
+            margin: 0 0 0 $indentMax;
+          }
+        }
+        @include respond($tabletMin) {
+          .basicFormContainer {
+            margin: 0 0 $indentMax 0;
+          }
+          .additionalFormContainer {
+            margin: 0;
+          }
+        }
+        @include respond($mobile) {
+          .basicFormContainer {
+            margin: 0 0 $indentMin 0;
+          }
+          .additionalFormContainer {
+            width: 100%;
+          }
+        }
+      }
+      @include respond($laptop) {
+        margin: $indentMax 0 0 0;
+      }
+      @include respond($mobile) {
+        margin: $indentMin 0 0 0;
       }
     }
   }
 }
 .chartSelectionMenu {
   @include flex(column, center, null);
+  @include respond($tabletMax) {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }

@@ -5,5 +5,8 @@
     margin: $indentMax 0;
     @include flex(null, center, center);
     flex: 1 1 auto;
+    @include respond($mobile) {
+      margin: $indentMin 0;
+    }
   }
 }

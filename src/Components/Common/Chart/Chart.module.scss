@@ -8,6 +8,14 @@
     .image {
       width: 750px;
       height: 450px;
+      @include respond($laptop) {
+        width: 700px;
+        height: 420px;
+      }
+      @include respond($tabletMin) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

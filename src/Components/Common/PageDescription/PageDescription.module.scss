@@ -6,4 +6,10 @@
   .textContent {
     font-size: 1.1rem;
   }
+  @include respond($mobile) {
+    margin: 0 0 $indentMin;
+    .textContent {
+      text-align: center;
+    }
+  }
 }

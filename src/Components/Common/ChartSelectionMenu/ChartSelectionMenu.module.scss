@@ -32,68 +32,65 @@
       }
     }
   }
-}
-
-@media (max-width: 1024px) {
-  .chartSelectionForm {
-    width: 100%;
-    margin-right: 0;
+  @include respond($tabletMax) {
+    margin: 0 0 $indentMin 0;
     .chartsTypeContainer {
-      display: flex;
-      justify-content: space-between;
       .imageContainer {
-        width: 16%;
-        height: 4.5vw;
+        width: 250px;
+        margin: $indentMin;
+        &:not(:last-child) {
+          margin: $indentMin;
+        }
+        img {
+          width: 70px;
+        }
         .typeName {
-          font-size: 1.1rem;
+          font-size: 1.4rem;
+        }
+        &:hover {
+          .typeName {
+            font-size: 1.6rem;
+          }
         }
       }
     }
   }
-}
-
-@media (max-width: 768px) {
-  .chartSelectionForm {
+  @include respond($tabletMin) {
     .chartsTypeContainer {
-      flex-wrap: wrap;
-      justify-content: left;
       .imageContainer {
-        width: 32%;
-        height: 6vw;
-        margin-right: 2%;
-        &:nth-child(3) {
-          margin-right: 0;
+        width: 300px;
+        img {
+          width: 50px;
         }
-        &:nth-child(6) {
-          margin-right: 0;
+        .typeName {
+          font-size: 1.6rem;
+        }
+        &:hover {
+          .typeName {
+            font-size: 1.8rem;
+          }
         }
       }
     }
   }
-}
-
-@media (max-width: 480px) {
-  .chartSelectionForm {
+  @include respond($mobile) {
+    margin: 0 0 $indentMin 0;
     .chartsTypeContainer {
       .imageContainer {
-        width: 48%;
-        height: 7vw;
-        &:nth-child(even) {
-          margin-right: 0;
+        width: 100%;
+        margin: $indentInputAndButton;
+        &:not(:last-child) {
+          margin: $indentInputAndButton;
         }
-        &:nth-child(3) {
-          margin-right: 2%;
+        &:first-child {
+          margin: 0 $indentInputAndButton $indentInputAndButton;
         }
-      }
-    }
-  }
-}
-
-@media (max-width: 360px) {
-  .chartSelectionForm {
-    .chartsTypeContainer {
-      .imageContainer {
-        height: 7.5vw;
+        &:last-child {
+          margin: $indentInputAndButton $indentInputAndButton 0;
+        }
+        img {
+          width: 30px;
+        }
       }
     }
   }
