@@ -1,12 +1,15 @@
 .link {
   @extend %button;
   width: 100%;
+
   &:not(:last-child) {
     margin-bottom: $indentMax;
   }
+
   span {
     color: $title-text;
   }
+
   @include respond($tabletMin) {
     &:not(:last-child) {
       margin-bottom: $indentMin;

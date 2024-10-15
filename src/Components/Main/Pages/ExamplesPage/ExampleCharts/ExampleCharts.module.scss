@@ -1,8 +1,10 @@
 .chartResult {
   margin: 0 0 0 $indentMax;
+
   .miniTitle {
     @extend %mini-title;
   }
+
   @include respond($tabletMax) {
     margin: 0;
   }

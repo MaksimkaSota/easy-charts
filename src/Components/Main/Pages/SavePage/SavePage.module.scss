@@ -1,17 +1,21 @@
 .viewAndSave {
   .interactionButtonsContainer {
     @include flex(null, center, center);
+
     .interactionButton {
       @extend %button;
       width: auto;
     }
+
     .saveButton {
       margin: 0 $indentMin 0 $indentMin;
     }
+
     .copyButton {
       background: $yellow;
       pointer-events: none;
     }
+
     @include respond($tabletMin) {
       flex-direction: column;
     }
@@ -21,6 +25,7 @@
       }
     }
   }
+
   .img {
     @include position(100%, $indentMin 0 0 0);
     @include respond($mobile) {

@@ -2,6 +2,7 @@
   .formContainerInner {
     @include flex(null, null, null);
   }
+
   .addButton {
     @extend %button;
     margin-bottom: 0;

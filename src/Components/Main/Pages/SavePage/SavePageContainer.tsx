@@ -13,8 +13,8 @@ export const SavePageContainer: FC = (): ReactElement => {
   useEffect(() => {
     getAddress(mainOptions, width, height);
     return () => {
-      setMainWidth(StandardOptions.width);
-      setMainHeight(StandardOptions.height);
+      setMainWidth(StandardOptions.Width);
+      setMainHeight(StandardOptions.Height);
     };
     // eslint-disable-next-line
   }, [getAddress, setMainHeight, setMainWidth]);

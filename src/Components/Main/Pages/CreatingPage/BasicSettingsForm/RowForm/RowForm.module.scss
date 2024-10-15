@@ -1,10 +1,18 @@
 .deleteRowContainer {
   @include flex(null, null, center);
+  position: relative;
+
   .closeX {
     @extend %closeButton;
-    background-image: url('../../../../../../assets/images/cross.svg');
+    background: transparent url('../../../../../../assets/images/cross.svg') no-repeat;
+    top: 5px;
     left: -15px;
   }
+
+  .closeXHover {
+    @extend %closeButtonHover;
+  }
+
   .inputData {
     @include input($input-background, $indentInputAndButton);
   }

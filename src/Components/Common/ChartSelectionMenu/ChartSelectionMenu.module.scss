@@ -1,30 +1,39 @@
 .chartSelectionForm {
   @include flex(column, null, null);
+
   .miniTitle {
     @extend %mini-title;
   }
+
   .chartsTypeContainer {
     flex-grow: 1;
+
     .imageContainer {
       @include selectionContainer(170px, $indentMin, 50px, 1.2rem, 1.3rem);
       @include flex(null, null, center);
+
       &:not(:last-child) {
         margin: 0 0 $indentMax 0;
       }
+
       .typeName {
         flex-grow: 1;
       }
     }
+
     .activeContainer {
       box-shadow: 0 0 10px 0 $green;
       outline: 1px solid $green;
+
       .typeName {
         color: $green;
       }
+
       &:hover {
         cursor: default;
         box-shadow: 0 0 10px 0 $green;
         outline: 1px solid $green;
+
         .typeName {
           color: $green;
           font-size: 1.2rem;
@@ -32,20 +41,25 @@
       }
     }
   }
+
   @include respond($tabletMax) {
     margin: 0 0 $indentMin 0;
     .chartsTypeContainer {
       .imageContainer {
         @include position(250px, $indentMin);
+
         &:not(:last-child) {
           margin: $indentMin;
         }
+
         img {
           width: 70px;
         }
+
         .typeName {
           font-size: 1.4rem;
         }
+
         &:hover {
           .typeName {
             font-size: 1.6rem;
@@ -58,12 +72,15 @@
     .chartsTypeContainer {
       .imageContainer {
         width: 300px;
+
         img {
           width: 50px;
         }
+
         .typeName {
           font-size: 1.6rem;
         }
+
         &:hover {
           .typeName {
             font-size: 1.8rem;
@@ -77,15 +94,19 @@
     .chartsTypeContainer {
       .imageContainer {
         @include position(100%, $indentInputAndButton);
+
         &:not(:last-child) {
           margin: $indentInputAndButton;
         }
+
         &:first-child {
           margin: 0 $indentInputAndButton $indentInputAndButton;
         }
+
         &:last-child {
           margin: $indentInputAndButton $indentInputAndButton 0;
         }
+
         img {
           width: 30px;
         }

@@ -22,7 +22,7 @@ export const GalleryPage: FC = (): ReactElement => {
       <div className={classes.typeChartsContainer}>
         <ChartSelectionButton
           isLink
-          type={ChartType.bar}
+          type={ChartType.Bar}
           src={bar}
           text="Колонны"
           classNameContainer={classes.imageContainer}
@@ -30,7 +30,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type={ChartType.hBar}
+          type={ChartType.HBar}
           src={horizontalBar}
           text="Полосы"
           classNameContainer={classes.imageContainer}
@@ -38,7 +38,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type={ChartType.line}
+          type={ChartType.Line}
           src={line}
           text="Линии"
           classNameContainer={classes.imageContainer}
@@ -46,7 +46,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type={ChartType.radar}
+          type={ChartType.Radar}
           src={radar}
           text="Радар"
           classNameContainer={classes.imageContainer}
@@ -54,7 +54,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type={ChartType.pie}
+          type={ChartType.Pie}
           src={pie}
           text="Пирог"
           classNameContainer={classes.imageContainer}
@@ -62,7 +62,7 @@ export const GalleryPage: FC = (): ReactElement => {
         />
         <ChartSelectionButton
           isLink
-          type={ChartType.doughnut}
+          type={ChartType.Doughnut}
           src={doughnut}
           text="Пончик"
           classNameContainer={classes.imageContainer}

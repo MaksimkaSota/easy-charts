@@ -2,6 +2,7 @@
   @include flex(column, null, center);
   padding: $indentMin 0;
   box-shadow: 0 5px 10px 0;
+
   .text {
     font-size: 1rem;
     margin: $indentMin 0;

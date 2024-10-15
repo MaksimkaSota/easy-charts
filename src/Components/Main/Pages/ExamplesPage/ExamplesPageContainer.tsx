@@ -11,9 +11,9 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
   const { getAddress, setMainOptionsWithId } = useActions();
 
   useEffect(() => {
-    getAddress(exampleFirstOptions, StandardOptions.width, StandardOptions.height, ExampleKey.first);
-    getAddress(exampleSecondOptions, StandardOptions.width, StandardOptions.height, ExampleKey.second);
-    getAddress(exampleThirdOptions, StandardOptions.width, StandardOptions.height, ExampleKey.third);
+    getAddress(exampleFirstOptions, StandardOptions.Width, StandardOptions.Height, ExampleKey.First);
+    getAddress(exampleSecondOptions, StandardOptions.Width, StandardOptions.Height, ExampleKey.Second);
+    getAddress(exampleThirdOptions, StandardOptions.Width, StandardOptions.Height, ExampleKey.Third);
   }, [getAddress, exampleFirstOptions, exampleSecondOptions, exampleThirdOptions]);
 
   return (

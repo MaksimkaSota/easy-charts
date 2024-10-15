@@ -1,6 +1,7 @@
 .contacts {
   @include position(95%, 2rem 0);
   text-align: center;
+
   .email {
     @include position(20%, 0 auto);
     @include respond($laptop) {
@@ -16,23 +17,28 @@
       width: 90%;
     }
   }
+
   .title {
     @extend %title-pages;
   }
+
   .textContent {
     font-size: 1.1rem;
     margin: 0 0 $indentMin 0;
   }
+
   .mail {
     color: $green;
     font-size: 1.5rem;
     text-decoration: underline;
     transition: all 0.25s linear;
+
     &:hover {
       cursor: pointer;
       color: $blue;
       font-size: 1.6rem;
     }
+
     @include respond($tabletMax) {
       font-size: 1.7rem;
       &:hover {

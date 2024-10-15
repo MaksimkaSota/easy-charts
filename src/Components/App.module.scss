@@ -1,6 +1,7 @@
 .wrapper {
   min-height: 100%;
   @include flex(column, null, null);
+
   .main {
     margin: $indentMax 0;
     @include flex(null, center, center);

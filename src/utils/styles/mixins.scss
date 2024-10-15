@@ -62,9 +62,11 @@
 %closeButton {
   width: 10px;
   height: 10px;
-  background-repeat: no-repeat;
   position: absolute;
   transition: all 0.25s linear;
+}
+
+%closeButtonHover {
   &:hover {
     cursor: pointer;
     width: 13px;

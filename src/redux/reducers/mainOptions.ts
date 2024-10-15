@@ -7,8 +7,8 @@ import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 
 const initialState: MainOptionsState = {
   mainOptions: mainInitialValue,
-  width: StandardOptions.width,
-  height: StandardOptions.height,
+  width: StandardOptions.Width,
+  height: StandardOptions.Height,
 };
 
 export const mainOptionsReducer = (

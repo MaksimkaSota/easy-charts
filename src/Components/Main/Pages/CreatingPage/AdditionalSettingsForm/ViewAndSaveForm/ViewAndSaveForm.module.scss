@@ -1,18 +1,22 @@
 .formContainer {
   @include flex(null, space-between, null);
+
   .label {
     color: $title-text;
     font-size: 0.9rem;
   }
+
   .inputData {
     @include input($validated-input-background, $indentInputAndButton);
     outline: 1px solid $content-text;
   }
 }
+
 .button {
   @extend %button;
   width: 100%;
   margin-bottom: 0;
+
   &:disabled {
     cursor: default;
     background: $red;

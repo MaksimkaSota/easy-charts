@@ -1,25 +1,32 @@
 .logo {
   @include flex(null, null, center);
+
   .logoText {
     @include flex(null, null, null);
     font-size: 2.3rem;
     margin: 0 $indentMin 0 0;
+
     .letterRed {
       color: $red;
     }
+
     .letterOrange {
       color: $yellow;
     }
+
     .letterBlue {
       color: $blue;
     }
+
     .letterGreen {
       color: $green;
     }
   }
+
   .logoImage {
     width: 50px;
   }
+
   @include respond($tabletMin) {
     .logoImage {
       width: 40px;

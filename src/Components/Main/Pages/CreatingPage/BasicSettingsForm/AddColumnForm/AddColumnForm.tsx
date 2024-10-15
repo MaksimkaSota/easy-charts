@@ -28,8 +28,8 @@ export const AddColumnForm = memo<PropsType>(
     setFieldValue,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue(FormName.labels, labels);
-      setFieldValue(FormName.datasets, datasetsFromOptions);
+      setFieldValue(FormName.Labels, labels);
+      setFieldValue(FormName.Datasets, datasetsFromOptions);
       // eslint-disable-next-line
     }, [setFieldValue, datasetsFromOptions]);
 
@@ -37,11 +37,12 @@ export const AddColumnForm = memo<PropsType>(
       <div className={classes.formContainer}>
         <div className={classes.formContainerInner}>
           {datasetsFromValues.map(
-            (dataset: IDataset, datasetIndex: number): ReactElement => (
+            (dataset: IDataset, datasetIndex: number, datasets: IDataset[]): ReactElement => (
               <ColumnForm
                 key={dataset.id}
                 dataset={dataset}
                 datasetIndex={datasetIndex}
+                datasetsLength={datasets.length}
                 setData={setData}
                 setLabelInDatasets={setLabelInDatasets}
                 removeColumn={removeColumn}
@@ -49,7 +50,7 @@ export const AddColumnForm = memo<PropsType>(
             )
           )}
         </div>
-        <button className={classes.addButton} type="button" onClick={() => addColumn()}>
+        <button className={classes.addButton} type="button" onClick={addColumn}>
           Добавить столбец
         </button>
       </div>

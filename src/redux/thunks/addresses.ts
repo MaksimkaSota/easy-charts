@@ -1,7 +1,7 @@
 import type { ThunkType } from '../../utils/types/common';
 import type { AddressesAction } from '../types/addresses';
 import type { IChart } from '../../utils/types/api';
-import { getChartAPI, getChartURL } from '../../api/chart';
+import { getChartAPI, getChartURL } from '../../services/api/chart';
 import { transformImageToBase64 } from '../../utils/helpers/servicesHelpers';
 import {
   setMainAddress,
@@ -23,13 +23,13 @@ export const getAddress = (
     const chartAddress: string = await transformImageToBase64(chart);
     const chartURL: string = getChartURL(options, width, height);
     switch (key) {
-      case ExampleKey.first:
+      case ExampleKey.First:
         dispatch(setExampleFirstAddress(chartAddress));
         break;
-      case ExampleKey.second:
+      case ExampleKey.Second:
         dispatch(setExampleSecondAddress(chartAddress));
         break;
-      case ExampleKey.third:
+      case ExampleKey.Third:
         dispatch(setExampleThirdAddress(chartAddress));
         break;
       default:

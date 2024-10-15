@@ -1,44 +1,46 @@
-export enum RequestString {
-  quickchart = 'https://quickchart.io/chart',
-  mail = 'mailto:MaksimkaSota@gmail.com',
-}
 export enum ChartParameter {
-  chart = 'c',
-  background = 'backgroundColor',
-  width = 'width',
-  height = 'height',
-  ratio = 'devicePixelRatio',
+  Chart = 'c',
+  Width = 'width',
+  Height = 'height',
+  Background = 'backgroundColor',
+  Format = 'format',
+  Ratio = 'devicePixelRatio',
 }
+
 export enum ChartType {
-  bar = 'bar',
-  hBar = 'horizontalBar',
-  line = 'line',
-  radar = 'radar',
-  pie = 'pie',
-  doughnut = 'doughnut',
+  Bar = 'bar',
+  HBar = 'horizontalBar',
+  Line = 'line',
+  Radar = 'radar',
+  Pie = 'pie',
+  Doughnut = 'doughnut',
 }
+
 export enum RoutePath {
-  not_found = '*',
-  main = '/',
-  create = '/create',
-  gallery = '/gallery',
-  examples = '/examples',
-  contacts = '/contacts',
-  save = '/save',
+  Not_found = '*',
+  Main = '/',
+  Create = '/create',
+  Gallery = '/gallery',
+  Examples = '/examples',
+  Contacts = '/contacts',
+  Save = '/save',
 }
+
 export enum FormName {
-  title = 'title',
-  labels = 'labels',
-  datasets = 'datasets',
-  width = 'width',
-  height = 'height',
+  Title = 'title',
+  Labels = 'labels',
+  Datasets = 'datasets',
+  Width = 'width',
+  Height = 'height',
 }
+
 export enum ExampleKey {
-  first = 'firstExample',
-  second = 'secondExample',
-  third = 'thirdExample',
+  First = 'firstExample',
+  Second = 'secondExample',
+  Third = 'thirdExample',
 }
+
 export enum StandardOptions {
-  width = 750,
-  height = 450,
+  Width = 750,
+  Height = 450,
 }

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import type { AxiosInstance } from 'axios';
-import { RequestString } from '../utils/types/enums';
+import { requestString } from '../endpoints';
 
 export const http: AxiosInstance = axios.create({
-  baseURL: RequestString.quickchart,
+  baseURL: requestString.quickchart,
   responseType: 'blob',
 });

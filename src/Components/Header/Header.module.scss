@@ -1,12 +1,15 @@
 .header {
   box-shadow: 0 -5px 10px 0;
+
   .headerInner {
     @include position(90%, 0 auto);
     @include flex(null, null, center);
     padding: $indentMin 0;
+
     .logo {
       margin: 0 $indentMax 0 0;
     }
+
     @include respond($tabletMin) {
       flex-direction: column;
       .logo {

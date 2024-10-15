@@ -21,51 +21,51 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className }): ReactEl
       <h3 className={classes.miniTitle}>Вид</h3>
       <div className={cn(classes.chartsTypeContainer, className)}>
         <ChartSelectionButton
-          isDisabled={type === ChartType.bar}
-          type={ChartType.bar}
+          isDisabled={type === ChartType.Bar}
+          type={ChartType.Bar}
           src={bar}
           text="Колонны"
-          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.bar })}
+          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Bar })}
           classNameText={classes.typeName}
         />
         <ChartSelectionButton
-          isDisabled={type === ChartType.hBar}
-          type={ChartType.hBar}
+          isDisabled={type === ChartType.HBar}
+          type={ChartType.HBar}
           src={horizontalBar}
           text="Полосы"
-          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.hBar })}
+          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.HBar })}
           classNameText={classes.typeName}
         />
         <ChartSelectionButton
-          isDisabled={type === ChartType.line}
-          type={ChartType.line}
+          isDisabled={type === ChartType.Line}
+          type={ChartType.Line}
           src={line}
           text="Линии"
-          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.line })}
+          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Line })}
           classNameText={classes.typeName}
         />
         <ChartSelectionButton
-          isDisabled={type === ChartType.radar}
-          type={ChartType.radar}
+          isDisabled={type === ChartType.Radar}
+          type={ChartType.Radar}
           src={radar}
           text="Радар"
-          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.radar })}
+          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Radar })}
           classNameText={classes.typeName}
         />
         <ChartSelectionButton
-          isDisabled={type === ChartType.pie}
-          type={ChartType.pie}
+          isDisabled={type === ChartType.Pie}
+          type={ChartType.Pie}
           src={pie}
           text="Пирог"
-          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.pie })}
+          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Pie })}
           classNameText={classes.typeName}
         />
         <ChartSelectionButton
-          isDisabled={type === ChartType.doughnut}
-          type={ChartType.doughnut}
+          isDisabled={type === ChartType.Doughnut}
+          type={ChartType.Doughnut}
           src={doughnut}
           text="Пончик"
-          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.doughnut })}
+          classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Doughnut })}
           classNameText={classes.typeName}
         />
       </div>

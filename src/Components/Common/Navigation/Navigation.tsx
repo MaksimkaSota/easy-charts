@@ -10,16 +10,16 @@ export const Navigation: FC = (): ReactElement => {
 
   return (
     <nav className={classes.navigation}>
-      <NavLink to={RoutePath.create} className={setClass}>
+      <NavLink to={RoutePath.Create} className={setClass}>
         Создать
       </NavLink>
-      <NavLink to={RoutePath.gallery} className={setClass}>
+      <NavLink to={RoutePath.Gallery} className={setClass}>
         Галерея
       </NavLink>
-      <NavLink to={RoutePath.examples} className={setClass}>
+      <NavLink to={RoutePath.Examples} className={setClass}>
         Примеры
       </NavLink>
-      <NavLink to={RoutePath.contacts} className={setClass}>
+      <NavLink to={RoutePath.Contacts} className={setClass}>
         Контакты
       </NavLink>
     </nav>

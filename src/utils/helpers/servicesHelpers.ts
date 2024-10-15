@@ -20,14 +20,19 @@ export const formQueryString = (options: IChart, width: number | string, height:
   const title = options.options.title.text;
   const optionsURL = `options:{title:{display:true, text:'${title}'}}`;
 
-  const background = `${ChartParameter.background}=transparent`;
+  const queryObject: { [field: string]: string } = {
+    [ChartParameter.Chart]: `{${type},${data},${optionsURL}}`,
+    [ChartParameter.Width]: `${width}`,
+    [ChartParameter.Height]: `${height}`,
+    [ChartParameter.Background]: 'transparent',
+    [ChartParameter.Format]: 'png',
+    [ChartParameter.Ratio]: '1',
+  };
 
-  const widthURL = `${ChartParameter.width}=${width}`;
-  const heightURL = `${ChartParameter.height}=${height}`;
+  const queryString = new URLSearchParams(queryObject).toString();
+  const decodedQueryString = decodeURIComponent(queryString).replaceAll('+', ' ');
 
-  const ratio = `${ChartParameter.ratio}=1`;
-
-  return `?${ChartParameter.chart}={${type},${data},${optionsURL}}&${background}&${widthURL}&${heightURL}&${ratio}`;
+  return `?${decodedQueryString}`;
 };
 
 export const transformImageToBase64 = (blob: Blob): Promise<any> => {

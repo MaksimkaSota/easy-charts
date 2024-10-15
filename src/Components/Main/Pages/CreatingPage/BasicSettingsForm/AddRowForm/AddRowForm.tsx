@@ -33,8 +33,8 @@ export const AddRowForm = memo<PropsType>(
     setFieldValue,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue(FormName.labels, labelsFromOptions);
-      setFieldValue(FormName.datasets, datasets);
+      setFieldValue(FormName.Labels, labelsFromOptions);
+      setFieldValue(FormName.Datasets, datasets);
       // eslint-disable-next-line
     }, [setFieldValue, labelsFromOptions]);
 
@@ -48,23 +48,24 @@ export const AddRowForm = memo<PropsType>(
         <p className={classes.axisName}>X</p>
         <FormField
           classNameField={classes.inputData}
-          name={FormName.title}
+          name={FormName.Title}
           type="text"
           onChange={onTitleChange}
           errors={errors}
         />
         {labelsFromValues.map(
-          (label: IData, labelIndex: number): ReactElement => (
+          (label: IData, labelIndex: number, labels: IData[]): ReactElement => (
             <RowForm
               key={label.id}
               labelIndex={labelIndex}
+              labelsLength={labels.length}
               setLabels={setLabels}
               removeRow={removeRow}
               errors={errors}
             />
           )
         )}
-        <button className={classes.addButton} type="button" onClick={() => addRow()}>
+        <button className={classes.addButton} type="button" onClick={addRow}>
           Добавить строку
         </button>
       </div>

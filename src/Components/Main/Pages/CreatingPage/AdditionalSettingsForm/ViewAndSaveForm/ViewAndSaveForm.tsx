@@ -45,38 +45,38 @@ export const ViewAndSaveForm: FC<PropsType> = ({
 
   const onResetButtonClick = (): void => {
     setMainOptionsWithId(mainInitialValue);
-    setExamplesType(ChartType.bar);
+    setExamplesType(ChartType.Bar);
   };
 
   return (
     <Form>
       <div className={classes.formContainer}>
-        <label className={classes.label} htmlFor={FormName.width}>
+        <label className={classes.label} htmlFor={FormName.Width}>
           Ширина:
         </label>
         <FormField
           classNameField={classes.inputData}
-          name={FormName.width}
+          name={FormName.Width}
           type="text"
-          id={FormName.width}
+          id={FormName.Width}
           errors={errors}
           onChange={onWidthChange}
         />
       </div>
       <div className={classes.formContainer}>
-        <label className={classes.label} htmlFor={FormName.height}>
+        <label className={classes.label} htmlFor={FormName.Height}>
           Высота:
         </label>
         <FormField
           classNameField={classes.inputData}
-          name={FormName.height}
+          name={FormName.Height}
           type="text"
-          id={FormName.height}
+          id={FormName.Height}
           errors={errors}
           onChange={onHeightChange}
         />
       </div>
-      <NavLink to={RoutePath.save}>
+      <NavLink to={RoutePath.Save}>
         <button className={classes.button} type="submit" disabled={!isValid}>
           Посмотреть и сохранить график
         </button>
