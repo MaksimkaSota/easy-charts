@@ -1,0 +1,16 @@
+.examples {
+  @include position(95%, 0 auto);
+
+  .examplesMain {
+    @include flex(null, center, null);
+    flex-wrap: wrap;
+
+    .chartSelectionMenu {
+      @include flex(column, flex-start, null);
+      @include respond($tabletMax) {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

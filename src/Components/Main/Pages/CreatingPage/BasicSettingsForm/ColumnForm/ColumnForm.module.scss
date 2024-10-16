@@ -1,0 +1,29 @@
+.deleteColumnContainer {
+  @include flex(column, null, null);
+  position: relative;
+  margin: 0 $indentInputAndButton 0 0;
+
+  .axis {
+    text-align: center;
+  }
+
+  .closeY {
+    @extend %closeButton;
+    background: transparent url('../../../../../../assets/images/cross.svg') no-repeat;
+    top: 5px;
+    right: 15px;
+  }
+
+  .closeYHover {
+    @extend %closeButtonHover;
+  }
+
+  .inputData {
+    @include input($input-background, $indentMin);
+  }
+
+  .inputDataNumbers {
+    @include input($validated-input-background, $indentInputAndButton);
+    outline: 1px solid $content-text;
+  }
+}

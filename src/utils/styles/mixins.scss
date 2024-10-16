@@ -1,0 +1,120 @@
+@import './variables';
+
+@mixin respond($breakpoint) {
+  $query: map-get($breakpoints, $breakpoint);
+  @if not $query {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+  }
+  @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+
+@mixin position($w, $m) {
+  width: $w;
+  margin: $m;
+}
+
+%title-pages {
+  color: $title-text;
+  margin: 0 0 $indentMin 0;
+  font-size: 2.2rem;
+  font-weight: 400;
+  @include respond($mobile) {
+    text-align: center;
+    margin: 0 0 $indentInputAndButton 0;
+  }
+}
+
+%mini-title {
+  color: $title-text;
+  margin: 0 0 $indentMin 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-align: center;
+  @include respond($tabletMax) {
+    font-size: 1.7rem;
+  }
+  @include respond($mobile) {
+    margin: 0 0 $indentInputAndButton 0;
+  }
+}
+
+%button {
+  @include position(170px, $indentInputAndButton 0);
+  padding: $indentInputAndButton;
+  color: $button-text;
+  background-color: $green;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.25s linear;
+  &:hover {
+    cursor: pointer;
+    background: $blue;
+  }
+  @include respond($tabletMin) {
+    width: 150px;
+  }
+}
+
+%closeButton {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  transition: all 0.25s linear;
+}
+
+%closeButtonHover {
+  &:hover {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@mixin selectionContainer($containerW, $p, $imageW, $fs, $fsHover) {
+  width: $containerW;
+  padding: $p;
+  border-radius: $radiusMax;
+  box-shadow: 0 0 10px 0;
+  transition: all 0.25s linear;
+  img {
+    width: $imageW;
+  }
+  .typeName {
+    color: $title-text;
+    text-align: center;
+    font-size: $fs;
+    transition: all 0.25s linear;
+  }
+  &:hover {
+    cursor: pointer;
+    outline: 1px solid $blue;
+    box-shadow: 0 0 10px 0 $blue;
+    .typeName {
+      color: $blue;
+      font-size: $fsHover;
+    }
+  }
+}
+
+@mixin flex($fd, $jc, $ai) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin input($bc, $mb) {
+  @include position(170px, 0 0 $mb 0);
+  padding: $indentInputAndButton;
+  color: $title-text;
+  background-color: $bc;
+  border-radius: $radiusMin;
+  font-size: 0.9rem;
+  @include respond($tabletMin) {
+    width: 150px;
+  }
+}

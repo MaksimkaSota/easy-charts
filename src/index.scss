@@ -1,55 +1,45 @@
-@use "src/global-styles" as global;
-
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  border: none;
+  outline: none;
   text-decoration: none;
-  color: global.$main-text;
-}
-
-html, body {
-  width: 100%;
-  height: 100vh;
-  font-size: 15px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  box-sizing: border-box;
+  color: $content-text;
 }
 
 #root {
   height: 100%;
 }
 
-@media (max-width: 1024px) {
-  html, body {
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include respond($laptop) {
     font-size: 14px;
   }
-}
-
-@media (max-width: 768px) {
-  html, body {
+  @include respond($tabletMax) {
     font-size: 13px;
   }
-}
-
-@media (max-width: 480px) {
-  html, body {
+  @include respond($tabletMin) {
     font-size: 12px;
   }
-}
-
-@media (max-width: 360px) {
-  html, body {
+  @include respond($mobile) {
     font-size: 11px;
   }
 }
 
-
+input,
+textarea,
+button,
+img,
+a {
+  display: block;
+}

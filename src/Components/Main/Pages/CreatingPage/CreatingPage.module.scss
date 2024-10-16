@@ -1,0 +1,93 @@
+.create {
+  @include position(95%, 0 auto);
+
+  .createContent {
+    @include flex(null, center, null);
+    flex-wrap: wrap;
+
+    .chartSelectionMenu {
+      @include flex(column, center, null);
+      @include respond($tabletMax) {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    .settingsContainer {
+      @include flex(column, null, null);
+      max-width: 100%;
+
+      .settingsTitle {
+        @extend %mini-title;
+      }
+
+      .wrapper {
+        @include flex(column, center, null);
+        flex-grow: 1;
+
+        .settingsFormContainer {
+          padding: $indentMin $indentMin $indentMin $indentMax;
+          border-radius: $radiusMax;
+          box-shadow: 0 0 10px 0;
+
+          .settingsFormTitle {
+            font-size: 1rem;
+            padding: 0 0 $indentInputAndButton 0;
+            margin: 0 0 $indentInputAndButton 0;
+            border-bottom: 1px solid;
+          }
+        }
+
+        .basicFormContainer {
+          margin: 0 0 $indentMax 0;
+          overflow: auto;
+        }
+
+        .additionalFormContainer {
+          width: 385px;
+        }
+      }
+
+      @include respond($laptop) {
+        margin: $indentMax 0 0 0;
+        .wrapper {
+          flex-direction: row;
+          align-items: flex-start;
+          flex-wrap: wrap;
+
+          .basicFormContainer {
+            margin: 0 0 $indentMax $indentMax;
+          }
+
+          .additionalFormContainer {
+            margin: 0 0 0 $indentMax;
+          }
+        }
+      }
+      @include respond($tabletMin) {
+        .wrapper {
+          .basicFormContainer {
+            margin: 0 0 $indentMax 0;
+          }
+
+          .additionalFormContainer {
+            margin: 0;
+          }
+        }
+      }
+      @include respond($mobile) {
+        margin: $indentMin 0 0 0;
+        .wrapper {
+          .basicFormContainer {
+            margin: 0 0 $indentMin 0;
+          }
+
+          .additionalFormContainer {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

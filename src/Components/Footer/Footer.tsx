@@ -1,20 +1,14 @@
-import React from "react";
-import Navigation from "../Navigation/Navigation";
-import classes from "./Footer.module.scss";
-import Logo from "../Logo/Logo";
+import type { FC, ReactElement } from 'react';
+import classes from './Footer.module.scss';
+import { Navigation } from '../Common/Navigation/Navigation';
+import { Logo } from '../Common/Logo/Logo';
 
-const Footer = () => {
+export const Footer: FC = (): ReactElement => {
   return (
-    <div className={classes.footer}>
-      <div className={classes.center}>
-        <Logo />
-      </div>
-      <p className={classes.text}>Создать график онлайн, 2022</p>
-      <div className={classes.center}>
-        <Navigation />
-      </div>
-    </div>
+    <footer className={classes.footer}>
+      <Logo />
+      <p className={classes.text}>Создать график онлайн, 2024</p>
+      <Navigation />
+    </footer>
   );
 };
-
-export default Footer;

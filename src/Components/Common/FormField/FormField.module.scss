@@ -1,0 +1,17 @@
+.formFieldContainer {
+  position: relative;
+
+  .validationError {
+    outline: 1px solid $red !important;
+  }
+
+  .fieldError {
+    font-size: 0.9rem;
+    color: $red;
+    height: 100%;
+    position: absolute;
+    top: 4.375px;
+    right: 5px;
+    z-index: -1;
+  }
+}

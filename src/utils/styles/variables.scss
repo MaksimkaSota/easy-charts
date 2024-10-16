@@ -1,0 +1,47 @@
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+$gray: rgb(128, 128, 128);
+$light-gray: rgb(204, 204, 204);
+$transparent-light-gray: rgba(204, 204, 204, 0.3);
+
+$content-text: $gray;
+$title-text: $black;
+$button-text: $white;
+$input-background: $light-gray;
+$validated-input-background: $transparent-light-gray;
+
+$red: rgb(226, 86, 89);
+$yellow: rgba(242, 143, 39);
+$blue: rgb(77, 122, 169);
+$green: rgb(119, 184, 180);
+
+$indentMax: 20px;
+$indentMin: 10px;
+$indentInputAndButton: 5px;
+$radiusMax: 10px;
+$radiusMin: 5px;
+
+$laptopSize: 90em;
+$tabletMaxSize: 64em;
+$tabletMinSize: 48em;
+$mobileSize: 22.5em;
+
+$laptop: laptopMax;
+$tabletMax: laptopMin;
+$tabletMin: tablet;
+$mobile: mobile;
+
+$breakpoints: (
+  $laptop: (
+    max-width: $laptopSize,
+  ),
+  $tabletMax: (
+    max-width: $tabletMaxSize,
+  ),
+  $tabletMin: (
+    max-width: $tabletMinSize,
+  ),
+  $mobile: (
+    max-width: $mobileSize,
+  ),
+);

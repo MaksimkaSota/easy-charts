@@ -1,0 +1,12 @@
+.chartResult {
+  @include flex(column, null, null);
+  margin: 0 $indentMax;
+
+  .miniTitle {
+    @extend %mini-title;
+  }
+
+  @include respond($tabletMax) {
+    margin: 0;
+  }
+}

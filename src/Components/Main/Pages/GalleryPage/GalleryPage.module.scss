@@ -1,0 +1,61 @@
+.gallery {
+  @include position(95%, 0 auto);
+
+  .typeChartsContainer {
+    @include flex(null, space-between, null);
+
+    .imageContainer {
+      @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.6rem);
+
+      img {
+        padding: 0 0 $indentMin 0;
+      }
+    }
+
+    @include respond($tabletMax) {
+      justify-content: center;
+      flex-wrap: wrap;
+      .imageContainer {
+        @include position(30%, $indentMin);
+
+        .typeName {
+          font-size: 1.7rem;
+        }
+
+        &:hover {
+          .typeName {
+            font-size: 1.9rem;
+          }
+        }
+      }
+    }
+    @include respond($tabletMin) {
+      .imageContainer {
+        width: 40%;
+
+        .typeName {
+          font-size: 1.9rem;
+        }
+
+        &:hover {
+          .typeName {
+            font-size: 2.1rem;
+          }
+        }
+      }
+    }
+    @include respond($mobile) {
+      .imageContainer {
+        @include position(70%, $indentInputAndButton);
+
+        &:first-child {
+          margin: 0 $indentInputAndButton $indentInputAndButton;
+        }
+
+        &:last-child {
+          margin: $indentInputAndButton $indentInputAndButton 0;
+        }
+      }
+    }
+  }
+}
