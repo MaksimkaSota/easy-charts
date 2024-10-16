@@ -20,10 +20,10 @@ export const formQueryString = (options: IChart, width: number | string, height:
   const title = options.options.title.text;
   const optionsURL = `options:{title:{display:true, text:'${title}'}}`;
 
-  const queryObject: { [field: string]: string } = {
+  const queryObject: ObjectType = {
     [ChartParameter.Chart]: `{${type},${data},${optionsURL}}`,
-    [ChartParameter.Width]: `${width}`,
-    [ChartParameter.Height]: `${height}`,
+    [ChartParameter.Width]: width,
+    [ChartParameter.Height]: height,
     [ChartParameter.Background]: 'transparent',
     [ChartParameter.Format]: 'png',
     [ChartParameter.Ratio]: '1',
