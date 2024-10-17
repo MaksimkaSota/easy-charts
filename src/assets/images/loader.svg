@@ -1,0 +1,58 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  style="shape-rendering: auto; display: block; background: transparent;"
+  width="200"
+  height="200"
+  viewBox="0 0 100 100"
+  preserveAspectRatio="xMidYMid">
+  <g>
+    <g transform="translate(27.5,27.5)">
+      <rect fill="#e25659" height="35" width="35" y="-17.5" x="-17.5">
+        <animateTransform
+          begin="-0.3333333333333333s"
+          values="1.1500000000000001;1"
+          keyTimes="0;1"
+          dur="1.1111111111111112s"
+          repeatCount="indefinite"
+          type="scale"
+          attributeName="transform"/>
+      </rect>
+    </g>
+    <g transform="translate(72.5,27.5)">
+      <rect fill="#f28f27" height="35" width="35" y="-17.5" x="-17.5">
+        <animateTransform
+          begin="-0.22222222222222224s"
+          values="1.1500000000000001;1"
+          keyTimes="0;1"
+          dur="1.1111111111111112s"
+          repeatCount="indefinite"
+          type="scale"
+          attributeName="transform"/>
+      </rect>
+    </g>
+    <g transform="translate(27.5,72.5)">
+      <rect fill="#77b8b4" height="35" width="35" y="-17.5" x="-17.5">
+        <animateTransform
+          begin="0s"
+          values="1.1500000000000001;1"
+          keyTimes="0;1"
+          dur="1.1111111111111112s"
+          repeatCount="indefinite"
+          type="scale"
+          attributeName="transform"/>
+      </rect>
+    </g>
+    <g transform="translate(72.5,72.5)">
+      <rect fill="#4d7aa9" height="35" width="35" y="-17.5" x="-17.5">
+        <animateTransform
+          begin="-0.11111111111111112s"
+          values="1.1500000000000001;1"
+          keyTimes="0;1"
+          dur="1.1111111111111112s"
+          repeatCount="indefinite"
+          type="scale"
+          attributeName="transform"/>
+      </rect>
+    </g>
+  </g>
+</svg>
