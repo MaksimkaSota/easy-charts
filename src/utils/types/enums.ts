@@ -44,3 +44,8 @@ export enum StandardOptions {
   Width = 750,
   Height = 450,
 }
+
+export enum RequestState {
+  Request = 'REQUEST',
+  Failure = 'FAILURE',
+}

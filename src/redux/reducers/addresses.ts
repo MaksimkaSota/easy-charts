@@ -10,7 +10,7 @@ const initialState: AddressesState = {
 
 export const addressesReducer = (state: AddressesState = initialState, action: AddressesAction): AddressesState => {
   switch (action.type) {
-    case AddressesActionType.SET_ADDRESS_MAIN:
+    case AddressesActionType.SET_ADDRESS_MAIN_SUCCESS:
       return {
         ...state,
         mainAddress: action.payload,

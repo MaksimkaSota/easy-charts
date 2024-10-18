@@ -4,9 +4,13 @@ import { addressesSelector, mainOptionsSelector } from '../../../../redux/select
 import { useActions } from '../../../../hooks/useActions';
 import { SavePage } from './SavePage';
 import { StandardOptions } from '../../../../utils/types/enums';
+import { isFetchingMainAddressSelector } from '../../../../redux/selectors/loading';
+import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
 
 export const SavePageContainer: FC = (): ReactElement => {
+  const isFetchingMainAddress = useTypedSelector(isFetchingMainAddressSelector);
   const { mainAddress, urlAddress } = useTypedSelector(addressesSelector);
+  const mainAddressError = useTypedSelector(mainAddressErrorSelector);
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
   const { getAddress, setMainWidth, setMainHeight } = useActions();
 
@@ -19,5 +23,12 @@ export const SavePageContainer: FC = (): ReactElement => {
     // eslint-disable-next-line
   }, [getAddress, setMainHeight, setMainWidth]);
 
-  return <SavePage mainAddress={mainAddress} urlAddress={urlAddress} />;
+  return (
+    <SavePage
+      isFetchingMainAddress={isFetchingMainAddress}
+      mainAddress={mainAddress}
+      mainAddressError={mainAddressError}
+      urlAddress={urlAddress}
+    />
+  );
 };

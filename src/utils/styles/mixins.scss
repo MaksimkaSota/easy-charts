@@ -15,62 +15,22 @@
   margin: $m;
 }
 
-%title-pages {
-  color: $title-text;
-  margin: 0 0 $indentMin 0;
-  font-size: 2.2rem;
-  font-weight: 400;
-  @include respond($mobile) {
-    text-align: center;
-    margin: 0 0 $indentInputAndButton 0;
-  }
+@mixin flex($fd, $jc, $ai) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
 }
 
-%mini-title {
-  color: $title-text;
-  margin: 0 0 $indentMin 0;
-  font-size: 1.3rem;
-  font-weight: 400;
-  text-align: center;
-  @include respond($tabletMax) {
-    font-size: 1.7rem;
-  }
-  @include respond($mobile) {
-    margin: 0 0 $indentInputAndButton 0;
-  }
-}
-
-%button {
-  @include position(170px, $indentInputAndButton 0);
+@mixin input($b, $mb) {
+  @include position(170px, 0 0 $mb 0);
   padding: $indentInputAndButton;
-  color: $button-text;
-  background-color: $green;
-  border-radius: 10px;
-  font-family: inherit;
+  color: $title-text;
+  background: $b;
+  border-radius: $radiusMin;
   font-size: 0.9rem;
-  text-align: center;
-  transition: all 0.25s linear;
-  &:hover {
-    cursor: pointer;
-    background: $blue;
-  }
   @include respond($tabletMin) {
     width: 150px;
-  }
-}
-
-%closeButton {
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  transition: all 0.25s linear;
-}
-
-%closeButtonHover {
-  &:hover {
-    cursor: pointer;
-    width: 13px;
-    height: 13px;
   }
 }
 
@@ -100,21 +60,84 @@
   }
 }
 
-@mixin flex($fd, $jc, $ai) {
-  display: flex;
-  flex-direction: $fd;
-  justify-content: $jc;
-  align-items: $ai;
+%title-pages {
+  color: $title-text;
+  margin: 0 0 $indentMin 0;
+  font-size: 2.2rem;
+  font-weight: 400;
+  @include respond($mobile) {
+    text-align: center;
+    margin: 0 0 $indentInputAndButton 0;
+  }
 }
 
-@mixin input($bc, $mb) {
-  @include position(170px, 0 0 $mb 0);
-  padding: $indentInputAndButton;
+%mini-title {
   color: $title-text;
-  background-color: $bc;
-  border-radius: $radiusMin;
+  margin: 0 0 $indentMin 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-align: center;
+  @include respond($tabletMax) {
+    font-size: 1.7rem;
+  }
+  @include respond($mobile) {
+    margin: 0 0 $indentInputAndButton 0;
+  }
+}
+
+%button {
+  @include position(170px, $indentInputAndButton 0);
+  padding: $indentInputAndButton;
+  color: $button-text;
+  background: $green;
+  border-radius: 10px;
+  font-family: inherit;
   font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.25s linear;
+  &:hover {
+    cursor: pointer;
+    background: $blue;
+  }
   @include respond($tabletMin) {
     width: 150px;
+  }
+}
+
+%closeButton {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  transition: all 0.25s linear;
+}
+
+%closeButtonHover {
+  &:hover {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+  }
+}
+
+%chartContainer {
+  @include flex(column, center, null);
+  flex-grow: 1;
+  .imageContainer {
+    @include flex(null, center, center);
+    box-sizing: content-box;
+    padding: $indentMin;
+    border-radius: $radiusMax;
+    box-shadow: 0 0 10px 0;
+    width: 750px;
+    height: 450px;
+    @include respond($laptop) {
+      width: 700px;
+      height: 420px;
+    }
+    @include respond($tabletMin) {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+    }
   }
 }

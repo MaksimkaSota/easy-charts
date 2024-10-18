@@ -1,5 +1,7 @@
 import {
-  type SetMainAddressAction,
+  type SetMainAddressRequestAction,
+  type SetMainAddressSuccessAction,
+  type SetMainAddressFailureAction,
   type SetUrlAddressAction,
   type SetExampleFirstAddressAction,
   type SetExampleSecondAddressAction,
@@ -7,14 +9,23 @@ import {
   AddressesActionType,
 } from '../types/addresses';
 
-export const setMainAddress = (address: string): SetMainAddressAction => ({
-  type: AddressesActionType.SET_ADDRESS_MAIN,
+export const setMainAddressRequest = (): SetMainAddressRequestAction => ({
+  type: AddressesActionType.SET_ADDRESS_MAIN_REQUEST,
+});
+export const setMainAddressSuccess = (address: string): SetMainAddressSuccessAction => ({
+  type: AddressesActionType.SET_ADDRESS_MAIN_SUCCESS,
   payload: address,
 });
+export const setMainAddressFailure = (message: string, code?: number): SetMainAddressFailureAction => ({
+  type: AddressesActionType.SET_ADDRESS_MAIN_FAILURE,
+  payload: { message, code },
+});
+
 export const setUrlAddress = (urlAddress: string): SetUrlAddressAction => ({
   type: AddressesActionType.SET_ADDRESS_URL,
   payload: urlAddress,
 });
+
 export const setExampleFirstAddress = (address: string): SetExampleFirstAddressAction => ({
   type: AddressesActionType.SET_ADDRESS_EXAMPLE_FIRST,
   payload: address,

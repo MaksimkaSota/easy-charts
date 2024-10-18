@@ -4,9 +4,13 @@ import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
 import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
 import { CreatingPage } from './CreatingPage';
+import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
+import { isFetchingMainAddressSelector } from '../../../../redux/selectors/loading';
 
 export const CreatingPageContainer: FC = (): ReactElement => {
+  const isFetchingMainAddress = useTypedSelector(isFetchingMainAddressSelector);
   const { mainAddress } = useTypedSelector(addressesSelector);
+  const mainAddressError = useTypedSelector(mainAddressErrorSelector);
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
   const {
     getAddress,
@@ -22,17 +26,21 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     setMainHeight,
     setMainOptionsWithId,
     setExamplesType,
+    setMainAddressRequest,
   } = useActions();
 
-  const getDebouncedAddress = useDebouncedCallback(() => getAddress(mainOptions, width, height), 1000);
+  const getDebouncedAddress = useDebouncedCallback(() => getAddress(mainOptions, width, height), 900);
 
   useEffect(() => {
+    setMainAddressRequest();
     getDebouncedAddress();
   }, [getDebouncedAddress, mainOptions]);
 
   return (
     <CreatingPage
+      isFetchingMainAddress={isFetchingMainAddress}
       mainAddress={mainAddress}
+      mainAddressError={mainAddressError}
       mainOptions={mainOptions}
       width={width}
       height={height}

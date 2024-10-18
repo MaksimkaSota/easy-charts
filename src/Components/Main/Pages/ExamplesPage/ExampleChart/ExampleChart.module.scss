@@ -1,0 +1,36 @@
+.exampleChart {
+  &:not(:last-child) {
+    .link {
+      margin-bottom: $indentMax;
+    }
+  }
+
+  .wrapper {
+    @extend %chartContainer;
+  }
+
+  .link {
+    @extend %button;
+    width: 100%;
+
+    span {
+      color: $title-text;
+    }
+  }
+
+  @include respond($tabletMin) {
+    width: 100%;
+    &:not(:last-child) {
+      .link {
+        margin-bottom: $indentMin;
+      }
+    }
+  }
+  @include respond($mobile) {
+    &:not(:last-child) {
+      .link {
+        margin-bottom: $indentInputAndButton;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import type { AxiosError } from 'axios';
 import type { IChart, IData, IDataset } from '../types/api';
 import { ChartParameter } from '../types/enums';
 import type { ObjectType } from '../types/common';
@@ -65,4 +66,8 @@ export const copyTextOnClick = async (
 
 export const addUniqueIdInObjects = (objects: ObjectType[]): any[] => {
   return objects.map((object: ObjectType): ObjectType => ({ ...object, id: uuidv4() }));
+};
+
+export const getErrorMessage = (errorObject: AxiosError<any>): string => {
+  return errorObject.response?.data.message || errorObject.message;
 };

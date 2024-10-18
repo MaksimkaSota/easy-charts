@@ -1,0 +1,19 @@
+.errorPageBlock {
+  width: 100%;
+  @include flex(column, null, center);
+  .errorTitle {
+    font-size: 1.5rem;
+    color: $red;
+  }
+  .errorText {
+    font-size: 1.3rem;
+    color: $red;
+  }
+  .errorImage {
+    @include position(50%, $indentMin 0);
+  }
+}
+
+.globalError {
+  height: 100vh;
+}
