@@ -3,6 +3,9 @@ import { RequestState } from '../../utils/types/enums';
 
 const initialState: LoadingState = {
   SET_ADDRESS_MAIN: true,
+  SET_ADDRESS_EXAMPLE_FIRST: true,
+  SET_ADDRESS_EXAMPLE_SECOND: true,
+  SET_ADDRESS_EXAMPLE_THIRD: true,
 };
 
 export const loadingReducer = (state: LoadingState = initialState, action: any): LoadingState => {

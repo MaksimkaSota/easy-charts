@@ -20,17 +20,17 @@ export const addressesReducer = (state: AddressesState = initialState, action: A
         ...state,
         urlAddress: action.payload,
       };
-    case AddressesActionType.SET_ADDRESS_EXAMPLE_FIRST:
+    case AddressesActionType.SET_ADDRESS_EXAMPLE_FIRST_SUCCESS:
       return {
         ...state,
         exampleFirstAddress: action.payload,
       };
-    case AddressesActionType.SET_ADDRESS_EXAMPLE_SECOND:
+    case AddressesActionType.SET_ADDRESS_EXAMPLE_SECOND_SUCCESS:
       return {
         ...state,
         exampleSecondAddress: action.payload,
       };
-    case AddressesActionType.SET_ADDRESS_EXAMPLE_THIRD:
+    case AddressesActionType.SET_ADDRESS_EXAMPLE_THIRD_SUCCESS:
       return {
         ...state,
         exampleThirdAddress: action.payload,

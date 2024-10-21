@@ -34,12 +34,6 @@ export enum FormName {
   Height = 'height',
 }
 
-export enum ExampleKey {
-  First = 'firstExample',
-  Second = 'secondExample',
-  Third = 'thirdExample',
-}
-
 export enum StandardOptions {
   Width = 750,
   Height = 450,

@@ -34,7 +34,7 @@ export const CreatingPageContainer: FC = (): ReactElement => {
   useEffect(() => {
     setMainAddressRequest();
     getDebouncedAddress();
-  }, [getDebouncedAddress, mainOptions]);
+  }, [getDebouncedAddress, setMainAddressRequest, mainOptions]);
 
   return (
     <CreatingPage

@@ -3,6 +3,9 @@ import { RequestState } from '../../utils/types/enums';
 
 const initialState: ErrorState = {
   SET_ADDRESS_MAIN: null,
+  SET_ADDRESS_EXAMPLE_FIRST: null,
+  SET_ADDRESS_EXAMPLE_SECOND: null,
+  SET_ADDRESS_EXAMPLE_THIRD: null,
 };
 
 export const errorReducer = (state: ErrorState = initialState, action: any): ErrorState => {

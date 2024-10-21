@@ -4,11 +4,18 @@ import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSele
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import type { IChart } from '../../../../utils/types/api';
+import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {
+  isFetchingExampleFirstAddress: boolean;
   exampleFirstAddress: string;
+  exampleFirstAddressError: Nullable<ErrorType>;
+  isFetchingExampleSecondAddress: boolean;
   exampleSecondAddress: string;
+  exampleSecondAddressError: Nullable<ErrorType>;
+  isFetchingExampleThirdAddress: boolean;
   exampleThirdAddress: string;
+  exampleThirdAddressError: Nullable<ErrorType>;
   exampleFirstOptions: IChart;
   exampleSecondOptions: IChart;
   exampleThirdOptions: IChart;
@@ -16,9 +23,15 @@ type PropsType = {
 };
 
 export const ExamplesPage: FC<PropsType> = ({
+  isFetchingExampleFirstAddress,
   exampleFirstAddress,
+  exampleFirstAddressError,
+  isFetchingExampleSecondAddress,
   exampleSecondAddress,
+  exampleSecondAddressError,
+  isFetchingExampleThirdAddress,
   exampleThirdAddress,
+  exampleThirdAddressError,
   exampleFirstOptions,
   exampleSecondOptions,
   exampleThirdOptions,
@@ -36,9 +49,15 @@ export const ExamplesPage: FC<PropsType> = ({
       <div className={classes.examplesMain}>
         <ChartSelectionMenu type={exampleFirstOptions.type} className={classes.chartSelectionMenu} />
         <ExampleCharts
+          isFetchingFirstAddress={isFetchingExampleFirstAddress}
           firstAddress={exampleFirstAddress}
+          firstAddressError={exampleFirstAddressError}
+          isFetchingSecondAddress={isFetchingExampleSecondAddress}
           secondAddress={exampleSecondAddress}
+          secondAddressError={exampleSecondAddressError}
+          isFetchingThirdAddress={isFetchingExampleThirdAddress}
           thirdAddress={exampleThirdAddress}
+          thirdAddressError={exampleThirdAddressError}
           firstOptions={exampleFirstOptions}
           secondOptions={exampleSecondOptions}
           thirdOptions={exampleThirdOptions}
