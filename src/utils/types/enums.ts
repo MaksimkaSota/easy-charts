@@ -43,3 +43,7 @@ export enum RequestState {
   Request = 'REQUEST',
   Failure = 'FAILURE',
 }
+
+export enum KeyboardEventCode {
+  Escape = 'Escape',
+}

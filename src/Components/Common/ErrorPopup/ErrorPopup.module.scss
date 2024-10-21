@@ -1,0 +1,33 @@
+.errorPopup {
+  @include flex(null, center, center);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $validated-input-background;
+
+  .errorPopupContainer {
+    width: 50%;
+    padding: $indentMin;
+    background: $input-background;
+    border-radius: $radiusMax;
+    box-shadow: 0 0 10px 0;
+    @include flex(column, null, null);
+
+    .errorPopupButton {
+      @extend %button;
+      @include position(90%, $indentMin auto 0);
+    }
+
+    @include respond($tabletMax) {
+      width: 70%;
+    }
+    @include respond($tabletMin) {
+      width: 90%;
+      padding: $indentInputAndButton;
+      .errorPopupButton {
+        margin: $indentInputAndButton auto 0;
+      }
+    }
+  }
+}
