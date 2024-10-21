@@ -16,7 +16,7 @@ export const Chart: FC<PropsType> = ({ isFetchingAddress, address, addressError 
   }
 
   if (addressError) {
-    return <Error code={addressError.code} message={addressError.message} />;
+    return <Error message={addressError.message} code={addressError.code} />;
   }
 
   return <img className={classes.image} src={address} alt="График" />;

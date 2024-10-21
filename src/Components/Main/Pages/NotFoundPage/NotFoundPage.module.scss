@@ -1,0 +1,12 @@
+.container {
+  width: 50%;
+  @include respond($laptop) {
+    width: 60%;
+  }
+  @include respond($tabletMax) {
+    width: 70%;
+  }
+  @include respond($tabletMin) {
+    width: 90%;
+  }
+}

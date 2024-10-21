@@ -6,11 +6,12 @@ import { GalleryPage } from './Pages/GalleryPage/GalleryPage';
 import { ContactsPage } from './Pages/ContactsPage/ContactsPage';
 import { RoutePath } from '../../utils/types/enums';
 import { SavePageContainer } from './Pages/SavePage/SavePageContainer';
+import { NotFoundPage } from './Pages/NotFoundPage/NotFoundPage';
 
 export const MainRoutes: FC = (): ReactElement => {
   return (
     <Routes>
-      <Route path={RoutePath.Not_found} element={<div>Страница не найдена</div>} />
+      <Route path={RoutePath.Not_found} element={<NotFoundPage />} />
       <Route path={RoutePath.Main} element={<Navigate to={RoutePath.Create} />} />
       <Route path={RoutePath.Create} element={<CreatingPageContainer />} />
       <Route path={RoutePath.Gallery} element={<GalleryPage />} />

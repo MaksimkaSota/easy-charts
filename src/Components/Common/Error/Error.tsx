@@ -5,12 +5,12 @@ import robotError from '../../../assets/images/robot-error.png';
 import robot404 from '../../../assets/images/robot-404.png';
 
 type PropsType = {
-  code?: number;
   message: string;
+  code?: number;
   isGlobalError?: boolean;
 };
 
-export const Error: FC<PropsType> = ({ code, message, isGlobalError = false }): ReactElement => {
+export const Error: FC<PropsType> = ({ message, code, isGlobalError = false }): ReactElement => {
   const robot = code === 404 ? robot404 : robotError;
 
   return (
