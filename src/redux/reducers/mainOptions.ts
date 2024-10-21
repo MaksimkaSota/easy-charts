@@ -59,6 +59,7 @@ export const mainOptionsReducer = (
                   id: dataItem.id,
                 })
               ),
+              id: dataset.id,
             }
           : dataset;
       });
@@ -79,6 +80,7 @@ export const mainOptionsReducer = (
           ? {
               label: action.payload.value,
               data: dataset.data,
+              id: dataset.id,
             }
           : dataset;
       });

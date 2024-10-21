@@ -4,8 +4,6 @@
 
   .closeX {
     @extend %closeButton;
-    background: transparent url('../../../../../../assets/images/cross.svg') no-repeat;
-    top: 5px;
     left: -15px;
   }
 

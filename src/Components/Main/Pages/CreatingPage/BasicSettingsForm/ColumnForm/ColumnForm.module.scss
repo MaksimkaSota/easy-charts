@@ -9,9 +9,10 @@
 
   .closeY {
     @extend %closeButton;
-    background: transparent url('../../../../../../assets/images/cross.svg') no-repeat;
-    top: 5px;
     right: 15px;
+    @include respond($laptop) {
+      top: 0;
+    }
   }
 
   .closeYHover {

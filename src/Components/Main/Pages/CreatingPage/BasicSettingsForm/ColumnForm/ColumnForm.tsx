@@ -3,7 +3,7 @@ import { useFormikContext } from 'formik';
 import cn from 'classnames';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormField/FormField';
-import type { IDataset } from '../../../../../../utils/types/api';
+import type { IData, IDataset } from '../../../../../../utils/types/api';
 import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
@@ -44,11 +44,13 @@ export const ColumnForm = memo<PropsType>(
         <button
           type="button"
           aria-label="Remove column"
-          title="Удалить этот столбец"
+          title={datasetsLength !== 1 ? 'Удалить этот столбец' : undefined}
           className={cn(classes.closeY, { [classes.closeYHover]: datasetsLength !== 1 })}
           onClick={() => removeColumn(datasetIndex)}
           disabled={datasetsLength === 1}
-        />
+        >
+          X
+        </button>
         <FormField
           classNameField={classes.inputData}
           name={`${FormName.Datasets}.${datasetIndex}.label`}
@@ -56,7 +58,7 @@ export const ColumnForm = memo<PropsType>(
           onChange={onLabelInDatasetsChange}
         />
         {dataset.data.map(
-          (dataItem, dataItemIndex: number): ReactElement => (
+          (dataItem: IData, dataItemIndex: number): ReactElement => (
             <FormField
               key={dataItem.id}
               classNameField={classes.inputDataNumbers}
