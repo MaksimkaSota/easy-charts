@@ -7,12 +7,15 @@ import { AdditionalSettingsForm } from './AdditionalSettingsForm/AdditionalSetti
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
 import type { IChart } from '../../../../utils/types/api';
+import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {
   mainOptions: IChart;
   width: number | string;
   height: number | string;
+  isFetchingMainAddress: boolean;
   mainAddress: string;
+  mainAddressError: Nullable<ErrorType>;
   setMainTitle: (type: string) => void;
   setMainLabels: (id: number, value: string) => void;
   setMainData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
@@ -28,7 +31,9 @@ type PropsType = {
 };
 
 export const CreatingPage: FC<PropsType> = ({
+  isFetchingMainAddress,
   mainAddress,
+  mainAddressError,
   mainOptions,
   width,
   height,
@@ -55,7 +60,7 @@ export const CreatingPage: FC<PropsType> = ({
       />
       <div className={classes.createContent}>
         <ChartSelectionMenu type={mainOptions.type} className={classes.chartSelectionMenu} />
-        <MainChart address={mainAddress} />
+        <MainChart isFetchingAddress={isFetchingMainAddress} address={mainAddress} addressError={mainAddressError} />
         <div className={classes.settingsContainer}>
           <h3 className={classes.settingsTitle}>Настройки графика</h3>
           <div className={classes.wrapper}>

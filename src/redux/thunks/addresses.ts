@@ -1,40 +1,99 @@
+import { isAxiosError } from 'axios';
 import type { ThunkType } from '../../utils/types/common';
 import type { AddressesAction } from '../types/addresses';
 import type { IChart } from '../../utils/types/api';
 import { getChartAPI, getChartURL } from '../../services/api/chart';
-import { transformImageToBase64 } from '../../utils/helpers/servicesHelpers';
+import { getErrorMessage, transformImageToBase64 } from '../../utils/helpers/servicesHelpers';
 import {
-  setMainAddress,
+  setMainAddressRequest,
+  setMainAddressSuccess,
+  setMainAddressFailure,
   setUrlAddress,
-  setExampleFirstAddress,
-  setExampleSecondAddress,
-  setExampleThirdAddress,
+  setExampleFirstAddressRequest,
+  setExampleFirstAddressSuccess,
+  setExampleFirstAddressFailure,
+  setExampleSecondAddressRequest,
+  setExampleSecondAddressSuccess,
+  setExampleSecondAddressFailure,
+  setExampleThirdAddressRequest,
+  setExampleThirdAddressSuccess,
+  setExampleThirdAddressFailure,
 } from '../actions/addresses';
-import { ExampleKey } from '../../utils/types/enums';
 
 export const getAddress = (
   options: IChart,
   width: number | string,
-  height: number | string,
-  key?: string
+  height: number | string
 ): ThunkType<AddressesAction> => {
   return async (dispatch) => {
-    const chart: Blob = await getChartAPI(options, width, height);
-    const chartAddress: string = await transformImageToBase64(chart);
-    const chartURL: string = getChartURL(options, width, height);
-    switch (key) {
-      case ExampleKey.First:
-        dispatch(setExampleFirstAddress(chartAddress));
-        break;
-      case ExampleKey.Second:
-        dispatch(setExampleSecondAddress(chartAddress));
-        break;
-      case ExampleKey.Third:
-        dispatch(setExampleThirdAddress(chartAddress));
-        break;
-      default:
-        dispatch(setMainAddress(chartAddress));
-        dispatch(setUrlAddress(chartURL));
+    try {
+      dispatch(setMainAddressRequest());
+      const chart: Blob = await getChartAPI(options, width, height);
+      const chartAddress: string = await transformImageToBase64(chart);
+      const chartURL: string = getChartURL(options, width, height);
+      dispatch(setMainAddressSuccess(chartAddress));
+      dispatch(setUrlAddress(chartURL));
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        dispatch(setMainAddressFailure(getErrorMessage(error), error.response?.status));
+      }
+    }
+  };
+};
+
+export const getExampleFirstAddress = (
+  options: IChart,
+  width: number | string,
+  height: number | string
+): ThunkType<AddressesAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch(setExampleFirstAddressRequest());
+      const chart: Blob = await getChartAPI(options, width, height);
+      const chartAddress: string = await transformImageToBase64(chart);
+      dispatch(setExampleFirstAddressSuccess(chartAddress));
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        dispatch(setExampleFirstAddressFailure(getErrorMessage(error), error.response?.status));
+      }
+    }
+  };
+};
+
+export const getExampleSecondAddress = (
+  options: IChart,
+  width: number | string,
+  height: number | string
+): ThunkType<AddressesAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch(setExampleSecondAddressRequest());
+      const chart: Blob = await getChartAPI(options, width, height);
+      const chartAddress: string = await transformImageToBase64(chart);
+      dispatch(setExampleSecondAddressSuccess(chartAddress));
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        dispatch(setExampleSecondAddressFailure(getErrorMessage(error), error.response?.status));
+      }
+    }
+  };
+};
+
+export const getExampleThirdAddress = (
+  options: IChart,
+  width: number | string,
+  height: number | string
+): ThunkType<AddressesAction> => {
+  return async (dispatch) => {
+    try {
+      dispatch(setExampleThirdAddressRequest());
+      const chart: Blob = await getChartAPI(options, width, height);
+      const chartAddress: string = await transformImageToBase64(chart);
+      dispatch(setExampleThirdAddressSuccess(chartAddress));
+    } catch (error: unknown) {
+      if (isAxiosError(error)) {
+        dispatch(setExampleThirdAddressFailure(getErrorMessage(error), error.response?.status));
+      }
     }
   };
 };

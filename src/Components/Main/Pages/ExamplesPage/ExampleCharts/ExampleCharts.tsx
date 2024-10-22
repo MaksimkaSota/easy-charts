@@ -2,11 +2,18 @@ import type { FC, ReactElement } from 'react';
 import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api';
+import type { ErrorType, Nullable } from '../../../../../utils/types/common';
 
 type PropsType = {
+  isFetchingFirstAddress: boolean;
   firstAddress: string;
+  firstAddressError: Nullable<ErrorType>;
+  isFetchingSecondAddress: boolean;
   secondAddress: string;
+  secondAddressError: Nullable<ErrorType>;
+  isFetchingThirdAddress: boolean;
   thirdAddress: string;
+  thirdAddressError: Nullable<ErrorType>;
   firstOptions: IChart;
   secondOptions: IChart;
   thirdOptions: IChart;
@@ -14,9 +21,15 @@ type PropsType = {
 };
 
 export const ExampleCharts: FC<PropsType> = ({
+  isFetchingFirstAddress,
   firstAddress,
+  firstAddressError,
+  isFetchingSecondAddress,
   secondAddress,
+  secondAddressError,
+  isFetchingThirdAddress,
   thirdAddress,
+  thirdAddressError,
   firstOptions,
   secondOptions,
   thirdOptions,
@@ -25,9 +38,27 @@ export const ExampleCharts: FC<PropsType> = ({
   return (
     <div className={classes.chartResult}>
       <h3 className={classes.miniTitle}>График</h3>
-      <ExampleChart address={firstAddress} options={firstOptions} setNewOptions={setNewOptions} />
-      <ExampleChart address={secondAddress} options={secondOptions} setNewOptions={setNewOptions} />
-      <ExampleChart address={thirdAddress} options={thirdOptions} setNewOptions={setNewOptions} />
+      <ExampleChart
+        isFetchingAddress={isFetchingFirstAddress}
+        address={firstAddress}
+        addressError={firstAddressError}
+        options={firstOptions}
+        setNewOptions={setNewOptions}
+      />
+      <ExampleChart
+        isFetchingAddress={isFetchingSecondAddress}
+        address={secondAddress}
+        addressError={secondAddressError}
+        options={secondOptions}
+        setNewOptions={setNewOptions}
+      />
+      <ExampleChart
+        isFetchingAddress={isFetchingThirdAddress}
+        address={thirdAddress}
+        addressError={thirdAddressError}
+        options={thirdOptions}
+        setNewOptions={setNewOptions}
+      />
     </div>
   );
 };

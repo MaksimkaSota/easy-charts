@@ -84,6 +84,7 @@
     "postcss-preset-env": "^7.0.1",
     "prettier": "^3.3.3",
     "react-dev-utils": "^12.0.1",
+    "react-svg-loader": "^3.0.3",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.53.0",

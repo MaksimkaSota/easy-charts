@@ -23,11 +23,13 @@ export const RowForm = memo<PropsType>(({ labelIndex, labelsLength, setLabels, r
       <button
         type="button"
         aria-label="Remove row"
-        title="Удалить эту строку"
+        title={labelsLength !== 1 ? 'Удалить эту строку' : undefined}
         className={cn(classes.closeX, { [classes.closeXHover]: labelsLength !== 1 })}
         onClick={() => removeRow(labelIndex)}
         disabled={labelsLength === 1}
-      />
+      >
+        X
+      </button>
       <FormField
         classNameField={classes.inputData}
         name={`${FormName.Labels}.${labelIndex}.value`}

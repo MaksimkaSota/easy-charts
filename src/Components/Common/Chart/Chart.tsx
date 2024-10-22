@@ -1,16 +1,23 @@
 import type { FC, ReactElement } from 'react';
 import classes from './Chart.module.scss';
+import type { ErrorType, Nullable } from '../../../utils/types/common';
+import Loader from '../../../assets/images/loader.svg';
+import { Error } from '../Error/Error';
 
 type PropsType = {
+  isFetchingAddress?: boolean;
   address: string;
+  addressError?: Nullable<ErrorType>;
 };
 
-export const Chart: FC<PropsType> = ({ address }): ReactElement => {
-  return (
-    <div className={classes.wrapper}>
-      <div className={classes.imageContainer}>
-        <img className={classes.image} src={address} alt="Chart example" />
-      </div>
-    </div>
-  );
+export const Chart: FC<PropsType> = ({ isFetchingAddress, address, addressError }): ReactElement => {
+  if (isFetchingAddress) {
+    return <Loader className={classes.loader} />;
+  }
+
+  if (addressError) {
+    return <Error message={addressError.message} code={addressError.code} />;
+  }
+
+  return <img className={classes.image} src={address} alt="График" />;
 };

@@ -1,0 +1,17 @@
+.interactionButton {
+  @extend %button;
+  width: auto;
+
+  &:not(:last-child) {
+    margin-right: $indentMin;
+  }
+}
+
+.disabled {
+  background: $red;
+
+  &:hover {
+    cursor: default;
+    background: $red;
+  }
+}
