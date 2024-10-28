@@ -13,7 +13,7 @@ import {
   exampleThirdAddressErrorSelector,
 } from '../../../../redux/selectors/error';
 import { ExamplesPage } from './ExamplesPage';
-import { StandardOptions } from '../../../../utils/types/enums';
+import { StandardOption } from '../../../../utils/types/enums';
 
 export const ExamplesPageContainer: FC = (): ReactElement => {
   const isFetchingExampleFirstAddress = useTypedSelector(isFetchingExampleFirstAddressSelector);
@@ -28,9 +28,9 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
     useActions();
 
   useEffect(() => {
-    getExampleFirstAddress(exampleFirstOptions, StandardOptions.Width, StandardOptions.Height);
-    getExampleSecondAddress(exampleSecondOptions, StandardOptions.Width, StandardOptions.Height);
-    getExampleThirdAddress(exampleThirdOptions, StandardOptions.Width, StandardOptions.Height);
+    getExampleFirstAddress(exampleFirstOptions, StandardOption.Width, StandardOption.Height);
+    getExampleSecondAddress(exampleSecondOptions, StandardOption.Width, StandardOption.Height);
+    getExampleThirdAddress(exampleThirdOptions, StandardOption.Width, StandardOption.Height);
   }, [
     getExampleFirstAddress,
     getExampleSecondAddress,

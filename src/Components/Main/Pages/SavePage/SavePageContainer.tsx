@@ -3,7 +3,7 @@ import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
 import { useActions } from '../../../../hooks/useActions';
 import { SavePage } from './SavePage';
-import { StandardOptions } from '../../../../utils/types/enums';
+import { StandardOption } from '../../../../utils/types/enums';
 import { isFetchingMainAddressSelector } from '../../../../redux/selectors/loading';
 import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
 
@@ -17,8 +17,8 @@ export const SavePageContainer: FC = (): ReactElement => {
   useEffect(() => {
     getAddress(mainOptions, width, height);
     return () => {
-      setMainWidth(StandardOptions.Width);
-      setMainHeight(StandardOptions.Height);
+      setMainWidth(StandardOption.Width);
+      setMainHeight(StandardOption.Height);
     };
     // eslint-disable-next-line
   }, [getAddress, setMainHeight, setMainWidth]);
