@@ -1,8 +1,8 @@
 import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useActions } from '../../../hooks/useActions';
-import { changeType } from '../../../utils/helpers/componentsHelpers';
-import { RoutePath } from '../../../utils/types/enums';
+import { useActions } from '../../../../hooks/useActions';
+import { changeType } from '../../../../utils/helpers/componentsHelpers';
+import { RoutePath } from '../../../../utils/types/enums';
 
 type PropsType = {
   isLink?: boolean;

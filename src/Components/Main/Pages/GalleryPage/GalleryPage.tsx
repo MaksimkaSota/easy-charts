@@ -1,12 +1,12 @@
 import type { FC, ReactElement } from 'react';
 import classes from './GalleryPage.module.scss';
-import bar from '../../../../assets/images/bar.png';
-import line from '../../../../assets/images/line.png';
-import radar from '../../../../assets/images/radar.png';
-import pie from '../../../../assets/images/pie.png';
-import doughnut from '../../../../assets/images/doughnut.png';
-import horizontalBar from '../../../../assets/images/horizontalBar.png';
-import { ChartSelectionButton } from '../../../Common/ChartSelectionButton/ChartSelectionButton';
+import bar from '../../../../assets/images/chart/bar.png';
+import line from '../../../../assets/images/chart/line.png';
+import radar from '../../../../assets/images/chart/radar.png';
+import pie from '../../../../assets/images/chart/pie.png';
+import doughnut from '../../../../assets/images/chart/doughnut.png';
+import horizontalBar from '../../../../assets/images/chart/horizontalBar.png';
+import { ChartSelectionButton } from '../../../Common/Buttons/ChartSelectionButton/ChartSelectionButton';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { ChartType } from '../../../../utils/types/enums';
 

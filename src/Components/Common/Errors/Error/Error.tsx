@@ -1,8 +1,8 @@
 import type { FC, ReactElement } from 'react';
 import cn from 'classnames';
 import classes from './Error.module.scss';
-import robotError from '../../../assets/images/robot-error.png';
-import robot404 from '../../../assets/images/robot-404.png';
+import robotError from '../../../../assets/images/service/robot-error.png';
+import robot404 from '../../../../assets/images/service/robot-404.png';
 
 type PropsType = {
   message: string;

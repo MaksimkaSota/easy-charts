@@ -1,8 +1,8 @@
 import type { FC, ReactElement } from 'react';
 import classes from './Chart.module.scss';
 import type { ErrorType, Nullable } from '../../../utils/types/common';
-import Loader from '../../../assets/images/loader.svg';
-import { Error } from '../Error/Error';
+import Loader from '../../../assets/images/service/loader.svg';
+import { Error } from '../Errors/Error/Error';
 
 type PropsType = {
   isFetchingAddress?: boolean;

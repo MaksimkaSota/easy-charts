@@ -1,7 +1,7 @@
 import { type ReactElement, type ReactNode, Component } from 'react';
 import { Error } from '../Error/Error';
 import { ErrorPopup } from '../ErrorPopup/ErrorPopup';
-import type { ErrorType, Nullable } from '../../../utils/types/common';
+import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {
   children: ReactNode;

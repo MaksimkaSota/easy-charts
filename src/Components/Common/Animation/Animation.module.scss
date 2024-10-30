@@ -1,5 +1,5 @@
 .animationBlock {
-  @include position(90%, 0 auto $indentMin);
   height: 100px;
   @include flex(null, space-between, flex-end);
+  margin: 0 0 $indentMin 0;
 }

@@ -1,6 +1,6 @@
 import type { FC, ReactElement, ReactNode } from 'react';
 import cn from 'classnames';
-import type { ErrorType, Nullable } from '../../../utils/types/common';
+import type { ErrorType, Nullable } from '../../../../utils/types/common';
 import classes from './DisabledInteractionButton.module.scss';
 
 type PropsType = {

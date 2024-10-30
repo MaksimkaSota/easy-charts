@@ -1,0 +1,8 @@
+.asideInfo {
+  width: 25%;
+  background: $blue;
+  @include respond($tabletMin) {
+    width: 100%;
+    order: -1;
+  }
+}

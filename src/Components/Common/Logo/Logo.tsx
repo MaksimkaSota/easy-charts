@@ -1,7 +1,7 @@
 import type { FC, ReactElement } from 'react';
 import cn from 'classnames';
 import classes from './Logo.module.scss';
-import logo from '../../../assets/images/logo.png';
+import logo from '../../../assets/images/content/logo.png';
 
 type PropsType = {
   className?: string;

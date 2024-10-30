@@ -1,4 +1,13 @@
 .main {
-  width: 100%;
+  @include position(90%, 0 auto);
   align-self: flex-start;
+
+  .additionalInfo {
+    @include flex(null, null, center);
+    margin: 0 0 $indentMin 0;
+    @include respond($tabletMin) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 }
