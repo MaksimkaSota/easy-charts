@@ -2,7 +2,7 @@ import { type ChangeEvent, type ReactElement, memo } from 'react';
 import cn from 'classnames';
 import classes from './RowForm.module.scss';
 import type { FormikErrorsType } from '../../../../../../utils/types/form';
-import { FormField } from '../../../../../Common/FormField/FormField';
+import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {

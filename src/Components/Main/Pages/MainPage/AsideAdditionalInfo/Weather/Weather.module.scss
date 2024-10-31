@@ -1,0 +1,53 @@
+.weather {
+  margin: 0 0 $indentMax 0;
+
+  .miniTitle {
+    @extend %mini-title;
+  }
+
+  .hintText {
+    text-align: center;
+    margin: 0 0 $indentMin 0;
+    font-size: 0.9rem;
+  }
+
+  .formContainer {
+    @include flex(null, space-between, null);
+    margin: 0 $indentMin $indentInputAndButton 0;
+
+    .label {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .city {
+      @include input($input-background, 0);
+      width: 70%;
+      color: $title-text;
+    }
+  }
+
+  .weatherText {
+    font-size: 1rem;
+  }
+
+  @include respond($tabletMax) {
+    .formContainer {
+      margin: 0 0 $indentInputAndButton 0;
+    }
+  }
+  @include respond($tabletMin) {
+    @include position(45%, 0);
+    .hintText {
+      margin: 0 0 $indentInputAndButton 0;
+    }
+    .formContainer {
+      .city {
+        width: 70%;
+      }
+    }
+  }
+  @include respond($tabletMin) {
+    width: 49%;
+  }
+}

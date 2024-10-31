@@ -1,6 +1,15 @@
 import type { FC, ReactElement } from 'react';
 import classes from './AsideAdditionalInfo.module.scss';
+import { Weather } from './Weather/Weather';
+import { CurrencyFormContainer } from './CurrencyForm/CurrencyFormContainer';
 
-export const AsideAdditionalInfo: FC = (): ReactElement => {
-  return <div className={classes.asideInfo}>AsideAdditionalInfo</div>;
+type PropsType = {};
+
+export const AsideAdditionalInfo: FC<PropsType> = (): ReactElement => {
+  return (
+    <aside className={classes.asideInfo}>
+      <Weather />
+      <CurrencyFormContainer />
+    </aside>
+  );
 };

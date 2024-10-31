@@ -2,7 +2,7 @@ import { type ChangeEvent, type ReactElement, memo, useEffect } from 'react';
 import { useFormikContext } from 'formik';
 import cn from 'classnames';
 import classes from './ColumnForm.module.scss';
-import { FormField } from '../../../../../Common/FormField/FormField';
+import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import type { IData, IDataset } from '../../../../../../utils/types/api';
 import { FormName } from '../../../../../../utils/types/enums';
 

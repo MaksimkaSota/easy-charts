@@ -1,0 +1,69 @@
+.currencyForm {
+  .miniTitle {
+    @extend %mini-title;
+  }
+
+  .hintText {
+    text-align: center;
+    margin: 0 0 $indentMin 0;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    margin: 0 0 $indentInputAndButton 0;
+
+    .formContainer {
+      @include flex(null, space-between, null);
+
+      .label {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .formField {
+        @include position(70%, 0 $indentMin 0 0);
+
+        .inputData {
+          @include input($input-background, 0);
+          width: 100%;
+          color: $title-text;
+        }
+      }
+    }
+
+    .description {
+      font-size: 0.7rem;
+      text-align: right;
+    }
+  }
+
+  @include respond($tabletMax) {
+    .container {
+      .formContainer {
+        .formField {
+          margin: 0;
+        }
+      }
+    }
+  }
+  @include respond($tabletMin) {
+    width: 45%;
+    .hintText {
+      margin: 0 0 $indentInputAndButton 0;
+    }
+    .container {
+      .formContainer {
+        .formField {
+          width: 70%;
+
+          .inputData {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @include respond($tabletMin) {
+    width: 49%;
+  }
+}

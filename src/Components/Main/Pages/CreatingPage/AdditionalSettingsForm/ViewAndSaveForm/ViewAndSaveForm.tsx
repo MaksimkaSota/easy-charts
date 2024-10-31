@@ -2,7 +2,8 @@ import { type ChangeEvent, type FC, type ReactElement, useEffect } from 'react';
 import { Form } from 'formik';
 import { NavLink } from 'react-router-dom';
 import classes from './ViewAndSaveForm.module.scss';
-import { FormField } from '../../../../../Common/FormField/FormField';
+import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
+import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
 import type { FormikErrorsType, HandleChangeType, SetTouchedType } from '../../../../../../utils/types/form';
 import { ChartType, FormName, RoutePath } from '../../../../../../utils/types/enums';
 import type { IChart } from '../../../../../../utils/types/api';
@@ -50,32 +51,36 @@ export const ViewAndSaveForm: FC<PropsType> = ({
 
   return (
     <Form>
-      <div className={classes.formContainer}>
-        <label className={classes.label} htmlFor={FormName.Width}>
-          Ширина:
-        </label>
+      <FormFieldWithLabel
+        formContainerClassName={classes.formContainer}
+        labelClassName={classes.label}
+        htmlFor={FormName.Width}
+        label="Ширина"
+      >
         <FormField
           classNameField={classes.inputData}
           name={FormName.Width}
-          type="text"
           id={FormName.Width}
+          type="text"
           errors={errors}
           onChange={onWidthChange}
         />
-      </div>
-      <div className={classes.formContainer}>
-        <label className={classes.label} htmlFor={FormName.Height}>
-          Высота:
-        </label>
+      </FormFieldWithLabel>
+      <FormFieldWithLabel
+        formContainerClassName={classes.formContainer}
+        labelClassName={classes.label}
+        htmlFor={FormName.Height}
+        label="Высота"
+      >
         <FormField
           classNameField={classes.inputData}
           name={FormName.Height}
-          type="text"
           id={FormName.Height}
+          type="text"
           errors={errors}
           onChange={onHeightChange}
         />
-      </div>
+      </FormFieldWithLabel>
       <NavLink to={RoutePath.Save}>
         <button className={classes.button} type="submit" disabled={!isValid}>
           Посмотреть и сохранить график

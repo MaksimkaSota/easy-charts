@@ -32,6 +32,13 @@ export enum FormName {
   Datasets = 'datasets',
   Width = 'width',
   Height = 'height',
+  BelarusCoin = 'BYN',
+  AmericaCoin = 'USD',
+  EuropeCoin = 'EUR',
+  RussiaCoin = 'RUB',
+  UkraineCoin = 'UAH',
+  PolandCoin = 'PLN',
+  City = 'city',
 }
 
 export enum StandardOption {
