@@ -3,7 +3,7 @@ import classes from './AddRowForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
 import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
-import type { IData, IDataset } from '../../../../../../utils/types/api';
+import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {

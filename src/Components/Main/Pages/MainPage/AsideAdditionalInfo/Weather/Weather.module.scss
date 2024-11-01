@@ -5,35 +5,58 @@
     @extend %mini-title;
   }
 
+  .textError {
+    color: $red;
+  }
+
   .hintText {
     text-align: center;
     margin: 0 0 $indentMin 0;
     font-size: 0.9rem;
   }
 
-  .formContainer {
-    @include flex(null, space-between, null);
-    margin: 0 $indentMin $indentInputAndButton 0;
+  .container {
+    margin: 0 0 $indentInputAndButton 0;
 
-    .label {
-      font-weight: 700;
-      font-size: 1rem;
+    .formContainer {
+      @include flex(null, space-between, center);
+      margin: 0 $indentMin 0 0;
+
+      .label {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .input {
+        @include input($input-background, 0);
+        width: 70%;
+        color: $title-text;
+      }
+
+      .inputError {
+        outline: 1px solid $red;
+      }
     }
 
-    .city {
-      @include input($input-background, 0);
-      width: 70%;
-      color: $title-text;
+    .description {
+      font-size: 0.7rem;
+      text-align: right;
     }
   }
 
   .weatherText {
     font-size: 1rem;
+
+    &:not(:last-child) {
+      margin: 0 0 $indentInputAndButton 0;
+    }
   }
 
   @include respond($tabletMax) {
-    .formContainer {
-      margin: 0 0 $indentInputAndButton 0;
+    .container {
+      .formContainer {
+        margin: 0;
+      }
     }
   }
   @include respond($tabletMin) {
@@ -41,9 +64,11 @@
     .hintText {
       margin: 0 0 $indentInputAndButton 0;
     }
-    .formContainer {
-      .city {
-        width: 70%;
+    .container {
+      .formContainer {
+        .input {
+          width: 70%;
+        }
       }
     }
   }

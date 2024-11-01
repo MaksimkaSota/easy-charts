@@ -1,7 +1,7 @@
 import type { FC, ReactElement } from 'react';
 import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
-import type { IChart } from '../../../../../utils/types/api';
+import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
 
 type PropsType = {

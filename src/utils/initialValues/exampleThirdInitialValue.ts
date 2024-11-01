@@ -1,4 +1,4 @@
-import type { IChart } from '../types/api';
+import type { IChart } from '../types/api/chart';
 
 export const exampleThirdInitialValue: IChart = {
   type: 'bar',

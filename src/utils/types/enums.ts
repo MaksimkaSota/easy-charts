@@ -55,6 +55,12 @@ export enum KeyboardEventCode {
   Escape = 'Escape',
 }
 
+export enum StatusCode {
+  Response_bad_request = 400,
+  Response_not_found = 404,
+  Geolocation_network_error = 2,
+}
+
 export enum AnimationParameter {
   BarAndIndentWidth = 25,
   MaxHeight = 100,

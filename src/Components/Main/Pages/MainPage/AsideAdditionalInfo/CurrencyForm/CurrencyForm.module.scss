@@ -13,7 +13,7 @@
     margin: 0 0 $indentInputAndButton 0;
 
     .formContainer {
-      @include flex(null, space-between, null);
+      @include flex(null, space-between, center);
 
       .label {
         font-weight: 700;

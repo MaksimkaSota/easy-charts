@@ -6,7 +6,7 @@ import { MainChart } from './MainChart/MainChart';
 import { AdditionalSettingsForm } from './AdditionalSettingsForm/AdditionalSettingsForm';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
-import type { IChart } from '../../../../utils/types/api';
+import type { IChart } from '../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {

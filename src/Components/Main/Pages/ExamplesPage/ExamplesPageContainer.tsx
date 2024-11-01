@@ -24,6 +24,7 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
   const exampleSecondAddressError = useTypedSelector(exampleSecondAddressErrorSelector);
   const exampleThirdAddressError = useTypedSelector(exampleThirdAddressErrorSelector);
   const { exampleFirstOptions, exampleSecondOptions, exampleThirdOptions } = useTypedSelector(examplesOptionsSelector);
+
   const { getExampleFirstAddress, getExampleSecondAddress, getExampleThirdAddress, setMainOptionsWithId } =
     useActions();
 

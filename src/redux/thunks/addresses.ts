@@ -1,8 +1,8 @@
 import { isAxiosError } from 'axios';
 import type { ThunkType } from '../../utils/types/common';
 import type { AddressesAction } from '../types/addresses';
-import type { IChart } from '../../utils/types/api';
-import { getChartAPI, getChartURL } from '../../services/api/chart';
+import type { IChart } from '../../utils/types/api/chart';
+import { getChartAPI, getChartURL } from '../../services/api/chart/chart';
 import { getErrorMessage, transformImageToBase64 } from '../../utils/helpers/servicesHelpers';
 import {
   setMainAddressRequest,

@@ -1,7 +1,7 @@
 import { type ReactElement, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './ExampleChart.module.scss';
-import type { IChart } from '../../../../../utils/types/api';
+import type { IChart } from '../../../../../utils/types/api/chart';
 import { RoutePath } from '../../../../../utils/types/enums';
 import { Chart } from '../../../../Common/Chart/Chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';

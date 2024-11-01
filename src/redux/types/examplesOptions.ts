@@ -1,4 +1,4 @@
-import type { IChart } from '../../utils/types/api';
+import type { IChart } from '../../utils/types/api/chart';
 
 export type ExamplesOptionsState = {
   exampleFirstOptions: IChart;

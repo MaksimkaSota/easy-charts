@@ -2,7 +2,7 @@ import { type ReactElement, memo } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { ViewAndSaveForm } from './ViewAndSaveForm/ViewAndSaveForm';
-import type { IChart } from '../../../../../utils/types/api';
+import type { IChart } from '../../../../../utils/types/api/chart';
 
 const validationSchema = Yup.object().shape({
   width: Yup.number()

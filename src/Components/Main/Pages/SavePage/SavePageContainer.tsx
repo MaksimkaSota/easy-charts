@@ -12,6 +12,7 @@ export const SavePageContainer: FC = (): ReactElement => {
   const { mainAddress, urlAddress } = useTypedSelector(addressesSelector);
   const mainAddressError = useTypedSelector(mainAddressErrorSelector);
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
+
   const { getAddress, setMainWidth, setMainHeight } = useActions();
 
   useEffect(() => {

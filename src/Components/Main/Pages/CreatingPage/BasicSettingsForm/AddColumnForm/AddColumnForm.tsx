@@ -1,7 +1,7 @@
 import { type ReactElement, useEffect, memo } from 'react';
 import classes from './AddColumnForm.module.scss';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
-import type { IData, IDataset } from '../../../../../../utils/types/api';
+import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { ColumnForm } from '../ColumnForm/ColumnForm';
 import { FormName } from '../../../../../../utils/types/enums';
 

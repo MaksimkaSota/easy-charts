@@ -1,4 +1,4 @@
-import { type ReactElement, memo } from 'react';
+import type { ReactElement, FC } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { CurrencyForm } from './CurrencyForm';
@@ -14,7 +14,7 @@ const validationSchema = Yup.object().shape({
 
 type PropsType = {};
 
-export const CurrencyFormContainer = memo<PropsType>((): ReactElement => {
+export const CurrencyFormContainer: FC<PropsType> = (): ReactElement => {
   return (
     <Formik
       initialValues={{ BYN: '', USD: '', EUR: '', RUB: '', UAH: '', PLN: '' }}
@@ -24,4 +24,4 @@ export const CurrencyFormContainer = memo<PropsType>((): ReactElement => {
       {(): ReactElement => <CurrencyForm />}
     </Formik>
   );
-});
+};

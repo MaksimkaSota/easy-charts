@@ -3,7 +3,7 @@ import classes from './ExamplesPage.module.scss';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
-import type { IChart } from '../../../../utils/types/api';
+import type { IChart } from '../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {

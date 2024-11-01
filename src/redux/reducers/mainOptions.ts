@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
-import type { IData, IDataset } from '../../utils/types/api';
+import type { IData, IDataset } from '../../utils/types/api/chart';
 import { StandardOption } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 

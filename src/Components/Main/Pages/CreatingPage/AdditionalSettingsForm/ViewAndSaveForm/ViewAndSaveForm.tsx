@@ -6,7 +6,7 @@ import { FormField } from '../../../../../Common/FormFields/FormField/FormField'
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
 import type { FormikErrorsType, HandleChangeType, SetTouchedType } from '../../../../../../utils/types/form';
 import { ChartType, FormName, RoutePath } from '../../../../../../utils/types/enums';
-import type { IChart } from '../../../../../../utils/types/api';
+import type { IChart } from '../../../../../../utils/types/api/chart';
 import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
 
 type PropsType = {

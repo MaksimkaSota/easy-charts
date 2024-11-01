@@ -4,3 +4,4 @@ export const isFetchingMainAddressSelector = (state: AppState) => state.loading.
 export const isFetchingExampleFirstAddressSelector = (state: AppState) => state.loading.SET_ADDRESS_EXAMPLE_FIRST;
 export const isFetchingExampleSecondAddressSelector = (state: AppState) => state.loading.SET_ADDRESS_EXAMPLE_SECOND;
 export const isFetchingExampleThirdAddressSelector = (state: AppState) => state.loading.SET_ADDRESS_EXAMPLE_THIRD;
+export const isFetchingWeatherSelector = (state: AppState) => state.loading.SET_WEATHER_DATA;

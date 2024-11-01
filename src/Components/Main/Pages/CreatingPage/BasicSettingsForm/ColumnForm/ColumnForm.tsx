@@ -3,7 +3,7 @@ import { useFormikContext } from 'formik';
 import cn from 'classnames';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
-import type { IData, IDataset } from '../../../../../../utils/types/api';
+import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { FormName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
