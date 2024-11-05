@@ -7,5 +7,6 @@ export const requestString: ObjectType = {
     weather: 'data/2.5/weather',
     geocoding: 'geo/1.0/reverse',
   },
+  nbrb: 'https://www.nbrb.by/api/exrates/rates',
   mail: 'mailto:MaksimkaSota@gmail.com',
 };

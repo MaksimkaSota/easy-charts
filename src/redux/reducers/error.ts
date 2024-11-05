@@ -7,6 +7,7 @@ const initialState: ErrorState = {
   SET_ADDRESS_EXAMPLE_SECOND: null,
   SET_ADDRESS_EXAMPLE_THIRD: null,
   SET_WEATHER_DATA: null,
+  SET_CURRENCY: null,
 };
 
 export const errorReducer = (state: ErrorState = initialState, action: any): ErrorState => {

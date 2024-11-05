@@ -5,14 +5,14 @@
     @extend %mini-title;
   }
 
-  .textError {
-    color: $red;
-  }
-
   .hintText {
     text-align: center;
     margin: 0 0 $indentMin 0;
     font-size: 0.9rem;
+  }
+
+  .textError {
+    color: $red;
   }
 
   .container {

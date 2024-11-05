@@ -6,16 +6,21 @@ import { getDegeocodingCityAPI, getWeatherAPI } from '../../services/api/weather
 import { setCity, setLocation, setWeatherDataSuccess, setWeatherDataFailure } from '../actions/weather';
 import { StatusCode } from '../../utils/types/enums';
 
+export const setCityWithLocation = (city: string, location: string): ThunkType<WeatherAction> => {
+  return async (dispatch) => {
+    dispatch(setCity(city));
+    dispatch(setLocation(location));
+  };
+};
+
 export const getDegeocodingCity = (latitude: number, longitude: number): ThunkType<WeatherAction> => {
   return async (dispatch) => {
     try {
-      const city: any = await getDegeocodingCityAPI(latitude, longitude);
-      dispatch(setCity(city));
-      dispatch(setLocation('Текущее местоположение'));
+      const city: string = await getDegeocodingCityAPI(latitude, longitude);
+      dispatch(setCityWithLocation(city, 'Текущее местоположение'));
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        setCity('Минск');
-        setLocation('Ошибка получения текущего местоположения');
+        dispatch(setCityWithLocation('Минск', 'Ошибка получения текущего местоположения'));
       }
     }
   };

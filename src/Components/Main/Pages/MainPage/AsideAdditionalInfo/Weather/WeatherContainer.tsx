@@ -13,7 +13,8 @@ export const WeatherContainer: FC = (): ReactElement => {
   const { city, location, weather } = useTypedSelector(weatherSelector);
   const weatherError = useTypedSelector(weatherErrorSelector);
 
-  const { setCity, setLocation, setWeatherDataRequest, getDegeocodingCity, getWeather } = useActions();
+  const { setCity, setLocation, setCityWithLocation, setWeatherDataRequest, getDegeocodingCity, getWeather } =
+    useActions();
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -22,25 +23,30 @@ export const WeatherContainer: FC = (): ReactElement => {
           getDegeocodingCity(position.coords.latitude, position.coords.longitude);
         },
         (error: GeolocationPositionError): void => {
-          if (error.code === StatusCode.Geolocation_network_error) {
-            setCity('Минск');
-            setLocation('Ошибка получения текущего местоположения');
-          } else {
-            setCity('Минск');
-            setLocation('Не разрешено получение текущего местоположения');
+          switch (error.code) {
+            case StatusCode.Geolocation_network_error:
+              setCityWithLocation('Минск', 'Ошибка получения текущего местоположения');
+              break;
+            case StatusCode.Geolocation_timeout_expired:
+              setCityWithLocation('Минск', 'Не получено текущее местоположение (долгая попылка)');
+              break;
+            default:
+              setCityWithLocation('Минск', 'Не разрешено получение текущего местоположения');
+              break;
           }
+        },
+        {
+          timeout: 3000,
         }
       );
     } else {
-      setCity('Минск');
-      setLocation('Невозможно получить текущее местоположение');
+      setCityWithLocation('Минск', 'Невозможно получить текущее местоположение');
     }
 
     return () => {
-      setCity('');
-      setLocation('Местоположение');
+      setCityWithLocation('', 'Местоположение');
     };
-  }, [setCity, setLocation, getDegeocodingCity]);
+  }, [setCityWithLocation, getDegeocodingCity]);
 
   const getDebouncedWeather = useDebouncedCallback(() => getWeather(city), 900);
 

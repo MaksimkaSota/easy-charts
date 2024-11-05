@@ -1,3 +1,5 @@
+import type { SetFieldValueType } from '../types/form';
+
 export const changeType = (
   setMainTypeChart: (type: string) => void,
   setExamplesTypeChart: (type: string) => void,
@@ -19,4 +21,15 @@ export const randomBackground = (backgrounds: any[]): string => {
 
 export const randomHeight = (maxHeight: number): number => {
   return Math.ceil(Math.random() * maxHeight);
+};
+
+export const setFieldValueOnCondition = (
+  setFieldValue: SetFieldValueType,
+  activeFieldName: string,
+  fieldName: string,
+  value: string
+): void => {
+  if (activeFieldName !== fieldName) {
+    setFieldValue(fieldName, value);
+  }
 };

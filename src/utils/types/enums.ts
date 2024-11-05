@@ -59,6 +59,7 @@ export enum StatusCode {
   Response_bad_request = 400,
   Response_not_found = 404,
   Geolocation_network_error = 2,
+  Geolocation_timeout_expired = 3,
 }
 
 export enum AnimationParameter {
@@ -69,4 +70,12 @@ export enum AnimationParameter {
   YellowBackground = 'rgb(242, 143, 39)',
   BlueBackground = 'rgb(77, 122, 169)',
   GreenBackground = 'rgb(119, 184, 180)',
+}
+
+export enum CurrencyId {
+  usdId = 431,
+  eurId = 451,
+  rubId = 456,
+  uahId = 449,
+  plnId = 452,
 }

@@ -60,7 +60,7 @@ export interface IWeather {
 
 export interface IGeocoding {
   name: string;
-  local_names: ObjectType;
+  local_names: ObjectType<string>;
   lat: number;
   lon: number;
   country: string;

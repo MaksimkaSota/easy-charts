@@ -9,6 +9,10 @@
     font-size: 0.9rem;
   }
 
+  .textError {
+    color: $red;
+  }
+
   .container {
     margin: 0 0 $indentInputAndButton 0;
 
@@ -27,6 +31,10 @@
           @include input($input-background, 0);
           width: 100%;
           color: $title-text;
+
+          &:disabled {
+            color: $content-text;
+          }
         }
       }
     }

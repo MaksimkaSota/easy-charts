@@ -1,8 +1,8 @@
-import { type ReactElement, memo } from 'react';
+import { type ReactElement, type ChangeEvent, memo } from 'react';
 import { ErrorMessage, Field } from 'formik';
 import cn from 'classnames';
 import classes from './FormField.module.scss';
-import type { FormikErrorsType, HandleChangeType } from '../../../../utils/types/form';
+import type { FormikErrorsType } from '../../../../utils/types/form';
 import { readByString } from '../../../../utils/helpers/componentsHelpers';
 
 type PropsType = {
@@ -13,7 +13,9 @@ type PropsType = {
   type?: string;
   id?: string;
   errors?: FormikErrorsType;
-  onChange?: HandleChangeType;
+  disabled?: boolean;
+  onChange?: (event: ChangeEvent<any>) => void;
+  onKeyPress?: (event: KeyboardEvent) => void;
 };
 
 export const FormField = memo<PropsType>(
