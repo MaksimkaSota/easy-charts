@@ -3,7 +3,7 @@ import classes from './AddColumnForm.module.scss';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { ColumnForm } from '../ColumnForm/ColumnForm';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   datasetsFromValues: IDataset[];
@@ -28,8 +28,8 @@ export const AddColumnForm = memo<PropsType>(
     setFieldValue,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue(FormName.Labels, labels);
-      setFieldValue(FormName.Datasets, datasetsFromOptions);
+      setFieldValue(FieldName.Labels, labels);
+      setFieldValue(FieldName.Datasets, datasetsFromOptions);
       // eslint-disable-next-line
     }, [setFieldValue, datasetsFromOptions]);
 

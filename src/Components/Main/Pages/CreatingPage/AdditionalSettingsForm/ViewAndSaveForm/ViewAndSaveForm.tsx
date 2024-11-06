@@ -5,7 +5,7 @@ import classes from './ViewAndSaveForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
 import type { FormikErrorsType, HandleChangeType, SetTouchedType } from '../../../../../../utils/types/form';
-import { ChartType, FormName, RoutePath } from '../../../../../../utils/types/enums';
+import { ChartType, FieldName, RoutePath } from '../../../../../../utils/types/enums';
 import type { IChart } from '../../../../../../utils/types/api/chart';
 import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
 
@@ -54,13 +54,13 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       <FormFieldWithLabel
         formContainerClassName={classes.formContainer}
         labelClassName={classes.label}
-        htmlFor={FormName.Width}
+        htmlFor={FieldName.Width}
         label="Ширина"
       >
         <FormField
           classNameField={classes.inputData}
-          name={FormName.Width}
-          id={FormName.Width}
+          name={FieldName.Width}
+          id={FieldName.Width}
           type="text"
           errors={errors}
           onChange={onWidthChange}
@@ -69,13 +69,13 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       <FormFieldWithLabel
         formContainerClassName={classes.formContainer}
         labelClassName={classes.label}
-        htmlFor={FormName.Height}
+        htmlFor={FieldName.Height}
         label="Высота"
       >
         <FormField
           classNameField={classes.inputData}
-          name={FormName.Height}
-          id={FormName.Height}
+          name={FieldName.Height}
+          id={FieldName.Height}
           type="text"
           errors={errors}
           onChange={onHeightChange}

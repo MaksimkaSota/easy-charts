@@ -26,7 +26,7 @@ export enum RoutePath {
   Save = '/save',
 }
 
-export enum FormName {
+export enum FieldName {
   Title = 'title',
   Labels = 'labels',
   Datasets = 'datasets',

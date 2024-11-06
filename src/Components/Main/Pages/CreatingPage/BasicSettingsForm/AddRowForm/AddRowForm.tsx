@@ -4,7 +4,7 @@ import { FormField } from '../../../../../Common/FormFields/FormField/FormField'
 import { RowForm } from '../RowForm/RowForm';
 import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   labelsFromValues: IData[];
@@ -33,8 +33,8 @@ export const AddRowForm = memo<PropsType>(
     setFieldValue,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue(FormName.Labels, labelsFromOptions);
-      setFieldValue(FormName.Datasets, datasets);
+      setFieldValue(FieldName.Labels, labelsFromOptions);
+      setFieldValue(FieldName.Datasets, datasets);
       // eslint-disable-next-line
     }, [setFieldValue, labelsFromOptions]);
 
@@ -48,7 +48,7 @@ export const AddRowForm = memo<PropsType>(
         <p className={classes.axisName}>X</p>
         <FormField
           classNameField={classes.inputData}
-          name={FormName.Title}
+          name={FieldName.Title}
           type="text"
           onChange={onTitleChange}
           errors={errors}

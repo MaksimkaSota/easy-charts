@@ -4,7 +4,7 @@ import cn from 'classnames';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   dataset: IDataset;
@@ -21,7 +21,7 @@ export const ColumnForm = memo<PropsType>(
 
     useEffect(() => {
       dataset.data.forEach((dataItem, dataItemIndex: number): void => {
-        setFieldTouched(`${FormName.Datasets}.${datasetIndex}.data.${dataItemIndex}.value`, true);
+        setFieldTouched(`${FieldName.Datasets}.${datasetIndex}.data.${dataItemIndex}.value`, true);
       });
       // eslint-disable-next-line
     }, [setFieldTouched]);
@@ -53,7 +53,7 @@ export const ColumnForm = memo<PropsType>(
         </button>
         <FormField
           classNameField={classes.inputData}
-          name={`${FormName.Datasets}.${datasetIndex}.label`}
+          name={`${FieldName.Datasets}.${datasetIndex}.label`}
           errors={errors}
           onChange={onLabelInDatasetsChange}
         />
@@ -62,7 +62,7 @@ export const ColumnForm = memo<PropsType>(
             <FormField
               key={dataItem.id}
               classNameField={classes.inputDataNumbers}
-              name={`${FormName.Datasets}.${datasetIndex}.data.${dataItemIndex}.value`}
+              name={`${FieldName.Datasets}.${datasetIndex}.data.${dataItemIndex}.value`}
               type="text"
               errors={errors}
               onChange={(event: ChangeEvent<HTMLInputElement>) => onDataChange(dataItemIndex, event)}

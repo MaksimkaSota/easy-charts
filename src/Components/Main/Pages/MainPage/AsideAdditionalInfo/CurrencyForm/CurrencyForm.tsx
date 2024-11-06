@@ -5,7 +5,7 @@ import cn from 'classnames';
 import classes from './CurrencyForm.module.scss';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FieldName } from '../../../../../../utils/types/enums';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
 import { setFieldValueOnCondition } from '../../../../../../utils/helpers/componentsHelpers';
@@ -41,30 +41,30 @@ export const CurrencyForm: FC<PropsType> = ({
 
   useEffect(() => {
     if (isFetchingCurrency) {
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.BelarusCoin, 'Загрузка...');
-      if (activeField && activeField !== FormName.AmericaCoin) {
-        setFieldValue(FormName.AmericaCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.BelarusCoin, 'Загрузка...');
+      if (activeField && activeField !== FieldName.AmericaCoin) {
+        setFieldValue(FieldName.AmericaCoin, 'Загрузка...');
       }
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.EuropeCoin, 'Загрузка...');
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.RussiaCoin, 'Загрузка...');
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.UkraineCoin, 'Загрузка...');
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.PolandCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.EuropeCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.RussiaCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.UkraineCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.PolandCoin, 'Загрузка...');
     } else if (currencyError) {
-      setFieldValue(FormName.BelarusCoin, 'Нет данных');
-      if (activeField && activeField !== FormName.AmericaCoin) {
-        setFieldValue(FormName.AmericaCoin, '1');
+      setFieldValue(FieldName.BelarusCoin, 'Нет данных');
+      if (activeField && activeField !== FieldName.AmericaCoin) {
+        setFieldValue(FieldName.AmericaCoin, '1');
       }
-      setFieldValue(FormName.EuropeCoin, 'Нет данных');
-      setFieldValue(FormName.RussiaCoin, 'Нет данных');
-      setFieldValue(FormName.UkraineCoin, 'Нет данных');
-      setFieldValue(FormName.PolandCoin, 'Нет данных');
+      setFieldValue(FieldName.EuropeCoin, 'Нет данных');
+      setFieldValue(FieldName.RussiaCoin, 'Нет данных');
+      setFieldValue(FieldName.UkraineCoin, 'Нет данных');
+      setFieldValue(FieldName.PolandCoin, 'Нет данных');
     } else {
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.BelarusCoin, belarusCoin);
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.AmericaCoin, americaCoin);
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.EuropeCoin, europeCoin);
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.RussiaCoin, russiaCoin);
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.UkraineCoin, ukraineCoin);
-      setFieldValueOnCondition(setFieldValue, activeField, FormName.PolandCoin, polandCoin);
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.BelarusCoin, belarusCoin);
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.AmericaCoin, americaCoin);
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.EuropeCoin, europeCoin);
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.RussiaCoin, russiaCoin);
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.UkraineCoin, ukraineCoin);
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.PolandCoin, polandCoin);
     }
     // eslint-disable-next-line
   }, [isFetchingCurrency]);
@@ -99,20 +99,20 @@ export const CurrencyForm: FC<PropsType> = ({
         <FormFieldWithLabel
           formContainerClassName={classes.formContainer}
           labelClassName={classes.label}
-          htmlFor={FormName.BelarusCoin}
-          label={FormName.BelarusCoin}
+          htmlFor={FieldName.BelarusCoin}
+          label={FieldName.BelarusCoin}
         >
           <FormField
             classNameFormField={classes.formField}
             classNameField={classes.inputData}
-            name={FormName.BelarusCoin}
-            id={FormName.BelarusCoin}
+            name={FieldName.BelarusCoin}
+            id={FieldName.BelarusCoin}
             type="text"
             disabled={
-              (isFetchingCurrency && activeField !== FormName.BelarusCoin) ||
-              (Boolean(currencyError) && activeField !== FormName.BelarusCoin)
+              (isFetchingCurrency && activeField !== FieldName.BelarusCoin) ||
+              (Boolean(currencyError) && activeField !== FieldName.BelarusCoin)
             }
-            onChange={onCoinChange(FormName.BelarusCoin)}
+            onChange={onCoinChange(FieldName.BelarusCoin)}
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
@@ -122,17 +122,17 @@ export const CurrencyForm: FC<PropsType> = ({
         <FormFieldWithLabel
           formContainerClassName={classes.formContainer}
           labelClassName={classes.label}
-          htmlFor={FormName.AmericaCoin}
-          label={FormName.AmericaCoin}
+          htmlFor={FieldName.AmericaCoin}
+          label={FieldName.AmericaCoin}
         >
           <FormField
             classNameFormField={classes.formField}
             classNameField={classes.inputData}
-            name={FormName.AmericaCoin}
-            id={FormName.AmericaCoin}
+            name={FieldName.AmericaCoin}
+            id={FieldName.AmericaCoin}
             type="text"
-            disabled={isFetchingCurrency && activeField !== FormName.AmericaCoin}
-            onChange={onCoinChange(FormName.AmericaCoin)}
+            disabled={isFetchingCurrency && activeField !== FieldName.AmericaCoin}
+            onChange={onCoinChange(FieldName.AmericaCoin)}
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
@@ -142,17 +142,17 @@ export const CurrencyForm: FC<PropsType> = ({
         <FormFieldWithLabel
           formContainerClassName={classes.formContainer}
           labelClassName={classes.label}
-          htmlFor={FormName.EuropeCoin}
-          label={FormName.EuropeCoin}
+          htmlFor={FieldName.EuropeCoin}
+          label={FieldName.EuropeCoin}
         >
           <FormField
             classNameFormField={classes.formField}
             classNameField={classes.inputData}
-            name={FormName.EuropeCoin}
-            id={FormName.EuropeCoin}
+            name={FieldName.EuropeCoin}
+            id={FieldName.EuropeCoin}
             type="text"
-            disabled={(isFetchingCurrency && activeField !== FormName.EuropeCoin) || Boolean(currencyError)}
-            onChange={onCoinChange(FormName.EuropeCoin)}
+            disabled={(isFetchingCurrency && activeField !== FieldName.EuropeCoin) || Boolean(currencyError)}
+            onChange={onCoinChange(FieldName.EuropeCoin)}
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
@@ -162,17 +162,17 @@ export const CurrencyForm: FC<PropsType> = ({
         <FormFieldWithLabel
           formContainerClassName={classes.formContainer}
           labelClassName={classes.label}
-          htmlFor={FormName.RussiaCoin}
-          label={FormName.RussiaCoin}
+          htmlFor={FieldName.RussiaCoin}
+          label={FieldName.RussiaCoin}
         >
           <FormField
             classNameFormField={classes.formField}
             classNameField={classes.inputData}
-            name={FormName.RussiaCoin}
-            id={FormName.RussiaCoin}
+            name={FieldName.RussiaCoin}
+            id={FieldName.RussiaCoin}
             type="text"
-            disabled={(isFetchingCurrency && activeField !== FormName.RussiaCoin) || Boolean(currencyError)}
-            onChange={onCoinChange(FormName.RussiaCoin)}
+            disabled={(isFetchingCurrency && activeField !== FieldName.RussiaCoin) || Boolean(currencyError)}
+            onChange={onCoinChange(FieldName.RussiaCoin)}
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
@@ -182,17 +182,17 @@ export const CurrencyForm: FC<PropsType> = ({
         <FormFieldWithLabel
           formContainerClassName={classes.formContainer}
           labelClassName={classes.label}
-          htmlFor={FormName.UkraineCoin}
-          label={FormName.UkraineCoin}
+          htmlFor={FieldName.UkraineCoin}
+          label={FieldName.UkraineCoin}
         >
           <FormField
             classNameFormField={classes.formField}
             classNameField={classes.inputData}
-            name={FormName.UkraineCoin}
-            id={FormName.UkraineCoin}
+            name={FieldName.UkraineCoin}
+            id={FieldName.UkraineCoin}
             type="text"
-            disabled={(isFetchingCurrency && activeField !== FormName.UkraineCoin) || Boolean(currencyError)}
-            onChange={onCoinChange(FormName.UkraineCoin)}
+            disabled={(isFetchingCurrency && activeField !== FieldName.UkraineCoin) || Boolean(currencyError)}
+            onChange={onCoinChange(FieldName.UkraineCoin)}
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
@@ -202,17 +202,17 @@ export const CurrencyForm: FC<PropsType> = ({
         <FormFieldWithLabel
           formContainerClassName={classes.formContainer}
           labelClassName={classes.label}
-          htmlFor={FormName.PolandCoin}
-          label={FormName.PolandCoin}
+          htmlFor={FieldName.PolandCoin}
+          label={FieldName.PolandCoin}
         >
           <FormField
             classNameFormField={classes.formField}
             classNameField={classes.inputData}
-            name={FormName.PolandCoin}
-            id={FormName.PolandCoin}
+            name={FieldName.PolandCoin}
+            id={FieldName.PolandCoin}
             type="text"
-            disabled={(isFetchingCurrency && activeField !== FormName.PolandCoin) || Boolean(currencyError)}
-            onChange={onCoinChange(FormName.PolandCoin)}
+            disabled={(isFetchingCurrency && activeField !== FieldName.PolandCoin) || Boolean(currencyError)}
+            onChange={onCoinChange(FieldName.PolandCoin)}
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>

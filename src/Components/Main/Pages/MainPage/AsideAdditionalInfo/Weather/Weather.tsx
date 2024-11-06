@@ -1,7 +1,7 @@
 import type { FC, ReactElement, ChangeEvent } from 'react';
 import cn from 'classnames';
 import classes from './Weather.module.scss';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FieldName } from '../../../../../../utils/types/enums';
 import type { IWeather } from '../../../../../../utils/types/api/weather';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 
@@ -40,13 +40,13 @@ export const Weather: FC<PropsType> = ({
       </p>
       <div className={classes.container}>
         <div className={classes.formContainer}>
-          <label className={classes.label} htmlFor={FormName.City}>
+          <label className={classes.label} htmlFor={FieldName.City}>
             Город
           </label>
           <input
             className={cn(classes.input, { [classes.inputError]: weatherError?.code })}
             type="text"
-            id={FormName.City}
+            id={FieldName.City}
             value={city}
             onChange={onCityChange}
           />

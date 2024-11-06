@@ -1,7 +1,7 @@
 import { isAxiosError } from 'axios';
 import type { ThunkType, ObjectType } from '../../utils/types/common';
 import type { CurrencyAction } from '../types/currency';
-import { CurrencyId, FormName } from '../../utils/types/enums';
+import { CurrencyId, FieldName } from '../../utils/types/enums';
 import { getCurrencyAPI } from '../../services/api/currency/currency';
 import {
   setCurrencyRequest,
@@ -28,22 +28,22 @@ export const getCurrency = (coin: string, name: string): ThunkType<CurrencyActio
       dispatch(setCurrencySuccess());
 
       switch (name) {
-        case FormName.BelarusCoin:
+        case FieldName.BelarusCoin:
           dispatch(setCurrencyOnBelarusCoin(coin, currencies));
           break;
-        case FormName.AmericaCoin:
+        case FieldName.AmericaCoin:
           dispatch(setCurrencyOnAmericaCoin(coin, currencies));
           break;
-        case FormName.EuropeCoin:
+        case FieldName.EuropeCoin:
           dispatch(setCurrencyOnEuropeCoin(coin, currencies));
           break;
-        case FormName.RussiaCoin:
+        case FieldName.RussiaCoin:
           dispatch(setCurrencyOnRussiaCoin(coin, currencies));
           break;
-        case FormName.UkraineCoin:
+        case FieldName.UkraineCoin:
           dispatch(setCurrencyOnUkraineCoin(coin, currencies));
           break;
-        case FormName.PolandCoin:
+        case FieldName.PolandCoin:
           dispatch(setCurrencyOnPolandCoin(coin, currencies));
           break;
         default:

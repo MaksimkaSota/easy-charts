@@ -5,7 +5,7 @@ import { isFetchingCurrencySelector } from '../../../../../../redux/selectors/lo
 import { currencySelector } from '../../../../../../redux/selectors/selectors';
 import { currencyErrorSelector } from '../../../../../../redux/selectors/error';
 import { CurrencyFormContainer } from './CurrencyFormContainer';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FieldName } from '../../../../../../utils/types/enums';
 
 export const CurrencyContainer: FC = (): ReactElement => {
   const isFetchingCurrency = useTypedSelector(isFetchingCurrencySelector);
@@ -16,7 +16,7 @@ export const CurrencyContainer: FC = (): ReactElement => {
   const { setCurrencyRequest, getCurrency } = useActions();
 
   useEffect(() => {
-    getCurrency(americaCoin, FormName.AmericaCoin);
+    getCurrency(americaCoin, FieldName.AmericaCoin);
     // eslint-disable-next-line
   }, [getCurrency]);
 
