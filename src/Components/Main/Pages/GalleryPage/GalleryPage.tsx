@@ -1,4 +1,5 @@
 import type { FC, ReactElement } from 'react';
+import cn from 'classnames';
 import classes from './GalleryPage.module.scss';
 import bar from '../../../../assets/images/chart/bar.png';
 import line from '../../../../assets/images/chart/line.png';
@@ -10,14 +11,19 @@ import { ChartSelectionButton } from '../../../Common/Buttons/ChartSelectionButt
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { ChartType } from '../../../../utils/types/enums';
 
-export const GalleryPage: FC = (): ReactElement => {
+type PropsType = {
+  isMainPage?: boolean;
+};
+
+export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
   return (
-    <div className={classes.gallery}>
+    <div className={cn(classes.gallery, { [classes.mainPageGallery]: isMainPage })}>
       <PageDescription
-        title="Галерея графиков"
+        title="Галерея графиков / диаграмм"
         textContent="Выберите необходимый вид графика, далее вы перейдёте в режим онлайн-конструктора, в котором сможете
         заполнить данные графика, и затем сохранить на комьютер. Какой график вам необходимо построить? Колонны, полосы,
         линии, радар, пирог, пончик?"
+        isMainPage={isMainPage}
       />
       <div className={classes.typeChartsContainer}>
         <ChartSelectionButton

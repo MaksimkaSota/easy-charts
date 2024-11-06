@@ -10,7 +10,7 @@ export const Header: FC = (): ReactElement => {
     <header className={classes.header}>
       <div className={classes.headerInner}>
         <NavLink to={RoutePath.Main}>
-          <Logo className={classes.logo} />
+          <Logo isHeader />
         </NavLink>
         <Navigation />
       </div>

@@ -18,6 +18,7 @@ type PropsType = {
   secondOptions: IChart;
   thirdOptions: IChart;
   setNewOptions: (options: IChart) => void;
+  isMainPage?: boolean;
 };
 
 export const ExampleCharts: FC<PropsType> = ({
@@ -34,10 +35,11 @@ export const ExampleCharts: FC<PropsType> = ({
   secondOptions,
   thirdOptions,
   setNewOptions,
+  isMainPage,
 }): ReactElement => {
   return (
     <div className={classes.chartResult}>
-      <h3 className={classes.miniTitle}>График</h3>
+      {!isMainPage && <h3 className={classes.miniTitle}>График</h3>}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}

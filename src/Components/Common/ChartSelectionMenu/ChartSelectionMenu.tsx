@@ -13,12 +13,13 @@ import { ChartType } from '../../../utils/types/enums';
 type PropsType = {
   type: string;
   className: string;
+  isMainPage?: boolean;
 };
 
-export const ChartSelectionMenu = memo<PropsType>(({ type, className }): ReactElement => {
+export const ChartSelectionMenu = memo<PropsType>(({ type, className, isMainPage }): ReactElement => {
   return (
     <div className={classes.chartSelectionForm}>
-      <h3 className={classes.miniTitle}>Вид</h3>
+      {!isMainPage && <h3 className={classes.miniTitle}>Вид</h3>}
       <div className={cn(classes.chartsTypeContainer, className)}>
         <ChartSelectionButton
           isDisabled={type === ChartType.Bar}

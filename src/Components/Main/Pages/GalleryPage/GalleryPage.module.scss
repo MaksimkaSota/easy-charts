@@ -5,7 +5,7 @@
     @include flex(null, space-between, null);
 
     .imageContainer {
-      @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.6rem);
+      @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.5rem);
 
       img {
         padding: 0 0 $indentMin 0;
@@ -46,16 +46,12 @@
     }
     @include respond($mobile) {
       .imageContainer {
-        @include position(70%, $indentInputAndButton);
-
-        &:first-child {
-          margin: 0 $indentInputAndButton $indentInputAndButton;
-        }
-
-        &:last-child {
-          margin: $indentInputAndButton $indentInputAndButton 0;
-        }
+        @include position(45%, $indentInputAndButton);
       }
     }
   }
+}
+
+.mainPageGallery {
+  margin: 0 auto $indentMax;
 }
