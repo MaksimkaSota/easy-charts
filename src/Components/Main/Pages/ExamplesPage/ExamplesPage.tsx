@@ -1,6 +1,8 @@
 import type { FC, ReactElement } from 'react';
 import cn from 'classnames';
 import classes from './ExamplesPage.module.scss';
+import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
+import { UpButton } from '../../../Common/Buttons/UpButton/UpButton';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
@@ -42,6 +44,8 @@ export const ExamplesPage: FC<PropsType> = ({
 }): ReactElement => {
   return (
     <div className={cn(classes.examples, { [classes.mainPageExamples]: isMainPage })}>
+      <ProgressBar />
+      <UpButton />
       <PageDescription
         title="Примеры графиков / диаграмм"
         textContent="На данной странице вы можете найти подходящие вам примеры графиков, чтобы использовать их для
