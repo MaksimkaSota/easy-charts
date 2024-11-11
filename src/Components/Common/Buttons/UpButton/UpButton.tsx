@@ -1,6 +1,7 @@
 import { type FC, type ReactElement, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import classes from './UpButton.module.scss';
+import { EventType } from '../../../../utils/types/enums';
 
 export const UpButton: FC = (): ReactElement => {
   const upButton = useRef<HTMLButtonElement>(null);
@@ -14,10 +15,10 @@ export const UpButton: FC = (): ReactElement => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener(EventType.Scroll, onScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener(EventType.Scroll, onScroll);
     };
   }, []);
 

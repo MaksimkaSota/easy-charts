@@ -80,3 +80,8 @@ export enum CurrencyId {
   uahId = 449,
   plnId = 452,
 }
+
+export enum EventType {
+  Scroll = 'scroll',
+  Unhandledrejection = 'unhandledrejection',
+}

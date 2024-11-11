@@ -1,5 +1,6 @@
 import { type FC, type ReactElement, useEffect, useRef } from 'react';
 import classes from './ProgressBar.module.scss';
+import { EventType } from '../../../utils/types/enums';
 
 export const ProgressBar: FC = (): ReactElement => {
   const progressBar = useRef<HTMLDivElement>(null);
@@ -17,10 +18,10 @@ export const ProgressBar: FC = (): ReactElement => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener(EventType.Scroll, onScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener(EventType.Scroll, onScroll);
     };
   }, []);
 
