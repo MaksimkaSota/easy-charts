@@ -66,7 +66,6 @@ export enum StatusCode {
 export enum AnimationParameter {
   BarAndIndentWidth = 25,
   MaxHeight = 100,
-  Transition = 'all 0.7s linear',
   RedBackground = 'rgb(226, 86, 89)',
   YellowBackground = 'rgb(242, 143, 39)',
   BlueBackground = 'rgb(77, 122, 169)',

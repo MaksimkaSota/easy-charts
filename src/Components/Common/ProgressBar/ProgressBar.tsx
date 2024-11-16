@@ -4,9 +4,9 @@ import classes from './ProgressBar.module.scss';
 import { EventType } from '../../../utils/types/enums';
 
 export const ProgressBar: FC = (): ReactElement => {
-  const [scrollableWidth, setScrollableWidth] = useState<number>(0);
+  const [progressBarWidth, setProgressBarWidth] = useState<string>('');
 
-  const styles = { width: `${scrollableWidth}%` };
+  const styles = { width: progressBarWidth };
 
   const onScroll = (): void => {
     const element: HTMLElement = document.documentElement;
@@ -15,7 +15,7 @@ export const ProgressBar: FC = (): ReactElement => {
     const height = element.scrollHeight - element.clientHeight;
     const scrollableValue = (scroll / height) * 100;
 
-    setScrollableWidth(scrollableValue);
+    setProgressBarWidth(`${scrollableValue}%`);
   };
 
   const onThrottledScroll = useThrottledCallback(onScroll, 30);
