@@ -6,7 +6,7 @@
     font-size: 2.3rem;
     margin: 0 $indentMin 0 0;
 
-    span {
+    .letter {
       position: relative;
     }
 
@@ -87,10 +87,18 @@
 
 .headerLogo {
   margin: 0 $indentMax 0 0;
+  cursor: default;
+  @include respond($tabletMin) {
+    margin: 0 0 $indentMin 0;
+  }
+}
 
+.activeHeaderLogo {
   &:hover {
+    cursor: pointer;
+
     .logoText {
-      span::before {
+      .letter::before {
         width: 100%;
       }
     }
@@ -98,9 +106,5 @@
     .logoImage {
       rotate: 90deg;
     }
-  }
-
-  @include respond($tabletMin) {
-    margin: 0 0 $indentMin 0;
   }
 }

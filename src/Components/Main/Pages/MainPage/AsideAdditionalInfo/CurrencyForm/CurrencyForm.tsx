@@ -8,7 +8,7 @@ import { FormField } from '../../../../../Common/FormFields/FormField/FormField'
 import { FieldName } from '../../../../../../utils/types/enums';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
-import { setFieldValueOnCondition } from '../../../../../../utils/helpers/componentsHelpers';
+import { replaceDoubleDot, setFieldValueOnCondition } from '../../../../../../utils/helpers/componentsHelpers';
 
 type PropsType = {
   isFetchingCurrency: boolean;
@@ -75,11 +75,11 @@ export const CurrencyForm: FC<PropsType> = ({
     const value = event.target.value;
 
     setActiveField(name);
-    setFieldValue(name, value.replace(/([^.]*\.[^.]*)\./g, '$1'));
+    setFieldValue(name, replaceDoubleDot(value));
 
     if (!value || value.lastIndexOf('.') !== value.length - 1) {
       setCurrencyRequest();
-      getDebouncedCurrency(value.replace(/([^.]*\.[^.]*)\./g, '$1'), name);
+      getDebouncedCurrency(replaceDoubleDot(value), name);
     }
   };
 

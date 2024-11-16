@@ -33,3 +33,7 @@ export const setFieldValueOnCondition = (
     setFieldValue(fieldName, value);
   }
 };
+
+export const replaceDoubleDot = (value: string): string => {
+  return value.replace(/([^.]*\.[^.]*)\./g, '$1');
+};

@@ -24,7 +24,8 @@ export const ExampleChart = memo<PropsType>(
           </div>
         </div>
         <NavLink to={RoutePath.Create} className={classes.link} onClick={() => setNewOptions(options)}>
-          Отредактировать график: <span>{options.options.title.text.split(',').shift()}</span>
+          Отредактировать график:{' '}
+          <span className={classes.chartName}>{options.options.title.text.split(',').shift()}</span>
         </NavLink>
       </div>
     );

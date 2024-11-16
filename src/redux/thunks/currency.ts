@@ -19,32 +19,42 @@ export const getCurrency = (coin: string, name: string): ThunkType<CurrencyActio
   return async (dispatch) => {
     try {
       dispatch(setCurrencyRequest());
-      const americaCoin: number = await getCurrencyAPI(CurrencyId.usdId);
-      const europeCoin: number = await getCurrencyAPI(CurrencyId.eurId);
-      const russiaCoin: number = await getCurrencyAPI(CurrencyId.rubId);
-      const ukraineCoin: number = await getCurrencyAPI(CurrencyId.uahId);
-      const polandCoin: number = await getCurrencyAPI(CurrencyId.plnId);
-      const currencies: ObjectType<number> = { americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin };
+
+      const currenciesArray: number[] = await Promise.all([
+        await getCurrencyAPI(CurrencyId.usdId),
+        await getCurrencyAPI(CurrencyId.eurId),
+        await getCurrencyAPI(CurrencyId.rubId),
+        await getCurrencyAPI(CurrencyId.uahId),
+        await getCurrencyAPI(CurrencyId.plnId),
+      ]);
+      const currenciesObject: ObjectType<number> = {
+        americaCoin: currenciesArray[0],
+        europeCoin: currenciesArray[1],
+        russiaCoin: currenciesArray[2],
+        ukraineCoin: currenciesArray[3],
+        polandCoin: currenciesArray[4],
+      };
+
       dispatch(setCurrencySuccess());
 
       switch (name) {
         case FieldName.BelarusCoin:
-          dispatch(setCurrencyOnBelarusCoin(coin, currencies));
+          dispatch(setCurrencyOnBelarusCoin(coin, currenciesObject));
           break;
         case FieldName.AmericaCoin:
-          dispatch(setCurrencyOnAmericaCoin(coin, currencies));
+          dispatch(setCurrencyOnAmericaCoin(coin, currenciesObject));
           break;
         case FieldName.EuropeCoin:
-          dispatch(setCurrencyOnEuropeCoin(coin, currencies));
+          dispatch(setCurrencyOnEuropeCoin(coin, currenciesObject));
           break;
         case FieldName.RussiaCoin:
-          dispatch(setCurrencyOnRussiaCoin(coin, currencies));
+          dispatch(setCurrencyOnRussiaCoin(coin, currenciesObject));
           break;
         case FieldName.UkraineCoin:
-          dispatch(setCurrencyOnUkraineCoin(coin, currencies));
+          dispatch(setCurrencyOnUkraineCoin(coin, currenciesObject));
           break;
         case FieldName.PolandCoin:
-          dispatch(setCurrencyOnPolandCoin(coin, currencies));
+          dispatch(setCurrencyOnPolandCoin(coin, currenciesObject));
           break;
         default:
           break;
