@@ -6,15 +6,8 @@
     @include flex(null, null, center);
     padding: $indentMin 0;
 
-    .logo {
-      margin: 0 $indentMax 0 0;
-    }
-
     @include respond($tabletMin) {
       flex-direction: column;
-      .logo {
-        margin: 0 0 $indentMin 0;
-      }
     }
   }
 }

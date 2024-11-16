@@ -1,24 +1,25 @@
 import { type ReactElement, memo } from 'react';
 import cn from 'classnames';
 import classes from './ChartSelectionMenu.module.scss';
-import bar from '../../../assets/images/bar.png';
-import line from '../../../assets/images/line.png';
-import radar from '../../../assets/images/radar.png';
-import pie from '../../../assets/images/pie.png';
-import doughnut from '../../../assets/images/doughnut.png';
-import horizontalBar from '../../../assets/images/horizontalBar.png';
-import { ChartSelectionButton } from '../ChartSelectionButton/ChartSelectionButton';
+import bar from '../../../assets/images/chart/bar.png';
+import line from '../../../assets/images/chart/line.png';
+import radar from '../../../assets/images/chart/radar.png';
+import pie from '../../../assets/images/chart/pie.png';
+import doughnut from '../../../assets/images/chart/doughnut.png';
+import horizontalBar from '../../../assets/images/chart/horizontalBar.png';
+import { ChartSelectionButton } from '../Buttons/ChartSelectionButton/ChartSelectionButton';
 import { ChartType } from '../../../utils/types/enums';
 
 type PropsType = {
   type: string;
   className: string;
+  isMainPage?: boolean;
 };
 
-export const ChartSelectionMenu = memo<PropsType>(({ type, className }): ReactElement => {
+export const ChartSelectionMenu = memo<PropsType>(({ type, className, isMainPage }): ReactElement => {
   return (
     <div className={classes.chartSelectionForm}>
-      <h3 className={classes.miniTitle}>Вид</h3>
+      {!isMainPage && <h3 className={classes.miniTitle}>Вид</h3>}
       <div className={cn(classes.chartsTypeContainer, className)}>
         <ChartSelectionButton
           isDisabled={type === ChartType.Bar}

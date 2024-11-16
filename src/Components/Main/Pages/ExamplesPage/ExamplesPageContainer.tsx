@@ -13,9 +13,13 @@ import {
   exampleThirdAddressErrorSelector,
 } from '../../../../redux/selectors/error';
 import { ExamplesPage } from './ExamplesPage';
-import { StandardOptions } from '../../../../utils/types/enums';
+import { StandardOption } from '../../../../utils/types/enums';
 
-export const ExamplesPageContainer: FC = (): ReactElement => {
+type PropsType = {
+  isMainPage?: boolean;
+};
+
+export const ExamplesPageContainer: FC<PropsType> = ({ isMainPage }): ReactElement => {
   const isFetchingExampleFirstAddress = useTypedSelector(isFetchingExampleFirstAddressSelector);
   const isFetchingExampleSecondAddress = useTypedSelector(isFetchingExampleSecondAddressSelector);
   const isFetchingExampleThirdAddress = useTypedSelector(isFetchingExampleThirdAddressSelector);
@@ -24,13 +28,14 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
   const exampleSecondAddressError = useTypedSelector(exampleSecondAddressErrorSelector);
   const exampleThirdAddressError = useTypedSelector(exampleThirdAddressErrorSelector);
   const { exampleFirstOptions, exampleSecondOptions, exampleThirdOptions } = useTypedSelector(examplesOptionsSelector);
+
   const { getExampleFirstAddress, getExampleSecondAddress, getExampleThirdAddress, setMainOptionsWithId } =
     useActions();
 
   useEffect(() => {
-    getExampleFirstAddress(exampleFirstOptions, StandardOptions.Width, StandardOptions.Height);
-    getExampleSecondAddress(exampleSecondOptions, StandardOptions.Width, StandardOptions.Height);
-    getExampleThirdAddress(exampleThirdOptions, StandardOptions.Width, StandardOptions.Height);
+    getExampleFirstAddress(exampleFirstOptions, StandardOption.Width, StandardOption.Height);
+    getExampleSecondAddress(exampleSecondOptions, StandardOption.Width, StandardOption.Height);
+    getExampleThirdAddress(exampleThirdOptions, StandardOption.Width, StandardOption.Height);
   }, [
     getExampleFirstAddress,
     getExampleSecondAddress,
@@ -55,6 +60,7 @@ export const ExamplesPageContainer: FC = (): ReactElement => {
       exampleSecondOptions={exampleSecondOptions}
       exampleThirdOptions={exampleThirdOptions}
       setMainOptionsWithId={setMainOptionsWithId}
+      isMainPage={isMainPage}
     />
   );
 };

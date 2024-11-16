@@ -60,6 +60,15 @@
   }
 }
 
+@mixin letter($letter, $color) {
+  content: $letter;
+  position: absolute;
+  color: $color;
+  width: 0;
+  overflow-x: hidden;
+  transition: width 0.25s linear;
+}
+
 %title-pages {
   color: $title-text;
   margin: 0 0 $indentMin 0;
@@ -90,7 +99,7 @@
   padding: $indentInputAndButton;
   color: $button-text;
   background: $green;
-  border-radius: 10px;
+  border-radius: $radiusMax;
   font-family: inherit;
   font-size: 0.9rem;
   text-align: center;

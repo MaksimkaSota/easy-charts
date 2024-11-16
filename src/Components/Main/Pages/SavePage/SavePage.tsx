@@ -3,8 +3,10 @@ import cn from 'classnames';
 import classes from './SavePage.module.scss';
 import { copyTextOnClick } from '../../../../utils/helpers/servicesHelpers';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
+import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
+import { UpButton } from '../../../Common/Buttons/UpButton/UpButton';
 import { Chart } from '../../../Common/Chart/Chart';
-import { DisabledInteractionButton } from '../../../Common/DisabledInteractionButton/DisabledInteractionButton';
+import { DisabledInteractionButton } from '../../../Common/Buttons/DisabledInteractionButton/DisabledInteractionButton';
 
 type PropsType = {
   isFetchingMainAddress: boolean;
@@ -28,6 +30,8 @@ export const SavePage: FC<PropsType> = ({
 
   return (
     <div className={classes.viewAndSave}>
+      <ProgressBar />
+      <UpButton />
       <div className={classes.interactionButtonsContainer}>
         <DisabledInteractionButton
           isFetchingMainAddress={isFetchingMainAddress}

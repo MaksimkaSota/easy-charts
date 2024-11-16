@@ -4,7 +4,7 @@ import type { AppState } from '../../redux/reducers/reducers';
 
 export type ThunkType<T extends Action> = ThunkAction<Promise<void>, AppState, unknown, T>;
 
-export type ObjectType = { [field: string]: any };
+export type ObjectType<T = any> = { [field: string]: T };
 
 export type Nullable<T> = T | null;
 

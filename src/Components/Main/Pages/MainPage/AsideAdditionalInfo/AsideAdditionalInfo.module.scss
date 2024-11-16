@@ -1,0 +1,18 @@
+.asideInfo {
+  width: 25%;
+  padding: $indentMax;
+  background: url('../../../../../assets/images/content/bubbles.gif') no-repeat center / cover;
+  border-radius: $radiusMax;
+  @include respond($tabletMax) {
+    padding: $indentMin;
+  }
+  @include respond($tabletMin) {
+    @include flex(null, space-around, null);
+    width: 100%;
+    order: -1;
+  }
+  @include respond($mobile) {
+    padding: $indentInputAndButton;
+    justify-content: space-between;
+  }
+}

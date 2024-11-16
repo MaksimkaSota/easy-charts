@@ -6,6 +6,10 @@
     font-size: 2.3rem;
     margin: 0 $indentMin 0 0;
 
+    .letter {
+      position: relative;
+    }
+
     .letterRed {
       color: $red;
     }
@@ -21,10 +25,51 @@
     .letterGreen {
       color: $green;
     }
+
+    .e::before {
+      @include letter('E', $green);
+    }
+
+    .a1::before {
+      @include letter('a', $red);
+    }
+
+    .s1::before {
+      @include letter('s', $yellow);
+    }
+
+    .y::before {
+      @include letter('y', $blue);
+    }
+
+    .c::before {
+      @include letter('C', $green);
+    }
+
+    .h::before {
+      @include letter('h', $red);
+    }
+
+    .a2::before {
+      @include letter('a', $yellow);
+    }
+
+    .r::before {
+      @include letter('r', $blue);
+    }
+
+    .t::before {
+      @include letter('t', $green);
+    }
+
+    .s2::before {
+      @include letter('s', $red);
+    }
   }
 
   .logoImage {
     width: 50px;
+    transition: all 0.25s linear;
   }
 
   @include respond($tabletMin) {
@@ -32,9 +77,34 @@
       width: 40px;
     }
   }
+
   @include respond($mobile) {
     .logoImage {
       width: 30px;
+    }
+  }
+}
+
+.headerLogo {
+  margin: 0 $indentMax 0 0;
+  cursor: default;
+  @include respond($tabletMin) {
+    margin: 0 0 $indentMin 0;
+  }
+}
+
+.activeHeaderLogo {
+  &:hover {
+    cursor: pointer;
+
+    .logoText {
+      .letter::before {
+        width: 100%;
+      }
+    }
+
+    .logoImage {
+      rotate: 90deg;
     }
   }
 }

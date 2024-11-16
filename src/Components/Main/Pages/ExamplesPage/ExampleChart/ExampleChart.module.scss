@@ -1,7 +1,7 @@
 .exampleChart {
   &:not(:last-child) {
     .link {
-      margin-bottom: $indentMax;
+      margin-bottom: $indentMin;
     }
   }
 
@@ -13,18 +13,13 @@
     @extend %button;
     width: 100%;
 
-    span {
+    .chartName {
       color: $title-text;
     }
   }
 
   @include respond($tabletMin) {
     width: 100%;
-    &:not(:last-child) {
-      .link {
-        margin-bottom: $indentMin;
-      }
-    }
   }
   @include respond($mobile) {
     &:not(:last-child) {

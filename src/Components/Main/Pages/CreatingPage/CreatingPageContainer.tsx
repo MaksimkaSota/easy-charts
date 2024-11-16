@@ -12,6 +12,7 @@ export const CreatingPageContainer: FC = (): ReactElement => {
   const { mainAddress } = useTypedSelector(addressesSelector);
   const mainAddressError = useTypedSelector(mainAddressErrorSelector);
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
+
   const {
     getAddress,
     setMainTitle,

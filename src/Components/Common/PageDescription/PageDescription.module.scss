@@ -5,6 +5,11 @@
     @extend %title-pages;
   }
 
+  .mainPageTitle {
+    text-align: center;
+    margin: 0;
+  }
+
   .textContent {
     font-size: 1.1rem;
   }
@@ -15,4 +20,8 @@
       text-align: center;
     }
   }
+}
+
+.mainPagePageDescription {
+  margin: 0 0 $indentMin;
 }

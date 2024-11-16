@@ -1,9 +1,12 @@
 import type { FC, ReactElement } from 'react';
+import cn from 'classnames';
 import classes from './ExamplesPage.module.scss';
+import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
+import { UpButton } from '../../../Common/Buttons/UpButton/UpButton';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
-import type { IChart } from '../../../../utils/types/api';
+import type { IChart } from '../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {
@@ -20,6 +23,7 @@ type PropsType = {
   exampleSecondOptions: IChart;
   exampleThirdOptions: IChart;
   setMainOptionsWithId: (options: IChart) => void;
+  isMainPage?: boolean;
 };
 
 export const ExamplesPage: FC<PropsType> = ({
@@ -36,18 +40,26 @@ export const ExamplesPage: FC<PropsType> = ({
   exampleSecondOptions,
   exampleThirdOptions,
   setMainOptionsWithId,
+  isMainPage,
 }): ReactElement => {
   return (
-    <div className={classes.examples}>
+    <div className={cn(classes.examples, { [classes.mainPageExamples]: isMainPage })}>
+      <ProgressBar />
+      <UpButton />
       <PageDescription
-        title="Примеры графиков"
+        title="Примеры графиков / диаграмм"
         textContent="На данной странице вы можете найти подходящие вам примеры графиков, чтобы использовать их для
         построения своего графика, а также для того, чтобы понять как работает конструктор графиков на нашем сайте.
         Также вы можете выбрать необходимый вид графика, чтобы посмотреть примеры для
         данного вида: колонны, полосы, линии, радар, пирог, пончик."
+        isMainPage={isMainPage}
       />
       <div className={classes.examplesMain}>
-        <ChartSelectionMenu type={exampleFirstOptions.type} className={classes.chartSelectionMenu} />
+        <ChartSelectionMenu
+          type={exampleFirstOptions.type}
+          className={classes.chartSelectionMenu}
+          isMainPage={isMainPage}
+        />
         <ExampleCharts
           isFetchingFirstAddress={isFetchingExampleFirstAddress}
           firstAddress={exampleFirstAddress}
@@ -62,6 +74,7 @@ export const ExamplesPage: FC<PropsType> = ({
           secondOptions={exampleSecondOptions}
           thirdOptions={exampleThirdOptions}
           setNewOptions={setMainOptionsWithId}
+          isMainPage={isMainPage}
         />
       </div>
     </div>

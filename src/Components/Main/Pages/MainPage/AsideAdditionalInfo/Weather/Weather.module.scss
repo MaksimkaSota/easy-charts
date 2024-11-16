@@ -1,0 +1,78 @@
+.weather {
+  margin: 0 0 $indentMax 0;
+
+  .miniTitle {
+    @extend %mini-title;
+  }
+
+  .hintText {
+    text-align: center;
+    margin: 0 0 $indentMin 0;
+    font-size: 0.9rem;
+  }
+
+  .textError {
+    color: $red;
+  }
+
+  .container {
+    margin: 0 0 $indentInputAndButton 0;
+
+    .formContainer {
+      @include flex(null, space-between, center);
+      margin: 0 $indentMin 0 0;
+
+      .label {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .input {
+        @include input($input-background, 0);
+        width: 70%;
+        color: $title-text;
+      }
+
+      .inputError {
+        outline: 1px solid $red;
+      }
+    }
+
+    .description {
+      font-size: 0.7rem;
+      text-align: right;
+    }
+  }
+
+  .weatherText {
+    font-size: 1rem;
+
+    &:not(:last-child) {
+      margin: 0 0 $indentInputAndButton 0;
+    }
+  }
+
+  @include respond($tabletMax) {
+    .container {
+      .formContainer {
+        margin: 0;
+      }
+    }
+  }
+  @include respond($tabletMin) {
+    @include position(45%, 0);
+    .hintText {
+      margin: 0 0 $indentInputAndButton 0;
+    }
+    .container {
+      .formContainer {
+        .input {
+          width: 70%;
+        }
+      }
+    }
+  }
+  @include respond($tabletMin) {
+    width: 49%;
+  }
+}

@@ -1,0 +1,21 @@
+.link {
+  @extend %button;
+  @include position(250px, 0 auto);
+  @include flex(null, center, center);
+  gap: $indentMin;
+  padding: $indentMin;
+  border-radius: 25px;
+  font-size: 1.3rem;
+  font-weight: 700;
+
+  &::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url('../../../../assets/images/content/arrow.png') no-repeat center / contain;
+  }
+
+  @include respond($mobile) {
+    width: 100%;
+  }
+}

@@ -6,6 +6,8 @@ const initialState: LoadingState = {
   SET_ADDRESS_EXAMPLE_FIRST: true,
   SET_ADDRESS_EXAMPLE_SECOND: true,
   SET_ADDRESS_EXAMPLE_THIRD: true,
+  SET_WEATHER_DATA: true,
+  SET_CURRENCY: true,
 };
 
 export const loadingReducer = (state: LoadingState = initialState, action: any): LoadingState => {

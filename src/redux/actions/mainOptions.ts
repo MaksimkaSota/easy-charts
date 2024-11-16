@@ -13,7 +13,7 @@ import {
   type SetMainHeightAction,
   MainOptionsActionType,
 } from '../types/mainOptions';
-import type { IChart } from '../../utils/types/api';
+import type { IChart } from '../../utils/types/api/chart';
 
 export const setMainTitle = (type: string): SetMainTitleAction => ({
   type: MainOptionsActionType.SET_MAIN_OPTIONS_TITLE,

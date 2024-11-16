@@ -1,12 +1,14 @@
 import type { FC, ReactElement } from 'react';
 import cn from 'classnames';
 import classes from './CreatingPage.module.scss';
+import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
+import { UpButton } from '../../../Common/Buttons/UpButton/UpButton';
 import { ChartSelectionMenu } from '../../../Common/ChartSelectionMenu/ChartSelectionMenu';
 import { MainChart } from './MainChart/MainChart';
 import { AdditionalSettingsForm } from './AdditionalSettingsForm/AdditionalSettingsForm';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
-import type { IChart } from '../../../../utils/types/api';
+import type { IChart } from '../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
 
 type PropsType = {
@@ -52,8 +54,10 @@ export const CreatingPage: FC<PropsType> = ({
 }): ReactElement => {
   return (
     <div className={classes.create}>
+      <ProgressBar />
+      <UpButton />
       <PageDescription
-        title="Создать график онлайн"
+        title="Создать график / диаграмму онлайн"
         textContent="На этой странице расположен конструктор для построения графиков онлайн. Создать их очень просто:
         выберите необходимый вид графика (колонны, полосы, линии, радар, пирог, пончик), заполните таблицу данных,
         и график готов! При необходимости, установите необходимую ширину, высоту и сохраните график на компьютер."

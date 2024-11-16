@@ -1,0 +1,35 @@
+.main {
+  @include position(95%, 0 auto);
+  align-self: flex-start;
+
+  .additionalInfo {
+    @include flex(null, null, center);
+    margin: 0 0 $indentMin 0;
+    @include respond($tabletMin) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .description {
+    font-size: 0.9rem;
+    text-align: justify;
+    text-indent: 50px;
+
+    .name {
+      font-size: 1rem;
+      color: $title-text;
+    }
+
+    .link {
+      display: inline;
+      color: $green;
+      border-bottom: 1px solid $green;
+
+      &:hover {
+        color: $blue;
+        border-bottom: 1px solid $blue;
+      }
+    }
+  }
+}

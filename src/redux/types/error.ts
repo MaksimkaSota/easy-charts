@@ -5,4 +5,6 @@ export type ErrorState = {
   SET_ADDRESS_EXAMPLE_FIRST: Nullable<ErrorType>;
   SET_ADDRESS_EXAMPLE_SECOND: Nullable<ErrorType>;
   SET_ADDRESS_EXAMPLE_THIRD: Nullable<ErrorType>;
+  SET_WEATHER_DATA: Nullable<ErrorType>;
+  SET_CURRENCY: Nullable<ErrorType>;
 };

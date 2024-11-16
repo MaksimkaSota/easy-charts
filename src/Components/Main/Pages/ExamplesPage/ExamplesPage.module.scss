@@ -14,3 +14,10 @@
     }
   }
 }
+
+.mainPageExamples {
+  margin: 0 auto $indentMin;
+  @include respond($mobile) {
+    width: 100%;
+  }
+}

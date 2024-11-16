@@ -1,6 +1,6 @@
 import type { FC, ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Error } from '../../../Common/Error/Error';
+import { Error } from '../../../Common/Errors/Error/Error';
 import classes from './NotFoundPage.module.scss';
 
 export const NotFoundPage: FC = (): ReactElement => {

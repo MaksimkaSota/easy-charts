@@ -2,8 +2,8 @@ import { type ChangeEvent, type ReactElement, memo } from 'react';
 import cn from 'classnames';
 import classes from './RowForm.module.scss';
 import type { FormikErrorsType } from '../../../../../../utils/types/form';
-import { FormField } from '../../../../../Common/FormField/FormField';
-import { FormName } from '../../../../../../utils/types/enums';
+import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
+import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   labelIndex: number;
@@ -32,7 +32,7 @@ export const RowForm = memo<PropsType>(({ labelIndex, labelsLength, setLabels, r
       </button>
       <FormField
         classNameField={classes.inputData}
-        name={`${FormName.Labels}.${labelIndex}.value`}
+        name={`${FieldName.Labels}.${labelIndex}.value`}
         type="text"
         onChange={onLabelChange}
         errors={errors}
