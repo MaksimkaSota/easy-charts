@@ -20,20 +20,14 @@ export const getCurrency = (coin: string, name: string): ThunkType<CurrencyActio
     try {
       dispatch(setCurrencyRequest());
 
-      const currenciesArray: number[] = await Promise.all([
+      const [americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin]: number[] = await Promise.all([
         await getCurrencyAPI(CurrencyId.usdId),
         await getCurrencyAPI(CurrencyId.eurId),
         await getCurrencyAPI(CurrencyId.rubId),
         await getCurrencyAPI(CurrencyId.uahId),
         await getCurrencyAPI(CurrencyId.plnId),
       ]);
-      const currenciesObject: ObjectType<number> = {
-        americaCoin: currenciesArray[0],
-        europeCoin: currenciesArray[1],
-        russiaCoin: currenciesArray[2],
-        ukraineCoin: currenciesArray[3],
-        polandCoin: currenciesArray[4],
-      };
+      const currenciesObject: ObjectType<number> = { americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin };
 
       dispatch(setCurrencySuccess());
 
