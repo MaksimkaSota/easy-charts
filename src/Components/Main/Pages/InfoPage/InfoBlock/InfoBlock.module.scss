@@ -1,0 +1,24 @@
+.infoBlock {
+  padding: $indentMax;
+  margin: 0 0 $indentMax 0;
+  border: 1px solid $input-background;
+  border-radius: $radiusMax;
+
+  .textBlock {
+    margin: 0 0 $indentMax 0;
+
+    .title {
+      @extend %mini-title;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      text-align: center;
+      white-space: pre-line;
+    }
+  }
+
+  .thirdTextBlock {
+    margin: 0;
+  }
+}

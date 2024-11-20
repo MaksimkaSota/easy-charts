@@ -6,10 +6,6 @@
 
     .imageContainer {
       @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.5rem);
-
-      img {
-        padding: 0 0 $indentMin 0;
-      }
     }
 
     @include respond($tabletMax) {
@@ -53,5 +49,16 @@
 }
 
 .mainPageGallery {
-  margin: 0 auto $indentMax;
+  width: 100%;
+  margin: 0 0 $indentMax 0;
+}
+
+.infoPageGallery {
+  width: 50%;
+
+  .typeChartsContainer {
+    .imageContainer {
+      padding: $indentMin;
+    }
+  }
 }

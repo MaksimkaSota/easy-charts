@@ -1,0 +1,24 @@
+.tableContainer {
+  width: 750px;
+  padding: $indentInputAndButton $indentMin 0;
+  box-sizing: content-box;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $content-text;
+
+    .tr {
+      border: 1px solid $content-text;
+
+      .th,
+      .td {
+        border: 1px solid $content-text;
+      }
+
+      .td {
+        text-align: center;
+      }
+    }
+  }
+}

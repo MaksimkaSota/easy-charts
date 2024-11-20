@@ -1,8 +1,6 @@
 import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './MainPage.module.scss';
-import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
-import { UpButton } from '../../../Common/Buttons/UpButton/UpButton';
 import { Animation } from '../../../Common/Animation/Animation';
 import { MainAdditionalInfo } from './MainAdditionalInfo/MainAdditionalInfo';
 import { AsideAdditionalInfo } from './AsideAdditionalInfo/AsideAdditionalInfo';
@@ -13,8 +11,6 @@ import { RoutePath } from '../../../../utils/types/enums';
 export const MainPage: FC = (): ReactElement => {
   return (
     <div className={classes.main}>
-      <ProgressBar />
-      <UpButton />
       <Animation />
       <div className={classes.additionalInfo}>
         <MainAdditionalInfo />

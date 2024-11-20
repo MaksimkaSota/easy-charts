@@ -20,11 +20,11 @@ export enum RoutePath {
   Not_found = '*',
   Main = '/',
   Create = '/create',
-  Save = '/save',
   Gallery = '/gallery',
   Examples = '/examples',
   Info = '/info',
   Contacts = '/contacts',
+  Save = '/save',
 }
 
 export enum FieldName {

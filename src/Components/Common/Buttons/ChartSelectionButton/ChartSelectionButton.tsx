@@ -12,6 +12,7 @@ type PropsType = {
   text: string;
   classNameContainer: string;
   classNameText: string;
+  isInfoPage?: boolean;
 };
 
 export const ChartSelectionButton: FC<PropsType> = ({
@@ -22,6 +23,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
   text,
   classNameContainer,
   classNameText,
+  isInfoPage,
 }): ReactElement => {
   const { setMainType, setExamplesType } = useActions();
 
@@ -36,7 +38,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
     // @ts-ignore
     <CustomTag {...props}>
       <img src={src} alt={text} />
-      <p className={classNameText}>{text}</p>
+      {!isInfoPage && <p className={classNameText}>{text}</p>}
     </CustomTag>
   );
 };

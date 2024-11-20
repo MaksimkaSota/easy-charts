@@ -3,6 +3,9 @@ import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
+import { exampleFirstTableValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
+import { exampleSecondTableValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
+import { exampleThirdTableValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -19,6 +22,7 @@ type PropsType = {
   thirdOptions: IChart;
   setNewOptions: (options: IChart) => void;
   isMainPage?: boolean;
+  isInfoPage?: boolean;
 };
 
 export const ExampleCharts: FC<PropsType> = ({
@@ -36,16 +40,19 @@ export const ExampleCharts: FC<PropsType> = ({
   thirdOptions,
   setNewOptions,
   isMainPage,
+  isInfoPage,
 }): ReactElement => {
   return (
     <div className={classes.chartResult}>
-      {!isMainPage && <h3 className={classes.miniTitle}>График</h3>}
+      {!isMainPage && !isInfoPage && <h3 className={classes.miniTitle}>График</h3>}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}
         addressError={firstAddressError}
         options={firstOptions}
         setNewOptions={setNewOptions}
+        isInfoPage={isInfoPage}
+        tableValue={exampleFirstTableValue}
       />
       <ExampleChart
         isFetchingAddress={isFetchingSecondAddress}
@@ -53,6 +60,8 @@ export const ExampleCharts: FC<PropsType> = ({
         addressError={secondAddressError}
         options={secondOptions}
         setNewOptions={setNewOptions}
+        isInfoPage={isInfoPage}
+        tableValue={exampleSecondTableValue}
       />
       <ExampleChart
         isFetchingAddress={isFetchingThirdAddress}
@@ -60,6 +69,8 @@ export const ExampleCharts: FC<PropsType> = ({
         addressError={thirdAddressError}
         options={thirdOptions}
         setNewOptions={setNewOptions}
+        isInfoPage={isInfoPage}
+        tableValue={exampleThirdTableValue}
       />
     </div>
   );

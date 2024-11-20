@@ -1,0 +1,44 @@
+.infoPage {
+  @include position(95%, 0 auto);
+
+  .infoPageHeader {
+    text-align: center;
+    padding: $indentMax;
+    margin: 0 0 $indentMax 0;
+
+    .imageContainer {
+      @include position(10%, 0 auto);
+      position: relative;
+
+      .infoImage {
+        width: 50%;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+      }
+
+      .doughnutImage {
+        width: 100%;
+      }
+    }
+
+    .pageTitle {
+      @extend %title-pages;
+    }
+
+    .text {
+      font-size: 1.3rem;
+
+      .link {
+        display: inline;
+        color: $green;
+        border-bottom: 1px solid $green;
+
+        &:hover {
+          color: $blue;
+          border-bottom: 1px solid $blue;
+        }
+      }
+    }
+  }
+}

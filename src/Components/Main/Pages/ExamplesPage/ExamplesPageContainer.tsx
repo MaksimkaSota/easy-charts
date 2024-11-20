@@ -17,9 +17,10 @@ import { StandardOption } from '../../../../utils/types/enums';
 
 type PropsType = {
   isMainPage?: boolean;
+  isInfoPage?: boolean;
 };
 
-export const ExamplesPageContainer: FC<PropsType> = ({ isMainPage }): ReactElement => {
+export const ExamplesPageContainer: FC<PropsType> = ({ isMainPage, isInfoPage }): ReactElement => {
   const isFetchingExampleFirstAddress = useTypedSelector(isFetchingExampleFirstAddressSelector);
   const isFetchingExampleSecondAddress = useTypedSelector(isFetchingExampleSecondAddressSelector);
   const isFetchingExampleThirdAddress = useTypedSelector(isFetchingExampleThirdAddressSelector);
@@ -61,6 +62,7 @@ export const ExamplesPageContainer: FC<PropsType> = ({ isMainPage }): ReactEleme
       exampleThirdOptions={exampleThirdOptions}
       setMainOptionsWithId={setMainOptionsWithId}
       isMainPage={isMainPage}
+      isInfoPage={isInfoPage}
     />
   );
 };
