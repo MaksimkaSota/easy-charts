@@ -3,9 +3,10 @@ import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
-import { exampleFirstTableValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
-import { exampleSecondTableValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
-import { exampleThirdTableValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
+import { exampleFirstInitialValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
+import { exampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
+import { exampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
+import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -42,6 +43,10 @@ export const ExampleCharts: FC<PropsType> = ({
   isMainPage,
   isInfoPage,
 }): ReactElement => {
+  const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
+  const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
+  const exampleThirdTableValues = getTableValues('Инфляция по годам', exampleThirdInitialValue);
+
   return (
     <div className={classes.chartResult}>
       {!isMainPage && !isInfoPage && <h3 className={classes.miniTitle}>График</h3>}
@@ -52,7 +57,7 @@ export const ExampleCharts: FC<PropsType> = ({
         options={firstOptions}
         setNewOptions={setNewOptions}
         isInfoPage={isInfoPage}
-        tableValue={exampleFirstTableValue}
+        tableValues={exampleFirstTableValues}
       />
       <ExampleChart
         isFetchingAddress={isFetchingSecondAddress}
@@ -61,7 +66,7 @@ export const ExampleCharts: FC<PropsType> = ({
         options={secondOptions}
         setNewOptions={setNewOptions}
         isInfoPage={isInfoPage}
-        tableValue={exampleSecondTableValue}
+        tableValues={exampleSecondTableValues}
       />
       <ExampleChart
         isFetchingAddress={isFetchingThirdAddress}
@@ -70,7 +75,7 @@ export const ExampleCharts: FC<PropsType> = ({
         options={thirdOptions}
         setNewOptions={setNewOptions}
         isInfoPage={isInfoPage}
-        tableValue={exampleThirdTableValue}
+        tableValues={exampleThirdTableValues}
       />
     </div>
   );

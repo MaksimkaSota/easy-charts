@@ -71,3 +71,16 @@ export const addUniqueIdInObjects = (objects: ObjectType[]): any[] => {
 export const getErrorMessage = (errorObject: AxiosError<any>): string => {
   return errorObject.response?.data.message || errorObject.message;
 };
+
+export const getTableValues = (titleText: string, exampleInitialValue: IChart): (string | number)[][] => {
+  const getArrays = (): (string | number)[][] => {
+    return exampleInitialValue.data.datasets.map((dataset: IDataset): (string | number)[] => {
+      return [dataset.label, ...dataset.data.map((dataItem: IData): string | number => dataItem.value)];
+    });
+  };
+
+  return [
+    [titleText, ...exampleInitialValue.data.labels.map((label: IData): string | number => label.value)],
+    ...getArrays(),
+  ];
+};
