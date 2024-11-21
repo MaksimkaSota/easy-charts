@@ -46,7 +46,7 @@ export const InfoPage: FC = (): ReactElement => {
       />
       <InfoBlock
         titleText="3. Готово!"
-        descriptionText="Теперь график можно посмотреть и сохранить в полном размере (в формате png) или
+        descriptionText="Теперь график можно посмотреть и сохранить в полном размере (в формате PNG) или
         получить ссылку и поделиться им."
         isThirdInfoBlock
       />
