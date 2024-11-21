@@ -18,6 +18,12 @@
 .mainPageExamples {
   width: 100%;
   margin: 0 0 $indentMax 0;
+  @include respond($tabletMin) {
+    margin: 0 0 $indentMin 0;
+  }
+  @include respond($mobile) {
+    margin: 0 0 $indentInputAndButton 0;
+  }
 }
 
 .infoPageExamples {

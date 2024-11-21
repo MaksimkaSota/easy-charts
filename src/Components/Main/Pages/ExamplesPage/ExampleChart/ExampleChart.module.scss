@@ -1,4 +1,10 @@
 .exampleChart {
+  &:last-child {
+    .link {
+      margin-bottom: 0;
+    }
+  }
+
   &:not(:last-child) {
     .link {
       margin-bottom: $indentMin;

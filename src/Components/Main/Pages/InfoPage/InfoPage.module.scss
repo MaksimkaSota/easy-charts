@@ -40,5 +40,23 @@
         }
       }
     }
+
+    @include respond($tabletMax) {
+      padding: $indentMin;
+      margin: 0 0 $indentMin 0;
+    }
+    @include respond($tabletMin) {
+      padding: $indentInputAndButton;
+      .imageContainer {
+        width: 15%;
+      }
+    }
+    @include respond($mobile) {
+      padding: 0;
+      margin: 0 0 $indentInputAndButton 0;
+      .imageContainer {
+        width: 20%;
+      }
+    }
   }
 }

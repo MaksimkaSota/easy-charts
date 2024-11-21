@@ -21,4 +21,12 @@
       }
     }
   }
+
+  @include respond($laptop) {
+    width: 700px;
+  }
+  @include respond($tabletMin) {
+    box-sizing: border-box;
+    width: 100%;
+  }
 }

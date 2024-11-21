@@ -9,6 +9,9 @@
       flex-direction: column;
       align-items: flex-start;
     }
+    @include respond($mobile) {
+      margin: 0 0 $indentInputAndButton 0;
+    }
   }
 
   .description {

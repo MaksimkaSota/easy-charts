@@ -21,4 +21,23 @@
   .thirdTextBlock {
     margin: 0;
   }
+
+  @include respond($tabletMax) {
+    padding: $indentMin;
+    margin: 0 0 $indentMin 0;
+    .textBlock {
+      margin: 0 0 $indentMin 0;
+    }
+  }
+  @include respond($tabletMin) {
+    padding: $indentInputAndButton;
+  }
+  @include respond($mobile) {
+    padding: 0;
+    margin: 0 0 $indentInputAndButton 0;
+    border: none;
+    .textBlock {
+      margin: 0 0 $indentInputAndButton 0;
+    }
+  }
 }

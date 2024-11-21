@@ -51,6 +51,12 @@
 .mainPageGallery {
   width: 100%;
   margin: 0 0 $indentMax 0;
+  @include respond($tabletMin) {
+    margin: 0 0 $indentMin 0;
+  }
+  @include respond($mobile) {
+    margin: 0 0 $indentInputAndButton 0;
+  }
 }
 
 .infoPageGallery {
@@ -60,5 +66,25 @@
     .imageContainer {
       padding: $indentMin;
     }
+  }
+
+  @include respond($tabletMax) {
+    width: 100%;
+    .typeChartsContainer {
+      .imageContainer {
+        width: 10%;
+      }
+    }
+  }
+  @include respond($tabletMin) {
+    width: 70%;
+    .typeChartsContainer {
+      .imageContainer {
+        width: 25%;
+      }
+    }
+  }
+  @include respond($mobile) {
+    width: 100%;
   }
 }
