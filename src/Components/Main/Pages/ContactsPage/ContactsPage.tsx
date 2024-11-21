@@ -7,10 +7,18 @@ export const ContactsPage: FC = (): ReactElement => {
   return (
     <div className={classes.contacts}>
       <img className={classes.email} src={email} alt="Почта" />
-      <h2 className={classes.title}>Контакты</h2>
-      <p className={classes.textContent}>По любым вопросам и предложениям пишите, пожалуйста, на почту:</p>
-      <a className={classes.mail} href={requestString.mail}>
+      <h2 className={classes.title}>Контакты:</h2>
+      <p className={classes.textContent}>
+        По любым вопросам и предложениям пишите, пожалуйста, на почту или в другие источники:
+      </p>
+      <a className={classes.link} href={requestString.contacts.mail}>
         MaksimkaSota@gmail.com
+      </a>
+      <a className={classes.link} href={requestString.contacts.github} target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a className={classes.link} href={requestString.contacts.linkedin} target="_blank" rel="noopener noreferrer">
+        LinkedIn
       </a>
     </div>
   );

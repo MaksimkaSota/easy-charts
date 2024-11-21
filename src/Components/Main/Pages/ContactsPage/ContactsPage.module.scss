@@ -4,18 +4,6 @@
 
   .email {
     @include position(20%, 0 auto);
-    @include respond($laptop) {
-      width: 25%;
-    }
-    @include respond($tabletMax) {
-      width: 30%;
-    }
-    @include respond($tabletMin) {
-      width: 50%;
-    }
-    @include respond($mobile) {
-      width: 90%;
-    }
   }
 
   .title {
@@ -27,29 +15,60 @@
     margin: 0 0 $indentMin 0;
   }
 
-  .mail {
+  .link {
+    @include position(max-content, 0 auto);
     color: $green;
     font-size: 1.5rem;
     text-decoration: underline;
     transition: all 0.25s linear;
+
+    &:not(:last-child) {
+      margin: 0 auto $indentMin;
+    }
 
     &:hover {
       cursor: pointer;
       color: $blue;
       font-size: 1.6rem;
     }
+  }
 
-    @include respond($tabletMax) {
+  @include respond($laptop) {
+    .email {
+      width: 25%;
+    }
+  }
+  @include respond($tabletMax) {
+    .email {
+      width: 30%;
+    }
+    .link {
       font-size: 1.7rem;
+
       &:hover {
         font-size: 1.9rem;
       }
     }
-    @include respond($tabletMin) {
+  }
+  @include respond($tabletMin) {
+    .email {
+      width: 50%;
+    }
+    .link {
       font-size: 1.9rem;
+
+      &:not(:last-child) {
+        margin: 0 auto $indentInputAndButton;
+      }
+
       &:hover {
         font-size: 2.1rem;
       }
+    }
+  }
+  @include respond($mobile) {
+    .email {
+      width: 90%;
     }
   }
 }
