@@ -7,7 +7,7 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid $content-text;
-    font-size: 0.7rem;
+    font-size: $extra-small-fz;
 
     .tr {
       border: 1px solid $content-text;
@@ -35,12 +35,12 @@
     padding: $indentInputAndButton 0 0;
     box-sizing: border-box;
     .table {
-      font-size: 0.55rem;
+      font-size: calc($extra-small-fz - $coefficient-fz);
     }
   }
   @include respond($mobile) {
     .table {
-      font-size: 0.6rem;
+      font-size: $extra-small-fz;
     }
   }
 }

@@ -24,16 +24,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   @include respond($laptop) {
-    font-size: 14px;
+    font-size: $laptop-fz;
   }
   @include respond($tabletMax) {
-    font-size: 13px;
+    font-size: $tablet-max-fz;
   }
   @include respond($tabletMin) {
-    font-size: 12px;
+    font-size: $tablet-min-fz;
   }
   @include respond($mobile) {
-    font-size: 11px;
+    font-size: $mobile-fz;
   }
 }
 

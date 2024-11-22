@@ -8,7 +8,7 @@
   }
 
   .infoText {
-    font-size: 1.1rem;
+    font-size: $medium-fz;
   }
 
   @include respond($mobile) {

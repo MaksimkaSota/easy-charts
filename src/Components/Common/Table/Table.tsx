@@ -14,7 +14,7 @@ export const Table: FC<PropsType> = ({ tableValues }): ReactElement => {
             (rowValue: (string | number)[], rowIndex: number): ReactElement => (
               <tr className={classes.tr} key={rowIndex}>
                 {rowValue.map((columnValue: string | number, columnIndex: number): ReactElement => {
-                  return rowIndex === 0 || columnIndex === 0 ? (
+                  return !rowIndex || !columnIndex ? (
                     <th className={classes.th} key={columnIndex}>
                       {columnValue}
                     </th>

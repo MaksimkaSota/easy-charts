@@ -9,7 +9,7 @@
     flex-grow: 1;
 
     .imageContainer {
-      @include selectionContainer(170px, $indentMin, 50px, 1.2rem, 1.3rem);
+      @include selectionContainer(170px, $indentMin, 50px, $medium-fz, calc($medium-fz + $coefficient-fz));
       @include flex(null, null, center);
 
       &:not(:last-child) {
@@ -36,7 +36,7 @@
 
         .typeName {
           color: $green;
-          font-size: 1.2rem;
+          font-size: $medium-fz;
         }
       }
     }
@@ -57,13 +57,19 @@
         }
 
         .typeName {
-          font-size: 1.4rem;
+          font-size: $large-fz;
         }
 
         &:hover {
           .typeName {
-            font-size: 1.6rem;
+            font-size: calc($large-fz + $coefficient-fz);
           }
+        }
+      }
+
+      .activeContainer:hover {
+        .typeName {
+          font-size: $large-fz;
         }
       }
     }
@@ -75,16 +81,6 @@
 
         img {
           width: 50px;
-        }
-
-        .typeName {
-          font-size: 1.6rem;
-        }
-
-        &:hover {
-          .typeName {
-            font-size: 1.8rem;
-          }
         }
       }
     }

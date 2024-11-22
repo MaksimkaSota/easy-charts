@@ -5,7 +5,7 @@
     @include flex(null, space-between, null);
 
     .imageContainer {
-      @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.5rem);
+      @include selectionContainer(15%, $indentMax, 100%, $large-fz, $large-fz);
     }
 
     @include respond($tabletMax) {
@@ -13,16 +13,6 @@
       flex-wrap: wrap;
       .imageContainer {
         @include position(30%, $indentMin);
-
-        .typeName {
-          font-size: 1.7rem;
-        }
-
-        &:hover {
-          .typeName {
-            font-size: 1.9rem;
-          }
-        }
       }
     }
     @include respond($tabletMin) {
@@ -30,13 +20,7 @@
         width: 40%;
 
         .typeName {
-          font-size: 1.9rem;
-        }
-
-        &:hover {
-          .typeName {
-            font-size: 2.1rem;
-          }
+          font-size: $extra-large-fz;
         }
       }
     }

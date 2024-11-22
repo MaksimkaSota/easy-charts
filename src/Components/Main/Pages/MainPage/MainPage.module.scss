@@ -15,12 +15,12 @@
   }
 
   .description {
-    font-size: 0.9rem;
+    font-size: $small-fz;
     text-align: justify;
     text-indent: 50px;
 
     .name {
-      font-size: 1rem;
+      font-size: $small-fz;
       color: $title-text;
     }
 

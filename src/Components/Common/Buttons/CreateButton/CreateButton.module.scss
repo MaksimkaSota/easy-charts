@@ -5,7 +5,7 @@
   gap: $indentMin;
   padding: $indentMin;
   border-radius: 25px;
-  font-size: 1.3rem;
+  font-size: $medium-fz;
   font-weight: 700;
 
   &::after {

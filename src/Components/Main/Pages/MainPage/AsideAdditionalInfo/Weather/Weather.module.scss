@@ -8,7 +8,7 @@
   .hintText {
     text-align: center;
     margin: 0 0 $indentMin 0;
-    font-size: 0.9rem;
+    font-size: $small-fz;
   }
 
   .textError {
@@ -24,7 +24,7 @@
 
       .label {
         font-weight: 700;
-        font-size: 1rem;
+        font-size: $small-fz;
       }
 
       .input {
@@ -39,13 +39,13 @@
     }
 
     .description {
-      font-size: 0.7rem;
+      font-size: $extra-small-fz;
       text-align: right;
     }
   }
 
   .weatherText {
-    font-size: 1rem;
+    font-size: $small-fz;
 
     &:not(:last-child) {
       margin: 0 0 $indentInputAndButton 0;

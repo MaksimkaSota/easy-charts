@@ -11,14 +11,14 @@
   }
 
   .textContent {
-    font-size: 1.1rem;
+    font-size: $medium-fz;
     margin: 0 0 $indentMin 0;
   }
 
   .link {
     @include position(max-content, 0 auto);
     color: $green;
-    font-size: 1.5rem;
+    font-size: $large-fz;
     text-decoration: underline;
     transition: all 0.25s linear;
 
@@ -29,7 +29,7 @@
     &:hover {
       cursor: pointer;
       color: $blue;
-      font-size: 1.6rem;
+      font-size: calc($large-fz + $coefficient-fz);
     }
   }
 
@@ -42,28 +42,13 @@
     .email {
       width: 30%;
     }
-    .link {
-      font-size: 1.7rem;
-
-      &:hover {
-        font-size: 1.9rem;
-      }
-    }
   }
   @include respond($tabletMin) {
     .email {
       width: 50%;
     }
-    .link {
-      font-size: 1.9rem;
-
-      &:not(:last-child) {
-        margin: 0 auto $indentInputAndButton;
-      }
-
-      &:hover {
-        font-size: 2.1rem;
-      }
+    .link:not(:last-child) {
+      margin: 0 auto $indentInputAndButton;
     }
   }
   @include respond($mobile) {
