@@ -16,11 +16,26 @@ import { ExamplesPage } from './ExamplesPage';
 import { StandardOption } from '../../../../utils/types/enums';
 
 type PropsType = {
-  isMainPage?: boolean;
-  isInfoPage?: boolean;
+  isMainExamples?: boolean;
+  isInfoExamples?: boolean;
+  hidePageDescription?: boolean;
+  hidePageDescriptionText?: boolean;
+  hideChartSelectionMenu?: boolean;
+  hideChartSelectionMenuTitle?: boolean;
+  hideExampleChartsTitle?: boolean;
+  showExampleChartTable?: boolean;
 };
 
-export const ExamplesPageContainer: FC<PropsType> = ({ isMainPage, isInfoPage }): ReactElement => {
+export const ExamplesPageContainer: FC<PropsType> = ({
+  isMainExamples,
+  isInfoExamples,
+  hidePageDescription,
+  hidePageDescriptionText,
+  hideChartSelectionMenu,
+  hideChartSelectionMenuTitle,
+  hideExampleChartsTitle,
+  showExampleChartTable,
+}): ReactElement => {
   const isFetchingExampleFirstAddress = useTypedSelector(isFetchingExampleFirstAddressSelector);
   const isFetchingExampleSecondAddress = useTypedSelector(isFetchingExampleSecondAddressSelector);
   const isFetchingExampleThirdAddress = useTypedSelector(isFetchingExampleThirdAddressSelector);
@@ -61,8 +76,14 @@ export const ExamplesPageContainer: FC<PropsType> = ({ isMainPage, isInfoPage })
       exampleSecondOptions={exampleSecondOptions}
       exampleThirdOptions={exampleThirdOptions}
       setMainOptionsWithId={setMainOptionsWithId}
-      isMainPage={isMainPage}
-      isInfoPage={isInfoPage}
+      isMainExamples={isMainExamples}
+      isInfoExamples={isInfoExamples}
+      hidePageDescription={hidePageDescription}
+      hidePageDescriptionText={hidePageDescriptionText}
+      hideChartSelectionMenu={hideChartSelectionMenu}
+      hideChartSelectionMenuTitle={hideChartSelectionMenuTitle}
+      hideExampleChartsTitle={hideExampleChartsTitle}
+      showExampleChartTable={showExampleChartTable}
     />
   );
 };

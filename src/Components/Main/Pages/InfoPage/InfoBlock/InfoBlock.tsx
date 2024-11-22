@@ -25,8 +25,16 @@ export const InfoBlock: FC<PropsType> = ({
         <h3 className={classes.title}>{titleText}</h3>
         <p className={classes.description}>{descriptionText}</p>
       </div>
-      {isFirstInfoBlock && <GalleryPage isInfoPage />}
-      {isSecondInfoBlock && <ExamplesPageContainer isInfoPage />}
+      {isFirstInfoBlock && <GalleryPage isInfoGallery hidePageDescription hideChartSelectionButtonText />}
+      {isSecondInfoBlock && (
+        <ExamplesPageContainer
+          isInfoExamples
+          hidePageDescription
+          hideChartSelectionMenu
+          hideExampleChartsTitle
+          showExampleChartTable
+        />
+      )}
     </div>
   );
 };

@@ -13,12 +13,20 @@ type PropsType = {
   addressError: Nullable<ErrorType>;
   options: IChart;
   setNewOptions: (exampleOptions: IChart) => void;
-  isInfoPage?: boolean;
+  showExampleChartTable?: boolean;
   tableValues?: (string | number)[][];
 };
 
 export const ExampleChart = memo<PropsType>(
-  ({ isFetchingAddress, address, addressError, options, setNewOptions, isInfoPage, tableValues }): ReactElement => {
+  ({
+    isFetchingAddress,
+    address,
+    addressError,
+    options,
+    setNewOptions,
+    showExampleChartTable,
+    tableValues,
+  }): ReactElement => {
     return (
       <div className={classes.exampleChart}>
         <div className={classes.wrapper}>
@@ -26,7 +34,7 @@ export const ExampleChart = memo<PropsType>(
             <Chart isFetchingAddress={isFetchingAddress} address={address} addressError={addressError} />
           </div>
         </div>
-        {isInfoPage && tableValues && <Table tableValues={tableValues} />}
+        {showExampleChartTable && tableValues && <Table tableValues={tableValues} />}
         <NavLink to={RoutePath.Create} className={classes.link} onClick={() => setNewOptions(options)}>
           Отредактировать график:{' '}
           <span className={classes.chartName}>{options.options.title.text.split(',').shift()}</span>

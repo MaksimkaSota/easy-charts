@@ -23,8 +23,14 @@ type PropsType = {
   exampleSecondOptions: IChart;
   exampleThirdOptions: IChart;
   setMainOptionsWithId: (options: IChart) => void;
-  isMainPage?: boolean;
-  isInfoPage?: boolean;
+  isMainExamples?: boolean;
+  isInfoExamples?: boolean;
+  hidePageDescription?: boolean;
+  hidePageDescriptionText?: boolean;
+  hideChartSelectionMenu?: boolean;
+  hideChartSelectionMenuTitle?: boolean;
+  hideExampleChartsTitle?: boolean;
+  showExampleChartTable?: boolean;
 };
 
 export const ExamplesPage: FC<PropsType> = ({
@@ -41,34 +47,40 @@ export const ExamplesPage: FC<PropsType> = ({
   exampleSecondOptions,
   exampleThirdOptions,
   setMainOptionsWithId,
-  isMainPage,
-  isInfoPage,
+  isMainExamples,
+  isInfoExamples,
+  hidePageDescription,
+  hidePageDescriptionText,
+  hideChartSelectionMenu,
+  hideChartSelectionMenuTitle,
+  hideExampleChartsTitle,
+  showExampleChartTable,
 }): ReactElement => {
   return (
     <div
       className={cn(classes.examples, {
-        [classes.mainPageExamples]: isMainPage,
-        [classes.infoPageExamples]: isInfoPage,
+        [classes.mainPageExamples]: isMainExamples,
+        [classes.infoPageExamples]: isInfoExamples,
       })}
     >
       <ProgressBar />
       <UpButton />
-      {!isInfoPage && (
+      {!hidePageDescription && (
         <PageDescription
           title="Примеры графиков / диаграмм"
           textContent="На данной странице вы можете найти подходящие вам примеры графиков, чтобы использовать их для
           построения своего графика, а также для того, чтобы понять как работает конструктор графиков на нашем сайте.
           Также вы можете выбрать необходимый вид графика, чтобы посмотреть примеры для
           данного вида: колонны, полосы, линии, радар, пирог, пончик."
-          isMainPage={isMainPage}
+          hidePageDescriptionText={hidePageDescriptionText}
         />
       )}
       <div className={classes.examplesMain}>
-        {!isInfoPage && (
+        {!hideChartSelectionMenu && (
           <ChartSelectionMenu
             type={exampleFirstOptions.type}
             className={classes.chartSelectionMenu}
-            isMainPage={isMainPage}
+            hideChartSelectionMenuTitle={hideChartSelectionMenuTitle}
           />
         )}
         <ExampleCharts
@@ -85,8 +97,8 @@ export const ExamplesPage: FC<PropsType> = ({
           secondOptions={exampleSecondOptions}
           thirdOptions={exampleThirdOptions}
           setNewOptions={setMainOptionsWithId}
-          isMainPage={isMainPage}
-          isInfoPage={isInfoPage}
+          hideExampleChartsTitle={hideExampleChartsTitle}
+          showExampleChartTable={showExampleChartTable}
         />
       </div>
     </div>

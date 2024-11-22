@@ -22,8 +22,8 @@ type PropsType = {
   secondOptions: IChart;
   thirdOptions: IChart;
   setNewOptions: (options: IChart) => void;
-  isMainPage?: boolean;
-  isInfoPage?: boolean;
+  hideExampleChartsTitle?: boolean;
+  showExampleChartTable?: boolean;
 };
 
 export const ExampleCharts: FC<PropsType> = ({
@@ -40,8 +40,8 @@ export const ExampleCharts: FC<PropsType> = ({
   secondOptions,
   thirdOptions,
   setNewOptions,
-  isMainPage,
-  isInfoPage,
+  hideExampleChartsTitle,
+  showExampleChartTable,
 }): ReactElement => {
   const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
   const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
@@ -49,14 +49,14 @@ export const ExampleCharts: FC<PropsType> = ({
 
   return (
     <div className={classes.chartResult}>
-      {!isMainPage && !isInfoPage && <h3 className={classes.miniTitle}>График</h3>}
+      {!hideExampleChartsTitle && <h3 className={classes.miniTitle}>График</h3>}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}
         addressError={firstAddressError}
         options={firstOptions}
         setNewOptions={setNewOptions}
-        isInfoPage={isInfoPage}
+        showExampleChartTable={showExampleChartTable}
         tableValues={exampleFirstTableValues}
       />
       <ExampleChart
@@ -65,7 +65,7 @@ export const ExampleCharts: FC<PropsType> = ({
         addressError={secondAddressError}
         options={secondOptions}
         setNewOptions={setNewOptions}
-        isInfoPage={isInfoPage}
+        showExampleChartTable={showExampleChartTable}
         tableValues={exampleSecondTableValues}
       />
       <ExampleChart
@@ -74,7 +74,7 @@ export const ExampleCharts: FC<PropsType> = ({
         addressError={thirdAddressError}
         options={thirdOptions}
         setNewOptions={setNewOptions}
-        isInfoPage={isInfoPage}
+        showExampleChartTable={showExampleChartTable}
         tableValues={exampleThirdTableValues}
       />
     </div>

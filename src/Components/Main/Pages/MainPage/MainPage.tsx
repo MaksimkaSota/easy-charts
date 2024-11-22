@@ -16,8 +16,13 @@ export const MainPage: FC = (): ReactElement => {
         <MainAdditionalInfo />
         <AsideAdditionalInfo />
       </div>
-      <GalleryPage isMainPage />
-      <ExamplesPageContainer isMainPage />
+      <GalleryPage isMainGallery hidePageDescriptionText />
+      <ExamplesPageContainer
+        isMainExamples
+        hidePageDescriptionText
+        hideExampleChartsTitle
+        hideChartSelectionMenuTitle
+      />
       <p className={classes.description}>
         <span className={classes.name}>EasyCharts</span> - сайт для построения графиков / диаграмм онлайн. Выберите{' '}
         <NavLink to={RoutePath.Gallery} className={classes.link}>
