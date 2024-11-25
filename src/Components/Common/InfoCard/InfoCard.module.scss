@@ -4,7 +4,7 @@
 
   .image {
     width: 55px;
-    margin: 0 0 $indentMin 0;
+    margin: 0 0 $indent-min 0;
   }
 
   .infoText {
@@ -14,7 +14,7 @@
   @include respond($mobile) {
     width: 30%;
     .image {
-      margin: 0 0 $indentInputAndButton 0;
+      margin: 0 0 $indent-input-button 0;
     }
   }
 }

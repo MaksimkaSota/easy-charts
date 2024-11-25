@@ -1,11 +1,11 @@
 .infoBlock {
-  padding: $indentMax;
-  margin: 0 0 $indentMax 0;
+  padding: $indent-max;
+  margin: 0 0 $indent-max 0;
   border: 1px solid $input-background;
-  border-radius: $radiusMax;
+  border-radius: $radius-max;
 
   .textBlock {
-    margin: 0 0 $indentMax 0;
+    margin: 0 0 $indent-max 0;
 
     .title {
       @extend %mini-title;
@@ -22,22 +22,22 @@
     margin: 0;
   }
 
-  @include respond($tabletMax) {
-    padding: $indentMin;
-    margin: 0 0 $indentMin 0;
+  @include respond($tablet-max) {
+    padding: $indent-min;
+    margin: 0 0 $indent-min 0;
     .textBlock {
-      margin: 0 0 $indentMin 0;
+      margin: 0 0 $indent-min 0;
     }
   }
-  @include respond($tabletMin) {
-    padding: $indentInputAndButton;
+  @include respond($tablet-min) {
+    padding: $indent-input-button;
   }
   @include respond($mobile) {
     padding: 0;
-    margin: 0 0 $indentInputAndButton 0;
+    margin: 0 0 $indent-input-button 0;
     border: none;
     .textBlock {
-      margin: 0 0 $indentInputAndButton 0;
+      margin: 0 0 $indent-input-button 0;
     }
   }
 }

@@ -12,7 +12,7 @@
 
   .textContent {
     font-size: $inter-18;
-    margin: 0 0 $indentMin 0;
+    margin: 0 0 $indent-min 0;
   }
 
   .link {
@@ -23,7 +23,7 @@
     transition: all 0.25s linear;
 
     &:not(:last-child) {
-      margin: 0 auto $indentMin;
+      margin: 0 auto $indent-min;
     }
 
     &:hover {
@@ -38,17 +38,17 @@
       width: 25%;
     }
   }
-  @include respond($tabletMax) {
+  @include respond($tablet-max) {
     .email {
       width: 30%;
     }
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     .email {
       width: 50%;
     }
     .link:not(:last-child) {
-      margin: 0 auto $indentInputAndButton;
+      margin: 0 auto $indent-input-button;
     }
   }
   @include respond($mobile) {

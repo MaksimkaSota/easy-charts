@@ -1,10 +1,10 @@
 .footer {
   @include flex(column, null, center);
-  padding: $indentMin 0;
+  padding: $indent-min 0;
   box-shadow: 0 5px 10px 0;
 
   .text {
     font-size: $inter-14;
-    margin: $indentMin 0;
+    margin: $indent-min 0;
   }
 }

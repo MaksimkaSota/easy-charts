@@ -4,13 +4,13 @@
 
   .additionalInfo {
     @include flex(null, null, center);
-    margin: 0 0 $indentMin 0;
-    @include respond($tabletMin) {
+    margin: 0 0 $indent-min 0;
+    @include respond($tablet-min) {
       flex-direction: column;
       align-items: flex-start;
     }
     @include respond($mobile) {
-      margin: 0 0 $indentInputAndButton 0;
+      margin: 0 0 $indent-input-button 0;
     }
   }
 

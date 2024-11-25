@@ -4,9 +4,9 @@
   .headerInner {
     @include position(90%, 0 auto);
     @include flex(null, null, center);
-    padding: $indentMin 0;
+    padding: $indent-min 0;
 
-    @include respond($tabletMin) {
+    @include respond($tablet-min) {
       flex-direction: column;
     }
   }

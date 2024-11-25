@@ -9,7 +9,7 @@
       width: auto;
 
       &:not(:last-child) {
-        margin-right: $indentMin;
+        margin-right: $indent-min;
       }
     }
 
@@ -18,7 +18,7 @@
       pointer-events: none;
     }
 
-    @include respond($tabletMin) {
+    @include respond($tablet-min) {
       flex-direction: column;
     }
     @include respond($mobile) {
@@ -29,13 +29,13 @@
   }
 
   .imgContainer {
-    margin: $indentMin 0 0 0;
+    margin: $indent-min 0 0 0;
     @include respond($mobile) {
-      margin: $indentInputAndButton 0 0 0;
+      margin: $indent-input-button 0 0 0;
     }
   }
 
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     align-self: center;
   }
 }

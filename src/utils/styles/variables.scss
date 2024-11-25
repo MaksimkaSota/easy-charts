@@ -26,33 +26,33 @@ $inter-26: 1.625rem;
 $inter-30: 1.875rem;
 $inter-32: 2rem;
 
-$indentMax: 20px;
-$indentMin: 10px;
-$indentInputAndButton: 5px;
-$radiusMax: 10px;
-$radiusMin: 5px;
+$indent-max: 20px;
+$indent-min: 10px;
+$indent-input-button: 5px;
+$radius-max: 10px;
+$radius-min: 5px;
 
-$laptopSize: 90em;
-$tabletMaxSize: 64em;
-$tabletMinSize: 48em;
-$mobileSize: 22.5em;
+$laptop-size: 90em;
+$tablet-max-size: 64em;
+$tablet-min-size: 48em;
+$mobile-size: 22.5em;
 
 $laptop: laptop;
-$tabletMax: tabletMax;
-$tabletMin: tabletMin;
+$tablet-max: maximum tablet;
+$tablet-min: minimum tablet;
 $mobile: mobile;
 
 $breakpoints: (
   $laptop: (
-    max-width: $laptopSize,
+    max-width: $laptop-size,
   ),
-  $tabletMax: (
-    max-width: $tabletMaxSize,
+  $tablet-max: (
+    max-width: $tablet-max-size,
   ),
-  $tabletMin: (
-    max-width: $tabletMinSize,
+  $tablet-min: (
+    max-width: $tablet-min-size,
   ),
   $mobile: (
-    max-width: $mobileSize,
+    max-width: $mobile-size,
   ),
 );

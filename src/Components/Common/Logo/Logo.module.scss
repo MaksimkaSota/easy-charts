@@ -4,7 +4,7 @@
   .logoText {
     @include flex(null, null, null);
     font-size: $inter-32;
-    margin: 0 $indentMin 0 0;
+    margin: 0 $indent-min 0 0;
 
     .letter {
       position: relative;
@@ -72,7 +72,7 @@
     transition: all 0.25s linear;
   }
 
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     .logoImage {
       width: 40px;
     }
@@ -86,10 +86,10 @@
 }
 
 .headerLogo {
-  margin: 0 $indentMax 0 0;
+  margin: 0 $indent-max 0 0;
   cursor: default;
-  @include respond($tabletMin) {
-    margin: 0 0 $indentMin 0;
+  @include respond($tablet-min) {
+    margin: 0 0 $indent-min 0;
   }
 }
 

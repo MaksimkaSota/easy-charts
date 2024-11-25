@@ -13,7 +13,7 @@
   }
 
   .errorImage {
-    @include position(50%, $indentMin 0);
+    @include position(50%, $indent-min 0);
   }
 }
 

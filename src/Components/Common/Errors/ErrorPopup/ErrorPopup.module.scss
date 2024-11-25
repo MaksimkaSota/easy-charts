@@ -8,25 +8,25 @@
 
   .errorPopupContainer {
     width: 50%;
-    padding: $indentMin;
+    padding: $indent-min;
     background: $input-background;
-    border-radius: $radiusMax;
+    border-radius: $radius-max;
     box-shadow: 0 0 10px 0;
     @include flex(column, null, null);
 
     .errorPopupButton {
       @extend %button;
-      @include position(90%, $indentMin auto 0);
+      @include position(90%, $indent-min auto 0);
     }
 
-    @include respond($tabletMax) {
+    @include respond($tablet-max) {
       width: 70%;
     }
-    @include respond($tabletMin) {
+    @include respond($tablet-min) {
       width: 90%;
-      padding: $indentInputAndButton;
+      padding: $indent-input-button;
       .errorPopupButton {
-        margin: $indentInputAndButton auto 0;
+        margin: $indent-input-button auto 0;
       }
     }
   }

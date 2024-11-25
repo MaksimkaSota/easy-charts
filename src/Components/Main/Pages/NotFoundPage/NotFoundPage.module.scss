@@ -3,10 +3,10 @@
   @include respond($laptop) {
     width: 60%;
   }
-  @include respond($tabletMax) {
+  @include respond($tablet-max) {
     width: 70%;
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 90%;
   }
 }

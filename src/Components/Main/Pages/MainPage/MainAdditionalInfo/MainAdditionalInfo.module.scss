@@ -1,22 +1,22 @@
 .mainInfo {
   width: 75%;
-  padding: $indentMax;
+  padding: $indent-max;
   text-align: center;
 
   .info {
     @include flex(null, space-around, center);
-    margin: $indentMax 0 0 0;
+    margin: $indent-max 0 0 0;
   }
 
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 100%;
-    padding: $indentMin;
+    padding: $indent-min;
   }
   @include respond($mobile) {
-    padding: $indentInputAndButton;
+    padding: $indent-input-button;
     .info {
       justify-content: space-between;
-      margin: $indentMin 0 0 0;
+      margin: $indent-min 0 0 0;
     }
   }
 }

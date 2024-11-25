@@ -1,5 +1,5 @@
 .pageDescription {
-  margin: 0 0 $indentMax;
+  margin: 0 0 $indent-max;
 
   .title {
     @extend %title-pages;
@@ -10,7 +10,7 @@
   }
 
   @include respond($mobile) {
-    margin: 0 0 $indentMin;
+    margin: 0 0 $indent-min;
     .textContent {
       text-align: center;
     }
@@ -18,7 +18,7 @@
 }
 
 .blockWithoutDescriptionText {
-  margin: 0 0 $indentMin;
+  margin: 0 0 $indent-min;
 
   .titleWithoutDescriptionText {
     text-align: center;

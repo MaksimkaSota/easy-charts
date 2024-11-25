@@ -1,11 +1,11 @@
 .chartResult {
-  margin: 0 0 0 $indentMax;
+  margin: 0 0 0 $indent-max;
 
   .miniTitle {
     @extend %mini-title;
   }
 
-  @include respond($tabletMax) {
+  @include respond($tablet-max) {
     margin: 0;
   }
 }

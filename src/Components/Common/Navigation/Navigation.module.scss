@@ -7,7 +7,7 @@
     transition: all 0.25s linear;
 
     &:not(:last-child) {
-      margin: 0 $indentMin 0 0;
+      margin: 0 $indent-min 0 0;
     }
 
     &:hover {
@@ -28,11 +28,11 @@
     }
   }
 
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     flex-direction: column;
     .link {
       &:not(:last-child) {
-        margin: 0 0 $indentInputAndButton 0;
+        margin: 0 0 $indent-input-button 0;
       }
     }
   }

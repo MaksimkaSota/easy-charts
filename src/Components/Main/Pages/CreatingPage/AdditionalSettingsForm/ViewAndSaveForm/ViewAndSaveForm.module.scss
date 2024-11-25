@@ -7,7 +7,7 @@
   }
 
   .inputData {
-    @include input($validated-input-background, $indentInputAndButton);
+    @include input($validated-input-background, $indent-input-button);
     outline: 1px solid $content-text;
   }
 }

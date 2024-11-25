@@ -1,5 +1,5 @@
 .weather {
-  margin: 0 0 $indentMax 0;
+  margin: 0 0 $indent-max 0;
 
   .miniTitle {
     @extend %mini-title;
@@ -7,7 +7,7 @@
 
   .hintText {
     text-align: center;
-    margin: 0 0 $indentMin 0;
+    margin: 0 0 $indent-min 0;
     font-size: $inter-14;
   }
 
@@ -16,11 +16,11 @@
   }
 
   .container {
-    margin: 0 0 $indentInputAndButton 0;
+    margin: 0 0 $indent-input-button 0;
 
     .formContainer {
       @include flex(null, space-between, center);
-      margin: 0 $indentMin 0 0;
+      margin: 0 $indent-min 0 0;
 
       .label {
         font-weight: 700;
@@ -48,21 +48,21 @@
     font-size: $inter-14;
 
     &:not(:last-child) {
-      margin: 0 0 $indentInputAndButton 0;
+      margin: 0 0 $indent-input-button 0;
     }
   }
 
-  @include respond($tabletMax) {
+  @include respond($tablet-max) {
     .container {
       .formContainer {
         margin: 0;
       }
     }
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     @include position(45%, 0);
     .hintText {
-      margin: 0 0 $indentInputAndButton 0;
+      margin: 0 0 $indent-input-button 0;
     }
     .container {
       .formContainer {
@@ -72,7 +72,7 @@
       }
     }
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 49%;
   }
 }

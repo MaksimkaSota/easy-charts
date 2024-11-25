@@ -7,7 +7,7 @@
 
   &:not(:last-child) {
     .link {
-      margin-bottom: $indentMin;
+      margin-bottom: $indent-min;
     }
   }
 
@@ -24,13 +24,13 @@
     }
   }
 
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 100%;
   }
   @include respond($mobile) {
     &:not(:last-child) {
       .link {
-        margin-bottom: $indentInputAndButton;
+        margin-bottom: $indent-input-button;
       }
     }
   }

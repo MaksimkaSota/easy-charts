@@ -1,6 +1,6 @@
 .tableContainer {
   width: 750px;
-  padding: $indentInputAndButton $indentMin 0;
+  padding: $indent-input-button $indent-min 0;
   box-sizing: content-box;
 
   .table {
@@ -30,9 +30,9 @@
   @include respond($laptop) {
     width: 700px;
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 100%;
-    padding: $indentInputAndButton 0 0;
+    padding: $indent-input-button 0 0;
     box-sizing: border-box;
     .table {
       font-size: $inter-8;

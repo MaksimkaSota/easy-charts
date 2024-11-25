@@ -1,12 +1,12 @@
 .formContainer {
-  margin: 0 $indentMin 0 0;
+  margin: 0 $indent-min 0 0;
 
   .axisName {
     text-align: center;
   }
 
   .inputData {
-    @include input($input-background, $indentMin);
+    @include input($input-background, $indent-min);
   }
 
   .addButton {
