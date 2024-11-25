@@ -1,27 +1,27 @@
 .pageDescription {
-  margin: 0 0 $indentMax;
+  margin: 0 0 $indent-max;
 
   .title {
     @extend %title-pages;
   }
 
-  .mainPageTitle {
-    text-align: center;
-    margin: 0;
-  }
-
   .textContent {
-    font-size: 1.1rem;
+    font-size: $inter-18;
   }
 
   @include respond($mobile) {
-    margin: 0 0 $indentMin;
+    margin: 0 0 $indent-min;
     .textContent {
       text-align: center;
     }
   }
 }
 
-.mainPagePageDescription {
-  margin: 0 0 $indentMin;
+.blockWithoutDescriptionText {
+  margin: 0 0 $indent-min;
+
+  .titleWithoutDescriptionText {
+    text-align: center;
+    margin: 0;
+  }
 }

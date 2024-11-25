@@ -3,11 +3,11 @@
   @include flex(column, null, null);
 
   .main {
-    margin: $indentMax 0;
+    margin: $indent-max 0;
     @include flex(null, center, center);
     flex: 1 1 auto;
     @include respond($mobile) {
-      margin: $indentMin 0;
+      margin: $indent-min 0;
     }
   }
 }

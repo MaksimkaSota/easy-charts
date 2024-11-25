@@ -3,17 +3,17 @@
   @include flex(column, null, center);
 
   .errorTitle {
-    font-size: 1.5rem;
+    font-size: $inter-24;
     color: $red;
   }
 
   .errorText {
-    font-size: 1.3rem;
+    font-size: $inter-18;
     color: $red;
   }
 
   .errorImage {
-    @include position(50%, $indentMin 0);
+    @include position(50%, $indent-min 0);
   }
 }
 

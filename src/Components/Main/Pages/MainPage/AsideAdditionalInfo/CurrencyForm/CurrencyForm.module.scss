@@ -5,8 +5,8 @@
 
   .hintText {
     text-align: center;
-    margin: 0 0 $indentMin 0;
-    font-size: 0.9rem;
+    margin: 0 0 $indent-min 0;
+    font-size: $inter-14;
   }
 
   .textError {
@@ -14,18 +14,18 @@
   }
 
   .container {
-    margin: 0 0 $indentInputAndButton 0;
+    margin: 0 0 $indent-input-button 0;
 
     .formContainer {
       @include flex(null, space-between, center);
 
       .label {
         font-weight: 700;
-        font-size: 1rem;
+        font-size: $inter-14;
       }
 
       .formField {
-        @include position(70%, 0 $indentMin 0 0);
+        @include position(70%, 0 $indent-min 0 0);
 
         .inputData {
           @include input($input-background, 0);
@@ -40,12 +40,12 @@
     }
 
     .description {
-      font-size: 0.7rem;
+      font-size: $inter-10;
       text-align: right;
     }
   }
 
-  @include respond($tabletMax) {
+  @include respond($tablet-max) {
     .container {
       .formContainer {
         .formField {
@@ -54,10 +54,10 @@
       }
     }
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 45%;
     .hintText {
-      margin: 0 0 $indentInputAndButton 0;
+      margin: 0 0 $indent-input-button 0;
     }
     .container {
       .formContainer {
@@ -71,7 +71,7 @@
       }
     }
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 49%;
   }
 }

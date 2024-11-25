@@ -3,6 +3,10 @@ import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
+import { exampleFirstInitialValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
+import { exampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
+import { exampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
+import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -18,7 +22,8 @@ type PropsType = {
   secondOptions: IChart;
   thirdOptions: IChart;
   setNewOptions: (options: IChart) => void;
-  isMainPage?: boolean;
+  hideExampleChartsTitle?: boolean;
+  showExampleChartTable?: boolean;
 };
 
 export const ExampleCharts: FC<PropsType> = ({
@@ -35,17 +40,24 @@ export const ExampleCharts: FC<PropsType> = ({
   secondOptions,
   thirdOptions,
   setNewOptions,
-  isMainPage,
+  hideExampleChartsTitle,
+  showExampleChartTable,
 }): ReactElement => {
+  const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
+  const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
+  const exampleThirdTableValues = getTableValues('Инфляция по годам', exampleThirdInitialValue);
+
   return (
     <div className={classes.chartResult}>
-      {!isMainPage && <h3 className={classes.miniTitle}>График</h3>}
+      {!hideExampleChartsTitle && <h3 className={classes.miniTitle}>График</h3>}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}
         addressError={firstAddressError}
         options={firstOptions}
         setNewOptions={setNewOptions}
+        showExampleChartTable={showExampleChartTable}
+        tableValues={exampleFirstTableValues}
       />
       <ExampleChart
         isFetchingAddress={isFetchingSecondAddress}
@@ -53,6 +65,8 @@ export const ExampleCharts: FC<PropsType> = ({
         addressError={secondAddressError}
         options={secondOptions}
         setNewOptions={setNewOptions}
+        showExampleChartTable={showExampleChartTable}
+        tableValues={exampleSecondTableValues}
       />
       <ExampleChart
         isFetchingAddress={isFetchingThirdAddress}
@@ -60,6 +74,8 @@ export const ExampleCharts: FC<PropsType> = ({
         addressError={thirdAddressError}
         options={thirdOptions}
         setNewOptions={setNewOptions}
+        showExampleChartTable={showExampleChartTable}
+        tableValues={exampleThirdTableValues}
       />
     </div>
   );

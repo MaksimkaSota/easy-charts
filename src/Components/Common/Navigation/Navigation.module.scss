@@ -2,29 +2,38 @@
   @include flex(null, null, center);
 
   .link {
-    font-size: 1.2rem;
+    font-size: $inter-18;
     cursor: pointer;
     transition: all 0.25s linear;
 
     &:not(:last-child) {
-      margin: 0 $indentMin 0 0;
+      margin: 0 $indent-min 0 0;
     }
 
     &:hover {
       color: $blue;
-      font-size: 1.3rem;
+      font-size: $inter-20;
       text-decoration: underline;
     }
   }
 
   .activeLink {
     color: $green;
-    font-size: 1.3rem;
+    font-size: $inter-20;
     cursor: default;
 
     &:hover {
       color: $green;
       text-decoration: none;
+    }
+  }
+
+  @include respond($tablet-min) {
+    flex-direction: column;
+    .link {
+      &:not(:last-child) {
+        margin: 0 0 $indent-input-button 0;
+      }
     }
   }
 }

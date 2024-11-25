@@ -23,17 +23,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  @include respond($laptop) {
-    font-size: 14px;
+  @include respond($tablet-max) {
+    font-size: $inter-14;
   }
-  @include respond($tabletMax) {
-    font-size: 13px;
-  }
-  @include respond($tabletMin) {
-    font-size: 12px;
+  @include respond($tablet-min) {
+    font-size: $inter-12;
   }
   @include respond($mobile) {
-    font-size: 11px;
+    font-size: $inter-10;
   }
 }
 

@@ -1,0 +1,46 @@
+.tableContainer {
+  width: 750px;
+  padding: $indent-input-button $indent-min 0;
+  box-sizing: content-box;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $content-text;
+    font-size: $inter-10;
+
+    .tr {
+      border: 1px solid $content-text;
+
+      .th,
+      .td {
+        border: 1px solid $content-text;
+      }
+
+      .th:first-child {
+        width: 15%;
+      }
+
+      .td {
+        text-align: center;
+      }
+    }
+  }
+
+  @include respond($laptop) {
+    width: 700px;
+  }
+  @include respond($tablet-min) {
+    width: 100%;
+    padding: $indent-input-button 0 0;
+    box-sizing: border-box;
+    .table {
+      font-size: $inter-8;
+    }
+  }
+  @include respond($mobile) {
+    .table {
+      font-size: $inter-10;
+    }
+  }
+}

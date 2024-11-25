@@ -1,7 +1,7 @@
 .deleteColumnContainer {
   @include flex(column, null, null);
   position: relative;
-  margin: 0 $indentInputAndButton 0 0;
+  margin: 0 $indent-input-button 0 0;
 
   .axis {
     text-align: center;
@@ -20,11 +20,11 @@
   }
 
   .inputData {
-    @include input($input-background, $indentMin);
+    @include input($input-background, $indent-min);
   }
 
   .inputDataNumbers {
-    @include input($validated-input-background, $indentInputAndButton);
+    @include input($validated-input-background, $indent-input-button);
     outline: 1px solid $content-text;
   }
 }

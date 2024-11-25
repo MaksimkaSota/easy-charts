@@ -19,6 +19,9 @@ export const Navigation: FC = (): ReactElement => {
       <NavLink to={RoutePath.Examples} className={setClass}>
         Примеры
       </NavLink>
+      <NavLink to={RoutePath.Info} className={setClass}>
+        Информация
+      </NavLink>
       <NavLink to={RoutePath.Contacts} className={setClass}>
         Контакты
       </NavLink>

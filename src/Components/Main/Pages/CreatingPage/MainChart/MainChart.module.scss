@@ -1,6 +1,6 @@
 .chartResult {
   @include flex(column, null, null);
-  margin: 0 $indentMax;
+  margin: 0 $indent-max;
 
   .miniTitle {
     @extend %mini-title;
@@ -10,10 +10,10 @@
     @extend %chartContainer;
   }
 
-  @include respond($tabletMax) {
+  @include respond($tablet-max) {
     margin: 0;
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     width: 100%;
   }
 }

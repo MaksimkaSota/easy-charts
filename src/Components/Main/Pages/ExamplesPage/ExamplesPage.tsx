@@ -23,7 +23,14 @@ type PropsType = {
   exampleSecondOptions: IChart;
   exampleThirdOptions: IChart;
   setMainOptionsWithId: (options: IChart) => void;
-  isMainPage?: boolean;
+  isMainExamples?: boolean;
+  isInfoExamples?: boolean;
+  hidePageDescription?: boolean;
+  hidePageDescriptionText?: boolean;
+  hideChartSelectionMenu?: boolean;
+  hideChartSelectionMenuTitle?: boolean;
+  hideExampleChartsTitle?: boolean;
+  showExampleChartTable?: boolean;
 };
 
 export const ExamplesPage: FC<PropsType> = ({
@@ -40,26 +47,42 @@ export const ExamplesPage: FC<PropsType> = ({
   exampleSecondOptions,
   exampleThirdOptions,
   setMainOptionsWithId,
-  isMainPage,
+  isMainExamples,
+  isInfoExamples,
+  hidePageDescription,
+  hidePageDescriptionText,
+  hideChartSelectionMenu,
+  hideChartSelectionMenuTitle,
+  hideExampleChartsTitle,
+  showExampleChartTable,
 }): ReactElement => {
   return (
-    <div className={cn(classes.examples, { [classes.mainPageExamples]: isMainPage })}>
+    <div
+      className={cn(classes.examples, {
+        [classes.mainPageExamples]: isMainExamples,
+        [classes.infoPageExamples]: isInfoExamples,
+      })}
+    >
       <ProgressBar />
       <UpButton />
-      <PageDescription
-        title="Примеры графиков / диаграмм"
-        textContent="На данной странице вы можете найти подходящие вам примеры графиков, чтобы использовать их для
-        построения своего графика, а также для того, чтобы понять как работает конструктор графиков на нашем сайте.
-        Также вы можете выбрать необходимый вид графика, чтобы посмотреть примеры для
-        данного вида: колонны, полосы, линии, радар, пирог, пончик."
-        isMainPage={isMainPage}
-      />
-      <div className={classes.examplesMain}>
-        <ChartSelectionMenu
-          type={exampleFirstOptions.type}
-          className={classes.chartSelectionMenu}
-          isMainPage={isMainPage}
+      {!hidePageDescription && (
+        <PageDescription
+          title="Примеры графиков / диаграмм"
+          textContent="На данной странице вы можете найти подходящие вам примеры графиков, чтобы использовать их для
+          построения своего графика, а также для того, чтобы понять как работает конструктор графиков на нашем сайте.
+          Также вы можете выбрать необходимый вид графика, чтобы посмотреть примеры для
+          данного вида: колонны, полосы, линии, радар, пирог, пончик."
+          hidePageDescriptionText={hidePageDescriptionText}
         />
+      )}
+      <div className={classes.examplesMain}>
+        {!hideChartSelectionMenu && (
+          <ChartSelectionMenu
+            type={exampleFirstOptions.type}
+            className={classes.chartSelectionMenu}
+            hideChartSelectionMenuTitle={hideChartSelectionMenuTitle}
+          />
+        )}
         <ExampleCharts
           isFetchingFirstAddress={isFetchingExampleFirstAddress}
           firstAddress={exampleFirstAddress}
@@ -74,7 +97,8 @@ export const ExamplesPage: FC<PropsType> = ({
           secondOptions={exampleSecondOptions}
           thirdOptions={exampleThirdOptions}
           setNewOptions={setMainOptionsWithId}
-          isMainPage={isMainPage}
+          hideExampleChartsTitle={hideExampleChartsTitle}
+          showExampleChartTable={showExampleChartTable}
         />
       </div>
     </div>

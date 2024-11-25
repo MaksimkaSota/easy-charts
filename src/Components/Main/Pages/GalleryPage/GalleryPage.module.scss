@@ -5,53 +5,70 @@
     @include flex(null, space-between, null);
 
     .imageContainer {
-      @include selectionContainer(15%, $indentMax, 100%, 1.5rem, 1.5rem);
-
-      img {
-        padding: 0 0 $indentMin 0;
-      }
+      @include selectionContainer(15%, $indent-max, 100%, $inter-24, $inter-24);
     }
 
-    @include respond($tabletMax) {
+    @include respond($tablet-max) {
       justify-content: center;
       flex-wrap: wrap;
       .imageContainer {
-        @include position(30%, $indentMin);
-
-        .typeName {
-          font-size: 1.7rem;
-        }
-
-        &:hover {
-          .typeName {
-            font-size: 1.9rem;
-          }
-        }
+        @include position(30%, $indent-min);
       }
     }
-    @include respond($tabletMin) {
+    @include respond($tablet-min) {
       .imageContainer {
         width: 40%;
 
         .typeName {
-          font-size: 1.9rem;
-        }
-
-        &:hover {
-          .typeName {
-            font-size: 2.1rem;
-          }
+          font-size: $inter-30;
         }
       }
     }
     @include respond($mobile) {
       .imageContainer {
-        @include position(45%, $indentInputAndButton);
+        @include position(45%, $indent-input-button);
       }
     }
   }
 }
 
 .mainPageGallery {
-  margin: 0 auto $indentMax;
+  width: 100%;
+  margin: 0 0 $indent-max 0;
+  @include respond($tablet-min) {
+    margin: 0 0 $indent-min 0;
+  }
+  @include respond($mobile) {
+    margin: 0 0 $indent-input-button 0;
+  }
+}
+
+.infoPageGallery {
+  width: 50%;
+
+  .typeChartsContainer {
+    .imageContainer {
+      padding: $indent-min;
+    }
+  }
+
+  @include respond($tablet-max) {
+    width: 100%;
+    .typeChartsContainer {
+      .imageContainer {
+        width: 10%;
+      }
+    }
+  }
+  @include respond($tablet-min) {
+    width: 70%;
+    .typeChartsContainer {
+      .imageContainer {
+        width: 25%;
+      }
+    }
+  }
+  @include respond($mobile) {
+    width: 100%;
+  }
 }

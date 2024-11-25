@@ -12,19 +12,36 @@ import { PageDescription } from '../../../Common/PageDescription/PageDescription
 import { ChartType } from '../../../../utils/types/enums';
 
 type PropsType = {
-  isMainPage?: boolean;
+  isMainGallery?: boolean;
+  isInfoGallery?: boolean;
+  hidePageDescription?: boolean;
+  hidePageDescriptionText?: boolean;
+  hideChartSelectionButtonText?: boolean;
 };
 
-export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
+export const GalleryPage: FC<PropsType> = ({
+  isMainGallery,
+  isInfoGallery,
+  hidePageDescription,
+  hidePageDescriptionText,
+  hideChartSelectionButtonText,
+}): ReactElement => {
   return (
-    <div className={cn(classes.gallery, { [classes.mainPageGallery]: isMainPage })}>
-      <PageDescription
-        title="Галерея графиков / диаграмм"
-        textContent="Выберите необходимый вид графика, далее вы перейдёте в режим онлайн-конструктора, в котором сможете
-        заполнить данные графика, и затем сохранить на комьютер. Какой график вам необходимо построить? Колонны, полосы,
-        линии, радар, пирог, пончик?"
-        isMainPage={isMainPage}
-      />
+    <div
+      className={cn(classes.gallery, {
+        [classes.mainPageGallery]: isMainGallery,
+        [classes.infoPageGallery]: isInfoGallery,
+      })}
+    >
+      {!hidePageDescription && (
+        <PageDescription
+          title="Галерея графиков / диаграмм"
+          textContent="Выберите необходимый вид графика, далее вы перейдёте в режим онлайн-конструктора, в котором
+          сможете заполнить данные графика, и затем сохранить на комьютер. Какой график вам необходимо построить?
+          Колонны, полосы, линии, радар, пирог, пончик?"
+          hidePageDescriptionText={hidePageDescriptionText}
+        />
+      )}
       <div className={classes.typeChartsContainer}>
         <ChartSelectionButton
           isLink
@@ -33,6 +50,7 @@ export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
           text="Колонны"
           classNameContainer={classes.imageContainer}
           classNameText={classes.typeName}
+          hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
@@ -41,6 +59,7 @@ export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
           text="Полосы"
           classNameContainer={classes.imageContainer}
           classNameText={classes.typeName}
+          hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
@@ -49,6 +68,7 @@ export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
           text="Линии"
           classNameContainer={classes.imageContainer}
           classNameText={classes.typeName}
+          hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
@@ -57,6 +77,7 @@ export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
           text="Радар"
           classNameContainer={classes.imageContainer}
           classNameText={classes.typeName}
+          hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
@@ -65,6 +86,7 @@ export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
           text="Пирог"
           classNameContainer={classes.imageContainer}
           classNameText={classes.typeName}
+          hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
@@ -73,6 +95,7 @@ export const GalleryPage: FC<PropsType> = ({ isMainPage }): ReactElement => {
           text="Пончик"
           classNameContainer={classes.imageContainer}
           classNameText={classes.typeName}
+          hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
       </div>
     </div>

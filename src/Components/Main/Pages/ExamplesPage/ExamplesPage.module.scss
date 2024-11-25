@@ -7,7 +7,7 @@
 
     .chartSelectionMenu {
       @include flex(column, flex-start, null);
-      @include respond($tabletMax) {
+      @include respond($tablet-max) {
         @include flex(row, center, center);
         flex-wrap: wrap;
       }
@@ -16,8 +16,16 @@
 }
 
 .mainPageExamples {
-  margin: 0 auto $indentMin;
-  @include respond($mobile) {
-    width: 100%;
+  width: 100%;
+  margin: 0 0 $indent-max 0;
+  @include respond($tablet-min) {
+    margin: 0 0 $indent-min 0;
   }
+  @include respond($mobile) {
+    margin: 0 0 $indent-input-button 0;
+  }
+}
+
+.infoPageExamples {
+  width: 100%;
 }

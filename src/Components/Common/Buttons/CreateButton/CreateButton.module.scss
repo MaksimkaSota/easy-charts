@@ -2,10 +2,10 @@
   @extend %button;
   @include position(250px, 0 auto);
   @include flex(null, center, center);
-  gap: $indentMin;
-  padding: $indentMin;
+  gap: $indent-min;
+  padding: $indent-min;
   border-radius: 25px;
-  font-size: 1.3rem;
+  font-size: $inter-18;
   font-weight: 700;
 
   &::after {

@@ -9,11 +9,11 @@
     flex-grow: 1;
 
     .imageContainer {
-      @include selectionContainer(170px, $indentMin, 50px, 1.2rem, 1.3rem);
+      @include selectionContainer(170px, $indent-min, 50px, $inter-18, $inter-20);
       @include flex(null, null, center);
 
       &:not(:last-child) {
-        margin: 0 0 $indentMax 0;
+        margin: 0 0 $indent-max 0;
       }
 
       .typeName {
@@ -36,20 +36,20 @@
 
         .typeName {
           color: $green;
-          font-size: 1.2rem;
+          font-size: $inter-18;
         }
       }
     }
   }
 
-  @include respond($tabletMax) {
-    margin: 0 0 $indentMin 0;
+  @include respond($tablet-max) {
+    margin: 0 0 $indent-min 0;
     .chartsTypeContainer {
       .imageContainer {
-        @include position(250px, $indentMin);
+        @include position(250px, $indent-min);
 
         &:not(:last-child) {
-          margin: $indentMin;
+          margin: $indent-min;
         }
 
         img {
@@ -57,18 +57,24 @@
         }
 
         .typeName {
-          font-size: 1.4rem;
+          font-size: $inter-24;
         }
 
         &:hover {
           .typeName {
-            font-size: 1.6rem;
+            font-size: $inter-26;
           }
+        }
+      }
+
+      .activeContainer:hover {
+        .typeName {
+          font-size: $inter-24;
         }
       }
     }
   }
-  @include respond($tabletMin) {
+  @include respond($tablet-min) {
     .chartsTypeContainer {
       .imageContainer {
         width: 300px;
@@ -76,35 +82,25 @@
         img {
           width: 50px;
         }
-
-        .typeName {
-          font-size: 1.6rem;
-        }
-
-        &:hover {
-          .typeName {
-            font-size: 1.8rem;
-          }
-        }
       }
     }
   }
   @include respond($mobile) {
-    margin: 0 0 $indentMin 0;
+    margin: 0 0 $indent-min 0;
     .chartsTypeContainer {
       .imageContainer {
-        @include position(100%, $indentInputAndButton);
+        @include position(100%, $indent-input-button);
 
         &:not(:last-child) {
-          margin: $indentInputAndButton;
+          margin: $indent-input-button;
         }
 
         &:first-child {
-          margin: 0 $indentInputAndButton $indentInputAndButton;
+          margin: 0 $indent-input-button $indent-input-button;
         }
 
         &:last-child {
-          margin: $indentInputAndButton $indentInputAndButton 0;
+          margin: $indent-input-button $indent-input-button 0;
         }
 
         img {

@@ -6,7 +6,7 @@ export const exampleThirdInitialValue: IChart = {
     labels: [{ value: '2017' }, { value: '2018' }, { value: '2019' }, { value: '2020' }, { value: '2021' }],
     datasets: [
       {
-        label: '',
+        label: 'Показатель',
         data: [{ value: 4.6 }, { value: 5.6 }, { value: 4.7 }, { value: 7.4 }, { value: 9.97 }],
       },
     ],
@@ -14,7 +14,7 @@ export const exampleThirdInitialValue: IChart = {
   options: {
     title: {
       display: true,
-      text: 'Показатели инфляции в Беларуси, %',
+      text: 'Инфляция в Беларуси, %',
     },
   },
 };

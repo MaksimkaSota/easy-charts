@@ -12,6 +12,6 @@
   }
 
   .inputData {
-    @include input($input-background, $indentInputAndButton);
+    @include input($input-background, $indent-input-button);
   }
 }

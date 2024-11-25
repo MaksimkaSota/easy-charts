@@ -1,0 +1,62 @@
+.infoPage {
+  @include position(95%, 0 auto);
+
+  .infoPageHeader {
+    text-align: center;
+    padding: $indent-max;
+    margin: 0 0 $indent-max 0;
+
+    .imageContainer {
+      @include position(10%, 0 auto);
+      position: relative;
+
+      .infoImage {
+        width: 50%;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+      }
+
+      .doughnutImage {
+        width: 100%;
+      }
+    }
+
+    .pageTitle {
+      @extend %title-pages;
+    }
+
+    .text {
+      font-size: $inter-18;
+
+      .link {
+        display: inline;
+        color: $green;
+        border-bottom: 1px solid $green;
+
+        &:hover {
+          color: $blue;
+          border-bottom: 1px solid $blue;
+        }
+      }
+    }
+
+    @include respond($tablet-max) {
+      padding: $indent-min;
+      margin: 0 0 $indent-min 0;
+    }
+    @include respond($tablet-min) {
+      padding: $indent-input-button;
+      .imageContainer {
+        width: 15%;
+      }
+    }
+    @include respond($mobile) {
+      padding: 0;
+      margin: 0 0 $indent-input-button 0;
+      .imageContainer {
+        width: 20%;
+      }
+    }
+  }
+}

@@ -8,5 +8,9 @@ export const requestString: ObjectType = {
     geocoding: 'geo/1.0/reverse',
   },
   nbrb: 'https://www.nbrb.by/api/exrates/rates',
-  mail: 'mailto:MaksimkaSota@gmail.com',
+  contacts: {
+    mail: 'mailto:MaksimkaSota@gmail.com',
+    github: 'https://github.com/MaksimkaSota',
+    linkedin: 'https://linkedin.com/in/maksimkasota',
+  },
 };

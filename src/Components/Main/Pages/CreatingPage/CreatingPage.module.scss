@@ -7,7 +7,7 @@
 
     .chartSelectionMenu {
       @include flex(column, center, null);
-      @include respond($tabletMax) {
+      @include respond($tablet-max) {
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
@@ -27,20 +27,20 @@
         flex-grow: 1;
 
         .settingsFormContainer {
-          padding: $indentMin $indentMin $indentMin $indentMax;
-          border-radius: $radiusMax;
+          padding: $indent-min $indent-min $indent-min $indent-max;
+          border-radius: $radius-max;
           box-shadow: 0 0 10px 0;
 
           .settingsFormTitle {
-            font-size: 1rem;
-            padding: 0 0 $indentInputAndButton 0;
-            margin: 0 0 $indentInputAndButton 0;
+            font-size: $inter-14;
+            padding: 0 0 $indent-input-button 0;
+            margin: 0 0 $indent-input-button 0;
             border-bottom: 1px solid;
           }
         }
 
         .basicFormContainer {
-          margin: 0 0 $indentMax 0;
+          margin: 0 0 $indent-max 0;
           overflow: auto;
         }
 
@@ -50,25 +50,25 @@
       }
 
       @include respond($laptop) {
-        margin: $indentMax 0 0 0;
+        margin: $indent-max 0 0 0;
         .wrapper {
           flex-direction: row;
           align-items: flex-start;
           flex-wrap: wrap;
 
           .basicFormContainer {
-            margin: 0 0 $indentMax $indentMax;
+            margin: 0 0 $indent-max $indent-max;
           }
 
           .additionalFormContainer {
-            margin: 0 0 0 $indentMax;
+            margin: 0 0 0 $indent-max;
           }
         }
       }
-      @include respond($tabletMin) {
+      @include respond($tablet-min) {
         .wrapper {
           .basicFormContainer {
-            margin: 0 0 $indentMax 0;
+            margin: 0 0 $indent-max 0;
           }
 
           .additionalFormContainer {
@@ -77,10 +77,10 @@
         }
       }
       @include respond($mobile) {
-        margin: $indentMin 0 0 0;
+        margin: $indent-min 0 0 0;
         .wrapper {
           .basicFormContainer {
-            margin: 0 0 $indentMin 0;
+            margin: 0 0 $indent-min 0;
           }
 
           .additionalFormContainer {
