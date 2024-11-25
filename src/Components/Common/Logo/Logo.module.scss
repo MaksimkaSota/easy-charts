@@ -3,7 +3,7 @@
 
   .logoText {
     @include flex(null, null, null);
-    font-size: $extra-large-fz;
+    font-size: $inter-32;
     margin: 0 $indentMin 0 0;
 
     .letter {

@@ -28,7 +28,7 @@
   color: $title-text;
   background: $b;
   border-radius: $radiusMin;
-  font-size: $small-fz;
+  font-size: $inter-14;
   @include respond($tabletMin) {
     width: 150px;
   }
@@ -73,7 +73,7 @@
 %title-pages {
   color: $title-text;
   margin: 0 0 $indentMin 0;
-  font-size: $extra-large-fz;
+  font-size: $inter-30;
   font-weight: 400;
   @include respond($mobile) {
     text-align: center;
@@ -84,7 +84,7 @@
 %mini-title {
   color: $title-text;
   margin: 0 0 $indentMin 0;
-  font-size: $large-fz;
+  font-size: $inter-24;
   font-weight: 400;
   text-align: center;
   @include respond($mobile) {
@@ -99,7 +99,7 @@
   background: $green;
   border-radius: $radiusMax;
   font-family: inherit;
-  font-size: $small-fz;
+  font-size: $inter-14;
   text-align: center;
   transition: all 0.25s linear;
   &:hover {
@@ -113,7 +113,7 @@
 
 %closeButton {
   background: none;
-  font-size: $tablet-min-fz;
+  font-size: 12px;
   position: absolute;
   top: 5px;
   transition: all 0.25s linear;
@@ -123,7 +123,7 @@
   &:hover {
     cursor: pointer;
     color: $blue;
-    font-size: $laptop-fz;
+    font-size: 14px;
     font-weight: 700;
   }
 }

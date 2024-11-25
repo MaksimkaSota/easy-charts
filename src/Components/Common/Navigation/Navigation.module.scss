@@ -2,7 +2,7 @@
   @include flex(null, null, center);
 
   .link {
-    font-size: $medium-fz;
+    font-size: $inter-18;
     cursor: pointer;
     transition: all 0.25s linear;
 
@@ -12,14 +12,14 @@
 
     &:hover {
       color: $blue;
-      font-size: calc($medium-fz + $coefficient-fz);
+      font-size: $inter-20;
       text-decoration: underline;
     }
   }
 
   .activeLink {
     color: $green;
-    font-size: calc($medium-fz + $coefficient-fz);
+    font-size: $inter-20;
     cursor: default;
 
     &:hover {

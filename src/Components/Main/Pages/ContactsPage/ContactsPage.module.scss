@@ -11,14 +11,14 @@
   }
 
   .textContent {
-    font-size: $medium-fz;
+    font-size: $inter-18;
     margin: 0 0 $indentMin 0;
   }
 
   .link {
     @include position(max-content, 0 auto);
     color: $green;
-    font-size: $large-fz;
+    font-size: $inter-24;
     text-decoration: underline;
     transition: all 0.25s linear;
 
@@ -29,7 +29,7 @@
     &:hover {
       cursor: pointer;
       color: $blue;
-      font-size: calc($large-fz + $coefficient-fz);
+      font-size: $inter-26;
     }
   }
 

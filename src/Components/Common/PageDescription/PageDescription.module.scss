@@ -6,7 +6,7 @@
   }
 
   .textContent {
-    font-size: $medium-fz;
+    font-size: $inter-18;
   }
 
   @include respond($mobile) {

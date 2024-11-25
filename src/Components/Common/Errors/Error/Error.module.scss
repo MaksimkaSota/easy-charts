@@ -3,12 +3,12 @@
   @include flex(column, null, center);
 
   .errorTitle {
-    font-size: $large-fz;
+    font-size: $inter-24;
     color: $red;
   }
 
   .errorText {
-    font-size: $medium-fz;
+    font-size: $inter-18;
     color: $red;
   }
 

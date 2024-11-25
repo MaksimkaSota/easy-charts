@@ -5,7 +5,7 @@
     @include flex(null, space-between, null);
 
     .imageContainer {
-      @include selectionContainer(15%, $indentMax, 100%, $large-fz, $large-fz);
+      @include selectionContainer(15%, $indentMax, 100%, $inter-24, $inter-24);
     }
 
     @include respond($tabletMax) {
@@ -20,7 +20,7 @@
         width: 40%;
 
         .typeName {
-          font-size: $extra-large-fz;
+          font-size: $inter-30;
         }
       }
     }

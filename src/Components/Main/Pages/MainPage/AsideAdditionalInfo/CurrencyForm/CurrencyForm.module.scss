@@ -6,7 +6,7 @@
   .hintText {
     text-align: center;
     margin: 0 0 $indentMin 0;
-    font-size: $small-fz;
+    font-size: $inter-14;
   }
 
   .textError {
@@ -21,7 +21,7 @@
 
       .label {
         font-weight: 700;
-        font-size: $small-fz;
+        font-size: $inter-14;
       }
 
       .formField {
@@ -40,7 +40,7 @@
     }
 
     .description {
-      font-size: $extra-small-fz;
+      font-size: $inter-10;
       text-align: right;
     }
   }
