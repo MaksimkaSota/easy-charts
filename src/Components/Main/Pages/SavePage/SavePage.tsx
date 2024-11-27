@@ -47,7 +47,7 @@ export const SavePage: FC<PropsType> = ({
           mainAddressError={mainAddressError}
           text="Сохранить график"
         >
-          <a className={classes.interactionButton} href={urlAddress} download="EasyChart.png">
+          <a className={classes.interactionButton} href={mainAddress} download="EasyChart.png">
             Сохранить график
           </a>
         </DisabledInteractionButton>
