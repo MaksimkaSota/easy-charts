@@ -1,40 +1,42 @@
 import { type ReactElement, useEffect, memo } from 'react';
 import classes from './AddColumnForm.module.scss';
-import type { SetFieldValueType } from '../../../../../../utils/types/form';
+import type { SetValuesType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { ColumnForm } from '../ColumnForm/ColumnForm';
 import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
-  datasetsFromValues: IDataset[];
-  datasetsFromOptions: IDataset[];
   title: string;
   labels: IData[];
-  setData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
+  datasetsFromValues: IDataset[];
+  datasetsFromOptions: IDataset[];
   setLabelInDatasets: (id: number, value: string) => void;
+  setData: ({ datasetId, dataId, value }: { datasetId: number; dataId: number; value: string }) => void;
   addColumn: () => void;
   removeColumn: (index: number) => void;
-  setFieldValue: SetFieldValueType;
+  setValues: SetValuesType<{
+    title: string;
+    labels: IData[];
+    datasets: IDataset[];
+  }>;
 };
 
 export const AddColumnForm = memo<PropsType>(
   ({
-    datasetsFromValues,
-    datasetsFromOptions,
     title,
     labels,
+    datasetsFromValues,
+    datasetsFromOptions,
     setLabelInDatasets,
     setData,
     addColumn,
     removeColumn,
-    setFieldValue,
+    setValues,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue(FieldName.Datasets, datasetsFromOptions);
-      setFieldValue(FieldName.Title, title);
-      setFieldValue(FieldName.Labels, labels);
+      setValues({ [FieldName.Title]: title, [FieldName.Labels]: labels, [FieldName.Datasets]: datasetsFromOptions });
       // eslint-disable-next-line
-    }, [setFieldValue, datasetsFromOptions]);
+    }, [setValues, datasetsFromOptions]);
 
     return (
       <div className={classes.formContainer}>

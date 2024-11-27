@@ -86,5 +86,7 @@ export enum EventType {
 }
 
 export enum LocalStorageKey {
-  MainState = 'mainOptions',
+  MainOptions = 'mainOptions',
+  MainWidth = 'mainWidth',
+  MainHeight = 'mainHeight',
 }

@@ -6,6 +6,7 @@ import { addressesSelector, mainOptionsSelector } from '../../../../redux/select
 import { CreatingPage } from './CreatingPage';
 import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
 import { isFetchingMainAddressSelector } from '../../../../redux/selectors/loading';
+import { StandardOption } from '../../../../utils/types/enums';
 
 export const CreatingPageContainer: FC = (): ReactElement => {
   const isFetchingMainAddress = useTypedSelector(isFetchingMainAddressSelector);
@@ -30,7 +31,10 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     setMainAddressRequest,
   } = useActions();
 
-  const getDebouncedAddress = useDebouncedCallback(() => getAddress(mainOptions, width, height), 900);
+  const getDebouncedAddress = useDebouncedCallback(
+    () => getAddress(mainOptions, StandardOption.Width, StandardOption.Height),
+    900
+  );
 
   useEffect(() => {
     setMainAddressRequest();

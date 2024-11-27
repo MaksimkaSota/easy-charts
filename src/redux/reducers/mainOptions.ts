@@ -5,10 +5,10 @@ import type { IData, IDataset } from '../../utils/types/api/chart';
 import { LocalStorageKey, StandardOption } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 
-const initialState: MainOptionsState = JSON.parse(localStorage.getItem(LocalStorageKey.MainState)!) || {
-  mainOptions: mainInitialValue,
-  width: StandardOption.Width,
-  height: StandardOption.Height,
+const initialState: MainOptionsState = {
+  mainOptions: JSON.parse(localStorage.getItem(LocalStorageKey.MainOptions)!) || mainInitialValue,
+  width: JSON.parse(localStorage.getItem(LocalStorageKey.MainWidth)!) || StandardOption.Width,
+  height: JSON.parse(localStorage.getItem(LocalStorageKey.MainHeight)!) || StandardOption.Height,
 };
 
 export const mainOptionsReducer = (
@@ -30,7 +30,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -52,7 +52,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -82,7 +82,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -107,7 +107,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -119,7 +119,7 @@ export const mainOptionsReducer = (
           type: action.payload,
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -144,7 +144,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -167,7 +167,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -197,7 +197,7 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
@@ -216,11 +216,14 @@ export const mainOptionsReducer = (
           },
         },
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
     case MainOptionsActionType.SET_NEW_MAIN_OPTIONS_WITH_ID: {
+      localStorage.removeItem(LocalStorageKey.MainWidth);
+      localStorage.removeItem(LocalStorageKey.MainHeight);
+
       const labelsWithId = addUniqueIdInObjects(action.payload.data.labels);
       const datasetsWithDataWithId = action.payload.data.datasets.map((dataset: IDataset): IDataset => {
         return {
@@ -242,26 +245,24 @@ export const mainOptionsReducer = (
         ...state,
         mainOptions: newMainOptionsWithId,
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
+      localStorage.setItem(LocalStorageKey.MainOptions, JSON.stringify(newState.mainOptions));
       return newState;
     }
 
     case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH: {
-      const newState = {
+      localStorage.setItem(LocalStorageKey.MainWidth, JSON.stringify(action.payload));
+      return {
         ...state,
         width: action.payload,
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
-      return newState;
     }
 
     case MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT: {
-      const newState = {
+      localStorage.setItem(LocalStorageKey.MainHeight, JSON.stringify(action.payload));
+      return {
         ...state,
         height: action.payload,
       };
-      localStorage.setItem(LocalStorageKey.MainState, JSON.stringify(newState));
-      return newState;
     }
 
     default:

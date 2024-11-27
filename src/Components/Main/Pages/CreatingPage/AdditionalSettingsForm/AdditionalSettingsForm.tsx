@@ -30,16 +30,18 @@ export const AdditionalSettingsForm = memo<PropsType>(
   ({ width, height, setWidth, setHeight, setMainOptionsWithId, setExamplesType }): ReactElement => {
     return (
       <Formik initialValues={{ width, height }} validationSchema={validationSchema} onSubmit={() => {}}>
-        {({ isValid, errors, handleChange, setTouched }): ReactElement => (
+        {({ isValid, errors, setTouched, setValues }): ReactElement => (
           <ViewAndSaveForm
+            width={width}
+            height={height}
             setWidth={setWidth}
             setHeight={setHeight}
-            isValid={isValid}
-            errors={errors}
-            handleChange={handleChange}
-            setTouched={setTouched}
             setMainOptionsWithId={setMainOptionsWithId}
             setExamplesType={setExamplesType}
+            isValid={isValid}
+            errors={errors}
+            setValues={setValues}
+            setTouched={setTouched}
           />
         )}
       </Formik>

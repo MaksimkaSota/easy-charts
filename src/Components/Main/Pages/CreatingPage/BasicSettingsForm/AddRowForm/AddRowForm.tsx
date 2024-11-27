@@ -2,44 +2,46 @@ import { type ChangeEvent, type ReactElement, useEffect, memo } from 'react';
 import classes from './AddRowForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
-import type { FormikErrorsType, HandleChangeType, SetFieldValueType } from '../../../../../../utils/types/form';
+import type { FormikErrorsType, HandleChangeType, SetValuesType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
+  title: string;
   labelsFromValues: IData[];
   labelsFromOptions: IData[];
-  title: string;
   datasets: IDataset[];
-  setLabels: (id: number, value: string) => void;
   setTitle: (type: string) => void;
+  setLabels: (id: number, value: string) => void;
   addRow: () => void;
   removeRow: (index: number) => void;
   errors: FormikErrorsType;
   handleChange: HandleChangeType;
-  setFieldValue: SetFieldValueType;
+  setValues: SetValuesType<{
+    title: string;
+    labels: IData[];
+    datasets: IDataset[];
+  }>;
 };
 
 export const AddRowForm = memo<PropsType>(
   ({
+    title,
     labelsFromValues,
     labelsFromOptions,
-    title,
     datasets,
-    setLabels,
     setTitle,
+    setLabels,
     addRow,
     removeRow,
     errors,
     handleChange,
-    setFieldValue,
+    setValues,
   }): ReactElement => {
     useEffect(() => {
-      setFieldValue(FieldName.Labels, labelsFromOptions);
-      setFieldValue(FieldName.Title, title);
-      setFieldValue(FieldName.Datasets, datasets);
+      setValues({ [FieldName.Title]: title, [FieldName.Labels]: labelsFromOptions, [FieldName.Datasets]: datasets });
       // eslint-disable-next-line
-    }, [setFieldValue, labelsFromOptions]);
+    }, [setValues, labelsFromOptions]);
 
     const onTitleChange = (event: ChangeEvent<HTMLInputElement>): void => {
       handleChange(event);
