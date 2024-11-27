@@ -21,11 +21,11 @@ export const getCurrency = (coin: string, name: string): ThunkType<CurrencyActio
       dispatch(setCurrencyRequest());
 
       const [americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin]: number[] = await Promise.all([
-        await getCurrencyAPI(CurrencyId.usdId),
-        await getCurrencyAPI(CurrencyId.eurId),
-        await getCurrencyAPI(CurrencyId.rubId),
-        await getCurrencyAPI(CurrencyId.uahId),
-        await getCurrencyAPI(CurrencyId.plnId),
+        await getCurrencyAPI(CurrencyId.UsdId),
+        await getCurrencyAPI(CurrencyId.EurId),
+        await getCurrencyAPI(CurrencyId.RubId),
+        await getCurrencyAPI(CurrencyId.UahId),
+        await getCurrencyAPI(CurrencyId.PlnId),
       ]);
       const currenciesObject: ObjectType<number> = { americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin };
 

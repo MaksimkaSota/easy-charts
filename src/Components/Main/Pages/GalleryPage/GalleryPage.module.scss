@@ -6,6 +6,10 @@
 
     .imageContainer {
       @include selectionContainer(15%, $indent-max, 100%, $inter-24, $inter-24);
+
+      .typeName {
+        margin: $indent-min 0 0 0;
+      }
     }
 
     @include respond($tablet-max) {

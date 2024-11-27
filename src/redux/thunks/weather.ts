@@ -35,10 +35,10 @@ export const getWeather = (city: string): ThunkType<WeatherAction> => {
       if (isAxiosError(error)) {
         if (error.response) {
           switch (error.response.status) {
-            case StatusCode.Response_bad_request:
+            case StatusCode.ResponseBadRequest:
               dispatch(setWeatherDataFailure('Введите название', error.response.status));
               break;
-            case StatusCode.Response_not_found:
+            case StatusCode.ResponseNotFound:
               dispatch(setWeatherDataFailure('Неверное название', error.response.status));
               break;
             default:
