@@ -84,3 +84,7 @@ export enum EventType {
   Scroll = 'scroll',
   Unhandledrejection = 'unhandledrejection',
 }
+
+export enum LocalStorageKey {
+  MainState = 'mainOptions',
+}

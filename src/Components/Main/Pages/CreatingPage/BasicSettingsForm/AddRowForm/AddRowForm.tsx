@@ -9,6 +9,7 @@ import { FieldName } from '../../../../../../utils/types/enums';
 type PropsType = {
   labelsFromValues: IData[];
   labelsFromOptions: IData[];
+  title: string;
   datasets: IDataset[];
   setLabels: (id: number, value: string) => void;
   setTitle: (type: string) => void;
@@ -23,6 +24,7 @@ export const AddRowForm = memo<PropsType>(
   ({
     labelsFromValues,
     labelsFromOptions,
+    title,
     datasets,
     setLabels,
     setTitle,
@@ -34,6 +36,7 @@ export const AddRowForm = memo<PropsType>(
   }): ReactElement => {
     useEffect(() => {
       setFieldValue(FieldName.Labels, labelsFromOptions);
+      setFieldValue(FieldName.Title, title);
       setFieldValue(FieldName.Datasets, datasets);
       // eslint-disable-next-line
     }, [setFieldValue, labelsFromOptions]);

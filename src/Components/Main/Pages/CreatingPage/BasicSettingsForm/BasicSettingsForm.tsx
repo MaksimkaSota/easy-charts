@@ -47,6 +47,7 @@ export const BasicSettingsForm = memo<PropsType>(
             <AddRowForm
               labelsFromValues={values.labels}
               labelsFromOptions={options.data.labels}
+              title={options.options.title.text}
               datasets={options.data.datasets}
               setLabels={setLabels}
               setTitle={setTitle}
@@ -59,6 +60,7 @@ export const BasicSettingsForm = memo<PropsType>(
             <AddColumnForm
               datasetsFromValues={values.datasets}
               datasetsFromOptions={options.data.datasets}
+              title={options.options.title.text}
               labels={options.data.labels}
               setData={setData}
               setLabelInDatasets={setLabelInDatasets}
