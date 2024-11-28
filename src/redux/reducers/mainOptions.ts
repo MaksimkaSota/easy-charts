@@ -1,15 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
-import type { IData, IDataset } from '../../utils/types/api/chart';
+import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
 import { LocalStorageKey, StandardOption } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: MainOptionsState = {
-  mainOptions: getLocalItem(LocalStorageKey.MainOptions) || mainInitialValue,
-  width: getLocalItem(LocalStorageKey.MainWidth) || StandardOption.Width,
-  height: getLocalItem(LocalStorageKey.MainHeight) || StandardOption.Height,
+  mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValue,
+  width: getLocalItem<string>(LocalStorageKey.MainWidth) || StandardOption.Width,
+  height: getLocalItem<string>(LocalStorageKey.MainHeight) || StandardOption.Height,
 };
 
 export const mainOptionsReducer = (

@@ -3,7 +3,7 @@ import { LocalStorageKey } from '../../utils/types/enums';
 import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: WeatherState = {
-  city: getLocalItem(LocalStorageKey.City) || '',
+  city: getLocalItem<string>(LocalStorageKey.City) || '',
   location: 'Местоположение',
   weather: null,
 };

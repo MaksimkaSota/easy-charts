@@ -8,11 +8,12 @@ import { exampleSecondInitialValue } from '../../utils/initialValues/exampleSeco
 import { exampleThirdInitialValue } from '../../utils/initialValues/exampleThirdInitialValue';
 import { LocalStorageKey } from '../../utils/types/enums';
 import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
+import type { IChart } from '../../utils/types/api/chart';
 
 const initialState: ExamplesOptionsState = {
-  exampleFirstOptions: getLocalItem(LocalStorageKey.ExampleFirstOptions) || exampleFirstInitialValue,
-  exampleSecondOptions: getLocalItem(LocalStorageKey.ExampleSecondOptions) || exampleSecondInitialValue,
-  exampleThirdOptions: getLocalItem(LocalStorageKey.ExampleThirdOptions) || exampleThirdInitialValue,
+  exampleFirstOptions: getLocalItem<IChart>(LocalStorageKey.ExampleFirstOptions) || exampleFirstInitialValue,
+  exampleSecondOptions: getLocalItem<IChart>(LocalStorageKey.ExampleSecondOptions) || exampleSecondInitialValue,
+  exampleThirdOptions: getLocalItem<IChart>(LocalStorageKey.ExampleThirdOptions) || exampleThirdInitialValue,
 };
 
 export const examplesOptionsReducer = (

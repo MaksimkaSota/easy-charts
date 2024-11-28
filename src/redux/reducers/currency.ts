@@ -4,7 +4,7 @@ import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/lo
 
 const initialState: CurrencyState = {
   belarusCoin: '',
-  americaCoin: getLocalItem(LocalStorageKey.AmericaCoin) || '1',
+  americaCoin: getLocalItem<string>(LocalStorageKey.AmericaCoin) || '1',
   europeCoin: '',
   russiaCoin: '',
   ukraineCoin: '',
