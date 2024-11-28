@@ -14,12 +14,13 @@ import {
   setCurrencyOnUkraineCoin,
   setCurrencyOnPolandCoin,
 } from '../actions/currency';
+import { setLocalItem } from '../../services/browserDataStorage/localStorage';
 
 export const getCurrency = (coin: string, name: string): ThunkType<CurrencyAction> => {
   return async (dispatch) => {
     try {
       if (name === FieldName.AmericaCoin) {
-        localStorage.setItem(LocalStorageKey.AmericaCoin, JSON.stringify(coin));
+        setLocalItem(LocalStorageKey.AmericaCoin, coin);
       }
 
       dispatch(setCurrencyRequest());

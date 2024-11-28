@@ -1,8 +1,9 @@
 import { type WeatherState, type WeatherAction, WeatherActionType } from '../types/weather';
 import { LocalStorageKey } from '../../utils/types/enums';
+import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: WeatherState = {
-  city: JSON.parse(localStorage.getItem(LocalStorageKey.City)!) || '',
+  city: getLocalItem(LocalStorageKey.City) || '',
   location: 'Местоположение',
   weather: null,
 };
@@ -10,7 +11,7 @@ const initialState: WeatherState = {
 export const weatherReducer = (state: WeatherState = initialState, action: WeatherAction): WeatherState => {
   switch (action.type) {
     case WeatherActionType.SET_WEATHER_CITY: {
-      localStorage.setItem(LocalStorageKey.City, JSON.stringify(action.payload));
+      setLocalItem(LocalStorageKey.City, action.payload);
       return {
         ...state,
         city: action.payload,

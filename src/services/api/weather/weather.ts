@@ -1,5 +1,5 @@
 import { http } from './http';
-import { requestString } from '../../endpoints';
+import { requestString } from '../endpoints';
 import type { IGeocoding, IWeather } from '../../../utils/types/api/weather';
 
 export const getDegeocodingCityAPI = async (latitude: number, longitude: number): Promise<string> => {

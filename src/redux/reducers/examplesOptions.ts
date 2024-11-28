@@ -7,14 +7,12 @@ import { exampleFirstInitialValue } from '../../utils/initialValues/exampleFirst
 import { exampleSecondInitialValue } from '../../utils/initialValues/exampleSecondInitialValue';
 import { exampleThirdInitialValue } from '../../utils/initialValues/exampleThirdInitialValue';
 import { LocalStorageKey } from '../../utils/types/enums';
+import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: ExamplesOptionsState = {
-  exampleFirstOptions:
-    JSON.parse(localStorage.getItem(LocalStorageKey.ExampleFirstOptions)!) || exampleFirstInitialValue,
-  exampleSecondOptions:
-    JSON.parse(localStorage.getItem(LocalStorageKey.ExampleSecondOptions)!) || exampleSecondInitialValue,
-  exampleThirdOptions:
-    JSON.parse(localStorage.getItem(LocalStorageKey.ExampleThirdOptions)!) || exampleThirdInitialValue,
+  exampleFirstOptions: getLocalItem(LocalStorageKey.ExampleFirstOptions) || exampleFirstInitialValue,
+  exampleSecondOptions: getLocalItem(LocalStorageKey.ExampleSecondOptions) || exampleSecondInitialValue,
+  exampleThirdOptions: getLocalItem(LocalStorageKey.ExampleThirdOptions) || exampleThirdInitialValue,
 };
 
 export const examplesOptionsReducer = (
@@ -38,9 +36,9 @@ export const examplesOptionsReducer = (
           type: action.payload,
         },
       };
-      localStorage.setItem(LocalStorageKey.ExampleFirstOptions, JSON.stringify(newState.exampleFirstOptions));
-      localStorage.setItem(LocalStorageKey.ExampleSecondOptions, JSON.stringify(newState.exampleSecondOptions));
-      localStorage.setItem(LocalStorageKey.ExampleThirdOptions, JSON.stringify(newState.exampleThirdOptions));
+      setLocalItem(LocalStorageKey.ExampleFirstOptions, newState.exampleFirstOptions);
+      setLocalItem(LocalStorageKey.ExampleSecondOptions, newState.exampleSecondOptions);
+      setLocalItem(LocalStorageKey.ExampleThirdOptions, newState.exampleThirdOptions);
       return newState;
     }
 
