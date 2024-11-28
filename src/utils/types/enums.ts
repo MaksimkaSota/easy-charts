@@ -93,4 +93,5 @@ export enum LocalStorageKey {
   ExampleSecondOptions = 'exampleSecondOptions',
   ExampleThirdOptions = 'exampleThirdOptions',
   City = 'city',
+  AmericaCoin = 'americaCoin',
 }

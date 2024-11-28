@@ -1,7 +1,7 @@
 import { isAxiosError } from 'axios';
 import type { ThunkType, ObjectType } from '../../utils/types/common';
 import type { CurrencyAction } from '../types/currency';
-import { CurrencyId, FieldName } from '../../utils/types/enums';
+import { CurrencyId, FieldName, LocalStorageKey } from '../../utils/types/enums';
 import { getCurrencyAPI } from '../../services/api/currency/currency';
 import {
   setCurrencyRequest,
@@ -18,6 +18,10 @@ import {
 export const getCurrency = (coin: string, name: string): ThunkType<CurrencyAction> => {
   return async (dispatch) => {
     try {
+      if (name === FieldName.AmericaCoin) {
+        localStorage.setItem(LocalStorageKey.AmericaCoin, JSON.stringify(coin));
+      }
+
       dispatch(setCurrencyRequest());
 
       const [americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin]: number[] = await Promise.all([
