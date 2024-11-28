@@ -4,11 +4,12 @@ import type { WeatherAction } from '../types/weather';
 import type { IWeather } from '../../utils/types/api/weather';
 import { getDegeocodingCityAPI, getWeatherAPI } from '../../services/api/weather/weather';
 import { setCity, setLocation, setWeatherDataSuccess, setWeatherDataFailure } from '../actions/weather';
-import { StatusCode } from '../../utils/types/enums';
+import { StatusCode, LocalStorageKey } from '../../utils/types/enums';
 
 export const setCityWithLocation = (city: string, location: string): ThunkType<WeatherAction> => {
   return async (dispatch) => {
-    dispatch(setCity(city));
+    const newCity = JSON.parse(localStorage.getItem(LocalStorageKey.City)!) || city;
+    dispatch(setCity(newCity));
     dispatch(setLocation(location));
   };
 };
@@ -17,6 +18,7 @@ export const getDegeocodingCity = (latitude: number, longitude: number): ThunkTy
   return async (dispatch) => {
     try {
       const city: string = await getDegeocodingCityAPI(latitude, longitude);
+      localStorage.removeItem(LocalStorageKey.City);
       dispatch(setCityWithLocation(city, 'Текущее местоположение'));
     } catch (error: unknown) {
       if (isAxiosError(error)) {

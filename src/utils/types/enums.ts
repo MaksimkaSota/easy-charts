@@ -90,6 +90,7 @@ export enum LocalStorageKey {
   MainWidth = 'mainWidth',
   MainHeight = 'mainHeight',
   ExampleFirstOptions = 'exampleFirstOptions',
-  ExampleSecondOptions = 'ExampleSecondOptions',
-  ExampleThirdOptions = 'ExampleThirdOptions',
+  ExampleSecondOptions = 'exampleSecondOptions',
+  ExampleThirdOptions = 'exampleThirdOptions',
+  City = 'city',
 }
