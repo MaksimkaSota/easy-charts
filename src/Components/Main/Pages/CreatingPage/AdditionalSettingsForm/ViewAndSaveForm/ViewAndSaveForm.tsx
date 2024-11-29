@@ -4,49 +4,57 @@ import { NavLink } from 'react-router-dom';
 import classes from './ViewAndSaveForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
-import type { FormikErrorsType, HandleChangeType, SetTouchedType } from '../../../../../../utils/types/form';
-import { ChartType, FieldName, RoutePath } from '../../../../../../utils/types/enums';
+import type { FormikErrorsType, SetTouchedType, SetValuesType } from '../../../../../../utils/types/form';
+import { ChartType, FieldName, RoutePath, StandardOption } from '../../../../../../utils/types/enums';
 import type { IChart } from '../../../../../../utils/types/api/chart';
 import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
 
 type PropsType = {
+  width: number | string;
+  height: number | string;
   setWidth: (width: number | string) => void;
   setHeight: (height: number | string) => void;
-  isValid: boolean;
-  errors: FormikErrorsType;
-  handleChange: HandleChangeType;
-  setTouched: SetTouchedType;
   setMainOptionsWithId: (mainOptions: IChart) => void;
   setExamplesType: (type: string) => void;
+  isValid: boolean;
+  errors: FormikErrorsType;
+  setTouched: SetTouchedType;
+  setValues: SetValuesType<{ width: number | string; height: number | string }>;
 };
 
 export const ViewAndSaveForm: FC<PropsType> = ({
+  width,
+  height,
   setWidth,
   setHeight,
-  isValid,
-  errors,
-  handleChange,
-  setTouched,
   setMainOptionsWithId,
   setExamplesType,
+  isValid,
+  errors,
+  setTouched,
+  setValues,
 }): ReactElement => {
   useEffect(() => {
-    setTouched({ width: true, height: true });
+    setTouched({ [FieldName.Width]: true, [FieldName.Height]: true });
   }, [setTouched]);
 
+  useEffect(() => {
+    setValues({ [FieldName.Width]: width, [FieldName.Height]: height });
+  }, [setValues, height, width]);
+
   const onWidthChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    handleChange(event);
     setWidth(event.target.value);
   };
 
   const onHeightChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    handleChange(event);
     setHeight(event.target.value);
   };
 
   const onResetButtonClick = (): void => {
     setMainOptionsWithId(mainInitialValue);
     setExamplesType(ChartType.Bar);
+    setWidth(StandardOption.Width);
+    setHeight(StandardOption.Height);
   };
 
   return (

@@ -24,10 +24,10 @@ export const WeatherContainer: FC = (): ReactElement => {
         },
         (error: GeolocationPositionError): void => {
           switch (error.code) {
-            case StatusCode.Geolocation_network_error:
+            case StatusCode.GeolocationNetworkError:
               setCityWithLocation('Минск', 'Ошибка получения текущего местоположения');
               break;
-            case StatusCode.Geolocation_timeout_expired:
+            case StatusCode.GeolocationTimeoutExpired:
               setCityWithLocation('Минск', 'Не получено текущее местоположение (долгая попылка)');
               break;
             default:

@@ -1,14 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
-import type { IData, IDataset } from '../../utils/types/api/chart';
-import { StandardOption } from '../../utils/types/enums';
+import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
+import { LocalStorageKey, StandardOption } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
+import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: MainOptionsState = {
-  mainOptions: mainInitialValue,
-  width: StandardOption.Width,
-  height: StandardOption.Height,
+  mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValue,
+  width: getLocalItem<string>(LocalStorageKey.MainWidth) || StandardOption.Width,
+  height: getLocalItem<string>(LocalStorageKey.MainHeight) || StandardOption.Height,
 };
 
 export const mainOptionsReducer = (
@@ -16,8 +17,8 @@ export const mainOptionsReducer = (
   action: MainOptionsAction
 ): MainOptionsState => {
   switch (action.type) {
-    case MainOptionsActionType.SET_MAIN_OPTIONS_TITLE:
-      return {
+    case MainOptionsActionType.SET_MAIN_OPTIONS_TITLE: {
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -30,6 +31,10 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
+    }
+
     case MainOptionsActionType.SET_MAIN_OPTIONS_LABELS: {
       const newLabels = state.mainOptions.data.labels.map((label: IData, labelIndex: number): IData => {
         return {
@@ -37,7 +42,8 @@ export const mainOptionsReducer = (
           id: label.id,
         };
       });
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -47,7 +53,10 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
+
     case MainOptionsActionType.SET_MAIN_OPTIONS_DATA_IN_DATASETS: {
       const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset, datasetIndex: number): IDataset => {
         return action.payload.datasetId === datasetIndex
@@ -63,7 +72,8 @@ export const mainOptionsReducer = (
             }
           : dataset;
       });
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -73,7 +83,10 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
+
     case MainOptionsActionType.SET_MAIN_OPTIONS_LABEL_IN_DATASETS: {
       const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset, datasetIndex: number): IDataset => {
         return action.payload.id === datasetIndex
@@ -84,7 +97,8 @@ export const mainOptionsReducer = (
             }
           : dataset;
       });
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -94,15 +108,22 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
-    case MainOptionsActionType.SET_MAIN_OPTIONS_TYPE:
-      return {
+
+    case MainOptionsActionType.SET_MAIN_OPTIONS_TYPE: {
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
           type: action.payload,
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
+    }
+
     case MainOptionsActionType.ADD_MAIN_OPTIONS_ROW: {
       const rowNumber: number = state.mainOptions.data.labels.length + 1;
       const newDatasets = state.mainOptions.data.datasets.map((dataset: IDataset): IDataset => {
@@ -112,7 +133,8 @@ export const mainOptionsReducer = (
           id: dataset.id,
         };
       });
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -123,7 +145,10 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
+
     case MainOptionsActionType.ADD_MAIN_OPTIONS_COLUMN: {
       const columnNumber: number = state.mainOptions.data.datasets.length + 1;
       const columnIndex: number = state.mainOptions.data.datasets.length - 1;
@@ -132,7 +157,8 @@ export const mainOptionsReducer = (
         data: state.mainOptions.data.datasets[columnIndex].data,
         id: uuidv4(),
       };
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -142,7 +168,10 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
+
     case MainOptionsActionType.REMOVE_MAIN_OPTIONS_ROW: {
       const newLabels = state.mainOptions.data.labels.filter((label, labelIndex: number): boolean => {
         return action.payload !== labelIndex;
@@ -157,7 +186,8 @@ export const mainOptionsReducer = (
           id: dataset.id,
         };
       });
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -168,12 +198,16 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
+
     case MainOptionsActionType.REMOVE_MAIN_OPTIONS_COLUMN: {
       const newDatasets = state.mainOptions.data.datasets.filter((dataset, datasetIndex: number): boolean => {
         return action.payload !== datasetIndex;
       });
-      return {
+
+      const newState = {
         ...state,
         mainOptions: {
           ...state.mainOptions,
@@ -183,8 +217,14 @@ export const mainOptionsReducer = (
           },
         },
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
+
     case MainOptionsActionType.SET_NEW_MAIN_OPTIONS_WITH_ID: {
+      removeLocalItem(LocalStorageKey.MainWidth);
+      removeLocalItem(LocalStorageKey.MainHeight);
+
       const labelsWithId = addUniqueIdInObjects(action.payload.data.labels);
       const datasetsWithDataWithId = action.payload.data.datasets.map((dataset: IDataset): IDataset => {
         return {
@@ -201,21 +241,31 @@ export const mainOptionsReducer = (
           datasets: datasetsWithId,
         },
       };
-      return {
+
+      const newState = {
         ...state,
         mainOptions: newMainOptionsWithId,
       };
+      setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
+      return newState;
     }
-    case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH:
+
+    case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH: {
+      setLocalItem(LocalStorageKey.MainWidth, action.payload);
       return {
         ...state,
         width: action.payload,
       };
-    case MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT:
+    }
+
+    case MainOptionsActionType.SET_MAIN_OPTIONS_HEIGHT: {
+      setLocalItem(LocalStorageKey.MainHeight, action.payload);
       return {
         ...state,
         height: action.payload,
       };
+    }
+
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import type { FC, ReactElement } from 'react';
 import classes from './ContactsPage.module.scss';
 import email from '../../../../assets/images/content/email.png';
-import { requestString } from '../../../../services/endpoints';
+import { requestString } from '../../../../services/api/endpoints';
 
 export const ContactsPage: FC = (): ReactElement => {
   return (

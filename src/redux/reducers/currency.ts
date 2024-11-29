@@ -1,8 +1,10 @@
 import { type CurrencyState, type CurrencyAction, CurrencyActionType } from '../types/currency';
+import { LocalStorageKey } from '../../utils/types/enums';
+import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: CurrencyState = {
   belarusCoin: '',
-  americaCoin: '1',
+  americaCoin: getLocalItem<string>(LocalStorageKey.AmericaCoin) || '1',
   europeCoin: '',
   russiaCoin: '',
   ukraineCoin: '',
@@ -14,7 +16,8 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
     case CurrencyActionType.SET_CURRENCY_ON_BELARUS_COIN: {
       const { coin, currencies } = action.payload;
       const belarusCoin = +coin;
-      return {
+
+      const newState = {
         ...state,
         americaCoin: (belarusCoin / currencies.americaCoin).toFixed(4),
         europeCoin: (belarusCoin / currencies.europeCoin).toFixed(4),
@@ -22,7 +25,10 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
         ukraineCoin: ((belarusCoin / currencies.ukraineCoin) * 100).toFixed(4),
         polandCoin: ((belarusCoin / currencies.polandCoin) * 10).toFixed(4),
       };
+      setLocalItem(LocalStorageKey.AmericaCoin, newState.americaCoin);
+      return newState;
     }
+
     case CurrencyActionType.SET_CURRENCY_ON_AMERICA_COIN: {
       const { coin, currencies } = action.payload;
       const belarusCoin = +coin * currencies.americaCoin;
@@ -35,10 +41,12 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
         polandCoin: ((belarusCoin / currencies.polandCoin) * 10).toFixed(4),
       };
     }
+
     case CurrencyActionType.SET_CURRENCY_ON_EUROPE_COIN: {
       const { coin, currencies } = action.payload;
       const belarusCoin = +coin * currencies.europeCoin;
-      return {
+
+      const newState = {
         ...state,
         belarusCoin: belarusCoin.toFixed(4),
         americaCoin: (belarusCoin / currencies.americaCoin).toFixed(4),
@@ -46,11 +54,15 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
         ukraineCoin: ((belarusCoin / currencies.ukraineCoin) * 100).toFixed(4),
         polandCoin: ((belarusCoin / currencies.polandCoin) * 10).toFixed(4),
       };
+      setLocalItem(LocalStorageKey.AmericaCoin, newState.americaCoin);
+      return newState;
     }
+
     case CurrencyActionType.SET_CURRENCY_ON_RUSSIA_COIN: {
       const { coin, currencies } = action.payload;
       const belarusCoin = (+coin * currencies.russiaCoin) / 100;
-      return {
+
+      const newState = {
         ...state,
         belarusCoin: belarusCoin.toFixed(4),
         americaCoin: (belarusCoin / currencies.americaCoin).toFixed(4),
@@ -58,11 +70,15 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
         ukraineCoin: ((belarusCoin / currencies.ukraineCoin) * 100).toFixed(4),
         polandCoin: ((belarusCoin / currencies.polandCoin) * 10).toFixed(4),
       };
+      setLocalItem(LocalStorageKey.AmericaCoin, newState.americaCoin);
+      return newState;
     }
+
     case CurrencyActionType.SET_CURRENCY_ON_UKRAINE_COIN: {
       const { coin, currencies } = action.payload;
       const belarusCoin = (+coin * currencies.ukraineCoin) / 100;
-      return {
+
+      const newState = {
         ...state,
         belarusCoin: belarusCoin.toFixed(4),
         americaCoin: (belarusCoin / currencies.americaCoin).toFixed(4),
@@ -70,11 +86,15 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
         russiaCoin: ((belarusCoin / currencies.russiaCoin) * 100).toFixed(4),
         polandCoin: ((belarusCoin / currencies.polandCoin) * 10).toFixed(4),
       };
+      setLocalItem(LocalStorageKey.AmericaCoin, newState.americaCoin);
+      return newState;
     }
+
     case CurrencyActionType.SET_CURRENCY_ON_POLAND_COIN: {
       const { coin, currencies } = action.payload;
       const belarusCoin = (+coin * currencies.polandCoin) / 10;
-      return {
+
+      const newState = {
         ...state,
         belarusCoin: belarusCoin.toFixed(4),
         americaCoin: (belarusCoin / currencies.americaCoin).toFixed(4),
@@ -82,7 +102,10 @@ export const currencyReducer = (state: CurrencyState = initialState, action: Cur
         russiaCoin: ((belarusCoin / currencies.russiaCoin) * 100).toFixed(4),
         ukraineCoin: ((belarusCoin / currencies.ukraineCoin) * 100).toFixed(4),
       };
+      setLocalItem(LocalStorageKey.AmericaCoin, newState.americaCoin);
+      return newState;
     }
+
     default:
       return state;
   }

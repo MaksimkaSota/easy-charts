@@ -17,7 +17,7 @@ export enum ChartType {
 }
 
 export enum RoutePath {
-  Not_found = '*',
+  NotFound = '*',
   Main = '/',
   Create = '/create',
   Gallery = '/gallery',
@@ -57,10 +57,10 @@ export enum KeyboardEventCode {
 }
 
 export enum StatusCode {
-  Response_bad_request = 400,
-  Response_not_found = 404,
-  Geolocation_network_error = 2,
-  Geolocation_timeout_expired = 3,
+  ResponseBadRequest = 400,
+  ResponseNotFound = 404,
+  GeolocationNetworkError = 2,
+  GeolocationTimeoutExpired = 3,
 }
 
 export enum AnimationParameter {
@@ -73,14 +73,25 @@ export enum AnimationParameter {
 }
 
 export enum CurrencyId {
-  usdId = 431,
-  eurId = 451,
-  rubId = 456,
-  uahId = 449,
-  plnId = 452,
+  UsdId = 431,
+  EurId = 451,
+  RubId = 456,
+  UahId = 449,
+  PlnId = 452,
 }
 
 export enum EventType {
   Scroll = 'scroll',
   Unhandledrejection = 'unhandledrejection',
+}
+
+export enum LocalStorageKey {
+  MainOptions = 'mainOptions',
+  MainWidth = 'mainWidth',
+  MainHeight = 'mainHeight',
+  ExampleFirstOptions = 'exampleFirstOptions',
+  ExampleSecondOptions = 'exampleSecondOptions',
+  ExampleThirdOptions = 'exampleThirdOptions',
+  City = 'city',
+  AmericaCoin = 'americaCoin',
 }

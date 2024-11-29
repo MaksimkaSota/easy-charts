@@ -1,4 +1,4 @@
-import type { ObjectType } from '../utils/types/common';
+import type { ObjectType } from '../../utils/types/common';
 
 export const requestString: ObjectType = {
   quickchart: 'https://quickchart.io/chart',

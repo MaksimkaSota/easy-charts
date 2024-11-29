@@ -42,29 +42,31 @@ export const BasicSettingsForm = memo<PropsType>(
         validationSchema={validationSchema}
         onSubmit={() => {}}
       >
-        {({ errors, handleChange, values, setFieldValue }): ReactElement => (
+        {({ errors, values, handleChange, setValues }): ReactElement => (
           <Form className={classes.basicSettingsForm}>
             <AddRowForm
+              title={options.options.title.text}
               labelsFromValues={values.labels}
               labelsFromOptions={options.data.labels}
               datasets={options.data.datasets}
-              setLabels={setLabels}
               setTitle={setTitle}
+              setLabels={setLabels}
               addRow={addRow}
               removeRow={removeRow}
               errors={errors}
               handleChange={handleChange}
-              setFieldValue={setFieldValue}
+              setValues={setValues}
             />
             <AddColumnForm
+              title={options.options.title.text}
+              labels={options.data.labels}
               datasetsFromValues={values.datasets}
               datasetsFromOptions={options.data.datasets}
-              labels={options.data.labels}
-              setData={setData}
               setLabelInDatasets={setLabelInDatasets}
+              setData={setData}
               addColumn={addColumn}
               removeColumn={removeColumn}
-              setFieldValue={setFieldValue}
+              setValues={setValues}
             />
           </Form>
         )}

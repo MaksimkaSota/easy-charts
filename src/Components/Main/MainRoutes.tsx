@@ -13,7 +13,7 @@ import { SavePageContainer } from './Pages/SavePage/SavePageContainer';
 export const MainRoutes: FC = (): ReactElement => {
   return (
     <Routes>
-      <Route path={RoutePath.Not_found} element={<NotFoundPage />} />
+      <Route path={RoutePath.NotFound} element={<NotFoundPage />} />
       <Route path={RoutePath.Main} element={<MainPage />} />
       <Route path={RoutePath.Create} element={<CreatingPageContainer />} />
       <Route path={RoutePath.Gallery} element={<GalleryPage />} />

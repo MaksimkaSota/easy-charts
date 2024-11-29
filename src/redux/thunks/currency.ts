@@ -1,7 +1,7 @@
 import { isAxiosError } from 'axios';
 import type { ThunkType, ObjectType } from '../../utils/types/common';
 import type { CurrencyAction } from '../types/currency';
-import { CurrencyId, FieldName } from '../../utils/types/enums';
+import { CurrencyId, FieldName, LocalStorageKey } from '../../utils/types/enums';
 import { getCurrencyAPI } from '../../services/api/currency/currency';
 import {
   setCurrencyRequest,
@@ -14,18 +14,23 @@ import {
   setCurrencyOnUkraineCoin,
   setCurrencyOnPolandCoin,
 } from '../actions/currency';
+import { setLocalItem } from '../../services/browserDataStorage/localStorage';
 
 export const getCurrency = (coin: string, name: string): ThunkType<CurrencyAction> => {
   return async (dispatch) => {
     try {
+      if (name === FieldName.AmericaCoin) {
+        setLocalItem(LocalStorageKey.AmericaCoin, coin);
+      }
+
       dispatch(setCurrencyRequest());
 
       const [americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin]: number[] = await Promise.all([
-        await getCurrencyAPI(CurrencyId.usdId),
-        await getCurrencyAPI(CurrencyId.eurId),
-        await getCurrencyAPI(CurrencyId.rubId),
-        await getCurrencyAPI(CurrencyId.uahId),
-        await getCurrencyAPI(CurrencyId.plnId),
+        await getCurrencyAPI(CurrencyId.UsdId),
+        await getCurrencyAPI(CurrencyId.EurId),
+        await getCurrencyAPI(CurrencyId.RubId),
+        await getCurrencyAPI(CurrencyId.UahId),
+        await getCurrencyAPI(CurrencyId.PlnId),
       ]);
       const currenciesObject: ObjectType<number> = { americaCoin, europeCoin, russiaCoin, ukraineCoin, polandCoin };
 

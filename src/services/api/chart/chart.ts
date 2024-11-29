@@ -1,5 +1,5 @@
 import { http } from './http';
-import { requestString } from '../../endpoints';
+import { requestString } from '../endpoints';
 import type { IChart } from '../../../utils/types/api/chart';
 import { formQueryString } from '../../../utils/helpers/servicesHelpers';
 
