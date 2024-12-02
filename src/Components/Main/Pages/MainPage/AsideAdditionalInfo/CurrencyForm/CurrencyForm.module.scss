@@ -3,6 +3,14 @@
     @extend %mini-title;
   }
 
+  .miniTitle-light {
+    color: $title-text-light;
+  }
+
+  .miniTitle-dark {
+    color: $title-text-dark;
+  }
+
   .hintText {
     text-align: center;
     margin: 0 0 $indent-min 0;
@@ -30,7 +38,7 @@
         .inputData {
           @include input($input-background, 0);
           width: 100%;
-          color: $title-text;
+          color: $title-text-light;
 
           &:disabled {
             color: $content-text;

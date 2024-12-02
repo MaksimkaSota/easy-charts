@@ -4,6 +4,8 @@ import classes from './Weather.module.scss';
 import { FieldName } from '../../../../../../utils/types/enums';
 import type { IWeather } from '../../../../../../utils/types/api/weather';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
   city: string;
@@ -22,6 +24,8 @@ export const Weather: FC<PropsType> = ({
   weather,
   weatherError,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   const temperature = weather && `${Math.round(weather.main.temp)} °C`;
   const state =
     weather && `${weather.weather[0].description.charAt(0).toUpperCase()}${weather.weather[0].description.slice(1)}`;
@@ -34,7 +38,7 @@ export const Weather: FC<PropsType> = ({
 
   return (
     <div className={classes.weather}>
-      <h3 className={classes.miniTitle}>Прогноз погоды</h3>
+      <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>Прогноз погоды</h3>
       <p className={cn(classes.hintText, { [classes.textError]: weatherError })}>
         {weatherError?.message || 'По данным OpenWeather'}
       </p>

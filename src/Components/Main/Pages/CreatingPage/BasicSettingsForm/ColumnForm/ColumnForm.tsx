@@ -5,6 +5,8 @@ import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { FieldName } from '../../../../../../utils/types/enums';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
   dataset: IDataset;
@@ -17,6 +19,8 @@ type PropsType = {
 
 export const ColumnForm = memo<PropsType>(
   ({ dataset, datasetIndex, datasetsLength, setData, setLabelInDatasets, removeColumn }): ReactElement => {
+    const { themeMode } = useTypedSelector(viewSelector);
+
     const { errors, setFieldTouched } = useFormikContext();
 
     useEffect(() => {
@@ -61,7 +65,7 @@ export const ColumnForm = memo<PropsType>(
           (dataItem: IData, dataItemIndex: number): ReactElement => (
             <FormField
               key={dataItem.id}
-              classNameField={classes.inputDataNumbers}
+              classNameField={cn(classes.inputDataNumbers, classes[`inputDataNumbers-${themeMode}`])}
               name={`${FieldName.Datasets}.${datasetIndex}.data.${dataItemIndex}.value`}
               type="text"
               errors={errors}

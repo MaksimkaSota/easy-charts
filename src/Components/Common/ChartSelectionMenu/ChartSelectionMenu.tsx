@@ -9,6 +9,8 @@ import doughnut from '../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../Buttons/ChartSelectionButton/ChartSelectionButton';
 import { ChartType } from '../../../utils/types/enums';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../redux/selectors/selectors';
 
 type PropsType = {
   type: string;
@@ -17,9 +19,13 @@ type PropsType = {
 };
 
 export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartSelectionMenuTitle }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   return (
     <div className={classes.chartSelectionForm}>
-      {!hideChartSelectionMenuTitle && <h3 className={classes.miniTitle}>Вид</h3>}
+      {!hideChartSelectionMenuTitle && (
+        <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>Вид</h3>
+      )}
       <div className={cn(classes.chartsTypeContainer, className)}>
         <ChartSelectionButton
           isDisabled={type === ChartType.Bar}
@@ -27,7 +33,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
           src={bar}
           text="Колонны"
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Bar })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.HBar}
@@ -35,7 +41,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
           src={horizontalBar}
           text="Полосы"
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.HBar })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Line}
@@ -43,7 +49,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
           src={line}
           text="Линии"
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Line })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Radar}
@@ -51,7 +57,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
           src={radar}
           text="Радар"
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Radar })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Pie}
@@ -59,7 +65,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
           src={pie}
           text="Пирог"
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Pie })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Doughnut}
@@ -67,7 +73,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
           src={doughnut}
           text="Пончик"
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Doughnut })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
       </div>
     </div>

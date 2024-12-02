@@ -1,6 +1,7 @@
 import { type ChangeEvent, type FC, type ReactElement, useEffect } from 'react';
 import { Form } from 'formik';
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import classes from './ViewAndSaveForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
@@ -8,6 +9,8 @@ import type { FormikErrorsType, SetTouchedType, SetValuesType } from '../../../.
 import { ChartType, FieldName, RoutePath, StandardOption } from '../../../../../../utils/types/enums';
 import type { IChart } from '../../../../../../utils/types/api/chart';
 import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
   width: number | string;
@@ -34,6 +37,8 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   setTouched,
   setValues,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   useEffect(() => {
     setTouched({ [FieldName.Width]: true, [FieldName.Height]: true });
   }, [setTouched]);
@@ -61,12 +66,12 @@ export const ViewAndSaveForm: FC<PropsType> = ({
     <Form>
       <FormFieldWithLabel
         formContainerClassName={classes.formContainer}
-        labelClassName={classes.label}
+        labelClassName={cn(classes.label, classes[`label-${themeMode}`])}
         htmlFor={FieldName.Width}
         label="Ширина"
       >
         <FormField
-          classNameField={classes.inputData}
+          classNameField={cn(classes.inputData, classes[`inputData-${themeMode}`])}
           name={FieldName.Width}
           id={FieldName.Width}
           type="text"
@@ -76,12 +81,12 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       </FormFieldWithLabel>
       <FormFieldWithLabel
         formContainerClassName={classes.formContainer}
-        labelClassName={classes.label}
+        labelClassName={cn(classes.label, classes[`label-${themeMode}`])}
         htmlFor={FieldName.Height}
         label="Высота"
       >
         <FormField
-          classNameField={classes.inputData}
+          classNameField={cn(classes.inputData, classes[`inputData-${themeMode}`])}
           name={FieldName.Height}
           id={FieldName.Height}
           type="text"

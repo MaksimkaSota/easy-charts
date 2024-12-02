@@ -10,6 +10,14 @@
       .typeName {
         margin: $indent-min 0 0 0;
       }
+
+      .typeName-light {
+        color: $title-text-light;
+      }
+
+      .typeName-dark {
+        color: $title-text-dark;
+      }
     }
 
     @include respond($tablet-max) {

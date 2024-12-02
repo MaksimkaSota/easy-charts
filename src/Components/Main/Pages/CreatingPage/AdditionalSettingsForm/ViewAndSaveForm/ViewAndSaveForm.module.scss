@@ -2,13 +2,28 @@
   @include flex(null, space-between, null);
 
   .label {
-    color: $title-text;
+    color: $title-text-light;
     font-size: $inter-14;
   }
 
+  .label-light {
+    color: $title-text-light;
+  }
+
+  .label-dark {
+    color: $title-text-dark;
+  }
+
   .inputData {
-    @include input($validated-input-background, $indent-input-button);
     outline: 1px solid $content-text;
+  }
+
+  .inputData-light {
+    @include input($validated-input-background-light, $indent-input-button);
+  }
+
+  .inputData-dark {
+    @include input($validated-input-background-dark, $indent-input-button);
   }
 }
 

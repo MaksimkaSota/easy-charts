@@ -1,13 +1,18 @@
 import type { FC, ReactElement } from 'react';
+import cn from 'classnames';
 import classes from './ContactsPage.module.scss';
 import email from '../../../../assets/images/content/email.png';
 import { requestString } from '../../../../services/api/endpoints';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../redux/selectors/selectors';
 
 export const ContactsPage: FC = (): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   return (
     <div className={classes.contacts}>
       <img className={classes.email} src={email} alt="Почта" />
-      <h2 className={classes.title}>Контакты:</h2>
+      <h2 className={cn(classes.title, classes[`title-${themeMode}`])}>Контакты:</h2>
       <p className={classes.textContent}>
         По любым вопросам и предложениям пишите, пожалуйста, на почту или в другие источники:
       </p>

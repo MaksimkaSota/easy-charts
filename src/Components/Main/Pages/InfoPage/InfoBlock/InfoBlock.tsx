@@ -3,6 +3,8 @@ import cn from 'classnames';
 import classes from './InfoBlock.module.scss';
 import { ExamplesPageContainer } from '../../ExamplesPage/ExamplesPageContainer';
 import { GalleryPage } from '../../GalleryPage/GalleryPage';
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../redux/selectors/selectors';
 
 type PropsType = {
   titleText: string;
@@ -19,10 +21,12 @@ export const InfoBlock: FC<PropsType> = ({
   isSecondInfoBlock,
   isThirdInfoBlock,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   return (
     <div className={classes.infoBlock}>
       <div className={cn(classes.textBlock, { [classes.thirdTextBlock]: isThirdInfoBlock })}>
-        <h3 className={classes.title}>{titleText}</h3>
+        <h3 className={cn(classes.title, classes[`title-${themeMode}`])}>{titleText}</h3>
         <p className={classes.description}>{descriptionText}</p>
       </div>
       {isFirstInfoBlock && <GalleryPage isInfoGallery hidePageDescription hideChartSelectionButtonText />}

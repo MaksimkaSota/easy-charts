@@ -9,6 +9,8 @@ import { FieldName } from '../../../../../../utils/types/enums';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
 import { replaceDoubleDot, setFieldValueOnCondition } from '../../../../../../utils/helpers/componentsHelpers';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
   isFetchingCurrency: boolean;
@@ -37,6 +39,8 @@ export const CurrencyForm: FC<PropsType> = ({
   getCurrency,
   setFieldValue,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   const [activeField, setActiveField] = useState<string>('');
 
   useEffect(() => {
@@ -91,7 +95,7 @@ export const CurrencyForm: FC<PropsType> = ({
 
   return (
     <Form className={classes.currencyForm}>
-      <h3 className={classes.miniTitle}>Конвертер валют</h3>
+      <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>Конвертер валют</h3>
       <p className={cn(classes.hintText, { [classes.textError]: currencyError })}>
         {currencyError?.message || 'По курсу НБРБ'}
       </p>

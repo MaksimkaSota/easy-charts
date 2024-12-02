@@ -25,7 +25,7 @@
 @mixin input($b, $mb) {
   @include position(170px, 0 0 $mb 0);
   padding: $indent-input-button;
-  color: $title-text;
+  color: $title-text-light;
   background: $b;
   border-radius: $radius-min;
   font-size: $inter-14;
@@ -44,10 +44,9 @@
     width: $imageW;
   }
   .typeName {
-    color: $title-text;
     text-align: center;
     font-size: $fs;
-    transition: all 0.25s linear;
+    transition: color, font-size 0.25s linear;
   }
   &:hover {
     cursor: pointer;
@@ -70,7 +69,6 @@
 }
 
 %title-pages {
-  color: $title-text;
   margin: 0 0 $indent-min 0;
   font-size: $inter-30;
   font-weight: 400;
@@ -81,7 +79,6 @@
 }
 
 %mini-title {
-  color: $title-text;
   margin: 0 0 $indent-min 0;
   font-size: $inter-24;
   font-weight: 400;

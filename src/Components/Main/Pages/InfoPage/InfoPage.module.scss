@@ -26,6 +26,14 @@
       @extend %title-pages;
     }
 
+    .pageTitle-light {
+      color: $title-text-light;
+    }
+
+    .pageTitle-dark {
+      color: $title-text-dark;
+    }
+
     .text {
       font-size: $inter-18;
 

@@ -2,7 +2,7 @@ import { type FC, type ReactElement, useEffect } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
-import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
+import { addressesSelector, mainOptionsSelector, viewSelector } from '../../../../redux/selectors/selectors';
 import { CreatingPage } from './CreatingPage';
 import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
 import { isFetchingMainAddressSelector } from '../../../../redux/selectors/loading';
@@ -13,6 +13,7 @@ export const CreatingPageContainer: FC = (): ReactElement => {
   const { mainAddress } = useTypedSelector(addressesSelector);
   const mainAddressError = useTypedSelector(mainAddressErrorSelector);
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
+  const { themeMode } = useTypedSelector(viewSelector);
 
   const {
     getAddress,
@@ -61,6 +62,7 @@ export const CreatingPageContainer: FC = (): ReactElement => {
       setMainHeight={setMainHeight}
       setMainOptionsWithId={setMainOptionsWithId}
       setExamplesType={setExamplesType}
+      themeMode={themeMode}
     />
   );
 };

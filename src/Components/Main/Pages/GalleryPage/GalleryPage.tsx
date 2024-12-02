@@ -10,6 +10,8 @@ import horizontalBar from '../../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../../../Common/Buttons/ChartSelectionButton/ChartSelectionButton';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import { ChartType } from '../../../../utils/types/enums';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../redux/selectors/selectors';
 
 type PropsType = {
   isMainGallery?: boolean;
@@ -26,6 +28,8 @@ export const GalleryPage: FC<PropsType> = ({
   hidePageDescriptionText,
   hideChartSelectionButtonText,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   return (
     <div
       className={cn(classes.gallery, {
@@ -49,7 +53,7 @@ export const GalleryPage: FC<PropsType> = ({
           src={bar}
           text="Колонны"
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
@@ -58,7 +62,7 @@ export const GalleryPage: FC<PropsType> = ({
           src={horizontalBar}
           text="Полосы"
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
@@ -67,7 +71,7 @@ export const GalleryPage: FC<PropsType> = ({
           src={line}
           text="Линии"
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
@@ -76,7 +80,7 @@ export const GalleryPage: FC<PropsType> = ({
           src={radar}
           text="Радар"
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
@@ -85,7 +89,7 @@ export const GalleryPage: FC<PropsType> = ({
           src={pie}
           text="Пирог"
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
@@ -94,7 +98,7 @@ export const GalleryPage: FC<PropsType> = ({
           src={doughnut}
           text="Пончик"
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
       </div>

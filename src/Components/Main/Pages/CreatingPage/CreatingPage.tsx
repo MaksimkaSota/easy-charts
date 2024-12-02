@@ -30,6 +30,7 @@ type PropsType = {
   setMainHeight: (height: number | string) => void;
   setMainOptionsWithId: (mainOptions: IChart) => void;
   setExamplesType: (type: string) => void;
+  themeMode: string;
 };
 
 export const CreatingPage: FC<PropsType> = ({
@@ -51,6 +52,7 @@ export const CreatingPage: FC<PropsType> = ({
   setMainHeight,
   setMainOptionsWithId,
   setExamplesType,
+  themeMode,
 }): ReactElement => {
   return (
     <div className={classes.create}>
@@ -66,7 +68,7 @@ export const CreatingPage: FC<PropsType> = ({
         <ChartSelectionMenu type={mainOptions.type} className={classes.chartSelectionMenu} />
         <MainChart isFetchingAddress={isFetchingMainAddress} address={mainAddress} addressError={mainAddressError} />
         <div className={classes.settingsContainer}>
-          <h3 className={classes.settingsTitle}>Настройки графика</h3>
+          <h3 className={cn(classes.settingsTitle, classes[`settingsTitle-${themeMode}`])}>Настройки графика</h3>
           <div className={classes.wrapper}>
             <div className={cn(classes.settingsFormContainer, classes.basicFormContainer)}>
               <p className={classes.settingsFormTitle}>Таблица данных</p>

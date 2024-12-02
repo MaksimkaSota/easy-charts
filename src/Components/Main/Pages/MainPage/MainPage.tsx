@@ -1,5 +1,6 @@
 import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import classes from './MainPage.module.scss';
 import { Animation } from '../../../Common/Animation/Animation';
 import { MainAdditionalInfo } from './MainAdditionalInfo/MainAdditionalInfo';
@@ -7,8 +8,12 @@ import { AsideAdditionalInfo } from './AsideAdditionalInfo/AsideAdditionalInfo';
 import { GalleryPage } from '../GalleryPage/GalleryPage';
 import { ExamplesPageContainer } from '../ExamplesPage/ExamplesPageContainer';
 import { RoutePath } from '../../../../utils/types/enums';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../redux/selectors/selectors';
 
 export const MainPage: FC = (): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   return (
     <div className={classes.main}>
       <Animation />
@@ -24,7 +29,8 @@ export const MainPage: FC = (): ReactElement => {
         hideChartSelectionMenuTitle
       />
       <p className={classes.description}>
-        <span className={classes.name}>EasyCharts</span> - сайт для построения графиков / диаграмм онлайн. Выберите{' '}
+        <span className={cn(classes.name, classes[`name-${themeMode}`])}>EasyCharts</span> - сайт для построения
+        графиков / диаграмм онлайн. Выберите{' '}
         <NavLink to={RoutePath.Gallery} className={classes.link}>
           вид графика
         </NavLink>{' '}

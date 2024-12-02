@@ -11,6 +11,14 @@
       @extend %mini-title;
     }
 
+    .title-light {
+      color: $title-text-light;
+    }
+
+    .title-dark {
+      color: $title-text-dark;
+    }
+
     .description {
       font-size: $inter-18;
       text-align: center;

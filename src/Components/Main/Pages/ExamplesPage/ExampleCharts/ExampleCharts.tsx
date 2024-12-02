@@ -1,4 +1,5 @@
 import type { FC, ReactElement } from 'react';
+import cn from 'classnames';
 import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
@@ -7,6 +8,8 @@ import { exampleFirstInitialValue } from '../../../../../utils/initialValues/exa
 import { exampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
 import { exampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
 import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../redux/selectors/selectors';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -43,13 +46,15 @@ export const ExampleCharts: FC<PropsType> = ({
   hideExampleChartsTitle,
   showExampleChartTable,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
   const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
   const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
   const exampleThirdTableValues = getTableValues('Инфляция по годам', exampleThirdInitialValue);
 
   return (
     <div className={classes.chartResult}>
-      {!hideExampleChartsTitle && <h3 className={classes.miniTitle}>График</h3>}
+      {!hideExampleChartsTitle && <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>График</h3>}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}

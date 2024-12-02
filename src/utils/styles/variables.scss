@@ -1,14 +1,17 @@
 $white: rgb(255, 255, 255);
-$black: rgb(0, 0, 0);
+$black: rgb(32, 32, 32);
 $gray: rgb(128, 128, 128);
 $light-gray: rgb(204, 204, 204);
-$transparent-light-gray: rgba(204, 204, 204, 0.3);
+$transparent-light-gray-3: rgba(204, 204, 204, 0.3);
+$transparent-light-gray-6: rgba(204, 204, 204, 0.6);
 
 $content-text: $gray;
-$title-text: $black;
+$title-text-light: $black;
+$title-text-dark: $white;
 $button-text: $white;
 $input-background: $light-gray;
-$validated-input-background: $transparent-light-gray;
+$validated-input-background-light: $transparent-light-gray-3;
+$validated-input-background-dark: $transparent-light-gray-6;
 
 $red: rgb(226, 86, 89);
 $yellow: rgb(242, 143, 39);
