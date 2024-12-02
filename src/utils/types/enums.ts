@@ -95,3 +95,8 @@ export enum LocalStorageKey {
   City = 'city',
   AmericaCoin = 'americaCoin',
 }
+
+export enum Theme {
+  Light = 'light',
+  Dark = 'dark',
+}

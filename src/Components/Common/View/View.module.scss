@@ -1,0 +1,29 @@
+.viewContainer {
+  .themeModeContainer {
+    @include flex(null, center, center);
+    width: 25px;
+    height: 25px;
+    background: none;
+    cursor: pointer;
+
+    .themeMode {
+      height: 90%;
+      transition: all 0.25s linear;
+    }
+
+    &:hover {
+      .themeMode {
+        height: 100%;
+      }
+    }
+
+    @include respond($tablet-min) {
+      width: 45px;
+      height: 45px;
+    }
+    @include respond($mobile) {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

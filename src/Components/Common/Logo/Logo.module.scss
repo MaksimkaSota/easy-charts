@@ -72,6 +72,15 @@
     transition: all 0.25s linear;
   }
 
+  @include respond($tablet-max) {
+    .logoText {
+      font-size: $inter-30;
+    }
+    .logoImage {
+      width: 45px;
+    }
+  }
+
   @include respond($tablet-min) {
     .logoImage {
       width: 40px;
@@ -88,6 +97,9 @@
 .headerLogo {
   margin: 0 $indent-max 0 0;
   cursor: default;
+  @include respond($tablet-max) {
+    margin: 0 $indent-min 0 0;
+  }
   @include respond($tablet-min) {
     margin: 0 0 $indent-min 0;
   }
