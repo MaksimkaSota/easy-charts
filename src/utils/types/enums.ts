@@ -94,6 +94,7 @@ export enum LocalStorageKey {
   ExampleThirdOptions = 'exampleThirdOptions',
   City = 'city',
   AmericaCoin = 'americaCoin',
+  Theme = 'theme',
 }
 
 export enum Theme {
