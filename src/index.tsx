@@ -1,5 +1,6 @@
 import './index.scss';
 import './assets/fonts/inter/inter.scss';
+import './services/localization/i18n';
 import ReactDOM from 'react-dom/client';
 import { StrictMode } from 'react';
 import { Provider } from 'react-redux';
