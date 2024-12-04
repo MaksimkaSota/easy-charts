@@ -5,9 +5,16 @@ import { Header } from './Header';
 import { useActions } from '../../hooks/useActions';
 
 export const HeaderContainer: FC = (): ReactElement => {
-  const { themeMode } = useTypedSelector(viewSelector);
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
 
-  const { setThemeMode } = useActions();
+  const { setThemeMode, setLanguageMode } = useActions();
 
-  return <Header themeMode={themeMode} setThemeMode={setThemeMode} />;
+  return (
+    <Header
+      themeMode={themeMode}
+      languageMode={languageMode}
+      setThemeMode={setThemeMode}
+      setLanguageMode={setLanguageMode}
+    />
+  );
 };

@@ -1,29 +1,55 @@
 .viewContainer {
-  .themeModeContainer {
+  @include flex(null, center, center);
+
+  .modeContainer {
     @include flex(null, center, center);
-    width: 25px;
-    height: 25px;
     background: none;
     cursor: pointer;
 
-    .themeMode {
-      height: 90%;
-      transition: all 0.25s linear;
+    .mode {
+      height: 100%;
     }
+  }
 
-    &:hover {
-      .themeMode {
-        height: 100%;
-      }
-    }
+  .themeModeContainer {
+    width: 24px;
+    height: 24px;
+    margin: 0 $indent-min 0 0;
+  }
 
-    @include respond($tablet-min) {
-      width: 45px;
-      height: 45px;
+  .languageModeContainer {
+    width: 32px;
+    height: 24px;
+  }
+
+  .languageModeContainer-light {
+    border: 1px solid $black;
+  }
+
+  .languageModeContainer-dark {
+    border: 1px solid $white;
+  }
+
+  @include respond($tablet-min) {
+    .themeModeContainer {
+      width: 42px;
+      height: 42px;
     }
-    @include respond($mobile) {
-      width: 35px;
-      height: 35px;
+    .languageModeContainer {
+      width: 56px;
+      height: 42px;
+    }
+  }
+  @include respond($mobile) {
+    flex-direction: column;
+    .themeModeContainer {
+      width: 30px;
+      height: 30px;
+      margin: 0 0 $indent-min 0;
+    }
+    .languageModeContainer {
+      width: 40px;
+      height: 30px;
     }
   }
 }

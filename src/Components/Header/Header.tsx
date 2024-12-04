@@ -8,10 +8,12 @@ import { RoutePath } from '../../utils/types/enums';
 
 type PropsType = {
   themeMode: string;
+  languageMode: string;
   setThemeMode: (themeMode: string) => void;
+  setLanguageMode: (languageMode: string) => void;
 };
 
-export const Header: FC<PropsType> = ({ themeMode, setThemeMode }): ReactElement => {
+export const Header: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, setLanguageMode }): ReactElement => {
   return (
     <header className={classes.header}>
       <div className={classes.headerInner}>
@@ -21,7 +23,12 @@ export const Header: FC<PropsType> = ({ themeMode, setThemeMode }): ReactElement
           </NavLink>
           <Navigation />
         </div>
-        <View themeMode={themeMode} setThemeMode={setThemeMode} />
+        <View
+          themeMode={themeMode}
+          languageMode={languageMode}
+          setThemeMode={setThemeMode}
+          setLanguageMode={setLanguageMode}
+        />
       </div>
     </header>
   );
