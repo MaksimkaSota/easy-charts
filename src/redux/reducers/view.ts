@@ -1,10 +1,10 @@
 import { type ViewAction, type ViewState, ViewActionType } from '../types/view';
 import { LocalStorageKey, Theme, Language } from '../../utils/types/enums';
-import { getLocalItem, setLocalItem } from '../../services/browserDataStorage/localStorage';
+import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: ViewState = {
   themeMode: getLocalItem<string>(LocalStorageKey.Theme) || Theme.Light,
-  languageMode: Language.Ru,
+  languageMode: getLocalItem<string>(LocalStorageKey.Language) || Language.Ru,
 };
 
 export const viewReducer = (state: ViewState = initialState, action: ViewAction): ViewState => {
@@ -17,6 +17,7 @@ export const viewReducer = (state: ViewState = initialState, action: ViewAction)
       };
 
     case ViewActionType.SET_VIEW_LANGUAGE_MODE:
+      setLocalItem(LocalStorageKey.Language, action.payload);
       return {
         ...state,
         languageMode: action.payload,

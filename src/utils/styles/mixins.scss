@@ -46,7 +46,9 @@
   .typeName {
     text-align: center;
     font-size: $fs;
-    transition: color, font-size 0.25s linear;
+    transition:
+      color,
+      font-size 0.25s linear;
   }
   &:hover {
     cursor: pointer;
