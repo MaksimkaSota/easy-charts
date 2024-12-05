@@ -108,13 +108,6 @@ export enum Language {
   Ru = 'ru',
 }
 
-export enum ValidationTxtKey {
-  Number = 'validation.number',
-  Required = 'validation.required',
-  Min = 'validation.min',
-  Max = 'validation.max',
-}
-
 export enum ChartTxtKey {
   Bar = 'chart.bar',
   HBar = 'chart.hBar',
@@ -122,4 +115,21 @@ export enum ChartTxtKey {
   Radar = 'chart.radar',
   Pie = 'chart.pie',
   Doughnut = 'chart.doughnut',
+}
+
+export enum AltTxtKey {
+  Chart = 'alt.chart',
+  Logo = 'alt.logo',
+  Mail = 'alt.mail',
+  Info = 'alt.info',
+  Error = 'alt.error',
+  RuFlag = 'alt.ruFlag',
+  EnFlag = 'alt.enFlag',
+}
+
+export enum ValidationTxtKey {
+  Number = 'validation.number',
+  Required = 'validation.required',
+  Min = 'validation.min',
+  Max = 'validation.max',
 }

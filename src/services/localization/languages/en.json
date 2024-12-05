@@ -8,6 +8,16 @@
     "doughnut": "Doughnut"
   },
 
+  "alt": {
+    "chart": "Chart",
+    "logo": "Logo",
+    "mail": "Mail",
+    "info": "Info image",
+    "error": "Error image",
+    "ruFlag": "Russian flag",
+    "enFlag": "English flag"
+  },
+
   "validation": {
     "number": "Only numbers",
     "required": "Required to enter",

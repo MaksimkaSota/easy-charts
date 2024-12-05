@@ -1,24 +1,27 @@
 import { type FC, type ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './InfoPage.module.scss';
 import { InfoBlock } from './InfoBlock/InfoBlock';
 import { CreateButton } from '../../../Common/Buttons/CreateButton/CreateButton';
 import Info from '../../../../assets/images/content/info.svg';
 import doughnut from '../../../../assets/images/chart/doughnut.png';
-import { RoutePath } from '../../../../utils/types/enums';
+import { RoutePath, AltTxtKey } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 
 export const InfoPage: FC = (): ReactElement => {
   const { themeMode } = useTypedSelector(viewSelector);
 
+  const { t } = useTranslation();
+
   return (
     <div className={classes.infoPage}>
       <div className={classes.infoPageHeader}>
         <div className={classes.imageContainer}>
           <Info className={classes.infoImage} />
-          <img className={classes.doughnutImage} src={doughnut} alt="Пончик" />
+          <img className={classes.doughnutImage} src={doughnut} alt={t(AltTxtKey.Info)} />
         </div>
         <h2 className={cn(classes.pageTitle, classes[`pageTitle-${themeMode}`])}>
           Как создать график / диаграмму онлайн на сайте EasyCharts

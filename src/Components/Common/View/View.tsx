@@ -6,7 +6,7 @@ import LightMode from '../../../assets/images/content/sun.svg';
 import DarkMode from '../../../assets/images/content/moon.svg';
 import ruMode from '../../../assets/images/content/ru.png';
 import enMode from '../../../assets/images/content/en.png';
-import { Language, Theme } from '../../../utils/types/enums';
+import { Theme, Language, AltTxtKey } from '../../../utils/types/enums';
 
 type PropsType = {
   themeMode: string;
@@ -16,7 +16,7 @@ type PropsType = {
 };
 
 export const View: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, setLanguageMode }): ReactElement => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const onThemeMode = (): void => {
     const newThemeMode = themeMode === Theme.Light ? Theme.Dark : Theme.Light;
@@ -43,8 +43,8 @@ export const View: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, set
         )}
         onClick={onLanguageMode}
       >
-        {languageMode === Language.Ru && <img src={ruMode} className={classes.mode} alt="Русский флаг" />}
-        {languageMode === Language.En && <img src={enMode} className={classes.mode} alt="Английский флаг" />}
+        {languageMode === Language.Ru && <img src={ruMode} className={classes.mode} alt={t(AltTxtKey.RuFlag)} />}
+        {languageMode === Language.En && <img src={enMode} className={classes.mode} alt={t(AltTxtKey.EnFlag)} />}
       </button>
     </div>
   );

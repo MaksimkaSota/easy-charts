@@ -1,9 +1,10 @@
 import type { FC, ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Logo.module.scss';
 import logo from '../../../assets/images/content/logo.png';
-import { RoutePath } from '../../../utils/types/enums';
+import { RoutePath, AltTxtKey } from '../../../utils/types/enums';
 
 type PropsType = {
   isHeader?: boolean;
@@ -11,6 +12,8 @@ type PropsType = {
 
 export const Logo: FC<PropsType> = ({ isHeader }): ReactElement => {
   const { pathname } = useLocation();
+
+  const { t } = useTranslation();
 
   return (
     <div
@@ -31,7 +34,7 @@ export const Logo: FC<PropsType> = ({ isHeader }): ReactElement => {
         <span className={cn(classes.letter, classes.t, classes.letterRed)}>t</span>
         <span className={cn(classes.letter, classes.s2, classes.letterOrange)}>s</span>
       </h1>
-      <img className={classes.logoImage} src={logo} alt="Логотип" />
+      <img className={classes.logoImage} src={logo} alt={t(AltTxtKey.Logo)} />
     </div>
   );
 };
