@@ -1,3 +1,8 @@
 {
-  "hello": "Hello world!"
+  "validation": {
+    "number": "Only numbers",
+    "required": "Required to enter",
+    "min": "Minimum {{number}}",
+    "max": "Maximum {{number}}"
+  }
 }

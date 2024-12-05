@@ -107,3 +107,10 @@ export enum Language {
   En = 'en',
   Ru = 'ru',
 }
+
+export enum ValidationTxtKey {
+  Number = 'validation.number',
+  Required = 'validation.required',
+  Min = 'validation.min',
+  Max = 'validation.max',
+}

@@ -16,7 +16,7 @@ type PropsType = {
 };
 
 export const View: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, setLanguageMode }): ReactElement => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const onThemeMode = (): void => {
     const newThemeMode = themeMode === Theme.Light ? Theme.Dark : Theme.Light;
@@ -31,7 +31,6 @@ export const View: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, set
 
   return (
     <div className={classes.viewContainer}>
-      {t('hello')}
       <button className={cn(classes.modeContainer, classes.themeModeContainer)} onClick={onThemeMode}>
         {themeMode === Theme.Light && <LightMode className={classes.mode} />}
         {themeMode === Theme.Dark && <DarkMode className={classes.mode} />}

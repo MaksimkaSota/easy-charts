@@ -20,4 +20,6 @@ export type SetTouchedType = (
 
 export type HandleChangeType = (event: ChangeEvent<any>) => void;
 
+export type ValidateFormType = (values?: any) => Promise<FormikErrors<any>>;
+
 export type FormikErrorsType = ObjectType;

@@ -5,7 +5,12 @@ import cn from 'classnames';
 import classes from './ViewAndSaveForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
-import type { FormikErrorsType, SetTouchedType, SetValuesType } from '../../../../../../utils/types/form';
+import type {
+  FormikErrorsType,
+  SetTouchedType,
+  SetValuesType,
+  ValidateFormType,
+} from '../../../../../../utils/types/form';
 import { ChartType, FieldName, RoutePath, StandardOption } from '../../../../../../utils/types/enums';
 import type { IChart } from '../../../../../../utils/types/api/chart';
 import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
@@ -23,6 +28,7 @@ type PropsType = {
   errors: FormikErrorsType;
   setTouched: SetTouchedType;
   setValues: SetValuesType<{ width: number | string; height: number | string }>;
+  validateForm: ValidateFormType;
 };
 
 export const ViewAndSaveForm: FC<PropsType> = ({
@@ -36,8 +42,13 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   errors,
   setTouched,
   setValues,
+  validateForm,
 }): ReactElement => {
-  const { themeMode } = useTypedSelector(viewSelector);
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
+
+  useEffect(() => {
+    validateForm();
+  }, [validateForm, languageMode]);
 
   useEffect(() => {
     setTouched({ [FieldName.Width]: true, [FieldName.Height]: true });
