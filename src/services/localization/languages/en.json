@@ -1,4 +1,13 @@
 {
+  "chart": {
+    "bar": "Bars",
+    "hBar": "Horizontal bars",
+    "line": "Lines",
+    "radar": "Radar",
+    "pie": "Pie",
+    "doughnut": "Doughnut"
+  },
+
   "validation": {
     "number": "Only numbers",
     "required": "Required to enter",

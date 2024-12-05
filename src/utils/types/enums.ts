@@ -114,3 +114,12 @@ export enum ValidationTxtKey {
   Min = 'validation.min',
   Max = 'validation.max',
 }
+
+export enum ChartTxtKey {
+  Bar = 'chart.bar',
+  HBar = 'chart.hBar',
+  Line = 'chart.line',
+  Radar = 'chart.radar',
+  Pie = 'chart.pie',
+  Doughnut = 'chart.doughnut',
+}
