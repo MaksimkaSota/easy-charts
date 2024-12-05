@@ -1,6 +1,7 @@
 import { type ChangeEvent, type FC, type ReactElement, useEffect } from 'react';
 import { Form } from 'formik';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ViewAndSaveForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
@@ -11,7 +12,7 @@ import type {
   SetValuesType,
   ValidateFormType,
 } from '../../../../../../utils/types/form';
-import { ChartType, FieldName, RoutePath, StandardOption } from '../../../../../../utils/types/enums';
+import { ChartType, FieldName, RoutePath, StandardOption, ContentTxtKey } from '../../../../../../utils/types/enums';
 import type { IChart } from '../../../../../../utils/types/api/chart';
 import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
 import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
@@ -45,6 +46,8 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   validateForm,
 }): ReactElement => {
   const { themeMode, languageMode } = useTypedSelector(viewSelector);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     validateForm();
@@ -107,11 +110,11 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       </FormFieldWithLabel>
       <NavLink to={RoutePath.Save}>
         <button className={classes.button} type="submit" disabled={!isValid}>
-          Посмотреть и сохранить график
+          {t(ContentTxtKey.ViewAndSaveButton)}
         </button>
       </NavLink>
       <button className={classes.button} type="button" onClick={onResetButtonClick}>
-        Сбросить график
+        {t(ContentTxtKey.ResetButton)}
       </button>
     </Form>
   );

@@ -1,4 +1,5 @@
 import { type FC, type ReactElement, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './SavePage.module.scss';
 import { copyTextOnClick } from '../../../../utils/helpers/servicesHelpers';
@@ -7,6 +8,7 @@ import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
 import { UpButton } from '../../../Common/Buttons/UpButton/UpButton';
 import { Chart } from '../../../Common/Chart/Chart';
 import { DisabledInteractionButton } from '../../../Common/Buttons/DisabledInteractionButton/DisabledInteractionButton';
+import { ContentTxtKey } from '../../../../utils/types/enums';
 
 type PropsType = {
   isFetchingMainAddress: boolean;
@@ -21,6 +23,8 @@ export const SavePage: FC<PropsType> = ({
   mainAddressError,
   urlAddress,
 }): ReactElement => {
+  const { t } = useTranslation();
+
   const [copyStatus, setCopyStatus] = useState<string | null>(null);
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
@@ -36,32 +40,32 @@ export const SavePage: FC<PropsType> = ({
         <DisabledInteractionButton
           isFetchingMainAddress={isFetchingMainAddress}
           mainAddressError={mainAddressError}
-          text="Открыть график в новой вкладке (формат 1:1)"
+          text={t(ContentTxtKey.OpenButton)}
         >
           <a className={classes.interactionButton} href={urlAddress} target="_blank" rel="noopener noreferrer">
-            Открыть график в новой вкладке (формат 1:1)
+            {t(ContentTxtKey.OpenButton)}
           </a>
         </DisabledInteractionButton>
         <DisabledInteractionButton
           isFetchingMainAddress={isFetchingMainAddress}
           mainAddressError={mainAddressError}
-          text="Сохранить график"
+          text={t(ContentTxtKey.SaveButton)}
         >
           <a className={classes.interactionButton} href={mainAddress} download="EasyChart.png">
-            Сохранить график
+            {t(ContentTxtKey.SaveButton)}
           </a>
         </DisabledInteractionButton>
         <DisabledInteractionButton
           isFetchingMainAddress={isFetchingMainAddress}
           mainAddressError={mainAddressError}
-          text="Копировать URL графика"
+          text={t(ContentTxtKey.CopyButton)}
         >
           <button
             className={cn(classes.interactionButton, { [classes.copyButton]: isCopied })}
             onClick={onCopyUrlClick}
             disabled={isCopied}
           >
-            {isCopied ? copyStatus : 'Копировать URL графика'}
+            {isCopied ? copyStatus : t(ContentTxtKey.CopyButton)}
           </button>
         </DisabledInteractionButton>
       </div>

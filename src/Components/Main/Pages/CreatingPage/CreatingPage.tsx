@@ -1,4 +1,5 @@
 import type { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './CreatingPage.module.scss';
 import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
@@ -10,6 +11,7 @@ import { PageDescription } from '../../../Common/PageDescription/PageDescription
 import { BasicSettingsForm } from './BasicSettingsForm/BasicSettingsForm';
 import type { IChart } from '../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
+import { ContentTxtKey } from '../../../../utils/types/enums';
 
 type PropsType = {
   mainOptions: IChart;
@@ -54,21 +56,20 @@ export const CreatingPage: FC<PropsType> = ({
   setExamplesType,
   themeMode,
 }): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <div className={classes.create}>
       <ProgressBar />
       <UpButton />
-      <PageDescription
-        title="Создать график / диаграмму онлайн"
-        textContent="На этой странице расположен конструктор для построения графиков онлайн. Создать их очень просто:
-        выберите необходимый вид графика (колонны, полосы, линии, радар, пирог, пончик), заполните таблицу данных,
-        и график готов! При необходимости, установите необходимую ширину, высоту и сохраните график на компьютер."
-      />
+      <PageDescription title={t(ContentTxtKey.CreatingTitle)} textContent={t(ContentTxtKey.CreatingDescription)} />
       <div className={classes.createContent}>
         <ChartSelectionMenu type={mainOptions.type} className={classes.chartSelectionMenu} />
         <MainChart isFetchingAddress={isFetchingMainAddress} address={mainAddress} addressError={mainAddressError} />
         <div className={classes.settingsContainer}>
-          <h3 className={cn(classes.settingsTitle, classes[`settingsTitle-${themeMode}`])}>Настройки графика</h3>
+          <h3 className={cn(classes.settingsTitle, classes[`settingsTitle-${themeMode}`])}>
+            {t(ContentTxtKey.SettingsMiniTitle)}
+          </h3>
           <div className={classes.wrapper}>
             <div className={cn(classes.settingsFormContainer, classes.basicFormContainer)}>
               <p className={classes.settingsFormTitle}>Таблица данных</p>

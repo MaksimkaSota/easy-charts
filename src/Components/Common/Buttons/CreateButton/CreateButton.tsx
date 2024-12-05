@@ -1,12 +1,15 @@
 import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import classes from './CreateButton.module.scss';
 import { useActions } from '../../../../hooks/useActions';
-import { ChartType, RoutePath } from '../../../../utils/types/enums';
+import { ChartType, RoutePath, ContentTxtKey } from '../../../../utils/types/enums';
 import { mainInitialValue } from '../../../../utils/initialValues/mainInitialValue';
 
 export const CreateButton: FC = (): ReactElement => {
   const { setMainOptionsWithId, setExamplesType } = useActions();
+
+  const { t } = useTranslation();
 
   const resetOptions = (): void => {
     setMainOptionsWithId(mainInitialValue);
@@ -15,7 +18,7 @@ export const CreateButton: FC = (): ReactElement => {
 
   return (
     <NavLink to={RoutePath.Create} className={classes.link} onClick={resetOptions}>
-      Создать график
+      {t(ContentTxtKey.CreateButton)}
     </NavLink>
   );
 };

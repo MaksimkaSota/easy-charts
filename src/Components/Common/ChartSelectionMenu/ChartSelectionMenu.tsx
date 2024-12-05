@@ -9,7 +9,7 @@ import pie from '../../../assets/images/chart/pie.png';
 import doughnut from '../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../Buttons/ChartSelectionButton/ChartSelectionButton';
-import { ChartType, ChartTxtKey } from '../../../utils/types/enums';
+import { ChartType, ChartTxtKey, ContentTxtKey } from '../../../utils/types/enums';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../redux/selectors/selectors';
 
@@ -27,7 +27,7 @@ export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartS
   return (
     <div className={classes.chartSelectionForm}>
       {!hideChartSelectionMenuTitle && (
-        <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>Вид</h3>
+        <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>{t(ContentTxtKey.ViewMiniTitle)}</h3>
       )}
       <div className={cn(classes.chartsTypeContainer, className)}>
         <ChartSelectionButton

@@ -10,7 +10,7 @@ import doughnut from '../../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../../../Common/Buttons/ChartSelectionButton/ChartSelectionButton';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
-import { ChartType, ChartTxtKey } from '../../../../utils/types/enums';
+import { ChartType, ChartTxtKey, ContentTxtKey } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 
@@ -42,10 +42,8 @@ export const GalleryPage: FC<PropsType> = ({
     >
       {!hidePageDescription && (
         <PageDescription
-          title="Галерея графиков / диаграмм"
-          textContent="Выберите необходимый вид графика, далее вы перейдёте в режим онлайн-конструктора, в котором
-          сможете заполнить данные графика, и затем сохранить на комьютер. Какой график вам необходимо построить?
-          Колонны, полосы, линии, радар, пирог, пончик?"
+          title={t(ContentTxtKey.GalleryTitle)}
+          textContent={t(ContentTxtKey.GalleryDescription)}
           hidePageDescriptionText={hidePageDescriptionText}
         />
       )}

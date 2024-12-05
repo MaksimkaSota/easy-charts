@@ -1,13 +1,13 @@
 import { type FC, type ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import cn from 'classnames';
 import classes from './InfoPage.module.scss';
 import { InfoBlock } from './InfoBlock/InfoBlock';
 import { CreateButton } from '../../../Common/Buttons/CreateButton/CreateButton';
 import Info from '../../../../assets/images/content/info.svg';
 import doughnut from '../../../../assets/images/chart/doughnut.png';
-import { RoutePath, AltTxtKey } from '../../../../utils/types/enums';
+import { RoutePath, AltTxtKey, ContentTxtKey } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 
@@ -23,41 +23,31 @@ export const InfoPage: FC = (): ReactElement => {
           <Info className={classes.infoImage} />
           <img className={classes.doughnutImage} src={doughnut} alt={t(AltTxtKey.Info)} />
         </div>
-        <h2 className={cn(classes.pageTitle, classes[`pageTitle-${themeMode}`])}>
-          Как создать график / диаграмму онлайн на сайте EasyCharts
-        </h2>
+        <h2 className={cn(classes.pageTitle, classes[`pageTitle-${themeMode}`])}>{t(ContentTxtKey.InfoTitle)}</h2>
         <p className={classes.text}>
-          Вы можете посмотреть{' '}
-          <NavLink to={RoutePath.Examples} className={classes.link}>
-            примеры
-          </NavLink>{' '}
-          графиков и создать свой из подходящего.
+          <Trans i18nKey={ContentTxtKey.InfoDescription1}>
+            Вы можете посмотреть
+            <NavLink to={RoutePath.Examples} className={classes.link}>
+              примеры
+            </NavLink>
+            графиков и создать свой из подходящего.
+          </Trans>
         </p>
-        <p className={classes.text}>Ниже описана инструкция, как создать график. Это просто:</p>
+        <p className={classes.text}>{t(ContentTxtKey.InfoDescription2)}</p>
       </div>
       <InfoBlock
-        titleText="1. Выберите вид графика"
-        descriptionText={
-          'На странице создания или в галерее выберите подходящий вам вид графика. \n' +
-          'Как вам необходимо отобразить ваши данные? \n' +
-          'Колонны / полосы / линии / радар / пирог / пончик?'
-        }
+        titleText={t(ContentTxtKey.InfoMiniTitle1)}
+        descriptionText={t(ContentTxtKey.InfoMiniDescription1)}
         isFirstInfoBlock
       />
       <InfoBlock
-        titleText="2. Заполните таблицу данных"
-        descriptionText={
-          'Для того, чтобы построить график, необходимо заполнить таблицу данных. \n' +
-          'Значения в первой колонке станут отметками по горизонтали (ось X). \n' +
-          'Остальные колонки (их может быть одна или несколько) – это значения, \n' +
-          'которые соответствуют отметкам из первой колонки, и которые будут отображены на диаграмме (ось Y).'
-        }
+        titleText={t(ContentTxtKey.InfoMiniTitle2)}
+        descriptionText={t(ContentTxtKey.InfoMiniDescription2)}
         isSecondInfoBlock
       />
       <InfoBlock
-        titleText="3. Готово!"
-        descriptionText="Теперь график можно посмотреть и сохранить в полном размере (в формате PNG) или
-        получить ссылку и поделиться им."
+        titleText={t(ContentTxtKey.InfoMiniTitle3)}
+        descriptionText={t(ContentTxtKey.InfoMiniDescription3)}
         isThirdInfoBlock
       />
       <CreateButton />

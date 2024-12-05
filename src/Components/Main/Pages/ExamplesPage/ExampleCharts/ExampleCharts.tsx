@@ -1,4 +1,5 @@
 import type { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ExampleCharts.module.scss';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
@@ -10,6 +11,7 @@ import { exampleThirdInitialValue } from '../../../../../utils/initialValues/exa
 import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
 import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../../redux/selectors/selectors';
+import { ContentTxtKey } from '../../../../../utils/types/enums';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -48,13 +50,17 @@ export const ExampleCharts: FC<PropsType> = ({
 }): ReactElement => {
   const { themeMode } = useTypedSelector(viewSelector);
 
+  const { t } = useTranslation();
+
   const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
   const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
   const exampleThirdTableValues = getTableValues('Инфляция по годам', exampleThirdInitialValue);
 
   return (
     <div className={classes.chartResult}>
-      {!hideExampleChartsTitle && <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>График</h3>}
+      {!hideExampleChartsTitle && (
+        <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>{t(ContentTxtKey.ChartMiniTitle)}</h3>
+      )}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}
