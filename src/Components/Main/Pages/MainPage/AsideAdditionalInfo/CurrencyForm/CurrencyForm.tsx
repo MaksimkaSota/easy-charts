@@ -1,16 +1,17 @@
 import { type FC, type ReactElement, type ChangeEvent, useState, useEffect } from 'react';
 import { Form } from 'formik';
 import { useDebouncedCallback } from 'use-debounce';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './CurrencyForm.module.scss';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
-import { FieldName } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, FieldName } from '../../../../../../utils/types/enums';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 import type { SetFieldValueType } from '../../../../../../utils/types/form';
 import { replaceDoubleDot, setFieldValueOnCondition } from '../../../../../../utils/helpers/componentsHelpers';
-import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
-import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
   isFetchingCurrency: boolean;
@@ -40,6 +41,8 @@ export const CurrencyForm: FC<PropsType> = ({
   setFieldValue,
 }): ReactElement => {
   const { themeMode } = useTypedSelector(viewSelector);
+
+  const { t } = useTranslation();
 
   const [activeField, setActiveField] = useState<string>('');
 
@@ -95,9 +98,9 @@ export const CurrencyForm: FC<PropsType> = ({
 
   return (
     <Form className={classes.currencyForm}>
-      <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>Конвертер валют</h3>
+      <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>{t(ContentTxtKey.CurrencyMiniTitle)}</h3>
       <p className={cn(classes.hintText, { [classes.textError]: currencyError })}>
-        {currencyError?.message || 'По курсу НБРБ'}
+        {currencyError?.message || t(ContentTxtKey.CurrencyMiniDescription)}
       </p>
       <div className={classes.container}>
         <FormFieldWithLabel
@@ -120,7 +123,7 @@ export const CurrencyForm: FC<PropsType> = ({
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
-        <p className={classes.description}>Белорусский рубль</p>
+        <p className={classes.description}>{t(ContentTxtKey.BelarusCoin)}</p>
       </div>
       <div className={classes.container}>
         <FormFieldWithLabel
@@ -140,7 +143,7 @@ export const CurrencyForm: FC<PropsType> = ({
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
-        <p className={classes.description}>доллар США</p>
+        <p className={classes.description}>{t(ContentTxtKey.AmericaCoin)}</p>
       </div>
       <div className={classes.container}>
         <FormFieldWithLabel
@@ -160,7 +163,7 @@ export const CurrencyForm: FC<PropsType> = ({
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
-        <p className={classes.description}>Евро</p>
+        <p className={classes.description}>{t(ContentTxtKey.EuropeCoin)}</p>
       </div>
       <div className={classes.container}>
         <FormFieldWithLabel
@@ -180,7 +183,7 @@ export const CurrencyForm: FC<PropsType> = ({
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
-        <p className={classes.description}>Российский рубль</p>
+        <p className={classes.description}>{t(ContentTxtKey.RussiaCoin)}</p>
       </div>
       <div className={classes.container}>
         <FormFieldWithLabel
@@ -200,7 +203,7 @@ export const CurrencyForm: FC<PropsType> = ({
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
-        <p className={classes.description}>Украинская гривна</p>
+        <p className={classes.description}>{t(ContentTxtKey.UkraineCoin)}</p>
       </div>
       <div className={classes.container}>
         <FormFieldWithLabel
@@ -220,7 +223,7 @@ export const CurrencyForm: FC<PropsType> = ({
             onKeyPress={onCoinPress}
           />
         </FormFieldWithLabel>
-        <p className={classes.description}>Польский злотый</p>
+        <p className={classes.description}>{t(ContentTxtKey.PolandCoin)}</p>
       </div>
     </Form>
   );

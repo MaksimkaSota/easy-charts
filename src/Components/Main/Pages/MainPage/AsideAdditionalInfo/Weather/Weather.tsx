@@ -1,15 +1,17 @@
 import type { FC, ReactElement, ChangeEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Weather.module.scss';
-import { FieldName } from '../../../../../../utils/types/enums';
-import type { IWeather } from '../../../../../../utils/types/api/weather';
-import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../../../redux/selectors/selectors';
+import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import type { IWeather } from '../../../../../../utils/types/api/weather';
+import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 
 type PropsType = {
   city: string;
   setCity: (city: string) => void;
+  setLocation: (location: string) => void;
   location: string;
   isFetchingWeather: boolean;
   weather: Nullable<IWeather>;
@@ -19,6 +21,7 @@ type PropsType = {
 export const Weather: FC<PropsType> = ({
   city,
   setCity,
+  setLocation,
   location,
   isFetchingWeather,
   weather,
@@ -26,26 +29,29 @@ export const Weather: FC<PropsType> = ({
 }): ReactElement => {
   const { themeMode } = useTypedSelector(viewSelector);
 
+  const { t } = useTranslation();
+
   const temperature = weather && `${Math.round(weather.main.temp)} °C`;
   const state =
     weather && `${weather.weather[0].description.charAt(0).toUpperCase()}${weather.weather[0].description.slice(1)}`;
   const humidity = weather && `${Math.round(weather.main.humidity)} %`;
-  const speed = weather && `${Math.round(weather?.wind.speed)} м/с`;
+  const speed = weather && `${Math.round(weather?.wind.speed)} ${t(ContentTxtKey.WeatherSpeed)}`;
 
   const onCityChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setCity(event.target.value);
+    setLocation(t(ContentTxtKey.LocationGeolocation));
   };
 
   return (
     <div className={classes.weather}>
-      <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>Прогноз погоды</h3>
+      <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>{t(ContentTxtKey.WeatherMiniTitle)}</h3>
       <p className={cn(classes.hintText, { [classes.textError]: weatherError })}>
-        {weatherError?.message || 'По данным OpenWeather'}
+        {weatherError?.message || t(ContentTxtKey.WeatherMiniDescription)}
       </p>
       <div className={classes.container}>
         <div className={classes.formContainer}>
           <label className={classes.label} htmlFor={FieldName.City}>
-            Город
+            {t(ContentTxtKey.WeatherCity)}
           </label>
           <input
             className={cn(classes.input, { [classes.inputError]: weatherError?.code })}
@@ -58,7 +64,7 @@ export const Weather: FC<PropsType> = ({
         <p className={classes.description}>{location}</p>
       </div>
       <p className={classes.weatherText}>
-        Температура:{' '}
+        {t(ContentTxtKey.WeatherTemp)}{' '}
         <em>
           {isFetchingWeather && 'Загрузка...'}
           {!isFetchingWeather && !weatherError && temperature}
@@ -66,7 +72,7 @@ export const Weather: FC<PropsType> = ({
         </em>
       </p>
       <p className={classes.weatherText}>
-        Состояние:{' '}
+        {t(ContentTxtKey.WeatherState)}{' '}
         <em>
           {isFetchingWeather && 'Загрузка...'}
           {!isFetchingWeather && !weatherError && state}
@@ -74,7 +80,7 @@ export const Weather: FC<PropsType> = ({
         </em>
       </p>
       <p className={classes.weatherText}>
-        Влажность:{' '}
+        {t(ContentTxtKey.WeatherHumidity)}{' '}
         <em>
           {isFetchingWeather && 'Загрузка...'}
           {!isFetchingWeather && !weatherError && humidity}
@@ -82,7 +88,7 @@ export const Weather: FC<PropsType> = ({
         </em>
       </p>
       <p className={classes.weatherText}>
-        Скорость ветра:{' '}
+        {t(ContentTxtKey.WeatherWind)}{' '}
         <em>
           {isFetchingWeather && 'Загрузка...'}
           {!isFetchingWeather && !weatherError && speed}

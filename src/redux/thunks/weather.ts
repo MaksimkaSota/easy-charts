@@ -1,10 +1,11 @@
 import { isAxiosError } from 'axios';
+import i18next from '../../services/localization/i18n';
 import type { ThunkType } from '../../utils/types/common';
 import type { WeatherAction } from '../types/weather';
 import type { IWeather } from '../../utils/types/api/weather';
 import { getDegeocodingCityAPI, getWeatherAPI } from '../../services/api/weather/weather';
 import { setCity, setLocation, setWeatherDataSuccess, setWeatherDataFailure } from '../actions/weather';
-import { StatusCode, LocalStorageKey } from '../../utils/types/enums';
+import { StatusCode, LocalStorageKey, ContentTxtKey } from '../../utils/types/enums';
 import { getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
 export const setCityWithLocation = (city: string, location: string): ThunkType<WeatherAction> => {
@@ -15,24 +16,30 @@ export const setCityWithLocation = (city: string, location: string): ThunkType<W
   };
 };
 
-export const getDegeocodingCity = (latitude: number, longitude: number): ThunkType<WeatherAction> => {
+export const getDegeocodingCity = (
+  latitude: number,
+  longitude: number,
+  languageMode: string
+): ThunkType<WeatherAction> => {
   return async (dispatch) => {
     try {
-      const city: string = await getDegeocodingCityAPI(latitude, longitude);
+      const city: string = await getDegeocodingCityAPI(latitude, longitude, languageMode);
       removeLocalItem(LocalStorageKey.City);
-      dispatch(setCityWithLocation(city, 'Текущее местоположение'));
+      dispatch(setCityWithLocation(city, i18next.t(ContentTxtKey.CurrentGeolocation)));
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setCityWithLocation('Минск', 'Ошибка получения текущего местоположения'));
+        dispatch(
+          setCityWithLocation(i18next.t(ContentTxtKey.CityGeolocation), i18next.t(ContentTxtKey.ErrorGeolocation))
+        );
       }
     }
   };
 };
 
-export const getWeather = (city: string): ThunkType<WeatherAction> => {
+export const getWeather = (city: string, languageMode: string): ThunkType<WeatherAction> => {
   return async (dispatch) => {
     try {
-      const weather: IWeather = await getWeatherAPI(city);
+      const weather: IWeather = await getWeatherAPI(city, languageMode);
       dispatch(setWeatherDataSuccess(weather));
     } catch (error: unknown) {
       if (isAxiosError(error)) {

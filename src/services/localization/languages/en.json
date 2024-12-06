@@ -10,6 +10,8 @@
     "viewMiniTitle": "View",
     "chartMiniTitle": "Chart",
     "settingsMiniTitle": "Chart settings",
+    "weatherMiniTitle": "Weather forecast",
+    "currencyMiniTitle": "Currency converter",
     "infoMiniTitle1": "1. Select the chart type",
     "infoMiniTitle2": "2. Fill in the data table",
     "infoMiniTitle3": "3. Done!",
@@ -25,6 +27,8 @@
     "infoMiniDescription1": "On the creation page or in the gallery, select the chart type you need.\nHow do you need to display your data?\nBars, horizontal bars, lines, radar, pie, doughnut?",
     "infoMiniDescription2": "In order to create a chart, please fill in the data table.\nThe values in the first column will become the horizontal marks (along the X axis).\nThe remaining columns (there may be one or more) are the values\nwhich correspond to the marks from the first column, and which will be displayed on the diagram (Y-axis).",
     "infoMiniDescription3": "Now you can view and save the chart in full size (in PNG format) or you can get a link and share it.",
+    "weatherMiniDescription": "According to the OpenWeather",
+    "currencyMiniDescription": "According to the NBRB",
 
     "creatingLink": "Create",
     "galleryLink": "Gallery",
@@ -43,7 +47,29 @@
     "copyButton": "Copy chart URL",
 
     "mainText": "<0>EasyCharts</0> - is a website for building charts/diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please see also the <8>examples</8>, of the charts to create the one you need.",
-    "footerText": "Create chart online, 2024"
+    "footerText": "Create chart online, 2024",
+
+    "weatherCity": "City",
+    "weatherTemp": "Temperature:",
+    "weatherState": "State:",
+    "weatherHumidity": "Humidity:",
+    "weatherWind": "Wind speed:",
+    "weatherSpeed": "m/s",
+
+    "belarusCoin": "Belarusian ruble",
+    "americaCoin": "USA dollar",
+    "europeCoin": "Euro",
+    "russiaCoin": "Russian ruble",
+    "ukraineCoin": "Ukrainian hryvnia",
+    "polandCoin": "Polish zloty",
+
+    "cityGeolocation": "Minsk",
+    "locationGeolocation": "Location",
+    "currentGeolocation": "Current location",
+    "errorGeolocation": "Error getting current location",
+    "impossibleGeolocation": "Impossible to get current location",
+    "notReceivedGeolocation": "Current location not received (long expectation)",
+    "notAllowedGeolocation": "Getting current location is not allowed"
   },
 
   "chart": {
