@@ -2,16 +2,25 @@ import type { FC, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ExampleCharts.module.scss';
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../redux/selectors/selectors';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
-import { exampleFirstInitialValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
-import { exampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
-import { exampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
+import {
+  exampleFirstInitialValueRu,
+  exampleFirstInitialValueEn,
+} from '../../../../../utils/initialValues/exampleFirstInitialValue';
+import {
+  exampleSecondInitialValueRu,
+  exampleSecondInitialValueEn,
+} from '../../../../../utils/initialValues/exampleSecondInitialValue';
+import {
+  exampleThirdInitialValueRu,
+  exampleThirdInitialValueEn,
+} from '../../../../../utils/initialValues/exampleThirdInitialValue';
 import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
-import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
-import { viewSelector } from '../../../../../redux/selectors/selectors';
-import { ContentTxtKey } from '../../../../../utils/types/enums';
+import { ContentTxtKey, Language } from '../../../../../utils/types/enums';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -48,13 +57,19 @@ export const ExampleCharts: FC<PropsType> = ({
   hideExampleChartsTitle,
   showExampleChartTable,
 }): ReactElement => {
-  const { themeMode } = useTypedSelector(viewSelector);
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
 
   const { t } = useTranslation();
 
-  const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
-  const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
-  const exampleThirdTableValues = getTableValues('Инфляция по годам', exampleThirdInitialValue);
+  const exampleFirstInitialValue =
+    languageMode === Language.Ru ? exampleFirstInitialValueRu : exampleFirstInitialValueEn;
+  const exampleSecondInitialValue =
+    languageMode === Language.Ru ? exampleSecondInitialValueRu : exampleSecondInitialValueEn;
+  const exampleThirdInitialValue =
+    languageMode === Language.Ru ? exampleThirdInitialValueRu : exampleThirdInitialValueEn;
+  const exampleFirstTableValues = getTableValues(t(ContentTxtKey.PopulationTable), exampleFirstInitialValue);
+  const exampleSecondTableValues = getTableValues(t(ContentTxtKey.SalaryTable), exampleSecondInitialValue);
+  const exampleThirdTableValues = getTableValues(t(ContentTxtKey.InflationTable), exampleThirdInitialValue);
 
   return (
     <div className={classes.chartResult}>

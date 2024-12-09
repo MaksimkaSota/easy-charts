@@ -69,7 +69,11 @@
     "errorGeolocation": "Error getting current location",
     "impossibleGeolocation": "Impossible to get current location",
     "notReceivedGeolocation": "Current location not received (long expectation)",
-    "notAllowedGeolocation": "Getting current location is not allowed"
+    "notAllowedGeolocation": "Getting current location is not allowed",
+
+    "populationTable": "Population by years",
+    "salaryTable": "Salary by month",
+    "inflationTable": "Inflation by year"
   },
 
   "chart": {

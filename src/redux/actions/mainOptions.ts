@@ -9,6 +9,7 @@ import {
   type RemoveMainRowAction,
   type RemoveMainColumnAction,
   type SetNewMainOptionsWithIdAction,
+  type ResetMainOptionsAction,
   type SetMainWidthAction,
   type SetMainHeightAction,
   MainOptionsActionType,
@@ -56,6 +57,10 @@ export const removeMainColumn = (index: number): RemoveMainColumnAction => ({
 export const setMainOptionsWithId = (options: IChart): SetNewMainOptionsWithIdAction => ({
   type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS_WITH_ID,
   payload: options,
+});
+export const resetMainOptions = (language: string): ResetMainOptionsAction => ({
+  type: MainOptionsActionType.RESET_MAIN_OPTIONS,
+  payload: language,
 });
 export const setMainWidth = (width: number | string): SetMainWidthAction => ({
   type: MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH,

@@ -1,9 +1,11 @@
-import { type ChangeEvent, type FC, type ReactElement, useEffect } from 'react';
+import { type ChangeEvent, type FC, type ReactElement, useEffect, useState } from 'react';
 import { Form } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ViewAndSaveForm.module.scss';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
 import type {
@@ -12,18 +14,24 @@ import type {
   SetValuesType,
   ValidateFormType,
 } from '../../../../../../utils/types/form';
-import { ChartType, FieldName, RoutePath, StandardOption, ContentTxtKey } from '../../../../../../utils/types/enums';
+import {
+  ChartType,
+  FieldName,
+  RoutePath,
+  StandardOption,
+  ContentTxtKey,
+  LocalStorageKey,
+} from '../../../../../../utils/types/enums';
+import { getLocalItem } from '../../../../../../services/browserDataStorage/localStorage';
 import type { IChart } from '../../../../../../utils/types/api/chart';
-import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
-import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
-import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
+  options: IChart;
   width: number | string;
   height: number | string;
   setWidth: (width: number | string) => void;
   setHeight: (height: number | string) => void;
-  setMainOptionsWithId: (mainOptions: IChart) => void;
+  resetMainOptions: (language: string) => void;
   setExamplesType: (type: string) => void;
   isValid: boolean;
   errors: FormikErrorsType;
@@ -33,11 +41,12 @@ type PropsType = {
 };
 
 export const ViewAndSaveForm: FC<PropsType> = ({
+  options,
   width,
   height,
   setWidth,
   setHeight,
-  setMainOptionsWithId,
+  resetMainOptions,
   setExamplesType,
   isValid,
   errors,
@@ -48,6 +57,20 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   const { themeMode, languageMode } = useTypedSelector(viewSelector);
 
   const { t } = useTranslation();
+
+  const [isIlluminatedButton, setIsIlluminatedButton] = useState(false);
+
+  useEffect(() => {
+    if (
+      getLocalItem<IChart>(LocalStorageKey.MainOptions) ||
+      getLocalItem<string>(LocalStorageKey.MainWidth) ||
+      getLocalItem<string>(LocalStorageKey.MainHeight)
+    ) {
+      setIsIlluminatedButton(true);
+    }
+  }, [options, width, height]);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     validateForm();
@@ -70,10 +93,12 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   };
 
   const onResetButtonClick = (): void => {
-    setMainOptionsWithId(mainInitialValue);
-    setExamplesType(ChartType.Bar);
     setWidth(StandardOption.Width);
     setHeight(StandardOption.Height);
+    resetMainOptions(languageMode);
+    setExamplesType(ChartType.Bar);
+
+    setIsIlluminatedButton(false);
   };
 
   return (
@@ -113,7 +138,11 @@ export const ViewAndSaveForm: FC<PropsType> = ({
           {t(ContentTxtKey.ViewAndSaveButton)}
         </button>
       </NavLink>
-      <button className={classes.button} type="button" onClick={onResetButtonClick}>
+      <button
+        className={cn(classes.button, { [classes.illuminatedButton]: isIlluminatedButton })}
+        type="button"
+        onClick={onResetButtonClick}
+      >
         {t(ContentTxtKey.ResetButton)}
       </button>
     </Form>

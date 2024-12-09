@@ -69,7 +69,11 @@
     "errorGeolocation": "Ошибка получения текущего местоположения",
     "impossibleGeolocation": "Невозможно получить текущее местоположение",
     "notReceivedGeolocation": "Не получено текущее местоположение (долгая попылка)",
-    "notAllowedGeolocation": "Не разрешено получение текущего местоположения"
+    "notAllowedGeolocation": "Не разрешено получение текущего местоположения",
+
+    "populationTable": "Численность по годам",
+    "salaryTable": "Заработная плата по месяцам",
+    "inflationTable": "Инфляция по годам"
   },
 
   "chart": {

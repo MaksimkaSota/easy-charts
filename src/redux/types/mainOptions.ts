@@ -19,6 +19,7 @@ export enum MainOptionsActionType {
   SET_MAIN_OPTIONS_WIDTH = 'SET_MAIN_OPTIONS_WIDTH',
   SET_MAIN_OPTIONS_HEIGHT = 'SET_MAIN_OPTIONS_HEIGHT',
   SET_NEW_MAIN_OPTIONS_WITH_ID = 'SET_NEW_MAIN_OPTIONS_WITH_ID',
+  RESET_MAIN_OPTIONS = 'RESET_MAIN_OPTIONS',
 }
 
 export type SetMainTitleAction = { type: MainOptionsActionType.SET_MAIN_OPTIONS_TITLE; payload: string };
@@ -45,6 +46,10 @@ export type SetNewMainOptionsWithIdAction = {
   type: MainOptionsActionType.SET_NEW_MAIN_OPTIONS_WITH_ID;
   payload: IChart;
 };
+export type ResetMainOptionsAction = {
+  type: MainOptionsActionType.RESET_MAIN_OPTIONS;
+  payload: string;
+};
 
 export type MainOptionsAction =
   | SetMainTitleAction
@@ -58,4 +63,5 @@ export type MainOptionsAction =
   | RemoveMainColumnAction
   | SetMainWidthAction
   | SetMainHeightAction
-  | SetNewMainOptionsWithIdAction;
+  | SetNewMainOptionsWithIdAction
+  | ResetMainOptionsAction;

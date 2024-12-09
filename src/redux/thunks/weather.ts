@@ -11,7 +11,13 @@ import { getLocalItem, removeLocalItem } from '../../services/browserDataStorage
 export const setCityWithLocation = (city: string, location: string): ThunkType<WeatherAction> => {
   return async (dispatch) => {
     const newCity = getLocalItem<string>(LocalStorageKey.City) || city;
-    dispatch(setCity(newCity));
+
+    if (newCity === 'Минск' || newCity === 'Minsk') {
+      dispatch(setCity(city));
+    } else {
+      dispatch(setCity(newCity));
+    }
+
     dispatch(setLocation(location));
   };
 };

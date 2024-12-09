@@ -170,6 +170,9 @@ export enum ContentTxtKey {
   ImpossibleGeolocation = 'content.impossibleGeolocation',
   NotReceivedGeolocation = 'content.notReceivedGeolocation',
   NotAllowedGeolocation = 'content.notAllowedGeolocation',
+  PopulationTable = 'content.populationTable',
+  SalaryTable = 'content.salaryTable',
+  InflationTable = 'content.inflationTable',
 }
 
 export enum ChartTxtKey {

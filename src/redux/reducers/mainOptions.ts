@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
-import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
+import { mainInitialValue, mainInitialValueRu, mainInitialValueEn } from '../../utils/initialValues/mainInitialValue';
 import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
-import { LocalStorageKey, StandardOption } from '../../utils/types/enums';
+import { LocalStorageKey, StandardOption, Language } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
@@ -140,7 +140,13 @@ export const mainOptionsReducer = (
           ...state.mainOptions,
           data: {
             ...state.mainOptions.data,
-            labels: [...state.mainOptions.data.labels, { value: `Строка ${rowNumber}`, id: uuidv4() }],
+            labels: [
+              ...state.mainOptions.data.labels,
+              {
+                value: `${(state.mainOptions.data.labels[0].value as string).split(' ')[0]} ${rowNumber}`,
+                id: uuidv4(),
+              },
+            ],
             datasets: newDatasets,
           },
         },
@@ -153,7 +159,7 @@ export const mainOptionsReducer = (
       const columnNumber: number = state.mainOptions.data.datasets.length + 1;
       const columnIndex: number = state.mainOptions.data.datasets.length - 1;
       const newDataset: IDataset = {
-        label: `Заголовок ${columnNumber}`,
+        label: `${state.mainOptions.data.datasets[0].label.split(' ')[0]} ${columnNumber}`,
         data: state.mainOptions.data.datasets[columnIndex].data,
         id: uuidv4(),
       };
@@ -248,6 +254,22 @@ export const mainOptionsReducer = (
       };
       setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
       return newState;
+    }
+
+    case MainOptionsActionType.RESET_MAIN_OPTIONS: {
+      removeLocalItem(LocalStorageKey.MainWidth);
+      removeLocalItem(LocalStorageKey.MainHeight);
+      removeLocalItem(LocalStorageKey.MainOptions);
+
+      return action.payload === Language.Ru
+        ? {
+            ...state,
+            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValueRu,
+          }
+        : {
+            ...state,
+            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValueEn,
+          };
     }
 
     case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH: {

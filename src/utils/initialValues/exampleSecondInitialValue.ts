@@ -4,18 +4,18 @@ export const exampleSecondInitialValue: IChart = {
   type: 'bar',
   data: {
     labels: [
-      { value: 'Январь' },
-      { value: 'Февраль' },
-      { value: 'Март' },
-      { value: 'Аперель' },
-      { value: 'Май' },
-      { value: 'Июнь' },
-      { value: 'Июль' },
-      { value: 'Август' },
-      { value: 'Сентябрь' },
-      { value: 'Октябрь' },
-      { value: 'Ноябрь' },
-      { value: 'Декабрь' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
+      { value: '' },
     ],
     datasets: [
       {
@@ -108,7 +108,61 @@ export const exampleSecondInitialValue: IChart = {
   options: {
     title: {
       display: true,
+      text: '',
+    },
+  },
+};
+
+export const exampleSecondInitialValueRu: IChart = {
+  type: exampleSecondInitialValue.type,
+  data: {
+    labels: [
+      { value: 'Январь' },
+      { value: 'Февраль' },
+      { value: 'Март' },
+      { value: 'Аперель' },
+      { value: 'Май' },
+      { value: 'Июнь' },
+      { value: 'Июль' },
+      { value: 'Август' },
+      { value: 'Сентябрь' },
+      { value: 'Октябрь' },
+      { value: 'Ноябрь' },
+      { value: 'Декабрь' },
+    ],
+    datasets: exampleSecondInitialValue.data.datasets,
+  },
+  options: {
+    title: {
+      display: true,
       text: 'Средняя заработная плата в Беларуси, рублей',
+    },
+  },
+};
+
+export const exampleSecondInitialValueEn: IChart = {
+  type: exampleSecondInitialValue.type,
+  data: {
+    labels: [
+      { value: 'January' },
+      { value: 'February' },
+      { value: 'March' },
+      { value: 'April' },
+      { value: 'May' },
+      { value: 'June' },
+      { value: 'July' },
+      { value: 'August' },
+      { value: 'September' },
+      { value: 'October' },
+      { value: 'November' },
+      { value: 'December' },
+    ],
+    datasets: exampleSecondInitialValue.data.datasets,
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Average salary in Belarus, rubles',
     },
   },
 };

@@ -47,12 +47,7 @@ export const WeatherContainer: FC = (): ReactElement => {
     } else {
       setCityWithLocation(t(ContentTxtKey.CityGeolocation), t(ContentTxtKey.ImpossibleGeolocation));
     }
-
-    if (city === 'Минск' || city === 'Minsk') {
-      setCity(t(ContentTxtKey.CityGeolocation));
-    }
-    // eslint-disable-next-line
-  }, [setCityWithLocation, getDegeocodingCity, languageMode]);
+  }, [setCityWithLocation, getDegeocodingCity, t, languageMode]);
 
   const getDebouncedWeather = useDebouncedCallback(() => getWeather(city, languageMode), 900);
 
@@ -62,13 +57,6 @@ export const WeatherContainer: FC = (): ReactElement => {
       getDebouncedWeather();
     }
   }, [setWeatherDataRequest, getDebouncedWeather, city, languageMode]);
-
-  useEffect(() => {
-    return () => {
-      setLocation(t(ContentTxtKey.LocationGeolocation));
-    };
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <Weather

@@ -24,27 +24,29 @@ const validationSchema = (t: TFunction): ObjectType => {
 };
 
 type PropsType = {
+  options: IChart;
   width: number | string;
   height: number | string;
   setWidth: (width: number | string) => void;
   setHeight: (height: number | string) => void;
-  setMainOptionsWithId: (mainOptions: IChart) => void;
+  resetMainOptions: (language: string) => void;
   setExamplesType: (type: string) => void;
 };
 
 export const AdditionalSettingsForm = memo<PropsType>(
-  ({ width, height, setWidth, setHeight, setMainOptionsWithId, setExamplesType }): ReactElement => {
+  ({ options, width, height, setWidth, setHeight, resetMainOptions, setExamplesType }): ReactElement => {
     const { t } = useTranslation();
 
     return (
       <Formik initialValues={{ width, height }} validationSchema={validationSchema(t)} onSubmit={() => {}}>
         {({ isValid, errors, setTouched, setValues, validateForm }): ReactElement => (
           <ViewAndSaveForm
+            options={options}
             width={width}
             height={height}
             setWidth={setWidth}
             setHeight={setHeight}
-            setMainOptionsWithId={setMainOptionsWithId}
+            resetMainOptions={resetMainOptions}
             setExamplesType={setExamplesType}
             isValid={isValid}
             errors={errors}

@@ -1,7 +1,8 @@
 import { type FC, type ReactElement, useEffect } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
-import { addressesSelector, examplesOptionsSelector } from '../../../../redux/selectors/selectors';
+import { addressesSelector, examplesOptionsSelector, viewSelector } from '../../../../redux/selectors/selectors';
 import {
   isFetchingExampleFirstAddressSelector,
   isFetchingExampleSecondAddressSelector,
@@ -44,22 +45,54 @@ export const ExamplesPageContainer: FC<PropsType> = ({
   const exampleSecondAddressError = useTypedSelector(exampleSecondAddressErrorSelector);
   const exampleThirdAddressError = useTypedSelector(exampleThirdAddressErrorSelector);
   const { exampleFirstOptions, exampleSecondOptions, exampleThirdOptions } = useTypedSelector(examplesOptionsSelector);
+  const { languageMode } = useTypedSelector(viewSelector);
 
-  const { getExampleFirstAddress, getExampleSecondAddress, getExampleThirdAddress, setMainOptionsWithId } =
-    useActions();
-
-  useEffect(() => {
-    getExampleFirstAddress(exampleFirstOptions, StandardOption.Width, StandardOption.Height);
-    getExampleSecondAddress(exampleSecondOptions, StandardOption.Width, StandardOption.Height);
-    getExampleThirdAddress(exampleThirdOptions, StandardOption.Width, StandardOption.Height);
-  }, [
+  const {
+    setExampleFirstAddressRequest,
+    setExampleSecondAddressRequest,
+    setExampleThirdAddressRequest,
     getExampleFirstAddress,
     getExampleSecondAddress,
     getExampleThirdAddress,
+    setMainOptionsWithId,
+    resetExamplesOptions,
+  } = useActions();
+
+  const getDebouncedFirstAddress = useDebouncedCallback(
+    () => getExampleFirstAddress(exampleFirstOptions, StandardOption.Width, StandardOption.Height),
+    900
+  );
+  const getDebouncedSecondAddress = useDebouncedCallback(
+    () => getExampleSecondAddress(exampleSecondOptions, StandardOption.Width, StandardOption.Height),
+    900
+  );
+  const getDebouncedThirdAddress = useDebouncedCallback(
+    () => getExampleThirdAddress(exampleThirdOptions, StandardOption.Width, StandardOption.Height),
+    900
+  );
+
+  useEffect(() => {
+    setExampleFirstAddressRequest();
+    setExampleSecondAddressRequest();
+    setExampleThirdAddressRequest();
+    getDebouncedFirstAddress();
+    getDebouncedSecondAddress();
+    getDebouncedThirdAddress();
+  }, [
+    getDebouncedFirstAddress,
+    getDebouncedSecondAddress,
+    getDebouncedThirdAddress,
+    setExampleFirstAddressRequest,
+    setExampleSecondAddressRequest,
+    setExampleThirdAddressRequest,
     exampleFirstOptions,
     exampleSecondOptions,
     exampleThirdOptions,
   ]);
+
+  useEffect(() => {
+    resetExamplesOptions(languageMode);
+  }, [resetExamplesOptions, languageMode]);
 
   return (
     <ExamplesPage

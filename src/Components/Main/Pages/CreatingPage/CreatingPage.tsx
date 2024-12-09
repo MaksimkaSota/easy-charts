@@ -30,7 +30,7 @@ type PropsType = {
   removeMainColumn: (index: number) => void;
   setMainWidth: (width: number | string) => void;
   setMainHeight: (height: number | string) => void;
-  setMainOptionsWithId: (mainOptions: IChart) => void;
+  resetMainOptions: (language: string) => void;
   setExamplesType: (type: string) => void;
   themeMode: string;
 };
@@ -52,7 +52,7 @@ export const CreatingPage: FC<PropsType> = ({
   removeMainColumn,
   setMainWidth,
   setMainHeight,
-  setMainOptionsWithId,
+  resetMainOptions,
   setExamplesType,
   themeMode,
 }): ReactElement => {
@@ -88,11 +88,12 @@ export const CreatingPage: FC<PropsType> = ({
             <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
               <p className={classes.settingsFormTitle}>Параметры графика</p>
               <AdditionalSettingsForm
+                options={mainOptions}
                 width={width}
                 height={height}
                 setWidth={setMainWidth}
                 setHeight={setMainHeight}
-                setMainOptionsWithId={setMainOptionsWithId}
+                resetMainOptions={resetMainOptions}
                 setExamplesType={setExamplesType}
               />
             </div>
