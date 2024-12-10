@@ -1,100 +1,128 @@
 {
   "content": {
-    "mainTitle": "Easy Charts",
-    "creatingTitle": "Create chart / diagram online",
-    "galleryTitle": "Chart / diagram gallery",
-    "examplesTitle": "Chart / diagram examples",
-    "infoTitle": "How to create chart / diagram online on the EasyCharts website",
-    "contactsTitle": "Contacts",
+    "title": {
+      "main": "Easy Charts",
+      "creating": "Create chart / diagram online",
+      "gallery": "Chart / diagram gallery",
+      "examples": "Chart / diagram examples",
+      "info": "How to create chart / diagram online on the EasyCharts website",
+      "contacts": "Contacts"
+    },
 
-    "viewMiniTitle": "View",
-    "chartMiniTitle": "Chart",
-    "settingsMiniTitle": "Chart settings",
-    "weatherMiniTitle": "Weather forecast",
-    "currencyMiniTitle": "Currency converter",
-    "infoMiniTitle1": "1. Select the chart type",
-    "infoMiniTitle2": "2. Fill in the data table",
-    "infoMiniTitle3": "3. Done!",
+    "miniTitle": {
+      "view": "View",
+      "chart": "Chart",
+      "settings": "Chart settings",
+      "weather": "Weather forecast",
+      "currency": "Currency converter",
+      "info1": "1. Select the chart type",
+      "info2": "2. Fill in the data table",
+      "info3": "3. Done!"
+    },
 
-    "mainDescription": "Online charts / diagrams",
-    "creatingDescription": "This page contains the constructor for building charts online. It is very simple to create them: select the type of chart you need (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done!  If necessary, set the required width, height and save the chart to computer.",
-    "galleryDescription": "Choose the desired type of chart, then you will get to the online constructor page, where you can fill in the chart data, and then save to computer. What chart do you need to build? Bars, horizontal bars, lines, radar, pie, doughnut?",
-    "examplesDescription": "On this page, you can find examples of charts in order to use them to build your own chart, as well as to understand how the chart constructor works on our website. You can also select the desired type of chart to see examples for this type: bars, horizontal bars, lines, radar, pie, doughnut.",
-    "infoDescription1": "You can find the chart <1>examples</1> and create your own one based on the example most suitable for you.",
-    "infoDescription2": "Below you may find the instruction on how to create the chart on our website. It is easy:",
-    "contactsDescription": "For any questions or suggestions, please write to email or other sources:",
+    "description": {
+      "main": "Online charts / diagrams",
+      "creating": "This page contains the constructor for building charts online. It is very simple to create them: select the type of chart you need (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done!  If necessary, set the required width, height and save the chart to computer.",
+      "gallery": "Choose the desired type of chart, then you will get to the online constructor page, where you can fill in the chart data, and then save to computer. What chart do you need to build? Bars, horizontal bars, lines, radar, pie, doughnut?",
+      "examples": "On this page, you can find examples of charts in order to use them to build your own chart, as well as to understand how the chart constructor works on our website. You can also select the desired type of chart to see examples for this type: bars, horizontal bars, lines, radar, pie, doughnut.",
+      "info1": "You can find the chart <1>examples</1> and create your own one based on the example most suitable for you.",
+      "info2": "Below you may find the instruction on how to create the chart on our website. It is easy:",
+      "contacts": "For any questions or suggestions, please write to email or other sources:"
+    },
 
-    "infoMiniDescription1": "On the creation page or in the gallery, select the chart type you need.\nHow do you need to display your data?\nBars, horizontal bars, lines, radar, pie, doughnut?",
-    "infoMiniDescription2": "In order to create a chart, please fill in the data table.\nThe values in the first column will become the horizontal marks (along the X axis).\nThe remaining columns (there may be one or more) are the values\nwhich correspond to the marks from the first column, and which will be displayed on the diagram (Y-axis).",
-    "infoMiniDescription3": "Now you can view and save the chart in full size (in PNG format) or you can get a link and share it.",
-    "weatherMiniDescription": "According to the OpenWeather",
-    "currencyMiniDescription": "According to the NBRB",
+    "miniDescription": {
+      "weather": "According to the OpenWeather",
+      "currency": "According to the NBRB",
+      "info1": "On the creation page or in the gallery, select the chart type you need.\nHow do you need to display your data?\nBars, horizontal bars, lines, radar, pie, doughnut?",
+      "info2": "In order to create a chart, please fill in the data table.\nThe values in the first column will become the horizontal marks (along the X axis).\nThe remaining columns (there may be one or more) are the values\nwhich correspond to the marks from the first column, and which will be displayed on the diagram (Y-axis).",
+      "info3": "Now you can view and save the chart in full size (in PNG format) or you can get a link and share it."
+    },
 
-    "creatingLink": "Create",
-    "galleryLink": "Gallery",
-    "examplesLink": "Examples",
-    "infoLink": "Information",
-    "contactsLink": "Contacts",
+    "link": {
+      "creating": "Create",
+      "gallery": "Gallery",
+      "examples": "Examples",
+      "info": "Information",
+      "contacts": "Contacts"
+    },
 
-    "createButton": "Create chart",
-    "editButton": "Edit chart:",
-    "addRowButton": "Add row",
-    "addColumnButton": "Add column",
-    "resetButton": "Reset chart",
-    "viewAndSaveButton": "View and save chart",
-    "saveButton": "Save chart",
-    "openButton": "Open chart in new tab (1:1 format)",
-    "copyButton": "Copy chart URL",
+    "button": {
+      "create": "Create chart",
+      "edit": "Edit chart:",
+      "addRow": "Add row",
+      "addColumn": "Add column",
+      "reset": "Reset chart",
+      "viewAndSave": "View and save chart",
+      "save": "Save chart",
+      "open": "Open chart in new tab (1:1 format)",
+      "copy": "Copy chart URL"
+    },
 
-    "mainText": "<0>EasyCharts</0> - is a website for building charts/diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please see also the <8>examples</8>, of the charts to create the one you need.",
-    "createBoldText": "Create",
-    "createText": "online, free and without registration",
-    "shareBoldText": "Share",
-    "shareText": "links to charts",
-    "saveBoldText": "Save",
-    "saveText": "charts in PNG format",
-    "footerText": "Create chart online, 2024",
+    "text": {
+      "main": "<0>EasyCharts</0> - is a website for building charts/diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please see also the <8>examples</8>, of the charts to create the one you need.",
+      "createBold": "Create",
+      "create": "online, free and without registration",
+      "shareBold": "Share",
+      "share": "links to charts",
+      "saveBold": "Save",
+      "save": "charts in PNG format",
+      "footer": "Create chart online, 2024"
+    },
 
-    "weatherCity": "City",
-    "weatherTemp": "Temperature:",
-    "weatherState": "State:",
-    "weatherHumidity": "Humidity:",
-    "weatherWind": "Wind speed:",
-    "weatherSpeed": "m/s",
+    "weather": {
+      "city": "City",
+      "temp": "Temperature:",
+      "state": "State:",
+      "humidity": "Humidity:",
+      "wind": "Wind speed:",
+      "speed": "m/s"
+    },
 
-    "belarusCoin": "Belarusian ruble",
-    "americaCoin": "USA dollar",
-    "europeCoin": "Euro",
-    "russiaCoin": "Russian ruble",
-    "ukraineCoin": "Ukrainian hryvnia",
-    "polandCoin": "Polish zloty",
+    "coin": {
+      "belarus": "Belarusian ruble",
+      "america": "USA dollar",
+      "europe": "Euro",
+      "russia": "Russian ruble",
+      "ukraine": "Ukrainian hryvnia",
+      "poland": "Polish zloty"
+    },
 
-    "cityGeolocation": "Minsk",
-    "locationGeolocation": "Location",
-    "currentGeolocation": "Current location",
-    "errorGeolocation": "Error getting current location",
-    "impossibleGeolocation": "Impossible to get current location",
-    "notReceivedGeolocation": "Current location not received (long expectation)",
-    "notAllowedGeolocation": "Getting current location is not allowed",
+    "geolocation": {
+      "city": "Minsk",
+      "location": "Location",
+      "current": "Current location",
+      "error": "Error getting current location",
+      "impossible": "Impossible to get current location",
+      "notReceived": "Current location not received (long expectation)",
+      "notAllowed": "Getting current location is not allowed"
+    },
 
-    "populationTable": "Population by years",
-    "salaryTable": "Salary by month",
-    "inflationTable": "Inflation by year",
+    "table": {
+      "population": "Population by years",
+      "salary": "Salary by month",
+      "inflation": "Inflation by year"
+    },
 
-    "basicTitleSettings": "Data table",
-    "additionalTitleSettings": "Chart options",
-    "widthSettings": "Width",
-    "heightSettings": "Height",
-    "newRowSettings": "Row",
-    "newColumnSettings": "Title",
+    "settings": {
+      "basicTitle": "Data table",
+      "additionalTitle": "Chart options",
+      "width": "Width",
+      "height": "Height",
+      "newRow": "Row",
+      "newColumn": "Title"
+    },
 
-    "loadingService": "Loading...",
-    "dataService": "No data",
+    "service": {
+      "loading": "Loading...",
+      "data": "No data"
+    },
 
-    "copyHint": "Successful copying",
-    "noCopyHint": "Unsuccessful copying",
-    "rowHint": "Remove this row",
-    "columnHint": "Remove this column"
+    "hint": {
+      "copy": "Successful copying",
+      "noCopy": "Unsuccessful copying",
+      "row": "Remove this row",
+      "column": "Remove this column"
+    }
   },
 
   "chart": {

@@ -35,7 +35,7 @@ export const Weather: FC<PropsType> = ({
   const state =
     weather && `${weather.weather[0].description.charAt(0).toUpperCase()}${weather.weather[0].description.slice(1)}`;
   const humidity = weather && `${Math.round(weather.main.humidity)} %`;
-  const speed = weather && `${Math.round(weather?.wind.speed)} ${t(ContentTxtKey.WeatherSpeed)}`;
+  const speed = weather && `${Math.round(weather?.wind.speed)} ${t(ContentTxtKey.SpeedWeather)}`;
 
   const onCityChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setCity(event.target.value);
@@ -51,7 +51,7 @@ export const Weather: FC<PropsType> = ({
       <div className={classes.container}>
         <div className={classes.formContainer}>
           <label className={classes.label} htmlFor={FieldName.City}>
-            {t(ContentTxtKey.WeatherCity)}
+            {t(ContentTxtKey.CityWeather)}
           </label>
           <input
             className={cn(classes.input, { [classes.inputError]: weatherError?.code })}
@@ -64,7 +64,7 @@ export const Weather: FC<PropsType> = ({
         <p className={classes.description}>{location}</p>
       </div>
       <p className={classes.weatherText}>
-        {t(ContentTxtKey.WeatherTemp)}{' '}
+        {t(ContentTxtKey.TempWeather)}{' '}
         <em>
           {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && temperature}
@@ -72,7 +72,7 @@ export const Weather: FC<PropsType> = ({
         </em>
       </p>
       <p className={classes.weatherText}>
-        {t(ContentTxtKey.WeatherState)}{' '}
+        {t(ContentTxtKey.StateWeather)}{' '}
         <em>
           {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && state}
@@ -80,7 +80,7 @@ export const Weather: FC<PropsType> = ({
         </em>
       </p>
       <p className={classes.weatherText}>
-        {t(ContentTxtKey.WeatherHumidity)}{' '}
+        {t(ContentTxtKey.HumidityWeather)}{' '}
         <em>
           {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && humidity}
@@ -88,7 +88,7 @@ export const Weather: FC<PropsType> = ({
         </em>
       </p>
       <p className={classes.weatherText}>
-        {t(ContentTxtKey.WeatherWind)}{' '}
+        {t(ContentTxtKey.WindWeather)}{' '}
         <em>
           {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && speed}
