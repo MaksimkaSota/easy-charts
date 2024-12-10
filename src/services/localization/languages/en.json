@@ -47,6 +47,12 @@
     "copyButton": "Copy chart URL",
 
     "mainText": "<0>EasyCharts</0> - is a website for building charts/diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please see also the <8>examples</8>, of the charts to create the one you need.",
+    "createBoldText": "Create",
+    "createText": "online, free and without registration",
+    "shareBoldText": "Share",
+    "shareText": "links to charts",
+    "saveBoldText": "Save",
+    "saveText": "charts in PNG format",
     "footerText": "Create chart online, 2024",
 
     "weatherCity": "City",
@@ -73,7 +79,22 @@
 
     "populationTable": "Population by years",
     "salaryTable": "Salary by month",
-    "inflationTable": "Inflation by year"
+    "inflationTable": "Inflation by year",
+
+    "basicTitleSettings": "Data table",
+    "additionalTitleSettings": "Chart options",
+    "widthSettings": "Width",
+    "heightSettings": "Height",
+    "newRowSettings": "Row",
+    "newColumnSettings": "Title",
+
+    "loadingService": "Loading...",
+    "dataService": "No data",
+
+    "copyHint": "Successful copying",
+    "noCopyHint": "Unsuccessful copying",
+    "rowHint": "Remove this row",
+    "columnHint": "Remove this column"
   },
 
   "chart": {

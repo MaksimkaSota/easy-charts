@@ -48,23 +48,23 @@ export const CurrencyForm: FC<PropsType> = ({
 
   useEffect(() => {
     if (isFetchingCurrency) {
-      setFieldValueOnCondition(setFieldValue, activeField, FieldName.BelarusCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.BelarusCoin, t(ContentTxtKey.LoadingService));
       if (activeField && activeField !== FieldName.AmericaCoin) {
-        setFieldValue(FieldName.AmericaCoin, 'Загрузка...');
+        setFieldValue(FieldName.AmericaCoin, t(ContentTxtKey.LoadingService));
       }
-      setFieldValueOnCondition(setFieldValue, activeField, FieldName.EuropeCoin, 'Загрузка...');
-      setFieldValueOnCondition(setFieldValue, activeField, FieldName.RussiaCoin, 'Загрузка...');
-      setFieldValueOnCondition(setFieldValue, activeField, FieldName.UkraineCoin, 'Загрузка...');
-      setFieldValueOnCondition(setFieldValue, activeField, FieldName.PolandCoin, 'Загрузка...');
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.EuropeCoin, t(ContentTxtKey.LoadingService));
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.RussiaCoin, t(ContentTxtKey.LoadingService));
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.UkraineCoin, t(ContentTxtKey.LoadingService));
+      setFieldValueOnCondition(setFieldValue, activeField, FieldName.PolandCoin, t(ContentTxtKey.LoadingService));
     } else if (currencyError) {
-      setFieldValue(FieldName.BelarusCoin, 'Нет данных');
+      setFieldValue(FieldName.BelarusCoin, t(ContentTxtKey.DataService));
       if (activeField && activeField !== FieldName.AmericaCoin) {
         setFieldValue(FieldName.AmericaCoin, '1');
       }
-      setFieldValue(FieldName.EuropeCoin, 'Нет данных');
-      setFieldValue(FieldName.RussiaCoin, 'Нет данных');
-      setFieldValue(FieldName.UkraineCoin, 'Нет данных');
-      setFieldValue(FieldName.PolandCoin, 'Нет данных');
+      setFieldValue(FieldName.EuropeCoin, t(ContentTxtKey.DataService));
+      setFieldValue(FieldName.RussiaCoin, t(ContentTxtKey.DataService));
+      setFieldValue(FieldName.UkraineCoin, t(ContentTxtKey.DataService));
+      setFieldValue(FieldName.PolandCoin, t(ContentTxtKey.DataService));
     } else {
       setFieldValueOnCondition(setFieldValue, activeField, FieldName.BelarusCoin, belarusCoin);
       setFieldValueOnCondition(setFieldValue, activeField, FieldName.AmericaCoin, americaCoin);

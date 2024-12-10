@@ -107,7 +107,7 @@ export const ViewAndSaveForm: FC<PropsType> = ({
         formContainerClassName={classes.formContainer}
         labelClassName={cn(classes.label, classes[`label-${themeMode}`])}
         htmlFor={FieldName.Width}
-        label="Ширина"
+        label={t(ContentTxtKey.WidthSettings)}
       >
         <FormField
           classNameField={cn(classes.inputData, classes[`inputData-${themeMode}`])}
@@ -122,7 +122,7 @@ export const ViewAndSaveForm: FC<PropsType> = ({
         formContainerClassName={classes.formContainer}
         labelClassName={cn(classes.label, classes[`label-${themeMode}`])}
         htmlFor={FieldName.Height}
-        label="Высота"
+        label={t(ContentTxtKey.HeightSettings)}
       >
         <FormField
           classNameField={cn(classes.inputData, classes[`inputData-${themeMode}`])}

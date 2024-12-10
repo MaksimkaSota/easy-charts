@@ -72,7 +72,7 @@ export const CreatingPage: FC<PropsType> = ({
           </h3>
           <div className={classes.wrapper}>
             <div className={cn(classes.settingsFormContainer, classes.basicFormContainer)}>
-              <p className={classes.settingsFormTitle}>Таблица данных</p>
+              <p className={classes.settingsFormTitle}>{t(ContentTxtKey.BasicTitleSettings)}</p>
               <BasicSettingsForm
                 options={mainOptions}
                 setTitle={setMainTitle}
@@ -86,7 +86,7 @@ export const CreatingPage: FC<PropsType> = ({
               />
             </div>
             <div className={cn(classes.settingsFormContainer, classes.additionalFormContainer)}>
-              <p className={classes.settingsFormTitle}>Параметры графика</p>
+              <p className={classes.settingsFormTitle}>{t(ContentTxtKey.AdditionalTitleSettings)}</p>
               <AdditionalSettingsForm
                 options={mainOptions}
                 width={width}

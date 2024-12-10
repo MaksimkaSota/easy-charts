@@ -1,9 +1,10 @@
 import { type ChangeEvent, type ReactElement, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './RowForm.module.scss';
 import type { FormikErrorsType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
-import { FieldName } from '../../../../../../utils/types/enums';
+import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   labelIndex: number;
@@ -14,6 +15,8 @@ type PropsType = {
 };
 
 export const RowForm = memo<PropsType>(({ labelIndex, labelsLength, setLabels, removeRow, errors }): ReactElement => {
+  const { t } = useTranslation();
+
   const onLabelChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setLabels(labelIndex, event.target.value);
   };
@@ -23,7 +26,7 @@ export const RowForm = memo<PropsType>(({ labelIndex, labelsLength, setLabels, r
       <button
         type="button"
         aria-label="Remove row"
-        title={labelsLength !== 1 ? 'Удалить эту строку' : undefined}
+        title={labelsLength !== 1 ? t(ContentTxtKey.RowHint) : undefined}
         className={cn(classes.closeX, { [classes.closeXHover]: labelsLength !== 1 })}
         onClick={() => removeRow(labelIndex)}
         disabled={labelsLength === 1}

@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
+import i18next from '../../services/localization/i18n';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { mainInitialValue, mainInitialValueRu, mainInitialValueEn } from '../../utils/initialValues/mainInitialValue';
 import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
-import { LocalStorageKey, StandardOption, Language } from '../../utils/types/enums';
+import { LocalStorageKey, StandardOption, Language, ContentTxtKey } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
@@ -143,7 +144,7 @@ export const mainOptionsReducer = (
             labels: [
               ...state.mainOptions.data.labels,
               {
-                value: `${(state.mainOptions.data.labels[0].value as string).split(' ')[0]} ${rowNumber}`,
+                value: `${i18next.t(ContentTxtKey.NewRowSettings)} ${rowNumber}`,
                 id: uuidv4(),
               },
             ],
@@ -159,7 +160,7 @@ export const mainOptionsReducer = (
       const columnNumber: number = state.mainOptions.data.datasets.length + 1;
       const columnIndex: number = state.mainOptions.data.datasets.length - 1;
       const newDataset: IDataset = {
-        label: `${state.mainOptions.data.datasets[0].label.split(' ')[0]} ${columnNumber}`,
+        label: `${i18next.t(ContentTxtKey.NewColumnSettings)} ${columnNumber}`,
         data: state.mainOptions.data.datasets[columnIndex].data,
         id: uuidv4(),
       };

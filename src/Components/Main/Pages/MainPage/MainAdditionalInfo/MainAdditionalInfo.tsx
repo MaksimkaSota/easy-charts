@@ -17,9 +17,9 @@ export const MainAdditionalInfo: FC = (): ReactElement => {
       <PageDescription title={t(ContentTxtKey.MainTitle)} textContent={t(ContentTxtKey.MainDescription)} />
       <CreateButton />
       <div className={classes.info}>
-        <InfoCard TagSVG={Phone} boldText="Создавайте" text="онлайн, бесплатно и без регистрации" />
-        <InfoCard TagSVG={Share} boldText="Делитесь" text="ссылками на графики" />
-        <InfoCard TagSVG={Download} boldText="Сохраняйте" text="графики в PNG формате" />
+        <InfoCard TagSVG={Phone} boldText={t(ContentTxtKey.CreateBoldText)} text={t(ContentTxtKey.CreateText)} />
+        <InfoCard TagSVG={Share} boldText={t(ContentTxtKey.ShareBoldText)} text={t(ContentTxtKey.ShareText)} />
+        <InfoCard TagSVG={Download} boldText={t(ContentTxtKey.SaveBoldText)} text={t(ContentTxtKey.SaveText)} />
       </div>
     </div>
   );

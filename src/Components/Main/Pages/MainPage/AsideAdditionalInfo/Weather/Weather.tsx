@@ -66,33 +66,33 @@ export const Weather: FC<PropsType> = ({
       <p className={classes.weatherText}>
         {t(ContentTxtKey.WeatherTemp)}{' '}
         <em>
-          {isFetchingWeather && 'Загрузка...'}
+          {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && temperature}
-          {weatherError && 'Нет данных'}
+          {weatherError && t(ContentTxtKey.DataService)}
         </em>
       </p>
       <p className={classes.weatherText}>
         {t(ContentTxtKey.WeatherState)}{' '}
         <em>
-          {isFetchingWeather && 'Загрузка...'}
+          {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && state}
-          {weatherError && 'Нет данных'}
+          {weatherError && t(ContentTxtKey.DataService)}
         </em>
       </p>
       <p className={classes.weatherText}>
         {t(ContentTxtKey.WeatherHumidity)}{' '}
         <em>
-          {isFetchingWeather && 'Загрузка...'}
+          {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && humidity}
-          {weatherError && 'Нет данных'}
+          {weatherError && t(ContentTxtKey.DataService)}
         </em>
       </p>
       <p className={classes.weatherText}>
         {t(ContentTxtKey.WeatherWind)}{' '}
         <em>
-          {isFetchingWeather && 'Загрузка...'}
+          {isFetchingWeather && t(ContentTxtKey.LoadingService)}
           {!isFetchingWeather && !weatherError && speed}
-          {weatherError && 'Нет данных'}
+          {weatherError && t(ContentTxtKey.DataService)}
         </em>
       </p>
     </div>
