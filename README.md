@@ -16,7 +16,7 @@ The Redux library was used as a state manager and the Axios library was used to 
 ### Technologies
 
 This a creating chart project was built using:  
-`React`, `Redux`, `TypeScript`, `SCSS`, `Axios`, `REST API`, `Formik`, `ESLint`.
+`React`, `Redux`, `TypeScript`, `SCSS`, `Axios`, `REST API`, `Formik`, `i18next`, `ESLint`.
 
 ---
 

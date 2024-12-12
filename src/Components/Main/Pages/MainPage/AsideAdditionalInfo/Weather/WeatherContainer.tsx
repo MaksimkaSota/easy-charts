@@ -53,9 +53,7 @@ export const WeatherContainer: FC = (): ReactElement => {
 
   useEffect(() => {
     setWeatherDataRequest();
-    if (city) {
-      getDebouncedWeather();
-    }
+    getDebouncedWeather();
   }, [setWeatherDataRequest, getDebouncedWeather, city, languageMode]);
 
   return (

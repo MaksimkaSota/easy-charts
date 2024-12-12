@@ -25,7 +25,7 @@ export const getAddress = (
   width: number | string,
   height: number | string
 ): ThunkType<AddressesAction> => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
       dispatch(setMainAddressRequest());
       const chart: Blob = await getChartAPI(options, width, height);
@@ -35,7 +35,7 @@ export const getAddress = (
       dispatch(setUrlAddress(chartURL));
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setMainAddressFailure(getErrorMessage(error), error.response?.status));
+        dispatch(setMainAddressFailure(getErrorMessage(error, getState().view.languageMode), error.response?.status));
       }
     }
   };
@@ -46,7 +46,7 @@ export const getExampleFirstAddress = (
   width: number | string,
   height: number | string
 ): ThunkType<AddressesAction> => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
       dispatch(setExampleFirstAddressRequest());
       const chart: Blob = await getChartAPI(options, width, height);
@@ -54,7 +54,9 @@ export const getExampleFirstAddress = (
       dispatch(setExampleFirstAddressSuccess(chartAddress));
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setExampleFirstAddressFailure(getErrorMessage(error), error.response?.status));
+        dispatch(
+          setExampleFirstAddressFailure(getErrorMessage(error, getState().view.languageMode), error.response?.status)
+        );
       }
     }
   };
@@ -65,7 +67,7 @@ export const getExampleSecondAddress = (
   width: number | string,
   height: number | string
 ): ThunkType<AddressesAction> => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
       dispatch(setExampleSecondAddressRequest());
       const chart: Blob = await getChartAPI(options, width, height);
@@ -73,7 +75,9 @@ export const getExampleSecondAddress = (
       dispatch(setExampleSecondAddressSuccess(chartAddress));
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setExampleSecondAddressFailure(getErrorMessage(error), error.response?.status));
+        dispatch(
+          setExampleSecondAddressFailure(getErrorMessage(error, getState().view.languageMode), error.response?.status)
+        );
       }
     }
   };
@@ -84,7 +88,7 @@ export const getExampleThirdAddress = (
   width: number | string,
   height: number | string
 ): ThunkType<AddressesAction> => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     try {
       dispatch(setExampleThirdAddressRequest());
       const chart: Blob = await getChartAPI(options, width, height);
@@ -92,7 +96,9 @@ export const getExampleThirdAddress = (
       dispatch(setExampleThirdAddressSuccess(chartAddress));
     } catch (error: unknown) {
       if (isAxiosError(error)) {
-        dispatch(setExampleThirdAddressFailure(getErrorMessage(error), error.response?.status));
+        dispatch(
+          setExampleThirdAddressFailure(getErrorMessage(error, getState().view.languageMode), error.response?.status)
+        );
       }
     }
   };

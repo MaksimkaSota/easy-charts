@@ -153,6 +153,7 @@ export enum ContentTxtKey {
   ViewAndSaveButton = 'content.button.viewAndSave',
   SaveButton = 'content.button.save',
   OpenButton = 'content.button.open',
+  CloseButton = 'content.button.close',
   CopyButton = 'content.button.copy',
 
   MainText = 'content.text.main',
@@ -230,4 +231,14 @@ export enum ValidationTxtKey {
   Required = 'validation.required',
   Min = 'validation.min',
   Max = 'validation.max',
+}
+
+export enum ErrorTxtKey {
+  Error = 'error.error',
+  Network = 'error.network',
+  Server = 'error.server',
+  IncorrectCity = 'error.incorrectCity',
+  RequiredCity = 'error.requiredCity',
+  UnhandledPromise = 'error.unhandledPromise',
+  UnhandledUI = 'error.unhandledUI',
 }

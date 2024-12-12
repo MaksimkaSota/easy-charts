@@ -1,8 +1,9 @@
 import { type FC, type ReactElement, type MouseEvent, type KeyboardEvent, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import classes from './ErrorPopup.module.scss';
 import { Error } from '../Error/Error';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
-import { KeyboardEventCode } from '../../../../utils/types/enums';
+import { KeyboardEventCode, ContentTxtKey } from '../../../../utils/types/enums';
 
 type PropsType = {
   errorObject: Nullable<ErrorType>;
@@ -10,6 +11,8 @@ type PropsType = {
 };
 
 export const ErrorPopup: FC<PropsType> = ({ errorObject, resetError }): ReactElement | null => {
+  const { t } = useTranslation();
+
   const errorPopup = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export const ErrorPopup: FC<PropsType> = ({ errorObject, resetError }): ReactEle
         <div className={classes.errorPopupContainer}>
           <Error message={errorObject.message} code={errorObject.code} />
           <button className={classes.errorPopupButton} onClick={onButtonClick}>
-            Закрыть
+            {t(ContentTxtKey.CloseButton)}
           </button>
         </div>
       </div>

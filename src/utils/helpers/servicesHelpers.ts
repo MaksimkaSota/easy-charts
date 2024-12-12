@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import type { AxiosError } from 'axios';
 import i18next from '../../services/localization/i18n';
 import type { IChart, IData, IDataset } from '../types/api/chart';
-import { ChartParameter, ContentTxtKey } from '../types/enums';
+import { ChartParameter, ContentTxtKey, Language } from '../types/enums';
 import type { ObjectType } from '../types/common';
 
 export const formQueryString = (options: IChart, width: number | string, height: number | string): string => {
@@ -69,8 +69,10 @@ export const addUniqueIdInObjects = (objects: ObjectType[]): any[] => {
   return objects.map((object: ObjectType): ObjectType => ({ ...object, id: uuidv4() }));
 };
 
-export const getErrorMessage = (errorObject: AxiosError<any>): string => {
-  return errorObject.response?.data.message || errorObject.message;
+export const getErrorMessage = (errorObject: AxiosError<any>, language: string): string => {
+  return language === Language.Ru
+    ? 'При загрузке что-то пошло не так...'
+    : errorObject.response?.data.message || errorObject.message;
 };
 
 export const getTableValues = (titleText: string, exampleInitialValue: IChart): (string | number)[][] => {

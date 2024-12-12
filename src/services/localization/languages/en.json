@@ -55,6 +55,7 @@
       "viewAndSave": "View and save chart",
       "save": "Save chart",
       "open": "Open chart in new tab (1:1 format)",
+      "close": "Close",
       "copy": "Copy chart URL"
     },
 
@@ -149,5 +150,15 @@
     "required": "Required to enter",
     "min": "Minimum {{number}}",
     "max": "Maximum {{number}}"
+  },
+
+  "error": {
+    "error": "Error",
+    "network": "Network error",
+    "server": "Server error",
+    "incorrectCity": "Incorrect name",
+    "requiredCity": "Enter the name",
+    "unhandledPromise": "Some Connection error! We are sorry... We will fix it soon!",
+    "unhandledUI": "Some UI error! We are sorry... We will fix it soon!"
   }
 }

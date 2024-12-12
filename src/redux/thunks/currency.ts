@@ -1,7 +1,8 @@
 import { isAxiosError } from 'axios';
+import i18next from '../../services/localization/i18n';
 import type { ThunkType, ObjectType } from '../../utils/types/common';
 import type { CurrencyAction } from '../types/currency';
-import { CurrencyId, FieldName, LocalStorageKey } from '../../utils/types/enums';
+import { CurrencyId, FieldName, LocalStorageKey, ErrorTxtKey } from '../../utils/types/enums';
 import { getCurrencyAPI } from '../../services/api/currency/currency';
 import {
   setCurrencyRequest,
@@ -61,9 +62,9 @@ export const getCurrency = (coin: string, name: string): ThunkType<CurrencyActio
     } catch (error: unknown) {
       if (isAxiosError(error)) {
         if (error.response) {
-          dispatch(setCurrencyFailure('Ошибка', error.response.status));
+          dispatch(setCurrencyFailure(i18next.t(ErrorTxtKey.Error), error.response.status));
         } else {
-          dispatch(setCurrencyFailure('Ошибка сети'));
+          dispatch(setCurrencyFailure(i18next.t(ErrorTxtKey.Network)));
         }
       }
     }
