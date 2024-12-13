@@ -1,0 +1,71 @@
+.burger {
+  display: none;
+  @include respond($tablet-min) {
+    display: block;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    .rectangle {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 7px;
+      transition: transform 0.25s linear;
+    }
+    .rectangle-light {
+      background: $black;
+    }
+    .rectangle-dark {
+      background: $white;
+    }
+    .rectangle1 {
+      top: 0;
+    }
+    .rectangle2 {
+      top: calc(50% - 3.5px);
+    }
+    .rectangle3 {
+      top: calc(100% - 7px);
+    }
+  }
+  @include respond($mobile) {
+    width: 30px;
+    height: 30px;
+    .rectangle {
+      height: 5px;
+    }
+    .rectangle2 {
+      top: calc(50% - 2.5px);
+    }
+    .rectangle3 {
+      top: calc(100% - 5px);
+    }
+  }
+}
+
+.crossedOutBurger {
+  .rectangle1 {
+    transform: rotate(-45deg);
+    top: calc(50% - 3.5px);
+  }
+
+  .rectangle2 {
+    transform: scale(0);
+  }
+
+  .rectangle3 {
+    transform: rotate(45deg);
+    top: calc(50% - 3.5px);
+  }
+
+  @include respond($mobile) {
+    .rectangle1 {
+      top: calc(50% - 2.5px);
+    }
+
+    .rectangle3 {
+      top: calc(50% - 2.5px);
+    }
+  }
+}

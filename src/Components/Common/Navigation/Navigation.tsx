@@ -1,18 +1,36 @@
-import type { FC, ReactElement } from 'react';
+import type { FC, ReactElement, MouseEvent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Navigation.module.scss';
 import { RoutePath, ContentTxtKey } from '../../../utils/types/enums';
 
-export const Navigation: FC = (): ReactElement => {
+type PropsType = {
+  className: string;
+  showBurgerMenu: boolean;
+  setShowBurgerMenu: (showBurgerMenu: boolean) => void;
+};
+
+export const Navigation: FC<PropsType> = ({ className, showBurgerMenu, setShowBurgerMenu }): ReactElement => {
   const { t } = useTranslation();
 
   const setClass = ({ isActive }: { isActive: boolean }): string =>
     cn(classes.link, { [classes.activeLink]: isActive });
 
+  const onLinkClick = (event: MouseEvent<HTMLAnchorElement>): void => {
+    if ((event.target as Element).className === classes.link) {
+      setShowBurgerMenu(false);
+
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
-    <nav className={classes.navigation}>
+    // eslint-disable-next-line
+    <nav
+      className={cn(classes.navigation, className, { [classes.shownNavigation]: showBurgerMenu })}
+      onClick={onLinkClick}
+    >
       <NavLink to={RoutePath.Create} className={setClass}>
         {t(ContentTxtKey.CreatingLink)}
       </NavLink>

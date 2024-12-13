@@ -54,13 +54,13 @@
       margin: 0 0 $indent-min 0;
     }
     @include respond($tablet-min) {
-      padding: $indent-input-button;
+      padding: $indent-max $indent-input-button $indent-input-button;
       .imageContainer {
         width: 15%;
       }
     }
     @include respond($mobile) {
-      padding: 0;
+      padding: $indent-max 0 0;
       margin: 0 0 $indent-input-button 0;
       .imageContainer {
         width: 20%;

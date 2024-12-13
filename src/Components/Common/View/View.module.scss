@@ -3,7 +3,7 @@
 
   .modeContainer {
     @include flex(null, center, center);
-    background: none;
+    box-sizing: content-box;
     cursor: pointer;
 
     .mode {
@@ -32,20 +32,18 @@
 
   @include respond($tablet-min) {
     .themeModeContainer {
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
     }
     .languageModeContainer {
-      width: 56px;
-      height: 42px;
+      width: 48px;
+      height: 36px;
     }
   }
   @include respond($mobile) {
-    flex-direction: column;
     .themeModeContainer {
       width: 30px;
       height: 30px;
-      margin: 0 0 $indent-min 0;
     }
     .languageModeContainer {
       width: 40px;

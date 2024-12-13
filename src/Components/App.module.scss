@@ -6,7 +6,7 @@
     margin: $indent-max 0;
     @include flex(null, center, center);
     flex: 1 1 auto;
-    @include respond($mobile) {
+    @include respond($tablet-min) {
       margin: $indent-min 0;
     }
   }
