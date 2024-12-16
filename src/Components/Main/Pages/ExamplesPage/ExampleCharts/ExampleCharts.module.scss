@@ -16,4 +16,7 @@
   @include respond($tablet-max) {
     margin: 0;
   }
+  @include respond($tablet-min) {
+    width: 100%;
+  }
 }

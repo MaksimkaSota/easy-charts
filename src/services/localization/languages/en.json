@@ -21,10 +21,10 @@
     },
 
     "description": {
-      "main": "Online charts / diagrams",
-      "creating": "This page contains the constructor for building charts online. It is very simple to create them: select the type of chart you need (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done!  If necessary, set the required width, height and save the chart to computer.",
-      "gallery": "Choose the desired type of chart, then you will get to the online constructor page, where you can fill in the chart data, and then save to computer. What chart do you need to build? Bars, horizontal bars, lines, radar, pie, doughnut?",
-      "examples": "On this page, you can find examples of charts in order to use them to build your own chart, as well as to understand how the chart constructor works on our website. You can also select the desired type of chart to see examples for this type: bars, horizontal bars, lines, radar, pie, doughnut.",
+      "main": "Charts and diagrams",
+      "creating": "This page contains the constructor for building charts online. It is very simple to create them: select the required type of chart (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! If necessary, set the required width, height and save the chart to your computer.",
+      "gallery": "Choose the required type of chart, then you will get to the online constructor page, where you can fill in the chart data, and then save to your computer. What chart do you need to build? Bars, horizontal bars, lines, radar, pie, doughnut?",
+      "examples": "On this page you can find examples of charts in order to use them to build your own chart, as well as to understand how the chart constructor works on our website. You can also select the required type of chart to see examples for this type: bars, horizontal bars, lines, radar, pie, doughnut.",
       "info1": "You can find the chart <1>examples</1> and create your own one based on the example most suitable for you.",
       "info2": "Below you may find the instruction on how to create the chart on our website. It is easy:",
       "contacts": "For any questions or suggestions, please write to email or other sources:"
@@ -33,8 +33,8 @@
     "miniDescription": {
       "weather": "According to the OpenWeather",
       "currency": "According to the NBRB",
-      "info1": "On the creation page or in the gallery, select the chart type you need.\nHow do you need to display your data?\nBars, horizontal bars, lines, radar, pie, doughnut?",
-      "info2": "In order to create a chart, please fill in the data table.\nThe values in the first column will become the horizontal marks (along the X axis).\nThe remaining columns (there may be one or more) are the values\nwhich correspond to the marks from the first column, and which will be displayed on the diagram (Y-axis).",
+      "info1": "On the creation page or in the gallery, select the required type of chart.\nHow do you need to display your data?\nBars, horizontal bars, lines, radar, pie, doughnut?",
+      "info2": "In order to create a chart, please fill in the data table.\nThe values in the first column will become the horizontal marks (along the X axis).\nThe remaining columns (there may be one or more) are the values\nwhich correspond to the marks from the first column, and which will be displayed on the chart (Y-axis).",
       "info3": "Now you can view and save the chart in full size (in PNG format) or you can get a link and share it."
     },
 
@@ -60,7 +60,7 @@
     },
 
     "text": {
-      "main": "<0>EasyCharts</0> - is a website for building charts/diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please see also the <8>examples</8>, of the charts to create the one you need.",
+      "main": "<0>EasyCharts</0> - is a website for building charts / diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please, also see the <8>examples</8> of the charts to create the one you need.",
       "createBold": "Create",
       "create": "online, free and without registration",
       "shareBold": "Share",
@@ -92,16 +92,16 @@
       "city": "Minsk",
       "location": "Location",
       "current": "Current location",
-      "error": "Error getting current location",
+      "error": "Getting current location error",
       "impossible": "Impossible to get current location",
-      "notReceived": "Current location not received (long expectation)",
+      "notReceived": "Current location has not received (long expectation)",
       "notAllowed": "Getting current location is not allowed"
     },
 
     "table": {
       "population": "Population by years",
-      "salary": "Salary by month",
-      "inflation": "Inflation by year"
+      "salary": "Salary by months",
+      "inflation": "Inflation by years"
     },
 
     "settings": {
