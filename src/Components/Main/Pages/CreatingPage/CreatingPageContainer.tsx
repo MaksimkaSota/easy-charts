@@ -11,11 +11,13 @@ import type { IChart } from '../../../../utils/types/api/chart';
 import { getLocalItem } from '../../../../services/browserDataStorage/localStorage';
 
 export const CreatingPageContainer: FC = (): ReactElement => {
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
+
   const isFetchingMainAddress = useTypedSelector(isFetchingMainAddressSelector);
   const { mainAddress } = useTypedSelector(addressesSelector);
   const mainAddressError = useTypedSelector(mainAddressErrorSelector);
+
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
-  const { themeMode, languageMode } = useTypedSelector(viewSelector);
 
   const {
     getAddress,

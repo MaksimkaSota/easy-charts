@@ -37,6 +37,8 @@ export const ExamplesPageContainer: FC<PropsType> = ({
   hideExampleChartsTitle,
   showExampleChartTable,
 }): ReactElement => {
+  const { languageMode } = useTypedSelector(viewSelector);
+
   const isFetchingExampleFirstAddress = useTypedSelector(isFetchingExampleFirstAddressSelector);
   const isFetchingExampleSecondAddress = useTypedSelector(isFetchingExampleSecondAddressSelector);
   const isFetchingExampleThirdAddress = useTypedSelector(isFetchingExampleThirdAddressSelector);
@@ -44,8 +46,8 @@ export const ExamplesPageContainer: FC<PropsType> = ({
   const exampleFirstAddressError = useTypedSelector(exampleFirstAddressErrorSelector);
   const exampleSecondAddressError = useTypedSelector(exampleSecondAddressErrorSelector);
   const exampleThirdAddressError = useTypedSelector(exampleThirdAddressErrorSelector);
+
   const { exampleFirstOptions, exampleSecondOptions, exampleThirdOptions } = useTypedSelector(examplesOptionsSelector);
-  const { languageMode } = useTypedSelector(viewSelector);
 
   const {
     setExampleFirstAddressRequest,
