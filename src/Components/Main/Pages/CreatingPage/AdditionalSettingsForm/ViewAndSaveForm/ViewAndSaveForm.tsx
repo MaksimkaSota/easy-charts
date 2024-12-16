@@ -54,11 +54,11 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   setValues,
   validateForm,
 }): ReactElement => {
+  const [isIlluminatedButton, setIsIlluminatedButton] = useState<boolean>(false);
+
   const { themeMode, languageMode } = useTypedSelector(viewSelector);
 
   const { t } = useTranslation();
-
-  const [isIlluminatedButton, setIsIlluminatedButton] = useState(false);
 
   useEffect(() => {
     if (

@@ -15,7 +15,7 @@ type PropsType = {
 };
 
 export const Header: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, setLanguageMode }): ReactElement => {
-  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
+  const [showBurgerMenu, setShowBurgerMenu] = useState<boolean>(false);
 
   return (
     <header className={classes.header}>

@@ -7,7 +7,7 @@ import { ContentTxtKey } from '../../utils/types/enums';
 import { BurgerButton } from '../Common/Buttons/BurgerButton/BurgerButton';
 
 export const Footer: FC = (): ReactElement => {
-  const [showBurgerMenu, setShowBurgerMenu] = useState(false);
+  const [showBurgerMenu, setShowBurgerMenu] = useState<boolean>(false);
 
   const { t } = useTranslation();
 
