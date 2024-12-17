@@ -1,14 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
 import i18next from '../../services/localization/i18n';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
-import { mainInitialValue, mainInitialValueRu, mainInitialValueEn } from '../../utils/initialValues/mainInitialValue';
+import { getMainInitialValue } from '../../utils/initialValues/mainInitialValue';
 import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
 import { LocalStorageKey, StandardOption, Language, ContentTxtKey } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: MainOptionsState = {
-  mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValue,
+  mainOptions:
+    getLocalItem<IChart>(LocalStorageKey.MainOptions) ||
+    getMainInitialValue(getLocalItem<string>(LocalStorageKey.Language) || Language.Ru),
   width: getLocalItem<string>(LocalStorageKey.MainWidth) || StandardOption.Width,
   height: getLocalItem<string>(LocalStorageKey.MainHeight) || StandardOption.Height,
 };
@@ -265,11 +267,11 @@ export const mainOptionsReducer = (
       return action.payload === Language.Ru
         ? {
             ...state,
-            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValueRu,
+            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || getMainInitialValue(Language.Ru),
           }
         : {
             ...state,
-            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValueEn,
+            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || getMainInitialValue(Language.En),
           };
     }
 

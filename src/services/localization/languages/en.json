@@ -159,6 +159,7 @@
     "incorrectCity": "Incorrect name",
     "requiredCity": "Enter the name",
     "unhandledPromise": "Some Connection error! We are sorry... We will fix it soon!",
-    "unhandledUI": "Some UI error! We are sorry... We will fix it soon!"
+    "unhandledUI": "Some UI error! We are sorry... We will fix it soon!",
+    "someError": "Something went wrong during loading..."
   }
 }

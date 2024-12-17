@@ -241,4 +241,5 @@ export enum ErrorTxtKey {
   RequiredCity = 'error.requiredCity',
   UnhandledPromise = 'error.unhandledPromise',
   UnhandledUI = 'error.unhandledUI',
+  SomeError = 'error.someError',
 }

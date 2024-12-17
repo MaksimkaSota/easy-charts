@@ -1,58 +1,25 @@
 import type { IChart } from '../types/api/chart';
+import { Language } from '../types/enums';
 
-export const exampleThirdInitialValue: IChart = {
-  type: 'bar',
-  data: {
-    labels: [{ value: '2017' }, { value: '2018' }, { value: '2019' }, { value: '2020' }, { value: '2021' }],
-    datasets: [
-      {
-        label: '',
-        data: [{ value: 4.6 }, { value: 5.6 }, { value: 4.7 }, { value: 7.4 }, { value: 9.97 }],
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: '',
-    },
-  },
-};
+export const getExampleThirdInitialValue = (language: string): IChart => {
+  const isRuLang: boolean = language === Language.Ru;
 
-export const exampleThirdInitialValueRu: IChart = {
-  type: exampleThirdInitialValue.type,
-  data: {
-    labels: exampleThirdInitialValue.data.labels,
-    datasets: [
-      {
-        label: 'Показатель',
-        data: exampleThirdInitialValue.data.datasets[0].data,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Инфляция в Беларуси, %',
+  return {
+    type: 'bar',
+    data: {
+      labels: [{ value: '2017' }, { value: '2018' }, { value: '2019' }, { value: '2020' }, { value: '2021' }],
+      datasets: [
+        {
+          label: isRuLang ? 'Показатель' : 'Indicator',
+          data: [{ value: 4.6 }, { value: 5.6 }, { value: 4.7 }, { value: 7.4 }, { value: 9.97 }],
+        },
+      ],
     },
-  },
-};
-
-export const exampleThirdInitialValueEn: IChart = {
-  type: exampleThirdInitialValue.type,
-  data: {
-    labels: exampleThirdInitialValue.data.labels,
-    datasets: [
-      {
-        label: 'Indicator',
-        data: exampleThirdInitialValue.data.datasets[0].data,
+    options: {
+      title: {
+        display: true,
+        text: isRuLang ? 'Инфляция в Беларуси, %' : 'Inflation in Belarus, %',
       },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Inflation in Belarus, %',
     },
-  },
+  };
 };

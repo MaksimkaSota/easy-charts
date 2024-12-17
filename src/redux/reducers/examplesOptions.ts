@@ -3,29 +3,23 @@ import {
   type ExamplesOptionsAction,
   ExamplesOptionsActionType,
 } from '../types/examplesOptions';
-import {
-  exampleFirstInitialValue,
-  exampleFirstInitialValueRu,
-  exampleFirstInitialValueEn,
-} from '../../utils/initialValues/exampleFirstInitialValue';
-import {
-  exampleSecondInitialValue,
-  exampleSecondInitialValueRu,
-  exampleSecondInitialValueEn,
-} from '../../utils/initialValues/exampleSecondInitialValue';
-import {
-  exampleThirdInitialValue,
-  exampleThirdInitialValueRu,
-  exampleThirdInitialValueEn,
-} from '../../utils/initialValues/exampleThirdInitialValue';
+import { getExampleFirstInitialValue } from '../../utils/initialValues/exampleFirstInitialValue';
+import { getExampleSecondInitialValue } from '../../utils/initialValues/exampleSecondInitialValue';
+import { getExampleThirdInitialValue } from '../../utils/initialValues/exampleThirdInitialValue';
 import { LocalStorageKey, Language } from '../../utils/types/enums';
 import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
 import type { IChart } from '../../utils/types/api/chart';
 
 const initialState: ExamplesOptionsState = {
-  exampleFirstOptions: getLocalItem<IChart>(LocalStorageKey.ExampleFirstOptions) || exampleFirstInitialValue,
-  exampleSecondOptions: getLocalItem<IChart>(LocalStorageKey.ExampleSecondOptions) || exampleSecondInitialValue,
-  exampleThirdOptions: getLocalItem<IChart>(LocalStorageKey.ExampleThirdOptions) || exampleThirdInitialValue,
+  exampleFirstOptions:
+    getLocalItem<IChart>(LocalStorageKey.ExampleFirstOptions) ||
+    getExampleFirstInitialValue(getLocalItem<string>(LocalStorageKey.Language) || Language.Ru),
+  exampleSecondOptions:
+    getLocalItem<IChart>(LocalStorageKey.ExampleSecondOptions) ||
+    getExampleSecondInitialValue(getLocalItem<string>(LocalStorageKey.Language) || Language.Ru),
+  exampleThirdOptions:
+    getLocalItem<IChart>(LocalStorageKey.ExampleThirdOptions) ||
+    getExampleThirdInitialValue(getLocalItem<string>(LocalStorageKey.Language) || Language.Ru),
 };
 
 export const examplesOptionsReducer = (
@@ -62,18 +56,18 @@ export const examplesOptionsReducer = (
           ...state,
           exampleFirstOptions: {
             ...state.exampleFirstOptions,
-            data: exampleFirstInitialValueRu.data,
-            options: exampleFirstInitialValueRu.options,
+            data: getExampleFirstInitialValue(Language.Ru).data,
+            options: getExampleFirstInitialValue(Language.Ru).options,
           },
           exampleSecondOptions: {
             ...state.exampleSecondOptions,
-            data: exampleSecondInitialValueRu.data,
-            options: exampleSecondInitialValueRu.options,
+            data: getExampleSecondInitialValue(Language.Ru).data,
+            options: getExampleSecondInitialValue(Language.Ru).options,
           },
           exampleThirdOptions: {
             ...state.exampleThirdOptions,
-            data: exampleThirdInitialValueRu.data,
-            options: exampleThirdInitialValueRu.options,
+            data: getExampleThirdInitialValue(Language.Ru).data,
+            options: getExampleThirdInitialValue(Language.Ru).options,
           },
         };
       } else {
@@ -81,18 +75,18 @@ export const examplesOptionsReducer = (
           ...state,
           exampleFirstOptions: {
             ...state.exampleFirstOptions,
-            data: exampleFirstInitialValueEn.data,
-            options: exampleFirstInitialValueEn.options,
+            data: getExampleFirstInitialValue(Language.En).data,
+            options: getExampleFirstInitialValue(Language.En).options,
           },
           exampleSecondOptions: {
             ...state.exampleSecondOptions,
-            data: exampleSecondInitialValueEn.data,
-            options: exampleSecondInitialValueEn.options,
+            data: getExampleSecondInitialValue(Language.En).data,
+            options: getExampleSecondInitialValue(Language.En).options,
           },
           exampleThirdOptions: {
             ...state.exampleThirdOptions,
-            data: exampleThirdInitialValueEn.data,
-            options: exampleThirdInitialValueEn.options,
+            data: getExampleThirdInitialValue(Language.En).data,
+            options: getExampleThirdInitialValue(Language.En).options,
           },
         };
       }

@@ -12,8 +12,8 @@ export const setCityWithLocation = (city: string, location: string): ThunkType<W
   return async (dispatch) => {
     const newCity = getLocalItem<string>(LocalStorageKey.City) || city;
 
-    if (newCity === 'Минск' || newCity === 'Minsk') {
-      dispatch(setCity(city));
+    if (newCity.toLowerCase() === 'минск' || newCity.toLowerCase() === 'minsk') {
+      dispatch(setCity(city[0].toUpperCase() + city.slice(1)));
     } else {
       dispatch(setCity(newCity));
     }

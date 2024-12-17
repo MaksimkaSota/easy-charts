@@ -7,18 +7,9 @@ import { viewSelector } from '../../../../../redux/selectors/selectors';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
-import {
-  exampleFirstInitialValueRu,
-  exampleFirstInitialValueEn,
-} from '../../../../../utils/initialValues/exampleFirstInitialValue';
-import {
-  exampleSecondInitialValueRu,
-  exampleSecondInitialValueEn,
-} from '../../../../../utils/initialValues/exampleSecondInitialValue';
-import {
-  exampleThirdInitialValueRu,
-  exampleThirdInitialValueEn,
-} from '../../../../../utils/initialValues/exampleThirdInitialValue';
+import { getExampleFirstInitialValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
+import { getExampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
+import { getExampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
 import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
 import { ContentTxtKey, Language } from '../../../../../utils/types/enums';
 
@@ -62,11 +53,13 @@ export const ExampleCharts: FC<PropsType> = ({
   const { t } = useTranslation();
 
   const exampleFirstInitialValue =
-    languageMode === Language.Ru ? exampleFirstInitialValueRu : exampleFirstInitialValueEn;
+    languageMode === Language.Ru ? getExampleFirstInitialValue(Language.Ru) : getExampleFirstInitialValue(Language.En);
   const exampleSecondInitialValue =
-    languageMode === Language.Ru ? exampleSecondInitialValueRu : exampleSecondInitialValueEn;
+    languageMode === Language.Ru
+      ? getExampleSecondInitialValue(Language.Ru)
+      : getExampleSecondInitialValue(Language.En);
   const exampleThirdInitialValue =
-    languageMode === Language.Ru ? exampleThirdInitialValueRu : exampleThirdInitialValueEn;
+    languageMode === Language.Ru ? getExampleThirdInitialValue(Language.Ru) : getExampleThirdInitialValue(Language.En);
   const exampleFirstTableValues = getTableValues(t(ContentTxtKey.PopulationTable), exampleFirstInitialValue);
   const exampleSecondTableValues = getTableValues(t(ContentTxtKey.SalaryTable), exampleSecondInitialValue);
   const exampleThirdTableValues = getTableValues(t(ContentTxtKey.InflationTable), exampleThirdInitialValue);
