@@ -3,14 +3,15 @@ import i18next from '../../services/localization/i18n';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { getMainInitialValue } from '../../utils/initialValues/mainInitialValue';
 import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
-import { LocalStorageKey, StandardOption, Language, ContentTxtKey } from '../../utils/types/enums';
+import { LocalStorageKey, StandardOption, ContentTxtKey } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
+import { DEFAULT_LANGUAGE } from '../../utils/constants';
 
 const initialState: MainOptionsState = {
   mainOptions:
     getLocalItem<IChart>(LocalStorageKey.MainOptions) ||
-    getMainInitialValue(getLocalItem<string>(LocalStorageKey.Language) || Language.Ru),
+    getMainInitialValue(getLocalItem<string>(LocalStorageKey.Language) || DEFAULT_LANGUAGE),
   width: getLocalItem<string>(LocalStorageKey.MainWidth) || StandardOption.Width,
   height: getLocalItem<string>(LocalStorageKey.MainHeight) || StandardOption.Height,
 };
@@ -264,15 +265,10 @@ export const mainOptionsReducer = (
       removeLocalItem(LocalStorageKey.MainHeight);
       removeLocalItem(LocalStorageKey.MainOptions);
 
-      return action.payload === Language.Ru
-        ? {
-            ...state,
-            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || getMainInitialValue(Language.Ru),
-          }
-        : {
-            ...state,
-            mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || getMainInitialValue(Language.En),
-          };
+      return {
+        ...state,
+        mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || getMainInitialValue(action.payload),
+      };
     }
 
     case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH: {

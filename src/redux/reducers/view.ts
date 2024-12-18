@@ -1,10 +1,11 @@
 import { type ViewAction, type ViewState, ViewActionType } from '../types/view';
-import { LocalStorageKey, Theme, Language } from '../../utils/types/enums';
+import { LocalStorageKey } from '../../utils/types/enums';
 import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
+import { DEFAULT_THEME, DEFAULT_LANGUAGE } from '../../utils/constants';
 
 const initialState: ViewState = {
-  themeMode: getLocalItem<string>(LocalStorageKey.Theme) || Theme.Light,
-  languageMode: getLocalItem<string>(LocalStorageKey.Language) || Language.Ru,
+  themeMode: getLocalItem<string>(LocalStorageKey.Theme) || DEFAULT_THEME,
+  languageMode: getLocalItem<string>(LocalStorageKey.Language) || DEFAULT_LANGUAGE,
 };
 
 export const viewReducer = (state: ViewState = initialState, action: ViewAction): ViewState => {

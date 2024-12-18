@@ -11,7 +11,7 @@ import { getExampleFirstInitialValue } from '../../../../../utils/initialValues/
 import { getExampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
 import { getExampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
 import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
-import { ContentTxtKey, Language } from '../../../../../utils/types/enums';
+import { ContentTxtKey } from '../../../../../utils/types/enums';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -52,17 +52,18 @@ export const ExampleCharts: FC<PropsType> = ({
 
   const { t } = useTranslation();
 
-  const exampleFirstInitialValue =
-    languageMode === Language.Ru ? getExampleFirstInitialValue(Language.Ru) : getExampleFirstInitialValue(Language.En);
-  const exampleSecondInitialValue =
-    languageMode === Language.Ru
-      ? getExampleSecondInitialValue(Language.Ru)
-      : getExampleSecondInitialValue(Language.En);
-  const exampleThirdInitialValue =
-    languageMode === Language.Ru ? getExampleThirdInitialValue(Language.Ru) : getExampleThirdInitialValue(Language.En);
-  const exampleFirstTableValues = getTableValues(t(ContentTxtKey.PopulationTable), exampleFirstInitialValue);
-  const exampleSecondTableValues = getTableValues(t(ContentTxtKey.SalaryTable), exampleSecondInitialValue);
-  const exampleThirdTableValues = getTableValues(t(ContentTxtKey.InflationTable), exampleThirdInitialValue);
+  const exampleFirstTableValues = getTableValues(
+    t(ContentTxtKey.PopulationTable),
+    getExampleFirstInitialValue(languageMode)
+  );
+  const exampleSecondTableValues = getTableValues(
+    t(ContentTxtKey.SalaryTable),
+    getExampleSecondInitialValue(languageMode)
+  );
+  const exampleThirdTableValues = getTableValues(
+    t(ContentTxtKey.InflationTable),
+    getExampleThirdInitialValue(languageMode)
+  );
 
   return (
     <div className={classes.chartResult}>
