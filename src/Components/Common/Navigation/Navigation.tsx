@@ -1,9 +1,9 @@
-import type { FC, ReactElement, MouseEvent } from 'react';
+import type { FC, MouseEvent, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Navigation.module.scss';
-import { RoutePath, ContentTxtKey } from '../../../utils/types/enums';
+import { ContentTxtKey, RoutePath } from '../../../utils/types/enums';
 
 type PropsType = {
   className: string;

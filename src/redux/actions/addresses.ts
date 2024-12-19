@@ -1,18 +1,18 @@
 import {
-  type SetMainAddressRequestAction,
-  type SetMainAddressSuccessAction,
-  type SetMainAddressFailureAction,
-  type SetUrlAddressAction,
+  AddressesActionType,
+  type SetExampleFirstAddressFailureAction,
   type SetExampleFirstAddressRequestAction,
   type SetExampleFirstAddressSuccessAction,
-  type SetExampleFirstAddressFailureAction,
+  type SetExampleSecondAddressFailureAction,
   type SetExampleSecondAddressRequestAction,
   type SetExampleSecondAddressSuccessAction,
-  type SetExampleSecondAddressFailureAction,
+  type SetExampleThirdAddressFailureAction,
   type SetExampleThirdAddressRequestAction,
   type SetExampleThirdAddressSuccessAction,
-  type SetExampleThirdAddressFailureAction,
-  AddressesActionType,
+  type SetMainAddressFailureAction,
+  type SetMainAddressRequestAction,
+  type SetMainAddressSuccessAction,
+  type SetUrlAddressAction,
 } from '../types/addresses';
 
 export const setMainAddressRequest = (): SetMainAddressRequestAction => ({

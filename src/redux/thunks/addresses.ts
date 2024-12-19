@@ -5,19 +5,19 @@ import type { IChart } from '../../utils/types/api/chart';
 import { getChartAPI, getChartURL } from '../../services/api/chart/chart';
 import { getErrorMessage, transformImageToBase64 } from '../../utils/helpers/servicesHelpers';
 import {
-  setMainAddressRequest,
-  setMainAddressSuccess,
-  setMainAddressFailure,
-  setUrlAddress,
+  setExampleFirstAddressFailure,
   setExampleFirstAddressRequest,
   setExampleFirstAddressSuccess,
-  setExampleFirstAddressFailure,
+  setExampleSecondAddressFailure,
   setExampleSecondAddressRequest,
   setExampleSecondAddressSuccess,
-  setExampleSecondAddressFailure,
+  setExampleThirdAddressFailure,
   setExampleThirdAddressRequest,
   setExampleThirdAddressSuccess,
-  setExampleThirdAddressFailure,
+  setMainAddressFailure,
+  setMainAddressRequest,
+  setMainAddressSuccess,
+  setUrlAddress,
 } from '../actions/addresses';
 
 export const getAddress = (

@@ -1,11 +1,11 @@
-import { type ChangeEvent, type ReactElement, useEffect, memo } from 'react';
+import { type ChangeEvent, memo, type ReactElement, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import classes from './AddRowForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
 import type { FormikErrorsType, HandleChangeType, SetValuesType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
-import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   title: string;

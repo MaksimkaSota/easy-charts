@@ -1,9 +1,9 @@
-import { type ReactElement, useEffect, memo } from 'react';
+import { memo, type ReactElement, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../../../redux/selectors/selectors';
 import classes from './AddColumnForm.module.scss';
-import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, FieldName } from '../../../../../../utils/types/enums';
 import type { SetValuesType, ValidateFormType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { ColumnForm } from '../ColumnForm/ColumnForm';

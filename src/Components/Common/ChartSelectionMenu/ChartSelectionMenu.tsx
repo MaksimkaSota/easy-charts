@@ -1,4 +1,4 @@
-import { type ReactElement, memo } from 'react';
+import { memo, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ChartSelectionMenu.module.scss';
@@ -9,7 +9,7 @@ import pie from '../../../assets/images/chart/pie.png';
 import doughnut from '../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../Buttons/ChartSelectionButton/ChartSelectionButton';
-import { ChartType, ChartTxtKey, ContentTxtKey } from '../../../utils/types/enums';
+import { ChartTxtKey, ChartType, ContentTxtKey } from '../../../utils/types/enums';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../redux/selectors/selectors';
 

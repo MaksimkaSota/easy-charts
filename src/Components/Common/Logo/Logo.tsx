@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Logo.module.scss';
 import logo from '../../../assets/images/content/logo.png';
-import { RoutePath, AltTxtKey } from '../../../utils/types/enums';
+import { AltTxtKey, RoutePath } from '../../../utils/types/enums';
 
 type PropsType = {
   isHeader?: boolean;

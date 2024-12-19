@@ -1,13 +1,13 @@
 import {
-  type ExamplesOptionsState,
   type ExamplesOptionsAction,
   ExamplesOptionsActionType,
+  type ExamplesOptionsState,
 } from '../types/examplesOptions';
 import { getExampleFirstInitialValue } from '../../utils/initialValues/exampleFirstInitialValue';
 import { getExampleSecondInitialValue } from '../../utils/initialValues/exampleSecondInitialValue';
 import { getExampleThirdInitialValue } from '../../utils/initialValues/exampleThirdInitialValue';
 import { LocalStorageKey } from '../../utils/types/enums';
-import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
+import { getLocalItem, setLocalItem } from '../../services/browserDataStorage/localStorage';
 import type { IChart } from '../../utils/types/api/chart';
 import { DEFAULT_LANGUAGE } from '../../utils/constants';
 

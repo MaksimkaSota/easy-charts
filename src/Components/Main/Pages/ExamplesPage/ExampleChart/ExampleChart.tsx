@@ -1,9 +1,9 @@
-import { type ReactElement, memo } from 'react';
+import { memo, type ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classes from './ExampleChart.module.scss';
 import type { IChart } from '../../../../../utils/types/api/chart';
-import { RoutePath, ContentTxtKey } from '../../../../../utils/types/enums';
+import { ContentTxtKey, RoutePath } from '../../../../../utils/types/enums';
 import { Chart } from '../../../../Common/Chart/Chart';
 import { Table } from '../../../../Common/Table/Table';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';

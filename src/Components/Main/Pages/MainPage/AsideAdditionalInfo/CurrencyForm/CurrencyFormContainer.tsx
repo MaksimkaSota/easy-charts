@@ -1,4 +1,4 @@
-import type { ReactElement, FC } from 'react';
+import type { FC, ReactElement } from 'react';
 import { Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { CurrencyForm } from './CurrencyForm';

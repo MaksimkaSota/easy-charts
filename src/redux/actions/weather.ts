@@ -1,9 +1,9 @@
 import {
   type SetWeatherCityAction,
-  type SetWeatherLocationAction,
+  type SetWeatherDataFailureAction,
   type SetWeatherDataRequestAction,
   type SetWeatherDataSuccessAction,
-  type SetWeatherDataFailureAction,
+  type SetWeatherLocationAction,
   WeatherActionType,
 } from '../types/weather';
 import type { IWeather } from '../../utils/types/api/weather';

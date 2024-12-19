@@ -1,6 +1,6 @@
-import { type WeatherState, type WeatherAction, WeatherActionType } from '../types/weather';
+import { type WeatherAction, WeatherActionType, type WeatherState } from '../types/weather';
 import { LocalStorageKey } from '../../utils/types/enums';
-import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
+import { getLocalItem, setLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: WeatherState = {
   city: getLocalItem<string>(LocalStorageKey.City) || '',

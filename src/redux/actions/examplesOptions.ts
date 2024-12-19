@@ -1,7 +1,7 @@
 import {
-  type SetExamplesTypeAction,
-  type ResetExamplesOptionsAction,
   ExamplesOptionsActionType,
+  type ResetExamplesOptionsAction,
+  type SetExamplesTypeAction,
 } from '../types/examplesOptions';
 
 export const setExamplesType = (type: string): SetExamplesTypeAction => ({

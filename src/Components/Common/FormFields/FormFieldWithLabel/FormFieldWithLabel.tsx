@@ -1,4 +1,4 @@
-import { type ReactElement, type ReactNode, memo } from 'react';
+import { memo, type ReactElement, type ReactNode } from 'react';
 
 type PropsType = {
   formContainerClassName: string;

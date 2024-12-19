@@ -1,4 +1,4 @@
-import { type ReactElement, memo } from 'react';
+import { memo, type ReactElement } from 'react';
 import cn from 'classnames';
 import classes from './PageDescription.module.scss';
 import { useTypedSelector } from '../../../hooks/useTypedSelector';

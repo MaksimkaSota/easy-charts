@@ -4,8 +4,8 @@ import type { ThunkType } from '../../utils/types/common';
 import type { WeatherAction } from '../types/weather';
 import type { IWeather } from '../../utils/types/api/weather';
 import { getDegeocodingCityAPI, getWeatherAPI } from '../../services/api/weather/weather';
-import { setCity, setLocation, setWeatherDataSuccess, setWeatherDataFailure } from '../actions/weather';
-import { StatusCode, LocalStorageKey, ContentTxtKey, ErrorTxtKey } from '../../utils/types/enums';
+import { setCity, setLocation, setWeatherDataFailure, setWeatherDataSuccess } from '../actions/weather';
+import { ContentTxtKey, ErrorTxtKey, LocalStorageKey, StatusCode } from '../../utils/types/enums';
 import { getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
 
 export const setCityWithLocation = (city: string, location: string): ThunkType<WeatherAction> => {

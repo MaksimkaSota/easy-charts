@@ -3,9 +3,9 @@ import i18next from '../../services/localization/i18n';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
 import { getMainInitialValue } from '../../utils/initialValues/mainInitialValue';
 import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
-import { LocalStorageKey, StandardOption, ContentTxtKey } from '../../utils/types/enums';
+import { ContentTxtKey, LocalStorageKey, StandardOption } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
-import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
+import { getLocalItem, removeLocalItem, setLocalItem } from '../../services/browserDataStorage/localStorage';
 import { DEFAULT_LANGUAGE } from '../../utils/constants';
 
 const initialState: MainOptionsState = {

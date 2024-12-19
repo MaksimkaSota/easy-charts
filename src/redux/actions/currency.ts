@@ -1,14 +1,14 @@
 import {
-  type SetCurrencyRequestAction,
-  type SetCurrencySuccessAction,
+  CurrencyActionType,
   type SetCurrencyFailureAction,
-  type SetCurrencyOnBelarusCoinAction,
   type SetCurrencyOnAmericaCoinAction,
+  type SetCurrencyOnBelarusCoinAction,
   type SetCurrencyOnEuropeCoinAction,
+  type SetCurrencyOnPolandCoinAction,
   type SetCurrencyOnRussiaCoinAction,
   type SetCurrencyOnUkraineCoinAction,
-  type SetCurrencyOnPolandCoinAction,
-  CurrencyActionType,
+  type SetCurrencyRequestAction,
+  type SetCurrencySuccessAction,
 } from '../types/currency';
 import type { ObjectType } from '../../utils/types/common';
 
