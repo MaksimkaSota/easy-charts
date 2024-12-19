@@ -22,6 +22,14 @@
         @extend %mini-title;
       }
 
+      .settingsTitle-light {
+        color: $title-text-light;
+      }
+
+      .settingsTitle-dark {
+        color: $title-text-dark;
+      }
+
       .wrapper {
         @include flex(column, center, null);
         flex-grow: 1;

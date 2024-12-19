@@ -1,17 +1,22 @@
 import { type FC, type ReactElement, useEffect } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { useActions } from '../../../../hooks/useActions';
-import { addressesSelector, mainOptionsSelector } from '../../../../redux/selectors/selectors';
-import { CreatingPage } from './CreatingPage';
-import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { isFetchingMainAddressSelector } from '../../../../redux/selectors/loading';
-import { StandardOption } from '../../../../utils/types/enums';
+import { addressesSelector, mainOptionsSelector, viewSelector } from '../../../../redux/selectors/selectors';
+import { mainAddressErrorSelector } from '../../../../redux/selectors/error';
+import { CreatingPage } from './CreatingPage';
+import { LocalStorageKey, StandardOption } from '../../../../utils/types/enums';
+import type { IChart } from '../../../../utils/types/api/chart';
+import { getLocalItem } from '../../../../services/browserDataStorage/localStorage';
 
 export const CreatingPageContainer: FC = (): ReactElement => {
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
+
   const isFetchingMainAddress = useTypedSelector(isFetchingMainAddressSelector);
   const { mainAddress } = useTypedSelector(addressesSelector);
   const mainAddressError = useTypedSelector(mainAddressErrorSelector);
+
   const { mainOptions, width, height } = useTypedSelector(mainOptionsSelector);
 
   const {
@@ -26,10 +31,16 @@ export const CreatingPageContainer: FC = (): ReactElement => {
     removeMainColumn,
     setMainWidth,
     setMainHeight,
-    setMainOptionsWithId,
+    resetMainOptions,
     setExamplesType,
     setMainAddressRequest,
   } = useActions();
+
+  useEffect(() => {
+    if (!getLocalItem<IChart>(LocalStorageKey.MainOptions)) {
+      resetMainOptions(languageMode);
+    }
+  }, [resetMainOptions, languageMode]);
 
   const getDebouncedAddress = useDebouncedCallback(
     () => getAddress(mainOptions, StandardOption.Width, StandardOption.Height),
@@ -59,8 +70,9 @@ export const CreatingPageContainer: FC = (): ReactElement => {
       removeMainColumn={removeMainColumn}
       setMainWidth={setMainWidth}
       setMainHeight={setMainHeight}
-      setMainOptionsWithId={setMainOptionsWithId}
+      resetMainOptions={resetMainOptions}
       setExamplesType={setExamplesType}
+      themeMode={themeMode}
     />
   );
 };

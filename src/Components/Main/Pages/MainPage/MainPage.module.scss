@@ -21,7 +21,14 @@
 
     .name {
       font-size: $inter-14;
-      color: $title-text;
+    }
+
+    .name-light {
+      color: $title-text-light;
+    }
+
+    .name-dark {
+      color: $title-text-dark;
     }
 
     .link {

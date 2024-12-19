@@ -1,39 +1,81 @@
-import { type ChangeEvent, type FC, type ReactElement, useEffect } from 'react';
+import { type ChangeEvent, type FC, type ReactElement, useEffect, useState } from 'react';
 import { Form } from 'formik';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
 import classes from './ViewAndSaveForm.module.scss';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { FormFieldWithLabel } from '../../../../../Common/FormFields/FormFieldWithLabel/FormFieldWithLabel';
-import type { FormikErrorsType, SetTouchedType, SetValuesType } from '../../../../../../utils/types/form';
-import { ChartType, FieldName, RoutePath, StandardOption } from '../../../../../../utils/types/enums';
+import type {
+  FormikErrorsType,
+  SetTouchedType,
+  SetValuesType,
+  ValidateFormType,
+} from '../../../../../../utils/types/form';
+import {
+  ChartType,
+  FieldName,
+  RoutePath,
+  StandardOption,
+  ContentTxtKey,
+  LocalStorageKey,
+} from '../../../../../../utils/types/enums';
+import { getLocalItem } from '../../../../../../services/browserDataStorage/localStorage';
 import type { IChart } from '../../../../../../utils/types/api/chart';
-import { mainInitialValue } from '../../../../../../utils/initialValues/mainInitialValue';
 
 type PropsType = {
+  options: IChart;
   width: number | string;
   height: number | string;
   setWidth: (width: number | string) => void;
   setHeight: (height: number | string) => void;
-  setMainOptionsWithId: (mainOptions: IChart) => void;
+  resetMainOptions: (language: string) => void;
   setExamplesType: (type: string) => void;
   isValid: boolean;
   errors: FormikErrorsType;
   setTouched: SetTouchedType;
   setValues: SetValuesType<{ width: number | string; height: number | string }>;
+  validateForm: ValidateFormType;
 };
 
 export const ViewAndSaveForm: FC<PropsType> = ({
+  options,
   width,
   height,
   setWidth,
   setHeight,
-  setMainOptionsWithId,
+  resetMainOptions,
   setExamplesType,
   isValid,
   errors,
   setTouched,
   setValues,
+  validateForm,
 }): ReactElement => {
+  const [isIlluminatedButton, setIsIlluminatedButton] = useState<boolean>(false);
+
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
+
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    if (
+      getLocalItem<IChart>(LocalStorageKey.MainOptions) ||
+      getLocalItem<string>(LocalStorageKey.MainWidth) ||
+      getLocalItem<string>(LocalStorageKey.MainHeight)
+    ) {
+      setIsIlluminatedButton(true);
+    }
+  }, [options, width, height]);
+
+  useEffect(() => {}, []);
+
+  useEffect(() => {
+    validateForm();
+  }, [validateForm, languageMode]);
+
   useEffect(() => {
     setTouched({ [FieldName.Width]: true, [FieldName.Height]: true });
   }, [setTouched]);
@@ -51,22 +93,24 @@ export const ViewAndSaveForm: FC<PropsType> = ({
   };
 
   const onResetButtonClick = (): void => {
-    setMainOptionsWithId(mainInitialValue);
-    setExamplesType(ChartType.Bar);
     setWidth(StandardOption.Width);
     setHeight(StandardOption.Height);
+    resetMainOptions(languageMode);
+    setExamplesType(ChartType.Bar);
+
+    setIsIlluminatedButton(false);
   };
 
   return (
     <Form>
       <FormFieldWithLabel
         formContainerClassName={classes.formContainer}
-        labelClassName={classes.label}
+        labelClassName={cn(classes.label, classes[`label-${themeMode}`])}
         htmlFor={FieldName.Width}
-        label="Ширина"
+        label={t(ContentTxtKey.WidthSettings)}
       >
         <FormField
-          classNameField={classes.inputData}
+          classNameField={cn(classes.inputData, classes[`inputData-${themeMode}`])}
           name={FieldName.Width}
           id={FieldName.Width}
           type="text"
@@ -76,12 +120,12 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       </FormFieldWithLabel>
       <FormFieldWithLabel
         formContainerClassName={classes.formContainer}
-        labelClassName={classes.label}
+        labelClassName={cn(classes.label, classes[`label-${themeMode}`])}
         htmlFor={FieldName.Height}
-        label="Высота"
+        label={t(ContentTxtKey.HeightSettings)}
       >
         <FormField
-          classNameField={classes.inputData}
+          classNameField={cn(classes.inputData, classes[`inputData-${themeMode}`])}
           name={FieldName.Height}
           id={FieldName.Height}
           type="text"
@@ -91,11 +135,15 @@ export const ViewAndSaveForm: FC<PropsType> = ({
       </FormFieldWithLabel>
       <NavLink to={RoutePath.Save}>
         <button className={classes.button} type="submit" disabled={!isValid}>
-          Посмотреть и сохранить график
+          {t(ContentTxtKey.ViewAndSaveButton)}
         </button>
       </NavLink>
-      <button className={classes.button} type="button" onClick={onResetButtonClick}>
-        Сбросить график
+      <button
+        className={cn(classes.button, { [classes.illuminatedButton]: isIlluminatedButton })}
+        type="button"
+        onClick={onResetButtonClick}
+      >
+        {t(ContentTxtKey.ResetButton)}
       </button>
     </Form>
   );

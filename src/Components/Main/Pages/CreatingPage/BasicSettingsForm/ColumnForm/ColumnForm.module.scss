@@ -24,7 +24,14 @@
   }
 
   .inputDataNumbers {
-    @include input($validated-input-background, $indent-input-button);
     outline: 1px solid $content-text;
+  }
+
+  .inputDataNumbers-light {
+    @include input($validated-input-background-light, $indent-input-button);
+  }
+
+  .inputDataNumbers-dark {
+    @include input($validated-input-background-dark, $indent-input-button);
   }
 }

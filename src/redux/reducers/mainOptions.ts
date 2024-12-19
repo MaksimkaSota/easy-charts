@@ -1,13 +1,17 @@
 import { v4 as uuidv4 } from 'uuid';
+import i18next from '../../services/localization/i18n';
 import { type MainOptionsAction, MainOptionsActionType, type MainOptionsState } from '../types/mainOptions';
-import { mainInitialValue } from '../../utils/initialValues/mainInitialValue';
+import { getMainInitialValue } from '../../utils/initialValues/mainInitialValue';
 import type { IChart, IData, IDataset } from '../../utils/types/api/chart';
-import { LocalStorageKey, StandardOption } from '../../utils/types/enums';
+import { LocalStorageKey, StandardOption, ContentTxtKey } from '../../utils/types/enums';
 import { addUniqueIdInObjects } from '../../utils/helpers/servicesHelpers';
 import { setLocalItem, getLocalItem, removeLocalItem } from '../../services/browserDataStorage/localStorage';
+import { DEFAULT_LANGUAGE } from '../../utils/constants';
 
 const initialState: MainOptionsState = {
-  mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || mainInitialValue,
+  mainOptions:
+    getLocalItem<IChart>(LocalStorageKey.MainOptions) ||
+    getMainInitialValue(getLocalItem<string>(LocalStorageKey.Language) || DEFAULT_LANGUAGE),
   width: getLocalItem<string>(LocalStorageKey.MainWidth) || StandardOption.Width,
   height: getLocalItem<string>(LocalStorageKey.MainHeight) || StandardOption.Height,
 };
@@ -140,7 +144,13 @@ export const mainOptionsReducer = (
           ...state.mainOptions,
           data: {
             ...state.mainOptions.data,
-            labels: [...state.mainOptions.data.labels, { value: `Строка ${rowNumber}`, id: uuidv4() }],
+            labels: [
+              ...state.mainOptions.data.labels,
+              {
+                value: `${i18next.t(ContentTxtKey.NewRowSettings)} ${rowNumber}`,
+                id: uuidv4(),
+              },
+            ],
             datasets: newDatasets,
           },
         },
@@ -153,7 +163,7 @@ export const mainOptionsReducer = (
       const columnNumber: number = state.mainOptions.data.datasets.length + 1;
       const columnIndex: number = state.mainOptions.data.datasets.length - 1;
       const newDataset: IDataset = {
-        label: `Заголовок ${columnNumber}`,
+        label: `${i18next.t(ContentTxtKey.NewColumnSettings)} ${columnNumber}`,
         data: state.mainOptions.data.datasets[columnIndex].data,
         id: uuidv4(),
       };
@@ -248,6 +258,17 @@ export const mainOptionsReducer = (
       };
       setLocalItem(LocalStorageKey.MainOptions, newState.mainOptions);
       return newState;
+    }
+
+    case MainOptionsActionType.RESET_MAIN_OPTIONS: {
+      removeLocalItem(LocalStorageKey.MainWidth);
+      removeLocalItem(LocalStorageKey.MainHeight);
+      removeLocalItem(LocalStorageKey.MainOptions);
+
+      return {
+        ...state,
+        mainOptions: getLocalItem<IChart>(LocalStorageKey.MainOptions) || getMainInitialValue(action.payload),
+      };
     }
 
     case MainOptionsActionType.SET_MAIN_OPTIONS_WIDTH: {

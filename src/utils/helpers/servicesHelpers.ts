@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import type { AxiosError } from 'axios';
+import i18next from '../../services/localization/i18n';
 import type { IChart, IData, IDataset } from '../types/api/chart';
-import { ChartParameter } from '../types/enums';
+import { ChartParameter, ContentTxtKey, Language, ErrorTxtKey } from '../types/enums';
 import type { ObjectType } from '../types/common';
 
 export const formQueryString = (options: IChart, width: number | string, height: number | string): string => {
@@ -54,11 +55,11 @@ export const copyTextOnClick = async (
 ): Promise<void> => {
   try {
     await navigator.clipboard.writeText(text);
-    setStatus('Удачное копирование');
+    setStatus(i18next.t(ContentTxtKey.CopyHint));
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1000);
   } catch {
-    setStatus('Неудачное копирование');
+    setStatus(i18next.t(ContentTxtKey.NoCopyHint));
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 1000);
   }
@@ -68,8 +69,10 @@ export const addUniqueIdInObjects = (objects: ObjectType[]): any[] => {
   return objects.map((object: ObjectType): ObjectType => ({ ...object, id: uuidv4() }));
 };
 
-export const getErrorMessage = (errorObject: AxiosError<any>): string => {
-  return errorObject.response?.data.message || errorObject.message;
+export const getErrorMessage = (errorObject: AxiosError<any>, language: string): string => {
+  return language === Language.Ru
+    ? i18next.t(ErrorTxtKey.SomeError)
+    : errorObject.response?.data.message || errorObject.message;
 };
 
 export const getTableValues = (titleText: string, exampleInitialValue: IChart): (string | number)[][] => {

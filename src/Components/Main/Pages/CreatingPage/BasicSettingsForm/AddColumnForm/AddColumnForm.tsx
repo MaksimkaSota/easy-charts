@@ -1,9 +1,12 @@
 import { type ReactElement, useEffect, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 import classes from './AddColumnForm.module.scss';
-import type { SetValuesType } from '../../../../../../utils/types/form';
+import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import type { SetValuesType, ValidateFormType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
 import { ColumnForm } from '../ColumnForm/ColumnForm';
-import { FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   title: string;
@@ -19,6 +22,7 @@ type PropsType = {
     labels: IData[];
     datasets: IDataset[];
   }>;
+  validateForm: ValidateFormType;
 };
 
 export const AddColumnForm = memo<PropsType>(
@@ -32,7 +36,16 @@ export const AddColumnForm = memo<PropsType>(
     addColumn,
     removeColumn,
     setValues,
+    validateForm,
   }): ReactElement => {
+    const { languageMode } = useTypedSelector(viewSelector);
+
+    const { t } = useTranslation();
+
+    useEffect(() => {
+      validateForm();
+    }, [validateForm, languageMode]);
+
     useEffect(() => {
       setValues({ [FieldName.Title]: title, [FieldName.Labels]: labels, [FieldName.Datasets]: datasetsFromOptions });
       // eslint-disable-next-line
@@ -56,7 +69,7 @@ export const AddColumnForm = memo<PropsType>(
           )}
         </div>
         <button className={classes.addButton} type="button" onClick={addColumn}>
-          Добавить столбец
+          {t(ContentTxtKey.AddColumnButton)}
         </button>
       </div>
     );

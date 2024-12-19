@@ -1,5 +1,6 @@
 .logo {
   @include flex(null, null, center);
+  cursor: default;
 
   .logoText {
     @include flex(null, null, null);
@@ -72,9 +73,21 @@
     transition: all 0.25s linear;
   }
 
-  @include respond($tablet-min) {
+  @include respond($tablet-max) {
+    .logoText {
+      font-size: $inter-30;
+    }
     .logoImage {
-      width: 40px;
+      width: 45px;
+    }
+  }
+
+  @include respond($tablet-min) {
+    .logoText {
+      margin: 0 $indent-input-button 0 0;
+    }
+    .logoImage {
+      width: 36px;
     }
   }
 
@@ -85,15 +98,7 @@
   }
 }
 
-.headerLogo {
-  margin: 0 $indent-max 0 0;
-  cursor: default;
-  @include respond($tablet-min) {
-    margin: 0 0 $indent-min 0;
-  }
-}
-
-.activeHeaderLogo {
+.activeLogo {
   &:hover {
     cursor: pointer;
 

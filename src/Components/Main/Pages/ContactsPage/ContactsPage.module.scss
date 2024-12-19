@@ -6,15 +6,6 @@
     @include position(20%, 0 auto);
   }
 
-  .title {
-    @extend %title-pages;
-  }
-
-  .textContent {
-    font-size: $inter-18;
-    margin: 0 0 $indent-min 0;
-  }
-
   .link {
     @include position(max-content, 0 auto);
     color: $green;

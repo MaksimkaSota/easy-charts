@@ -6,6 +6,14 @@
     @extend %mini-title;
   }
 
+  .miniTitle-light {
+    color: $title-text-light;
+  }
+
+  .miniTitle-dark {
+    color: $title-text-dark;
+  }
+
   .wrapper {
     @extend %chartContainer;
   }

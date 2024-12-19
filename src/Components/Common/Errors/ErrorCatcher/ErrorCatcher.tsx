@@ -1,8 +1,9 @@
 import { type ReactElement, type ReactNode, Component } from 'react';
+import i18next from '../../../../services/localization/i18n';
 import { Error } from '../Error/Error';
 import { ErrorPopup } from '../ErrorPopup/ErrorPopup';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
-import { EventType } from '../../../../utils/types/enums';
+import { EventType, ErrorTxtKey } from '../../../../utils/types/enums';
 
 type PropsType = {
   children: ReactNode;
@@ -21,7 +22,7 @@ export class ErrorCatcher extends Component<PropsType, StateType> {
   static getDerivedStateFromError() {
     return {
       UIError: {
-        message: 'Some UI error! We are sorry... We will fix it soon!',
+        message: i18next.t(ErrorTxtKey.UnhandledUI),
       },
     };
   }
@@ -38,7 +39,7 @@ export class ErrorCatcher extends Component<PropsType, StateType> {
     this.setState({
       promiseError: {
         code: event.reason.response?.status,
-        message: 'Some Connection error! We are sorry... We will fix it soon!',
+        message: i18next.t(ErrorTxtKey.UnhandledPromise),
       },
     });
   };

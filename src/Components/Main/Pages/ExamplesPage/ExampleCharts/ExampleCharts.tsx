@@ -1,12 +1,17 @@
 import type { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
 import classes from './ExampleCharts.module.scss';
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../redux/selectors/selectors';
 import { ExampleChart } from '../ExampleChart/ExampleChart';
 import type { IChart } from '../../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../../utils/types/common';
-import { exampleFirstInitialValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
-import { exampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
-import { exampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
+import { getExampleFirstInitialValue } from '../../../../../utils/initialValues/exampleFirstInitialValue';
+import { getExampleSecondInitialValue } from '../../../../../utils/initialValues/exampleSecondInitialValue';
+import { getExampleThirdInitialValue } from '../../../../../utils/initialValues/exampleThirdInitialValue';
 import { getTableValues } from '../../../../../utils/helpers/servicesHelpers';
+import { ContentTxtKey } from '../../../../../utils/types/enums';
 
 type PropsType = {
   isFetchingFirstAddress: boolean;
@@ -43,13 +48,28 @@ export const ExampleCharts: FC<PropsType> = ({
   hideExampleChartsTitle,
   showExampleChartTable,
 }): ReactElement => {
-  const exampleFirstTableValues = getTableValues('Численность по годам', exampleFirstInitialValue);
-  const exampleSecondTableValues = getTableValues('Заработная плата по месяцам', exampleSecondInitialValue);
-  const exampleThirdTableValues = getTableValues('Инфляция по годам', exampleThirdInitialValue);
+  const { themeMode, languageMode } = useTypedSelector(viewSelector);
+
+  const { t } = useTranslation();
+
+  const exampleFirstTableValues = getTableValues(
+    t(ContentTxtKey.PopulationTable),
+    getExampleFirstInitialValue(languageMode)
+  );
+  const exampleSecondTableValues = getTableValues(
+    t(ContentTxtKey.SalaryTable),
+    getExampleSecondInitialValue(languageMode)
+  );
+  const exampleThirdTableValues = getTableValues(
+    t(ContentTxtKey.InflationTable),
+    getExampleThirdInitialValue(languageMode)
+  );
 
   return (
     <div className={classes.chartResult}>
-      {!hideExampleChartsTitle && <h3 className={classes.miniTitle}>График</h3>}
+      {!hideExampleChartsTitle && (
+        <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>{t(ContentTxtKey.ChartMiniTitle)}</h3>
+      )}
       <ExampleChart
         isFetchingAddress={isFetchingFirstAddress}
         address={firstAddress}

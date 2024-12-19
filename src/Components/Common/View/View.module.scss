@@ -1,0 +1,53 @@
+.viewContainer {
+  @include flex(null, center, center);
+
+  .modeContainer {
+    @include flex(null, center, center);
+    box-sizing: content-box;
+    cursor: pointer;
+
+    .mode {
+      height: 100%;
+    }
+  }
+
+  .themeModeContainer {
+    width: 24px;
+    height: 24px;
+    margin: 0 $indent-min 0 0;
+  }
+
+  .languageModeContainer {
+    width: 32px;
+    height: 24px;
+  }
+
+  .languageModeContainer-light {
+    border: 1px solid $black;
+  }
+
+  .languageModeContainer-dark {
+    border: 1px solid $white;
+  }
+
+  @include respond($tablet-min) {
+    .themeModeContainer {
+      width: 36px;
+      height: 36px;
+    }
+    .languageModeContainer {
+      width: 48px;
+      height: 36px;
+    }
+  }
+  @include respond($mobile) {
+    .themeModeContainer {
+      width: 30px;
+      height: 30px;
+    }
+    .languageModeContainer {
+      width: 40px;
+      height: 30px;
+    }
+  }
+}

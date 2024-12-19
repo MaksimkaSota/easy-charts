@@ -23,7 +23,7 @@ export const FormField = memo<PropsType>(
     return (
       <div className={cn(classes.formFieldContainer, classNameFormField)}>
         <Field
-          className={cn(classNameField, { [classes.validationError]: readByString(name, errors) })}
+          className={cn(classes.field, classNameField, { [classes.validationError]: readByString(name, errors) })}
           name={name}
           component={component}
           {...props}

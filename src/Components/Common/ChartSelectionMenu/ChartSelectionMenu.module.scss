@@ -5,6 +5,14 @@
     @extend %mini-title;
   }
 
+  .miniTitle-light {
+    color: $title-text-light;
+  }
+
+  .miniTitle-dark {
+    color: $title-text-dark;
+  }
+
   .chartsTypeContainer {
     flex-grow: 1;
 
@@ -18,6 +26,14 @@
 
       .typeName {
         flex-grow: 1;
+      }
+
+      .typeName-light {
+        color: $title-text-light;
+      }
+
+      .typeName-dark {
+        color: $title-text-dark;
       }
     }
 

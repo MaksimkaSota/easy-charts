@@ -5,7 +5,18 @@
     @extend %mini-title;
   }
 
+  .miniTitle-light {
+    color: $title-text-light;
+  }
+
+  .miniTitle-dark {
+    color: $title-text-dark;
+  }
+
   @include respond($tablet-max) {
     margin: 0;
+  }
+  @include respond($tablet-min) {
+    width: 100%;
   }
 }

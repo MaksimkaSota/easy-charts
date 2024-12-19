@@ -5,6 +5,11 @@
     outline: 1px solid $red !important;
   }
 
+  .field {
+    position: relative;
+    z-index: 2;
+  }
+
   .fieldError {
     font-size: $inter-14;
     color: $red;
@@ -12,6 +17,6 @@
     position: absolute;
     top: 4.375px;
     right: 5px;
-    z-index: -1;
+    z-index: 1;
   }
 }

@@ -1,24 +1,23 @@
 import type { FC, ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Logo.module.scss';
 import logo from '../../../assets/images/content/logo.png';
-import { RoutePath } from '../../../utils/types/enums';
+import { RoutePath, AltTxtKey } from '../../../utils/types/enums';
 
 type PropsType = {
   isHeader?: boolean;
+  className: string;
 };
 
-export const Logo: FC<PropsType> = ({ isHeader }): ReactElement => {
+export const Logo: FC<PropsType> = ({ isHeader, className }): ReactElement => {
   const { pathname } = useLocation();
 
+  const { t } = useTranslation();
+
   return (
-    <div
-      className={cn(classes.logo, {
-        [classes.headerLogo]: isHeader,
-        [classes.activeHeaderLogo]: isHeader && pathname !== RoutePath.Main,
-      })}
-    >
+    <div className={cn(classes.logo, className, { [classes.activeLogo]: isHeader && pathname !== RoutePath.Main })}>
       <h1 className={classes.logoText}>
         <span className={cn(classes.letter, classes.e, classes.letterRed)}>E</span>
         <span className={cn(classes.letter, classes.a1, classes.letterOrange)}>a</span>
@@ -31,7 +30,7 @@ export const Logo: FC<PropsType> = ({ isHeader }): ReactElement => {
         <span className={cn(classes.letter, classes.t, classes.letterRed)}>t</span>
         <span className={cn(classes.letter, classes.s2, classes.letterOrange)}>s</span>
       </h1>
-      <img className={classes.logoImage} src={logo} alt="Логотип" />
+      <img className={classes.logoImage} src={logo} alt={t(AltTxtKey.Logo)} />
     </div>
   );
 };

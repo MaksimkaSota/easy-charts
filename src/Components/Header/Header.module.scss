@@ -1,13 +1,34 @@
 .header {
   box-shadow: 0 -5px 10px 0;
+  position: relative;
 
   .headerInner {
     @include position(90%, 0 auto);
-    @include flex(null, null, center);
+    @include flex(null, space-between, center);
     padding: $indent-min 0;
 
+    .navigationBlock {
+      @include flex(null, null, center);
+
+      .headerLogo {
+        margin: 0 $indent-max 0 0;
+      }
+    }
+
+    @include respond($tablet-max) {
+      .navigationBlock {
+        .headerLogo {
+          margin: 0 $indent-min 0 0;
+        }
+      }
+    }
+
     @include respond($tablet-min) {
-      flex-direction: column;
+      .navigationBlock {
+        .headerNavigation {
+          top: 100%;
+        }
+      }
     }
   }
 }

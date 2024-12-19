@@ -1,21 +1,27 @@
 import type { FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import classes from './CreateButton.module.scss';
+import { useTranslation } from 'react-i18next';
 import { useActions } from '../../../../hooks/useActions';
-import { ChartType, RoutePath } from '../../../../utils/types/enums';
-import { mainInitialValue } from '../../../../utils/initialValues/mainInitialValue';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../redux/selectors/selectors';
+import classes from './CreateButton.module.scss';
+import { ChartType, RoutePath, ContentTxtKey } from '../../../../utils/types/enums';
 
 export const CreateButton: FC = (): ReactElement => {
-  const { setMainOptionsWithId, setExamplesType } = useActions();
+  const { languageMode } = useTypedSelector(viewSelector);
+
+  const { resetMainOptions, setExamplesType } = useActions();
+
+  const { t } = useTranslation();
 
   const resetOptions = (): void => {
-    setMainOptionsWithId(mainInitialValue);
+    resetMainOptions(languageMode);
     setExamplesType(ChartType.Bar);
   };
 
   return (
     <NavLink to={RoutePath.Create} className={classes.link} onClick={resetOptions}>
-      Создать график
+      {t(ContentTxtKey.CreateButton)}
     </NavLink>
   );
 };

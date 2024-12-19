@@ -1,10 +1,13 @@
 import { type ChangeEvent, type ReactElement, memo, useEffect } from 'react';
 import { useFormikContext } from 'formik';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
-import { FieldName } from '../../../../../../utils/types/enums';
+import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../../../redux/selectors/selectors';
 
 type PropsType = {
   dataset: IDataset;
@@ -17,6 +20,10 @@ type PropsType = {
 
 export const ColumnForm = memo<PropsType>(
   ({ dataset, datasetIndex, datasetsLength, setData, setLabelInDatasets, removeColumn }): ReactElement => {
+    const { themeMode } = useTypedSelector(viewSelector);
+
+    const { t } = useTranslation();
+
     const { errors, setFieldTouched } = useFormikContext();
 
     useEffect(() => {
@@ -44,7 +51,7 @@ export const ColumnForm = memo<PropsType>(
         <button
           type="button"
           aria-label="Remove column"
-          title={datasetsLength !== 1 ? 'Удалить этот столбец' : undefined}
+          title={datasetsLength !== 1 ? t(ContentTxtKey.ColumnHint) : undefined}
           className={cn(classes.closeY, { [classes.closeYHover]: datasetsLength !== 1 })}
           onClick={() => removeColumn(datasetIndex)}
           disabled={datasetsLength === 1}
@@ -61,7 +68,7 @@ export const ColumnForm = memo<PropsType>(
           (dataItem: IData, dataItemIndex: number): ReactElement => (
             <FormField
               key={dataItem.id}
-              classNameField={classes.inputDataNumbers}
+              classNameField={cn(classes.inputDataNumbers, classes[`inputDataNumbers-${themeMode}`])}
               name={`${FieldName.Datasets}.${datasetIndex}.data.${dataItemIndex}.value`}
               type="text"
               errors={errors}

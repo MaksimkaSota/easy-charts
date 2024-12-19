@@ -1,10 +1,11 @@
 import { type ChangeEvent, type ReactElement, useEffect, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import classes from './AddRowForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import { RowForm } from '../RowForm/RowForm';
 import type { FormikErrorsType, HandleChangeType, SetValuesType } from '../../../../../../utils/types/form';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
-import { FieldName } from '../../../../../../utils/types/enums';
+import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   title: string;
@@ -38,6 +39,8 @@ export const AddRowForm = memo<PropsType>(
     handleChange,
     setValues,
   }): ReactElement => {
+    const { t } = useTranslation();
+
     useEffect(() => {
       setValues({ [FieldName.Title]: title, [FieldName.Labels]: labelsFromOptions, [FieldName.Datasets]: datasets });
       // eslint-disable-next-line
@@ -71,7 +74,7 @@ export const AddRowForm = memo<PropsType>(
           )
         )}
         <button className={classes.addButton} type="button" onClick={addRow}>
-          Добавить строку
+          {t(ContentTxtKey.AddRowButton)}
         </button>
       </div>
     );

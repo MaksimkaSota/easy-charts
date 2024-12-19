@@ -15,8 +15,8 @@ The Redux library was used as a state manager and the Axios library was used to 
 
 ### Technologies
 
-This a creating chart project was built using:  
-`React`, `Redux`, `TypeScript`, `SCSS`, `Axios`, `REST API`, `Formik`, `ESLint`.
+This chart creating project was built using:  
+`React`, `Redux`, `TypeScript`, `SCSS`, `Axios`, `REST API`, `Formik`, `i18next`, `ESLint`.
 
 ---
 
@@ -25,7 +25,8 @@ This a creating chart project was built using:
 - Creating charts and diagrams;
 - Viewing and saving the chart in full size format (PNG);
 - Getting a link to the chart page to share it;
-- Viewing weather and currency exchange rates.
+- Viewing weather and currency exchange rates;
+- Switching theme and language mode.
 
 ---
 

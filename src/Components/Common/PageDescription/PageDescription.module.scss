@@ -5,6 +5,14 @@
     @extend %title-pages;
   }
 
+  .title-light {
+    color: $title-text-light;
+  }
+
+  .title-dark {
+    color: $title-text-dark;
+  }
+
   .textContent {
     font-size: $inter-18;
   }

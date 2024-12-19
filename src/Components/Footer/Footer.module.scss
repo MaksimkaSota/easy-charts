@@ -2,9 +2,34 @@
   @include flex(column, null, center);
   padding: $indent-min 0;
   box-shadow: 0 5px 10px 0;
+  position: relative;
+
+  .logoBlock {
+    @include flex(null, null, center);
+
+    .footerLogo {
+      margin: 0;
+    }
+  }
 
   .text {
     font-size: $inter-14;
     margin: $indent-min 0;
+  }
+
+  @include respond($tablet-min) {
+    .logoBlock {
+      .footerLogo {
+        margin: 0 $indent-min 0 0;
+      }
+    }
+
+    .text {
+      margin: $indent-max 0 0;
+    }
+
+    .footerNavigation {
+      bottom: 0;
+    }
   }
 }

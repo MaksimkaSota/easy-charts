@@ -1,4 +1,5 @@
 import { type ReactElement, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ChartSelectionMenu.module.scss';
 import bar from '../../../assets/images/chart/bar.png';
@@ -8,7 +9,9 @@ import pie from '../../../assets/images/chart/pie.png';
 import doughnut from '../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../Buttons/ChartSelectionButton/ChartSelectionButton';
-import { ChartType } from '../../../utils/types/enums';
+import { ChartType, ChartTxtKey, ContentTxtKey } from '../../../utils/types/enums';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../redux/selectors/selectors';
 
 type PropsType = {
   type: string;
@@ -17,57 +20,63 @@ type PropsType = {
 };
 
 export const ChartSelectionMenu = memo<PropsType>(({ type, className, hideChartSelectionMenuTitle }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
+  const { t } = useTranslation();
+
   return (
     <div className={classes.chartSelectionForm}>
-      {!hideChartSelectionMenuTitle && <h3 className={classes.miniTitle}>Вид</h3>}
+      {!hideChartSelectionMenuTitle && (
+        <h3 className={cn(classes.miniTitle, classes[`miniTitle-${themeMode}`])}>{t(ContentTxtKey.ViewMiniTitle)}</h3>
+      )}
       <div className={cn(classes.chartsTypeContainer, className)}>
         <ChartSelectionButton
           isDisabled={type === ChartType.Bar}
           type={ChartType.Bar}
           src={bar}
-          text="Колонны"
+          text={t(ChartTxtKey.Bar)}
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Bar })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.HBar}
           type={ChartType.HBar}
           src={horizontalBar}
-          text="Полосы"
+          text={t(ChartTxtKey.HBar)}
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.HBar })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Line}
           type={ChartType.Line}
           src={line}
-          text="Линии"
+          text={t(ChartTxtKey.Line)}
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Line })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Radar}
           type={ChartType.Radar}
           src={radar}
-          text="Радар"
+          text={t(ChartTxtKey.Radar)}
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Radar })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Pie}
           type={ChartType.Pie}
           src={pie}
-          text="Пирог"
+          text={t(ChartTxtKey.Pie)}
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Pie })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
         <ChartSelectionButton
           isDisabled={type === ChartType.Doughnut}
           type={ChartType.Doughnut}
           src={doughnut}
-          text="Пончик"
+          text={t(ChartTxtKey.Doughnut)}
           classNameContainer={cn(classes.imageContainer, { [classes.activeContainer]: type === ChartType.Doughnut })}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
         />
       </div>
     </div>

@@ -1,4 +1,5 @@
 import type { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './GalleryPage.module.scss';
 import bar from '../../../../assets/images/chart/bar.png';
@@ -9,7 +10,9 @@ import doughnut from '../../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../../../Common/Buttons/ChartSelectionButton/ChartSelectionButton';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
-import { ChartType } from '../../../../utils/types/enums';
+import { ChartType, ChartTxtKey, ContentTxtKey } from '../../../../utils/types/enums';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
+import { viewSelector } from '../../../../redux/selectors/selectors';
 
 type PropsType = {
   isMainGallery?: boolean;
@@ -26,6 +29,10 @@ export const GalleryPage: FC<PropsType> = ({
   hidePageDescriptionText,
   hideChartSelectionButtonText,
 }): ReactElement => {
+  const { themeMode } = useTypedSelector(viewSelector);
+
+  const { t } = useTranslation();
+
   return (
     <div
       className={cn(classes.gallery, {
@@ -35,10 +42,8 @@ export const GalleryPage: FC<PropsType> = ({
     >
       {!hidePageDescription && (
         <PageDescription
-          title="Галерея графиков / диаграмм"
-          textContent="Выберите необходимый вид графика, далее вы перейдёте в режим онлайн-конструктора, в котором
-          сможете заполнить данные графика, и затем сохранить на комьютер. Какой график вам необходимо построить?
-          Колонны, полосы, линии, радар, пирог, пончик?"
+          title={t(ContentTxtKey.GalleryTitle)}
+          textContent={t(ContentTxtKey.GalleryDescription)}
           hidePageDescriptionText={hidePageDescriptionText}
         />
       )}
@@ -47,54 +52,54 @@ export const GalleryPage: FC<PropsType> = ({
           isLink
           type={ChartType.Bar}
           src={bar}
-          text="Колонны"
+          text={t(ChartTxtKey.Bar)}
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
           type={ChartType.HBar}
           src={horizontalBar}
-          text="Полосы"
+          text={t(ChartTxtKey.HBar)}
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
           type={ChartType.Line}
           src={line}
-          text="Линии"
+          text={t(ChartTxtKey.Line)}
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
           type={ChartType.Radar}
           src={radar}
-          text="Радар"
+          text={t(ChartTxtKey.Radar)}
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
           type={ChartType.Pie}
           src={pie}
-          text="Пирог"
+          text={t(ChartTxtKey.Pie)}
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
         <ChartSelectionButton
           isLink
           type={ChartType.Doughnut}
           src={doughnut}
-          text="Пончик"
+          text={t(ChartTxtKey.Doughnut)}
           classNameContainer={classes.imageContainer}
-          classNameText={classes.typeName}
+          classNameText={cn(classes.typeName, classes[`typeName-${themeMode}`])}
           hideChartSelectionButtonText={hideChartSelectionButtonText}
         />
       </div>

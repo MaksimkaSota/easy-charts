@@ -29,11 +29,22 @@
   }
 
   @include respond($tablet-min) {
-    flex-direction: column;
-    .link {
-      &:not(:last-child) {
-        margin: 0 0 $indent-input-button 0;
-      }
+    justify-content: space-evenly;
+    width: 0;
+    padding: $indent-min 0;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.25s linear;
+    backdrop-filter: blur(10px);
+    .link:not(:last-child) {
+      margin: 0;
     }
+  }
+}
+
+.shownNavigation {
+  @include respond($tablet-min) {
+    width: 100%;
   }
 }

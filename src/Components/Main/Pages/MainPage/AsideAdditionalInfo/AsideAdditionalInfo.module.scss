@@ -1,7 +1,6 @@
 .asideInfo {
   width: 25%;
   padding: $indent-max;
-  background: url('../../../../../assets/images/content/bubbles.gif') no-repeat center / cover;
   border-radius: $radius-max;
   @include respond($tablet-max) {
     padding: $indent-min;
@@ -15,4 +14,12 @@
     padding: $indent-input-button;
     justify-content: space-between;
   }
+}
+
+.asideInfo-light {
+  background: url('../../../../../assets/images/content/bubbles-light.gif') no-repeat center / cover;
+}
+
+.asideInfo-dark {
+  background: url('../../../../../assets/images/content/bubbles-dark.gif') no-repeat center / cover;
 }

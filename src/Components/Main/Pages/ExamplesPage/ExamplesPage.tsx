@@ -1,4 +1,5 @@
 import type { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ExamplesPage.module.scss';
 import { ProgressBar } from '../../../Common/ProgressBar/ProgressBar';
@@ -8,6 +9,7 @@ import { ExampleCharts } from './ExampleCharts/ExampleCharts';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
 import type { IChart } from '../../../../utils/types/api/chart';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
+import { ContentTxtKey } from '../../../../utils/types/enums';
 
 type PropsType = {
   isFetchingExampleFirstAddress: boolean;
@@ -56,6 +58,8 @@ export const ExamplesPage: FC<PropsType> = ({
   hideExampleChartsTitle,
   showExampleChartTable,
 }): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={cn(classes.examples, {
@@ -67,11 +71,8 @@ export const ExamplesPage: FC<PropsType> = ({
       <UpButton />
       {!hidePageDescription && (
         <PageDescription
-          title="Примеры графиков / диаграмм"
-          textContent="На данной странице вы можете найти подходящие вам примеры графиков, чтобы использовать их для
-          построения своего графика, а также для того, чтобы понять как работает конструктор графиков на нашем сайте.
-          Также вы можете выбрать необходимый вид графика, чтобы посмотреть примеры для
-          данного вида: колонны, полосы, линии, радар, пирог, пончик."
+          title={t(ContentTxtKey.ExamplesTitle)}
+          textContent={t(ContentTxtKey.ExamplesDescription)}
           hidePageDescriptionText={hidePageDescriptionText}
         />
       )}
