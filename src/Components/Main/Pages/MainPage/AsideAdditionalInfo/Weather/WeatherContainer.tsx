@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useActions } from '../../../../../../hooks/useActions';
 import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
 import { isFetchingWeatherSelector } from '../../../../../../redux/selectors/loading';
-import { weatherSelector, viewSelector } from '../../../../../../redux/selectors/selectors';
+import { viewSelector, weatherSelector } from '../../../../../../redux/selectors/selectors';
 import { weatherErrorSelector } from '../../../../../../redux/selectors/error';
 import { Weather } from './Weather';
-import { StatusCode, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, StatusCode } from '../../../../../../utils/types/enums';
 
 export const WeatherContainer: FC = (): ReactElement => {
   const { languageMode } = useTypedSelector(viewSelector);

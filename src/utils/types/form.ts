@@ -1,4 +1,4 @@
-import type { SetStateAction, ChangeEvent } from 'react';
+import type { ChangeEvent, SetStateAction } from 'react';
 import type { FormikErrors } from 'formik';
 import type { ObjectType } from './common';
 

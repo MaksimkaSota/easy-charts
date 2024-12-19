@@ -5,7 +5,7 @@ import { useActions } from '../../../../hooks/useActions';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 import classes from './CreateButton.module.scss';
-import { ChartType, RoutePath, ContentTxtKey } from '../../../../utils/types/enums';
+import { ChartType, ContentTxtKey, RoutePath } from '../../../../utils/types/enums';
 
 export const CreateButton: FC = (): ReactElement => {
   const { languageMode } = useTypedSelector(viewSelector);

@@ -16,11 +16,11 @@ import type {
 } from '../../../../../../utils/types/form';
 import {
   ChartType,
+  ContentTxtKey,
   FieldName,
+  LocalStorageKey,
   RoutePath,
   StandardOption,
-  ContentTxtKey,
-  LocalStorageKey,
 } from '../../../../../../utils/types/enums';
 import { getLocalItem } from '../../../../../../services/browserDataStorage/localStorage';
 import type { IChart } from '../../../../../../utils/types/api/chart';

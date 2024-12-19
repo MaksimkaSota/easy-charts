@@ -1,6 +1,6 @@
-import { type CurrencyState, type CurrencyAction, CurrencyActionType } from '../types/currency';
+import { type CurrencyAction, CurrencyActionType, type CurrencyState } from '../types/currency';
 import { LocalStorageKey } from '../../utils/types/enums';
-import { setLocalItem, getLocalItem } from '../../services/browserDataStorage/localStorage';
+import { getLocalItem, setLocalItem } from '../../services/browserDataStorage/localStorage';
 
 const initialState: CurrencyState = {
   belarusCoin: '',

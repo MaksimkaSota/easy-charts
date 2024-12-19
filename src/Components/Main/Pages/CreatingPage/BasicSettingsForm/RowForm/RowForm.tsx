@@ -1,10 +1,10 @@
-import { type ChangeEvent, type ReactElement, memo } from 'react';
+import { type ChangeEvent, memo, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './RowForm.module.scss';
 import type { FormikErrorsType } from '../../../../../../utils/types/form';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
-import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, FieldName } from '../../../../../../utils/types/enums';
 
 type PropsType = {
   labelIndex: number;

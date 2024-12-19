@@ -1,11 +1,11 @@
-import { type ChangeEvent, type ReactElement, memo, useEffect } from 'react';
+import { type ChangeEvent, memo, type ReactElement, useEffect } from 'react';
 import { useFormikContext } from 'formik';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './ColumnForm.module.scss';
 import { FormField } from '../../../../../Common/FormFields/FormField/FormField';
 import type { IData, IDataset } from '../../../../../../utils/types/api/chart';
-import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, FieldName } from '../../../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../../../redux/selectors/selectors';
 

@@ -1,4 +1,4 @@
-import { type ReactElement, memo } from 'react';
+import { memo, type ReactElement } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';

@@ -1,13 +1,13 @@
 import { type FC, type ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useTranslation, Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './InfoPage.module.scss';
 import { InfoBlock } from './InfoBlock/InfoBlock';
 import { CreateButton } from '../../../Common/Buttons/CreateButton/CreateButton';
 import Info from '../../../../assets/images/content/info.svg';
 import doughnut from '../../../../assets/images/chart/doughnut.png';
-import { RoutePath, AltTxtKey, ContentTxtKey } from '../../../../utils/types/enums';
+import { AltTxtKey, ContentTxtKey, RoutePath } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 
