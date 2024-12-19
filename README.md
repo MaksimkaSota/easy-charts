@@ -1,6 +1,6 @@
 # About Page
 
-The study project [Easy Charts](https://...).
+The study project [Easy Charts](https://easy-charts-8d058.web.app).
 
 The Easy Charts is a website for creating charts and diagrams online.  
 Select the chart type (bars, horizontal bars, lines, radar, pie, doughnut), fill data tables, and the chart is done!  
