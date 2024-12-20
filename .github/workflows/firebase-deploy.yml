@@ -26,12 +26,14 @@ jobs:
         run: npm install
 
       - name: Build application
+        env:
+          REACT_APP_OPENWEATHER_KEY: ${{ secrets.REACT_APP_OPENWEATHER_KEY }}
         run: npm run build
 
       - name: Deploy application
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           projectId: easy-charts-8d058
           channelId: live
