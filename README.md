@@ -1,6 +1,6 @@
 # About Page
 
-The study project [Easy Charts](https://...).
+The study project [Easy Charts](https://easy-charts-8d058.web.app).
 
 The Easy Charts is a website for creating charts and diagrams online.  
 Select the chart type (bars, horizontal bars, lines, radar, pie, doughnut), fill data tables, and the chart is done!  
@@ -35,6 +35,23 @@ This chart creating project was built using:
 - Add following `.env.local` file to the root of the project (`git` ignored) :  
   `REACT_APP_OPENWEATHER_KEY='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'`  
   You should take the KEY from the developer!
+
+* Manual project deployment ([firebase.google.com](https://firebase.google.com)) :
+  - To host your site with Firebase Hosting, you need the Firebase CLI (a command line tool).  
+    Run the following npm command to install the CLI or update to the latest CLI version.  
+    `npm install --global firebase-tools`;
+  - Sign in to Google.  
+    For deploy new project you should create new firebase project.  
+    For redeploy current project you must be added to members of current firebase project.  
+    `firebase login`;
+  - Build your web app.  
+    `npm run build`;
+  - Deploy or redeploy your web app.  
+    Put your static files (e.g., HTML, CSS, JS) in your app's deploy directory (the default is "public").  
+    `firebase deploy`.
+
+- Automatic project deployment ([firebase.google.com](https://firebase.google.com)) :
+  - If you are one of this repository's authors, you can deploy automatically after merging into the main branch.
 
 ---
 

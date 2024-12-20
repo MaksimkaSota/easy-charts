@@ -1,4 +1,4 @@
-import type { FC, ReactElement, Dispatch, SetStateAction } from 'react';
+import type { Dispatch, FC, ReactElement, SetStateAction } from 'react';
 import cn from 'classnames';
 import classes from './BurgerButton.module.scss';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';

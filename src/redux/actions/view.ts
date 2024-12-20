@@ -1,4 +1,4 @@
-import { type SetThemeModeAction, type SetLanguageModeAction, ViewActionType } from '../types/view';
+import { type SetLanguageModeAction, type SetThemeModeAction, ViewActionType } from '../types/view';
 
 export const setThemeMode = (theme: string): SetThemeModeAction => ({
   type: ViewActionType.SET_VIEW_THEME_MODE,

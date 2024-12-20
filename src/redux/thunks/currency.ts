@@ -1,19 +1,19 @@
 import { isAxiosError } from 'axios';
 import i18next from '../../services/localization/i18n';
-import type { ThunkType, ObjectType } from '../../utils/types/common';
+import type { ObjectType, ThunkType } from '../../utils/types/common';
 import type { CurrencyAction } from '../types/currency';
-import { CurrencyId, FieldName, LocalStorageKey, ErrorTxtKey } from '../../utils/types/enums';
+import { CurrencyId, ErrorTxtKey, FieldName, LocalStorageKey } from '../../utils/types/enums';
 import { getCurrencyAPI } from '../../services/api/currency/currency';
 import {
-  setCurrencyRequest,
-  setCurrencySuccess,
   setCurrencyFailure,
-  setCurrencyOnBelarusCoin,
   setCurrencyOnAmericaCoin,
+  setCurrencyOnBelarusCoin,
   setCurrencyOnEuropeCoin,
+  setCurrencyOnPolandCoin,
   setCurrencyOnRussiaCoin,
   setCurrencyOnUkraineCoin,
-  setCurrencyOnPolandCoin,
+  setCurrencyRequest,
+  setCurrencySuccess,
 } from '../actions/currency';
 import { setLocalItem } from '../../services/browserDataStorage/localStorage';
 

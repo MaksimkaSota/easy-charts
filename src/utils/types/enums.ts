@@ -242,4 +242,5 @@ export enum ErrorTxtKey {
   UnhandledPromise = 'error.unhandledPromise',
   UnhandledUI = 'error.unhandledUI',
   SomeError = 'error.someError',
+  NotFound = 'error.notFound',
 }

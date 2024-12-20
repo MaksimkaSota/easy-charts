@@ -1,4 +1,4 @@
-import { type ReactElement, type ChangeEvent, memo } from 'react';
+import { type ChangeEvent, memo, type ReactElement } from 'react';
 import { ErrorMessage, Field } from 'formik';
 import cn from 'classnames';
 import classes from './FormField.module.scss';

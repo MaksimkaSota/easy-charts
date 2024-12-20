@@ -6,7 +6,7 @@ import LightMode from '../../../assets/images/content/sun.svg';
 import DarkMode from '../../../assets/images/content/moon.svg';
 import ruMode from '../../../assets/images/content/ru.png';
 import enMode from '../../../assets/images/content/en.png';
-import { Theme, Language, AltTxtKey } from '../../../utils/types/enums';
+import { AltTxtKey, Language, Theme } from '../../../utils/types/enums';
 
 type PropsType = {
   themeMode: string;

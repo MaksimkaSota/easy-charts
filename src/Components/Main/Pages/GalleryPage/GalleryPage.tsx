@@ -10,7 +10,7 @@ import doughnut from '../../../../assets/images/chart/doughnut.png';
 import horizontalBar from '../../../../assets/images/chart/horizontalBar.png';
 import { ChartSelectionButton } from '../../../Common/Buttons/ChartSelectionButton/ChartSelectionButton';
 import { PageDescription } from '../../../Common/PageDescription/PageDescription';
-import { ChartType, ChartTxtKey, ContentTxtKey } from '../../../../utils/types/enums';
+import { ChartTxtKey, ChartType, ContentTxtKey } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 

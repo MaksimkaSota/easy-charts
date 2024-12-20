@@ -8,7 +8,7 @@ import { MainAdditionalInfo } from './MainAdditionalInfo/MainAdditionalInfo';
 import { AsideAdditionalInfo } from './AsideAdditionalInfo/AsideAdditionalInfo';
 import { GalleryPage } from '../GalleryPage/GalleryPage';
 import { ExamplesPageContainer } from '../ExamplesPage/ExamplesPageContainer';
-import { RoutePath, ContentTxtKey } from '../../../../utils/types/enums';
+import { ContentTxtKey, RoutePath } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
 

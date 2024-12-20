@@ -1,10 +1,10 @@
-import type { FC, ReactElement, ChangeEvent } from 'react';
+import type { ChangeEvent, FC, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Weather.module.scss';
 import { useTypedSelector } from '../../../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../../../redux/selectors/selectors';
-import { FieldName, ContentTxtKey } from '../../../../../../utils/types/enums';
+import { ContentTxtKey, FieldName } from '../../../../../../utils/types/enums';
 import type { IWeather } from '../../../../../../utils/types/api/weather';
 import type { ErrorType, Nullable } from '../../../../../../utils/types/common';
 

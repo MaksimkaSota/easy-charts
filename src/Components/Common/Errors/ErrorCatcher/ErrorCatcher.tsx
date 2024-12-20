@@ -1,9 +1,9 @@
-import { type ReactElement, type ReactNode, Component } from 'react';
+import { Component, type ReactElement, type ReactNode } from 'react';
 import i18next from '../../../../services/localization/i18n';
 import { Error } from '../Error/Error';
 import { ErrorPopup } from '../ErrorPopup/ErrorPopup';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
-import { EventType, ErrorTxtKey } from '../../../../utils/types/enums';
+import { ErrorTxtKey, EventType } from '../../../../utils/types/enums';
 
 type PropsType = {
   children: ReactNode;
