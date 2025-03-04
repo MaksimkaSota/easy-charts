@@ -40,7 +40,8 @@ export const ErrorPopup: FC<PropsType> = ({ errorObject, resetError }): ReactEle
       <div
         className={classes.errorPopup}
         ref={errorPopup}
-        tabIndex={-1}
+        role="button"
+        tabIndex={0}
         onClick={onPopupMouseClick}
         onKeyDown={onKeyboardPress}
       >
