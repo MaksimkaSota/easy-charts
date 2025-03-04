@@ -53,6 +53,7 @@ export enum RequestState {
 }
 
 export enum KeyboardEventCode {
+  Enter = 'Enter',
   Escape = 'Escape',
 }
 

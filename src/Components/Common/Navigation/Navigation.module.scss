@@ -1,44 +1,50 @@
 .navigation {
-  @include flex(null, null, center);
+  .navigationContainer {
+    @include flex(null, null, center);
 
-  .link {
-    font-size: $inter-18;
-    cursor: pointer;
-    transition: all 0.25s linear;
+    .link {
+      font-size: $inter-18;
+      cursor: pointer;
+      transition: all 0.25s linear;
 
-    &:not(:last-child) {
-      margin: 0 $indent-min 0 0;
+      &:not(:last-child) {
+        margin: 0 $indent-min 0 0;
+      }
+
+      &:hover {
+        color: $blue;
+        font-size: $inter-20;
+        text-decoration: underline;
+      }
     }
 
-    &:hover {
-      color: $blue;
-      font-size: $inter-20;
-      text-decoration: underline;
-    }
-  }
-
-  .activeLink {
-    color: $green;
-    font-size: $inter-20;
-    cursor: default;
-
-    &:hover {
+    .activeLink {
       color: $green;
-      text-decoration: none;
+      font-size: $inter-20;
+      cursor: default;
+
+      &:hover {
+        color: $green;
+        text-decoration: none;
+      }
     }
   }
 
   @include respond($tablet-min) {
-    justify-content: space-evenly;
     width: 0;
-    padding: $indent-min 0;
     position: absolute;
     left: 0;
     overflow: hidden;
     transition: width 0.25s linear;
     backdrop-filter: blur(10px);
-    .link:not(:last-child) {
-      margin: 0;
+
+    .navigationContainer {
+      justify-content: space-evenly;
+      padding: $indent-min 0;
+
+      .link:not(:last-child) {
+        margin: 0;
+      }
     }
   }
 }
