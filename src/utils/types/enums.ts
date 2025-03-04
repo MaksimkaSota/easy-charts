@@ -85,7 +85,7 @@ export enum EventType {
   Scroll = 'scroll',
   Unhandledrejection = 'unhandledrejection',
   Click = 'click',
-  Keydown = 'Keydown',
+  Keydown = 'keydown',
 }
 
 export enum LocalStorageKey {
