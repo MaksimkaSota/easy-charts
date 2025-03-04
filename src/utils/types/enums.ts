@@ -53,6 +53,7 @@ export enum RequestState {
 }
 
 export enum KeyboardEventCode {
+  Enter = 'Enter',
   Escape = 'Escape',
 }
 
@@ -83,6 +84,8 @@ export enum CurrencyId {
 export enum EventType {
   Scroll = 'scroll',
   Unhandledrejection = 'unhandledrejection',
+  Click = 'click',
+  Keydown = 'keydown',
 }
 
 export enum LocalStorageKey {

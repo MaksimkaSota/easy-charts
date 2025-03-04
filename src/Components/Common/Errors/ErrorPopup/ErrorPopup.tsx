@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import classes from './ErrorPopup.module.scss';
 import { Error } from '../Error/Error';
 import type { ErrorType, Nullable } from '../../../../utils/types/common';
-import { ContentTxtKey, KeyboardEventCode } from '../../../../utils/types/enums';
+import { ContentTxtKey, EventType, KeyboardEventCode } from '../../../../utils/types/enums';
 
 type PropsType = {
   errorObject: Nullable<ErrorType>;
@@ -23,14 +23,12 @@ export const ErrorPopup: FC<PropsType> = ({ errorObject, resetError }): ReactEle
     resetError(null);
   };
 
-  const onPopupMouseClick = (event: MouseEvent<HTMLDivElement>): void => {
-    if ((event.target as Element).className === errorPopup.current?.className) {
-      resetError(null);
-    }
-  };
-
-  const onKeyboardPress = (event: KeyboardEvent<HTMLDivElement>): void => {
-    if (event.code === KeyboardEventCode.Escape) {
+  const handleInteraction = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>): void => {
+    if (
+      (event.type === EventType.Click &&
+        (event.target as HTMLDivElement).className === errorPopup.current?.className) ||
+      (event.type === EventType.Keydown && (event as KeyboardEvent).code === KeyboardEventCode.Escape)
+    ) {
       resetError(null);
     }
   };
@@ -40,9 +38,10 @@ export const ErrorPopup: FC<PropsType> = ({ errorObject, resetError }): ReactEle
       <div
         className={classes.errorPopup}
         ref={errorPopup}
-        tabIndex={-1}
-        onClick={onPopupMouseClick}
-        onKeyDown={onKeyboardPress}
+        role="button"
+        tabIndex={0}
+        onClick={handleInteraction}
+        onKeyDown={handleInteraction}
       >
         <div className={classes.errorPopupContainer}>
           <Error message={errorObject.message} code={errorObject.code} />
