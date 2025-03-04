@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Navigation.module.scss';
-import { ContentTxtKey, KeyboardEventCode, RoutePath } from '../../../utils/types/enums';
+import { ContentTxtKey, EventType, KeyboardEventCode, RoutePath } from '../../../utils/types/enums';
 
 type PropsType = {
   className: string;
@@ -17,17 +17,16 @@ export const Navigation: FC<PropsType> = ({ className, showBurgerMenu, setShowBu
   const setClass = ({ isActive }: { isActive: boolean }): string =>
     cn(classes.link, { [classes.activeLink]: isActive });
 
-  const onLinkClick = (event: MouseEvent<HTMLDivElement>): void => {
-    if ((event.target as HTMLAnchorElement).className === classes.link) {
-      setShowBurgerMenu(false);
-
-      window.scrollTo(0, 0);
-    }
-  };
-
-  const onBurgerMenuPress = (event: KeyboardEvent<HTMLDivElement>): void => {
-    if (event.code === KeyboardEventCode.Enter) {
+  const handleInteraction = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>): void => {
+    if (
+      (event.type === EventType.Click && (event.target as HTMLAnchorElement).className === classes.link) ||
+      (event.type === EventType.Keydown && (event as KeyboardEvent).code === KeyboardEventCode.Enter)
+    ) {
       setShowBurgerMenu((prevActualState: boolean): boolean => !prevActualState);
+    }
+
+    if (event.type === EventType.Click && (event.target as HTMLAnchorElement).className === classes.link) {
+      window.scrollTo(0, 0);
     }
   };
 
@@ -37,8 +36,8 @@ export const Navigation: FC<PropsType> = ({ className, showBurgerMenu, setShowBu
         className={classes.navigationContainer}
         role="button"
         tabIndex={0}
-        onClick={onLinkClick}
-        onKeyDown={onBurgerMenuPress}
+        onClick={handleInteraction}
+        onKeyDown={handleInteraction}
       >
         <NavLink to={RoutePath.Create} className={setClass}>
           {t(ContentTxtKey.CreatingLink)}

@@ -84,6 +84,8 @@ export enum CurrencyId {
 export enum EventType {
   Scroll = 'scroll',
   Unhandledrejection = 'unhandledrejection',
+  Click = 'click',
+  Keydown = 'Keydown',
 }
 
 export enum LocalStorageKey {
