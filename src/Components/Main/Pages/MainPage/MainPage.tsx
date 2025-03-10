@@ -31,27 +31,11 @@ export const MainPage: FC = (): ReactElement => {
       />
       <p className={classes.description}>
         <Trans i18nKey={ContentTxtKey.MainText}>
-          <span className={cn(classes.name, classes[`name-${themeMode}`])}>EasyCharts</span> - сайт для построения
-          графиков / диаграмм онлайн. Выберите
-          <NavLink to={RoutePath.Gallery} className={classes.link}>
-            вид графика
-          </NavLink>
-          (колонны, полосы, линии, радар, пирог, пончик), заполните таблицы данных, и график готов!
-          <NavLink to={RoutePath.Create} className={classes.link}>
-            Онлайн-конструктор
-          </NavLink>
-          можно использовать для просмотра и сохранения графика в полном размере (в формате PNG). После этого можно
-          вставить его в Excel или Word, а также другие программы на компьютере. Можно получить ссылку на страницу
-          графика, чтобы поделиться им. Построить график онлайн очень просто! Читайте подробнее о том, как создать
-          график онлайн
-          <NavLink to={RoutePath.Info} className={classes.link}>
-            здесь
-          </NavLink>
-          . Также можно посмотреть
-          <NavLink to={RoutePath.Examples} className={classes.link}>
-            примеры
-          </NavLink>
-          , чтобы на их основе создать необходимый график.
+          <span className={cn(classes.name, classes[`name-${themeMode}`])} />
+          <NavLink to={RoutePath.Gallery} className={classes.link} />
+          <NavLink to={RoutePath.Create} className={classes.link} />
+          <NavLink to={RoutePath.Info} className={classes.link} />
+          <NavLink to={RoutePath.Examples} className={classes.link} />
         </Trans>
       </p>
     </div>

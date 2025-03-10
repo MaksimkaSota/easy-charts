@@ -25,7 +25,7 @@
       "creating": "This page contains the constructor for building charts online. It is very simple to create them: select the required type of chart (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! If necessary, set the required width, height and save the chart to your computer.",
       "gallery": "Choose the required type of chart, then you will get to the online constructor page, where you can fill in the chart data, and then save to your computer. What chart do you need to build? Bars, horizontal bars, lines, radar, pie, doughnut?",
       "examples": "On this page you can find examples of charts in order to use them to build your own chart, as well as to understand how the chart constructor works on our website. You can also select the required type of chart to see examples for this type: bars, horizontal bars, lines, radar, pie, doughnut.",
-      "info1": "You can find the chart <1>examples</1> and create your own one based on the example most suitable for you.",
+      "info1": "You can find the chart <0>examples</0> and create your own one based on the example most suitable for you.",
       "info2": "Below you may find the instruction on how to create the chart on our website. It is easy:",
       "contacts": "For any questions or suggestions, please write to email or other sources:"
     },
@@ -60,7 +60,7 @@
     },
 
     "text": {
-      "main": "<0>EasyCharts</0> - is a website for building charts / diagrams online. Select the <2>chart type</2> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <4>online constructor</4> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <6>here</6>. Please, also see the <8>examples</8> of the charts to create the one you need.",
+      "main": "<0>EasyCharts</0> - is a website for building charts / diagrams online. Select the <1>chart type</1> (bars, horizontal bars, lines, radar, pie, doughnut), fill in the table data, and the chart is done! You can use the <2>online constructor</2> to view and save the chart in full size (in PNG format). After that you can paste it into Excel, Word, and other programs on your computer. You can get a link to chart page and share it. It is easy to create a chart online! Read more about how to create a diagram online <3>here</3>. Please, also see the <4>examples</4> of the charts to create the one you need.",
       "createBold": "Create",
       "create": "online, free and without registration",
       "shareBold": "Share",
