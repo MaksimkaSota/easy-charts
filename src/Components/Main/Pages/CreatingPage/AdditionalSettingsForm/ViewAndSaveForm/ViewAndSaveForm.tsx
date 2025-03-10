@@ -70,8 +70,6 @@ export const ViewAndSaveForm: FC<PropsType> = ({
     }
   }, [options, width, height]);
 
-  useEffect(() => {}, []);
-
   useEffect(() => {
     validateForm();
   }, [validateForm, languageMode]);

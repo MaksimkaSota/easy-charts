@@ -26,11 +26,7 @@ export const InfoPage: FC = (): ReactElement => {
         <h2 className={cn(classes.pageTitle, classes[`pageTitle-${themeMode}`])}>{t(ContentTxtKey.InfoTitle)}</h2>
         <p className={classes.text}>
           <Trans i18nKey={ContentTxtKey.InfoDescription1}>
-            Вы можете посмотреть
-            <NavLink to={RoutePath.Examples} className={classes.link}>
-              примеры
-            </NavLink>
-            графиков и создать свой из подходящего.
+            <NavLink to={RoutePath.Examples} className={classes.link} />
           </Trans>
         </p>
         <p className={classes.text}>{t(ContentTxtKey.InfoDescription2)}</p>
