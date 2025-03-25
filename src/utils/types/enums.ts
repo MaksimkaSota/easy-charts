@@ -225,6 +225,8 @@ export enum AltTxtKey {
   Mail = 'alt.mail',
   Info = 'alt.info',
   Error = 'alt.error',
+  Sun = 'alt.sun',
+  Moon = 'alt.moon',
   RuFlag = 'alt.ruFlag',
   EnFlag = 'alt.enFlag',
 }

@@ -141,6 +141,8 @@
     "mail": "Mail",
     "info": "Info image",
     "error": "Error image",
+    "sun": "Sun",
+    "moon": "Moon",
     "ruFlag": "Russian flag",
     "enFlag": "English flag"
   },
