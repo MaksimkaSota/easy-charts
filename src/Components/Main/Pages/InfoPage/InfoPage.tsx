@@ -6,7 +6,7 @@ import classes from './InfoPage.module.scss';
 import { InfoBlock } from './InfoBlock/InfoBlock';
 import { CreateButton } from '../../../Common/Buttons/CreateButton/CreateButton';
 import Info from '../../../../assets/images/content/info.svg';
-import doughnut from '../../../../assets/images/chart/doughnut.png';
+import Doughnut from '../../../../assets/images/chart/doughnut.svg';
 import { AltTxtKey, ContentTxtKey, RoutePath } from '../../../../utils/types/enums';
 import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import { viewSelector } from '../../../../redux/selectors/selectors';
@@ -21,7 +21,7 @@ export const InfoPage: FC = (): ReactElement => {
       <div className={classes.infoPageHeader}>
         <div className={classes.imageContainer}>
           <Info className={classes.infoImage} />
-          <img className={classes.doughnutImage} src={doughnut} alt={t(AltTxtKey.Info)} />
+          <Doughnut className={classes.doughnutImage} alt={t(AltTxtKey.Info)} />
         </div>
         <h2 className={cn(classes.pageTitle, classes[`pageTitle-${themeMode}`])}>{t(ContentTxtKey.InfoTitle)}</h2>
         <p className={classes.text}>
