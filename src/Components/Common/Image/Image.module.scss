@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  overflow: hidden;
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .imageMin {
+    opacity: 1;
+    filter: blur(5px);
+    transition: opacity 0.5s ease-out;
+  }
+
+  .hiddenImageMin {
+    opacity: 0;
+  }
+
+  .imageMax {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    filter: blur(15px);
+    transition:
+      opacity,
+      filter 0.5s ease-out;
+  }
+
+  .shownImageMax {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
