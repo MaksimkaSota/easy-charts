@@ -29,6 +29,7 @@
   background: $b;
   border-radius: $radius-min;
   font-size: $inter-14;
+
   @include respond($tablet-min) {
     width: 150px;
   }
@@ -40,9 +41,11 @@
   border-radius: $radius-max;
   box-shadow: 0 0 10px 0;
   transition: all 0.25s linear;
-  img {
+
+  svg {
     width: $imageW;
   }
+
   .typeName {
     text-align: center;
     font-size: $fs;
@@ -50,10 +53,12 @@
       color,
       font-size 0.25s linear;
   }
+
   &:hover {
     cursor: pointer;
     outline: 1px solid $blue;
     box-shadow: 0 0 10px 0 $blue;
+
     .typeName {
       color: $blue;
       font-size: $fsHover;
@@ -74,6 +79,7 @@
   margin: 0 0 $indent-min 0;
   font-size: $inter-30;
   font-weight: 400;
+
   @include respond($mobile) {
     text-align: center;
     margin: 0 0 $indent-input-button 0;
@@ -85,6 +91,7 @@
   font-size: $inter-24;
   font-weight: 400;
   text-align: center;
+
   @include respond($mobile) {
     margin: 0 0 $indent-input-button 0;
   }
@@ -100,10 +107,12 @@
   font-size: $inter-14;
   text-align: center;
   transition: all 0.25s linear;
+
   &:hover {
     cursor: pointer;
     background: $blue;
   }
+
   @include respond($tablet-min) {
     width: 150px;
   }
@@ -128,6 +137,7 @@
 %chartContainer {
   @include flex(column, center, null);
   flex-grow: 1;
+
   .imageContainer {
     @include flex(null, center, center);
     box-sizing: content-box;
@@ -136,10 +146,12 @@
     box-shadow: 0 0 10px 0;
     width: 750px;
     height: 450px;
+
     @include respond($laptop) {
       width: 700px;
       height: 420px;
     }
+
     @include respond($tablet-min) {
       box-sizing: border-box;
       width: 100%;

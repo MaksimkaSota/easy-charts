@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import classes from './Logo.module.scss';
-import logo from '../../../assets/images/content/logo.png';
+import Emblem from '../../../assets/images/content/logo.svg';
 import { AltTxtKey, RoutePath } from '../../../utils/types/enums';
 
 type PropsType = {
@@ -30,7 +30,7 @@ export const Logo: FC<PropsType> = ({ isHeader, className }): ReactElement => {
         <span className={cn(classes.letter, classes.t, classes.letterRed)}>t</span>
         <span className={cn(classes.letter, classes.s2, classes.letterOrange)}>s</span>
       </h1>
-      <img className={classes.logoImage} src={logo} alt={t(AltTxtKey.Logo)} />
+      <Emblem className={classes.logoImage} alt={t(AltTxtKey.Logo)} />
     </div>
   );
 };

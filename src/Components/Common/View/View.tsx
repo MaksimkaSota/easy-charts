@@ -4,8 +4,8 @@ import cn from 'classnames';
 import classes from './View.module.scss';
 import LightMode from '../../../assets/images/content/sun.svg';
 import DarkMode from '../../../assets/images/content/moon.svg';
-import ruMode from '../../../assets/images/content/ru.png';
-import enMode from '../../../assets/images/content/en.png';
+import RuMode from '../../../assets/images/content/ru.svg';
+import EnMode from '../../../assets/images/content/en.svg';
 import { AltTxtKey, Language, Theme } from '../../../utils/types/enums';
 
 type PropsType = {
@@ -32,8 +32,8 @@ export const View: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, set
   return (
     <div className={classes.viewContainer}>
       <button className={cn(classes.modeContainer, classes.themeModeContainer)} onClick={onThemeMode}>
-        {themeMode === Theme.Light && <LightMode className={classes.mode} />}
-        {themeMode === Theme.Dark && <DarkMode className={classes.mode} />}
+        {themeMode === Theme.Light && <LightMode className={classes.mode} alt={t(AltTxtKey.Sun)} />}
+        {themeMode === Theme.Dark && <DarkMode className={classes.mode} alt={t(AltTxtKey.Moon)} />}
       </button>
       <button
         className={cn(
@@ -43,8 +43,8 @@ export const View: FC<PropsType> = ({ themeMode, languageMode, setThemeMode, set
         )}
         onClick={onLanguageMode}
       >
-        {languageMode === Language.Ru && <img src={ruMode} className={classes.mode} alt={t(AltTxtKey.RuFlag)} />}
-        {languageMode === Language.En && <img src={enMode} className={classes.mode} alt={t(AltTxtKey.EnFlag)} />}
+        {languageMode === Language.Ru && <RuMode className={classes.mode} alt={t(AltTxtKey.RuFlag)} />}
+        {languageMode === Language.En && <EnMode className={classes.mode} alt={t(AltTxtKey.EnFlag)} />}
       </button>
     </div>
   );

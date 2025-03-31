@@ -1,4 +1,4 @@
-import type { FC, ReactElement } from 'react';
+import type { ElementType, FC, ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useActions } from '../../../../hooks/useActions';
 import { changeType } from '../../../../utils/helpers/componentsHelpers';
@@ -8,7 +8,7 @@ type PropsType = {
   isLink?: boolean;
   isDisabled?: boolean;
   type: string;
-  src: string;
+  Chart: ElementType;
   text: string;
   classNameContainer: string;
   classNameText: string;
@@ -19,7 +19,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
   isLink = false,
   isDisabled = false,
   type,
-  src,
+  Chart,
   text,
   classNameContainer,
   classNameText,
@@ -37,7 +37,7 @@ export const ChartSelectionButton: FC<PropsType> = ({
   return (
     // @ts-ignore
     <CustomTag {...props}>
-      <img src={src} alt={text} />
+      <Chart alt={text} />
       {!hideChartSelectionButtonText && <p className={classNameText}>{text}</p>}
     </CustomTag>
   );
